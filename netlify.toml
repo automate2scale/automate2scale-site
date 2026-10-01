@@ -37,3 +37,9 @@
   to = "https://link.automate2scale.io/widget/bookings/revenue-blueprint-6-lever-growrd5hb4"
   status = 302
   force = true
+
+[[redirects]]
+  from = "/book"
+  to = "https://automate2scale.io/zoom"
+  status = 302
+  force = true
