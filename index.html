@@ -98,8 +98,8 @@ button{font:inherit}
 .drawer a{display:block;padding:12px 0;border-bottom:1px solid var(--rule-2);color:var(--ink);text-decoration:none;font-weight:600}
 .drawer .acts{margin-top:16px}
 .drawer .btn{width:100%}
-@media (max-width:1060px){.top .nav,.top .acts.desk{display:none}.menu-btn{display:inline-block}}
-@media (min-width:1061px){.drawer{display:none!important}}
+@media (max-width:1180px){.top .nav,.top .acts.desk{display:none}.menu-btn{display:inline-block}}
+@media (min-width:1181px){.drawer{display:none!important}}
 @media (max-width:600px){.plaque img{height:26px}}
 
 /* pages */
@@ -497,6 +497,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
       <a href="#journey" data-nav="journey">The Journey</a>
       <a href="#crm" data-nav="crm">CRM Track</a>
       <a href="#about" data-nav="about">About</a>
+      <a href="https://app.automate2scale.io/" target="_blank" rel="noopener">Client Login</a>
     </nav>
     <div class="acts desk">
       <a class="btn ghost sm" href="#scorecard">Get your score</a>
@@ -506,7 +507,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
   </div>
   <div class="drawer" id="drawer" hidden>
     <div class="wrap">
-      <a href="#home">Home</a><a href="#system">The A³ System</a><a href="#journey">The Journey</a><a href="#crm">CRM Track</a><a href="#about">About</a>
+      <a href="#home">Home</a><a href="#system">The A³ System</a><a href="#journey">The Journey</a><a href="#crm">CRM Track</a><a href="#about">About</a><a href="https://app.automate2scale.io/" target="_blank" rel="noopener">Client Login</a>
       <div class="acts"><a class="btn" href="#session">Book a Strategy Session</a><a class="btn ghost" href="#scorecard">Get your A³ Readiness Score</a></div>
     </div>
   </div>
@@ -915,13 +916,17 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
         <span class="minih" style="margin-top:12px">How it works</span>
         <ol class="seq" style="border-color:var(--rule)" id="howSeq"></ol>
       </div>
-      <div class="diag" style="gap:16px;position:sticky;top:96px">
+      <div class="diag" id="bookInline" style="gap:14px">
         <span class="diag-h">Book your session</span>
         <h2 class="h3">Pick a time that works for you.</h2>
-        <p class="muted" style="font-size:15px">Choose a 30-minute slot on Mark's calendar. You will get a confirmation and a short pre-session questionnaire right away.</p>
-        <a class="btn" href="https://link.automate2scale.io/widget/booking/idheapeqKiT7JGpk9Z5K" target="_blank" rel="noopener" data-book>Open the booking calendar <span class="ar">→</span></a>
-        <p class="muted" style="font-size:14px">Prefer email? Write to <b style="color:var(--ink)">mark@automate2scale.io</b> with "Strategy Session" in the subject.</p>
-        <p class="fine">Best fit: founder-led B2B companies, $1M–$10M revenue, 5–100 employees. Not sure yet? <a href="#scorecard">Take the free scorecard first.</a></p>
+        <script>document.addEventListener('securitypolicyviolation',function(e){if((e.blockedURI||'').indexOf('automate2scale.io')>-1){var f=document.getElementById('k0yRIZSEs4DWHkZxn5MU_1790874872177'),b=document.getElementById('bookInlineFallback');if(f)f.hidden=true;if(b)b.hidden=false}});</script>
+        <iframe src="https://link.automate2scale.io/widget/booking/idheapeqKiT7JGpk9Z5K" allow="payment" style="width:100%;border:none;overflow:hidden;min-height:680px" scrolling="no" id="k0yRIZSEs4DWHkZxn5MU_1790874872177" title="Book a Strategy Session"></iframe>
+        <script src="https://link.automate2scale.io/js/form_embed.js" type="text/javascript"></script>
+        <div id="bookInlineFallback" hidden style="display:grid;gap:12px;justify-items:start">
+          <p class="muted" style="font-size:15px">The calendar can't load in this preview. Open it in a new tab to choose your time.</p>
+          <a class="btn" href="https://link.automate2scale.io/widget/booking/idheapeqKiT7JGpk9Z5K" target="_blank" rel="noopener">Open the booking calendar <span class="ar">→</span></a>
+        </div>
+        <p class="fine">Prefer email? Write to mark@automate2scale.io with "Strategy Session" in the subject. Not sure yet? <a href="#scorecard">Take the free scorecard first.</a></p>
       </div>
     </div>
   </section>
@@ -988,7 +993,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
       <div><a class="plaque" href="#home" aria-label="Automate2Scale home" style="padding:9px 14px"><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/3UbxqX8zLDM4QvDExPHM/media/6a0955a82e98e28fa1547b2b.png" alt="Automate2Scale"></a><p class="tag-line">The A³ Revenue Operating System™ for founder-led B2B companies. We install your system. You reclaim your life.</p></div>
       <div><h4>System</h4><a href="#system">The A³ framework</a><a href="#crm">CRM Track</a><a href="#scorecard">Readiness Scorecard</a></div>
       <div><h4>Journey</h4><a href="#stage-02">Strategy Session</a><a href="#stage-03">Blueprint Session</a><a href="#stage-05">System Install</a><a href="#stage-07">Revenue Partner</a></div>
-      <div><h4>Company</h4><a href="#about">About Mark</a><a href="#session">Book a session</a><span style="display:block;padding:4px 0;color:var(--band-ink)">mark@automate2scale.io</span></div>
+      <div><h4>Company</h4><a href="#about">About Mark</a><a href="https://app.automate2scale.io/" target="_blank" rel="noopener">Client Login</a><a href="#session">Book a session</a><span style="display:block;padding:4px 0;color:var(--band-ink)">mark@automate2scale.io</span></div>
     </div>
     <div class="vals"><span>Add Value · Be Proactive · Continuous Learning · Do the Right Thing · Exceed Expectations · Find A Way</span><span>© 2026 Automate2Scale</span></div>
   </div>
