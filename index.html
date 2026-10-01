@@ -448,7 +448,8 @@ tr:last-child td{border-bottom:0}
 .bio{display:grid;grid-template-columns:300px 1fr;gap:clamp(28px,4vw,56px);align-items:start}
 .bio>*{min-width:0}
 .portrait{aspect-ratio:4/5;max-width:100%;border-radius:6px;background:linear-gradient(160deg,var(--navy),var(--blue));display:grid;place-items:center;color:#FFFFFF;font-family:var(--display);font-size:72px;font-weight:800;font-stretch:72%;position:relative;overflow:hidden}
-.portrait small{position:absolute;bottom:14px;left:16px;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.75}
+.portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+.portrait small{position:absolute;z-index:1;bottom:14px;left:16px;text-shadow:0 1px 4px rgba(0,0,0,.6);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.75}
 .proof{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .proof div{border-top:2px solid var(--navy);padding-top:14px;display:grid;gap:4px}
 .proof b{font-family:var(--display);font-size:clamp(28px,3vw,38px);font-weight:800;font-stretch:76%;color:var(--navy);line-height:1}
@@ -937,12 +938,12 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
   <section class="phero"><div class="wrap">
     <span class="crumb"><a href="#home">Home</a> / About</span>
     <span class="label">About Automate2Scale</span>
-    <h1 class="h1">Built by an operator, for founders who <em>carry too much.</em></h1>
+    <h1 class="h1">Built by founders, for founders who <em>carry too much.</em></h1>
     <p class="lede">Founders become the bottleneck of the business they built. Not from lack of effort, but because nothing else in the company was designed to carry the weight. Automate2Scale exists to install that design.</p>
   </div></section>
   <section class="sec">
     <div class="wrap bio">
-      <div class="portrait" aria-label="Mark Cupp">MC<small>Fort Worth, Texas</small></div>
+      <div class="portrait">MC<img src="https://assets.cdn.filesafe.space/3UbxqX8zLDM4QvDExPHM/media/6abeb6be10ee4f15561de86c.jpeg" alt="Mark Cupp, founder of Automate2Scale" onerror="this.remove()"><small>Fort Worth, Texas</small></div>
       <div style="display:grid;gap:22px">
         <span class="label">Founder · Fractional Chief Growth Officer</span>
         <h2 class="h2">Mark Cupp</h2>
