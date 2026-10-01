@@ -450,7 +450,7 @@ tr:last-child td{border-bottom:0}
 .portrait{aspect-ratio:4/5;max-width:100%;border-radius:6px;background:linear-gradient(160deg,var(--navy),var(--blue));display:grid;place-items:center;color:#FFFFFF;font-family:var(--display);font-size:72px;font-weight:800;font-stretch:72%;position:relative;overflow:hidden}
 .portrait img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
 .portrait small{position:absolute;z-index:1;bottom:14px;left:16px;text-shadow:0 1px 4px rgba(0,0,0,.6);font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;opacity:.75}
-.proof{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.proof{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
 .proof div{border-top:2px solid var(--navy);padding-top:14px;display:grid;gap:4px}
 .proof b{font-family:var(--display);font-size:clamp(28px,3vw,38px);font-weight:800;font-stretch:76%;color:var(--navy);line-height:1}
 .proof span{font-size:14px;color:var(--ink-3);line-height:1.45}
@@ -458,7 +458,9 @@ tr:last-child td{border-bottom:0}
 .values div{background:var(--band);padding:24px;display:grid;gap:6px}
 .values b{font-family:var(--display);font-size:19px;font-weight:700;color:#FFFFFF}
 .values span{font-size:14.5px;color:var(--band-ink-2)}
-@media (max-width:860px){.bio{grid-template-columns:1fr}.portrait{max-width:280px}.proof,.values{grid-template-columns:1fr}}
+@media (max-width:1100px){.proof{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:860px){.bio{grid-template-columns:1fr}.portrait{max-width:280px}.values{grid-template-columns:1fr}}
+@media (max-width:480px){.proof{grid-template-columns:1fr}}
 
 /* footer */
 footer{background:var(--band);color:var(--band-ink-2);padding-block:56px 36px;font-size:14px}
@@ -945,16 +947,18 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <div class="wrap bio">
       <div class="portrait">MC<img src="https://assets.cdn.filesafe.space/3UbxqX8zLDM4QvDExPHM/media/6abeb6be10ee4f15561de86c.jpeg" alt="Mark Cupp, founder of Automate2Scale" onerror="this.remove()"><small>Fort Worth, Texas</small></div>
       <div style="display:grid;gap:22px">
-        <span class="label">Founder · Fractional Chief Growth Officer</span>
+        <span class="label">Founder · Fractional Chief Growth Officer · AI Team Leader</span>
         <h2 class="h2">Mark Cupp</h2>
         <div class="body">
-          <p>Mark is an operator and growth strategist who has spent his career turning complex businesses into high-performance engines. He has led turnarounds, scaled multi-unit franchises, built national partner networks and served as Fractional Chief Growth Officer to founder-led companies since 2018.</p>
-          <p>Automate2Scale packages what worked across those engagements into one installed system: the leadership discipline of Scaling Up and EOS, the revenue engine of a modern CRM, and the capacity of AI, delivered in the right order.</p>
+          <p>Mark has spent more than 30 years in sales, operations and entrepreneurship, building businesses from the ground up and fixing the ones that stalled. He has led a $100M division from worst to first in 180 days, driven $270M in revenue growth through partnerships and automation, scaled a seven-unit franchise to the top of its national system, and built an elite financial practice recognized at the Top of the Table. Since 2018 he has served as Fractional Chief Growth Officer to founder-led companies.</p>
+          <p>Today he leads a team of more than 540 specialized AI agents, available through Mygentic and the Rockstar MCP, covering strategy, sales, marketing, offers, operations and leadership. That changes what one engagement can deliver: senior judgment from Mark, with the execution capacity of a full department behind it.</p>
+          <p>Automate2Scale packages all of it into one installed system: the leadership discipline of Scaling Up and EOS, the revenue engine of a modern CRM, and the capacity of AI, delivered in the right order.</p>
         </div>
         <div class="proof">
+          <div><b>30+ yrs</b><span>Sales, operations and entrepreneurship, from startup to $100M divisions</span></div>
+          <div><b>540+</b><span>Specialized AI agents Mark leads through Mygentic and the Rockstar MCP</span></div>
           <div><b>$100M</b><span>"Worst-to-first" division turnaround, delivered in 180 days</span></div>
           <div><b>$270M</b><span>Revenue growth driven through partnerships, marketing and automation</span></div>
-          <div><b>7 units</b><span>Franchise locations scaled to the highest NPS in the national system</span></div>
         </div>
         <div class="chips"><span class="chip">Scaling Up 4 Decisions Integrator</span><span class="chip">Certified Value Builder Advisor</span><span class="chip">John Maxwell Certified Coach</span><span class="chip">Sandler Sales Training</span><span class="chip">DISC Certified</span><span class="chip">Blanchard Situational Leadership</span></div>
       </div>
