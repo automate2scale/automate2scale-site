@@ -6,3 +6,34 @@
   [headers.values]
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
+
+# Short links carried over from GoHighLevel (302 = temporary, so destinations can change later)
+[[redirects]]
+  from = "/max"
+  to = "https://link.automate2scale.io/widget/groups/a2s-paid"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/support"
+  to = "https://link.automate2scale.io/widget/groups/a2s-paid"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/ava"
+  to = "https://automate2scale.io/aie-regular2"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/review"
+  to = "https://search.google.com/local/writereview?placeid=ChIJj20X9VlxToYRPo2Bu03yADg"
+  status = 302
+  force = true
+
+[[redirects]]
+  from = "/roadmap"
+  to = "https://link.automate2scale.io/widget/bookings/revenue-blueprint-6-lever-growrd5hb4"
+  status = 302
+  force = true
