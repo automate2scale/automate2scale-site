@@ -20,6 +20,7 @@
   --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
   --mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
   --r:4px;--gutter:clamp(16px,4.5vw,36px);
+  --logo-bg:transparent;--logo-sh:none;--logo-pad:4px 0;
 }
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
   color-scheme:dark;
@@ -28,6 +29,7 @@
   --blue:#7FBBDE;--navy:#A9CFE8;--green:#8CC85F;--grey:#A0AEB8;--on-blue:#0D1620;
   --band:#0A1620;--band-2:#0F2233;
   --sh1:0 1px 3px rgba(0,0,0,.3);--sh2:0 16px 40px rgba(0,0,0,.42);
+  --logo-bg:#FFFFFF;--logo-sh:0 1px 3px rgba(0,0,0,.3);--logo-pad:9px 14px;
 }}
 :root[data-theme="dark"]{
   color-scheme:dark;
@@ -36,6 +38,7 @@
   --blue:#7FBBDE;--navy:#A9CFE8;--green:#8CC85F;--grey:#A0AEB8;--on-blue:#0D1620;
   --band:#0A1620;--band-2:#0F2233;
   --sh1:0 1px 3px rgba(0,0,0,.3);--sh2:0 16px 40px rgba(0,0,0,.42);
+  --logo-bg:#FFFFFF;--logo-sh:0 1px 3px rgba(0,0,0,.3);--logo-pad:9px 14px;
 }
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -87,6 +90,7 @@ button{font:inherit}
 .top .wrap{display:flex;align-items:center;justify-content:space-between;gap:20px;min-height:72px}
 .plaque{background:#FFFFFF;border-radius:4px;padding:9px 14px;display:inline-flex;line-height:0;box-shadow:0 1px 3px rgba(0,61,112,.14);text-decoration:none;flex-shrink:0}
 .plaque img{height:32px;width:auto;display:block}
+.top .plaque{background:var(--logo-bg);box-shadow:var(--logo-sh);padding:var(--logo-pad)}
 .nav{display:flex;gap:4px;align-items:center}
 .nav a{font-size:14.5px;font-weight:600;color:var(--ink-2);text-decoration:none;padding:8px 12px;border-radius:3px;position:relative}
 .nav a:hover{color:var(--ink);background:var(--panel)}
