@@ -1050,10 +1050,10 @@ const STAGES=[
 ];
 
 /* staircase */
-const heights=[150,166,182,200,236,222,240];
+const heights=[180,205,230,255,295,255,230]; /* rises to 05 (main offer), then 06 = 04 and 07 = 03 */
 function staircase(el){
   let s='<div class="track-head"><b>The journey at a glance <span class="muted" style="font-weight:500">· the question each step answers</span></b><span>Select a stage to jump to it</span></div><div class="scroller"><div class="steps">';
-  STAGES.forEach((st,i)=>{s+=`<a class="step ${st.kind}" href="#stage-${st.n}"><div class="bar" style="min-height:${heights[i]}px"><span class="n">${st.n}</span>${st.kind==='core'?'<span class="tagm">Main offer</span>':''}<span class="nm">${st.name}</span><span class="sq">${st.q}</span><span class="pr">${st.price}${st.priceSub?'<br>'+st.priceSub:''}</span></div></a>`});
+  STAGES.forEach((st,i)=>{s+=`<a class="step ${st.kind}" href="#stage-${st.n}"><div class="bar" style="height:${heights[i]}px"><span class="n">${st.n}</span>${st.kind==='core'?'<span class="tagm">Main offer</span>':''}<span class="nm">${st.name}</span><span class="sq">${st.q}</span><span class="pr">${st.price}${st.priceSub?'<br>'+st.priceSub:''}</span></div></a>`});
   s+='</div><div class="phases"><div>Diagnose</div><div>Design</div><div>Install</div><div>Lead</div></div></div>';
   el.innerHTML=s;
 }
