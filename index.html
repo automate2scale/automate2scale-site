@@ -3,8 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Automate2Scale | The A³ Revenue Operating System</title>
-<meta name="description" content="Automate2Scale installs the A³ Revenue Operating System for founder-led B2B companies: Align, Automate, Accelerate.">
+<title>Automate2Scale | Revenue Operating System for Founder-Led B2B Companies</title>
+<meta name="description" content="Automate2Scale installs AI-powered revenue operating systems for founder-led B2B companies ($1M–$10M) in 90-day sprints. Align leadership, automate revenue, accelerate with AI. Book a complimentary Strategy Session.">
+<link rel="canonical" href="https://automate2scale.io/">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Automate2Scale","url":"https://automate2scale.io/","description":"AI-powered revenue operating systems for founder-led B2B companies: Align, Automate, Accelerate.","email":"mark@automate2scale.io","areaServed":"US","address":{"@type":"PostalAddress","addressLocality":"Fort Worth","addressRegion":"TX","addressCountry":"US"},"founder":{"@type":"Person","name":"Mark Cupp","jobTitle":"Founder, Fractional Chief Growth Officer"}}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
@@ -82,6 +84,13 @@ button{font:inherit}
 .band .btn{background:#FFFFFF;border-color:#FFFFFF;color:#0D1620}
 .band .btn.ghost{background:transparent;color:#FFFFFF;border-color:rgba(255,255,255,.35)}
 .band .btn.ghost:hover{border-color:#FFFFFF}
+.sublink{font-weight:600;font-size:15px;color:var(--blue);text-decoration:none;padding:8px 2px}
+.sublink:hover{text-decoration:underline;text-underline-offset:4px}
+.band .sublink{color:#FFFFFF}
+.microline{font-size:13.5px;color:var(--ink-3);margin-top:-8px}
+.band .microline{color:var(--band-ink-2);margin-top:14px}
+.strip-who{grid-column:1/-1;font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--blue);text-decoration:none;padding:18px 0 0}
+.strip-who:hover{text-decoration:underline}
 .textlink{font-weight:700;text-decoration:none;display:inline-flex;gap:8px;align-items:center}
 .textlink:hover{text-decoration:underline;text-underline-offset:4px}
 
@@ -94,11 +103,12 @@ button{font:inherit}
 .flogo img{height:40px;width:auto;display:block}
 .top .plaque{background:var(--logo-bg);box-shadow:var(--logo-sh);padding:var(--logo-pad)}
 .nav{display:flex;gap:4px;align-items:center}
-.nav a{font-size:14.5px;font-weight:600;color:var(--ink-2);text-decoration:none;padding:8px 12px;border-radius:3px;position:relative}
+.nav a{white-space:nowrap;font-size:14.5px;font-weight:600;color:var(--ink-2);text-decoration:none;padding:8px 12px;border-radius:3px;position:relative}
 .nav a:hover{color:var(--ink);background:var(--panel)}
 .nav a[aria-current="page"]{color:var(--blue)}
 .nav a[aria-current="page"]::after{content:"";position:absolute;left:12px;right:12px;bottom:2px;height:2px;background:var(--blue)}
 .top .acts{flex-wrap:nowrap}
+.top .acts .btn{white-space:nowrap}
 .menu-btn{display:none;background:transparent;border:1px solid var(--rule);border-radius:3px;padding:9px 12px;color:var(--ink);cursor:pointer;font-weight:600;font-size:14px}
 .drawer{border-top:1px solid var(--rule-2);background:var(--paper);padding-block:12px 20px}
 .drawer a{display:block;padding:12px 0;border-bottom:1px solid var(--rule-2);color:var(--ink);text-decoration:none;font-weight:600}
@@ -117,6 +127,7 @@ button{font:inherit}
 .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,64px);align-items:center}
 .hero-grid>*{min-width:0}
 .hero-copy{display:grid;gap:24px;align-content:start}
+.hero .h1{font-size:clamp(38px,5vw,66px)}
 .fitline{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13.5px;color:var(--ink-3);padding-top:6px}
 .fitline span{display:inline-flex;align-items:center;gap:8px}
 .fitline span::before{content:"";width:6px;height:6px;border-radius:1px;background:var(--green)}
@@ -161,7 +172,7 @@ button{font:inherit}
 .strip .it+.it{padding-left:22px;border-left:1px solid var(--rule-2)}
 .strip b{font-family:var(--display);font-size:clamp(24px,2.6vw,32px);font-weight:760;font-stretch:80%;color:var(--navy);font-variant-numeric:tabular-nums;line-height:1.05}
 .strip span{font-size:13.5px;color:var(--ink-3);line-height:1.4}
-@media (max-width:860px){.strip .wrap{grid-template-columns:1fr 1fr}.strip .it:nth-child(3){padding-left:0;border-left:0}.strip .it:nth-child(n+3){border-top:1px solid var(--rule-2)}}
+@media (max-width:860px){.strip .wrap{grid-template-columns:1fr 1fr}.strip .it:nth-of-type(3){padding-left:0;border-left:0}.strip .it:nth-of-type(n+3){border-top:1px solid var(--rule-2)}}
 
 /* symptoms */
 .sym{display:grid;grid-template-columns:repeat(2,1fr);border:1px solid var(--rule-2);border-radius:var(--r);overflow:hidden;background:var(--rule-2);gap:1px}
@@ -491,8 +502,11 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
 </style>
 <meta property="og:title" content="Automate2Scale | The A³ Revenue Operating System">
-<meta property="og:description" content="We install AI-powered revenue operating systems for founder-led B2B companies: Align, Automate, Accelerate.">
+<meta property="og:description" content="Replace founder hustle with a revenue operating system, installed in 90 days. For founder-led B2B companies doing $1M–$10M.">
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://automate2scale.io/">
+<meta property="og:image" content="https://assets.cdn.filesafe.space/3UbxqX8zLDM4QvDExPHM/media/6a0955a82e98e28fa1547b2b.png">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/3UbxqX8zLDM4QvDExPHM/media/6a0955a82e98e28fa1547b2b.png">
 </head>
 <body>
@@ -509,8 +523,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
       <a href="https://app.automate2scale.io/" target="_blank" rel="noopener">Client Login</a>
     </nav>
     <div class="acts desk">
-      <a class="btn ghost sm" href="#scorecard">Get your score</a>
-      <a class="btn sm" href="#session">Book a Strategy Session</a>
+      <a class="btn sm" href="#session">Book My Strategy Session</a>
     </div>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="drawer">Menu</button>
   </div>
@@ -530,13 +543,13 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <span class="label">A³ <span class="sl">/</span> The Revenue Operating System™</span>
-        <h1 class="h1">Replace founder hustle with a revenue <em>operating system.</em></h1>
-        <p class="lede">Automate2Scale installs AI-powered revenue operating systems for founder-led B2B companies that have outgrown manual follow-up, scattered tools, and founder-dependent execution.</p>
+        <h1 class="h1">Replace founder hustle with a revenue operating system, <em>installed in 90 days.</em></h1>
+        <p class="lede">For founder-led B2B companies doing $1M–$10M. We align your leadership team, automate your revenue engine and add AI capacity, so growth stops depending on you remembering, deciding and following up.</p>
         <div class="acts">
-          <a class="btn" href="#scorecard">Get your A³ Readiness Score <span class="ar">→</span></a>
-          <a class="btn ghost" href="#session">Book a Complimentary Strategy Session</a>
+          <a class="btn" href="#session">Book My Strategy Session <span class="ar">→</span></a>
         </div>
-        <div class="fitline"><span>Founder-led B2B</span><span>$1M–$10M revenue</span><span>5–100 employees</span></div>
+        <p class="microline">Complimentary · 30 minutes · you leave with a written next step, whether or not we work together</p>
+        <a class="sublink" href="#scorecard" style="justify-self:start">Not ready to talk? Get your free Readiness Score →</a>
       </div>
 
       <div class="os" aria-label="How your company runs today compared with A³">
@@ -578,10 +591,11 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
 
   <div class="strip">
     <div class="wrap">
-      <div class="it"><b>3 pillars</b><span>Align, Automate, Accelerate, installed in that order</span></div>
-      <div class="it"><b>90 days</b><span>Most companies complete the core install in one sprint</span></div>
-      <div class="it"><b>1 system</b><span>Leadership rhythm, CRM and AI on one source of truth</span></div>
-      <div class="it"><b>Free</b><span>First step: a 10-minute readiness score</span></div>
+      <a class="strip-who" href="#about">Led by Mark Cupp · Fractional Chief Growth Officer since 2018 →</a>
+      <div class="it"><b>30+ yrs</b><span>Sales, operations and entrepreneurship</span></div>
+      <div class="it"><b>$100M</b><span>Division turned from worst to first in 180 days</span></div>
+      <div class="it"><b>$270M</b><span>Revenue growth driven through partnerships and automation</span></div>
+      <div class="it"><b>540+</b><span>Specialized AI agents behind every engagement</span></div>
     </div>
   </div>
 
@@ -713,6 +727,9 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <div class="wrap">
       <div class="head"><span class="label">Before you start</span><h2 class="h2">Questions founders ask first.</h2></div>
       <div class="faq">
+        <details><summary>What does it cost?</summary><div class="a">The Strategy Session is complimentary. From there, the Blueprint Session is $497 (credited toward the System Install if you proceed within 30 days), the 90-Day Roadmap Session is $1,997, and the System Install runs $4,997 a month in 90-day sprints. If you only need the CRM working now, the CRM Track starts at $297 a month. <a href="#journey">See every stage</a>.</div></details>
+        <details><summary>How much of my time will this take?</summary><div class="a">Less than you are spending today chasing updates. You and your leadership team join the working sessions and the weekly meeting rhythm; we do the design, the build and the automation. The point of the system is to take work off your plate, not add to it.</div></details>
+        <details><summary>What if we are not a fit?</summary><div class="a">Then we will tell you on the first call. You still leave the Strategy Session with a Constraint Confirmation Brief and a documented next step, so the 30 minutes pays for itself either way.</div></details>
         <details><summary>Why not hire an EOS Implementer and a CRM agency separately?</summary><div class="a">You can. The risk is that strategy and technology stay separate: one team clarifies priorities, another builds tools, and your company is left to connect the two. We integrate operating rhythm, revenue process, CRM, automation, reporting and AI into one installed system.</div></details>
         <details><summary>Are you replacing EOS?</summary><div class="a">No. We install the operating discipline founder-led companies need, including priorities, ownership, scorecards and meeting rhythm. The difference is that we connect that discipline directly to revenue operations, automation and AI-enabled execution.</div></details>
         <details><summary>Is this mainly a CRM implementation?</summary><div class="a">No. The CRM is part of the system. The real work is designing how leads are captured, followed up, sold, measured and improved. The platform supports the operating model. It is not the strategy.</div></details>
@@ -1011,8 +1028,9 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <div class="head" style="margin:0">
       <span class="label">Find the constraint before adding more technology</span>
       <h2 class="h2">We install your system. You reclaim your life.</h2>
-      <p class="lede">The first step is free and takes about ten minutes. You will know where you stand whether or not we ever work together.</p>
-      <div class="acts" style="margin-top:8px"><a class="btn" href="#scorecard">Get your A³ Readiness Score <span class="ar">→</span></a><a class="btn ghost" href="#session">Book a Strategy Session</a></div>
+      <p class="lede">Thirty minutes with Mark. We find the constraint holding growth back, put a cost on it, and hand you the next step in writing.</p>
+      <div class="acts" style="margin-top:8px"><a class="btn" href="#session">Book My Strategy Session <span class="ar">→</span></a><a class="sublink" href="#scorecard">Or start with the free 10-minute Readiness Score →</a></div>
+      <p class="microline">Complimentary · 30 minutes · no pitch deck, just your numbers and a clear next step</p>
     </div>
   </div>
 </template>
