@@ -415,6 +415,12 @@ tr:last-child td{border-bottom:0}
 .yes::before{content:"";display:inline-block;width:11px;height:6px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg) translateY(-3px)}
 .no::before{content:"";display:inline-block;width:10px;height:2px;background:var(--grey);transform:translateY(-4px)}
 
+.costtbl td.num,.costtbl th.num{text-align:right;font-family:var(--mono);font-variant-numeric:tabular-nums;white-space:nowrap}
+.costtbl tfoot td{border-top:1px solid var(--rule);font-weight:700;color:var(--ink)}
+.costtbl tfoot tr.us-row td{background:var(--tint);color:var(--blue)}
+.costtbl tbody tr:last-child td{border-bottom:0}
+.oc .mono{font-size:12px;color:var(--ink-3);letter-spacing:.1em}
+@media (max-width:640px){.costtbl{min-width:0}.costtbl th:nth-child(2),.costtbl td:nth-child(2){display:none}.costtbl th,.costtbl td{padding:12px 14px;font-size:14px}}
 /* scorecard */
 .sc{display:grid;grid-template-columns:320px 1fr;gap:clamp(24px,4vw,48px);align-items:start}
 .sc>*{min-width:0}
@@ -888,8 +894,68 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <div class="acts"><a class="btn" href="#session">Talk through the right tier <span class="ar">→</span></a><a class="btn ghost" href="#scorecard">Get My Free Readiness Score</a></div>
     <p class="microline">Complimentary · 30 minutes · from $297/month, no long-term build required</p>
   </div></section>
+  <div class="strip">
+    <div class="wrap">
+      <div class="it"><b>14</b><span>Tool categories in one platform</span></div>
+      <div class="it"><b>$1,612/mo</b><span>Typical cost of the standalone stack</span></div>
+      <div class="it"><b>$297/mo</b><span>Starting price for the A³ CRM platform</span></div>
+      <div class="it"><b>$15,780/yr</b><span>Estimated annual difference</span></div>
+    </div>
+  </div>
+
   <section class="sec">
     <div class="wrap">
+      <div class="head">
+        <span class="label">Where revenue leaks today</span>
+        <h2 class="h2">Most lost revenue is not a lead problem. It is a follow-up problem.</h2>
+        <div class="body"><p>The leads come in. Then they wait in an inbox, depend on someone remembering, or disappear between tools that do not talk to each other.</p></div>
+      </div>
+      <div class="g4">
+        <div class="oc" style="--c:var(--navy)"><span class="mono">01</span><h3 class="h4">Slow response</h3><p>High-intent leads cool off while the team routes messages by hand and searches disconnected inboxes.</p></div>
+        <div class="oc" style="--c:var(--blue)"><span class="mono">02</span><h3 class="h4">Missed follow-up</h3><p>Opportunities stall when the next step depends on memory, sticky notes and manual reminders.</p></div>
+        <div class="oc" style="--c:var(--green)"><span class="mono">03</span><h3 class="h4">Tool fragmentation</h3><p>Context gets lost switching between systems that never share one complete customer record.</p></div>
+        <div class="oc" style="--c:var(--grey)"><span class="mono">04</span><h3 class="h4">Limited visibility</h3><p>You cannot improve what you cannot see across pipeline, conversion, activity and revenue.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec bg-mist">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">One platform · one customer record</span>
+        <h2 class="h2">Replace the patchwork with one connected revenue engine.</h2>
+        <div class="body"><p>Every lead, conversation, appointment and deal lives on the same record, so automation can act on it and you can finally see it.</p></div>
+      </div>
+      <div class="tbl-wrap"><table class="costtbl">
+        <thead><tr><th>Capability</th><th>Typically replaces</th><th class="num">Per month</th></tr></thead>
+        <tbody><tr><td>CRM &amp; pipeline management</td><td>HubSpot, ActiveCampaign</td><td class="num">$99</td></tr><tr><td>Unlimited sales funnels</td><td>ClickFunnels, Leadpages</td><td class="num">$297</td></tr><tr><td>Website builder</td><td>WordPress, Wix, Squarespace</td><td class="num">$29</td></tr><tr><td>Surveys &amp; forms</td><td>SurveyGizmo, Wufoo, Typeform</td><td class="num">$49</td></tr><tr><td>Email marketing</td><td>ActiveCampaign, Mailchimp, Constant Contact</td><td class="num">$99</td></tr><tr><td>Two-way SMS marketing</td><td>Texting and messaging platforms</td><td class="num">$99</td></tr><tr><td>Booking &amp; appointments</td><td>Scheduling tools</td><td class="num">$29</td></tr><tr><td>Workflow automation</td><td>ActiveCampaign, HubSpot, Keap</td><td class="num">$169</td></tr><tr><td>Courses &amp; digital products</td><td>Kajabi, Teachable</td><td class="num">$99</td></tr><tr><td>Call tracking</td><td>Call tracking platforms</td><td class="num">$49</td></tr><tr><td>Reputation management</td><td>Birdeye, Podium, Grade.us</td><td class="num">$159</td></tr><tr><td>Tracking &amp; analytics</td><td>Analytics and attribution tools</td><td class="num">$299</td></tr><tr><td>Communities</td><td>Skool, Mighty Networks, Circle</td><td class="num">$89</td></tr><tr><td>Document signing</td><td>E-signature tools</td><td class="num">$47</td></tr></tbody>
+        <tfoot><tr><td>Separate tools, combined</td><td></td><td class="num">$1,612</td></tr><tr class="us-row"><td>A³ Automate™ CRM platform</td><td>All of the above, connected</td><td class="num">From $297</td></tr></tfoot>
+      </table></div>
+      <p class="fine" style="margin-top:12px">Typical published prices for comparable standalone tools. Your current stack and costs may differ.</p>
+    </div>
+  </section>
+
+  <section class="sec">
+    <div class="wrap">
+      <div class="head">
+        <span class="label">What changes once it is installed</span>
+        <h2 class="h2">Revenue stops depending on someone remembering.</h2>
+      </div>
+      <div class="g2">
+        <div class="outcome"><b>Faster response.</b> New leads get an immediate, consistent reply instead of waiting for manual follow-up.</div>
+        <div class="outcome"><b>Higher conversion.</b> Every stage has a defined next action, so fewer deals leak out between steps.</div>
+        <div class="outcome"><b>Automated execution.</b> Follow-up, reminders, routing and handoffs run without you.</div>
+        <div class="outcome"><b>Clear visibility.</b> Pipeline movement, team activity and bottlenecks are visible in one place.</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sec bg-mist">
+    <div class="wrap">
+      <div class="head" style="margin-bottom:28px">
+        <span class="label">Choose your tier</span>
+        <h2 class="h2">Start where you are. Upgrade when it pays for itself.</h2>
+      </div>
       <div class="tiers">
         <div class="tier"><h3 class="h3">AI Employee Starter</h3><div class="amt">$297 <small>/month</small></div>
           <ul class="blist"><li>Complete CRM platform</li><li>Sales and marketing automation</li><li>Pipelines, funnels and websites</li><li>Workflow automation</li><li>Reputation management</li><li>AI features, pay-as-you-go</li><li>Three white-glove onboarding sessions (30 days)</li></ul></div>
