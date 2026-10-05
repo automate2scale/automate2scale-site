@@ -494,6 +494,21 @@ tr:last-child td{border-bottom:0}
 .starthere .sh-txt{flex:1;min-width:240px;font-size:15.5px;color:var(--ink-2)}
 .starthere .sh-txt b{color:var(--ink)}
 .starthere .sh-go{font-weight:700;font-size:15px;color:var(--blue);white-space:nowrap}
+.aiup{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px 18px;padding:16px 18px;border-radius:6px;background:linear-gradient(135deg,#0B2540,#003D70);color:#E8EEF4;text-decoration:none;border:1px solid #1d4a74}
+.aiup .ai-tag{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#0B2540;background:#9FD27A;padding:4px 8px;border-radius:3px;white-space:nowrap}
+.aiup .ai-txt{font-size:14.5px;line-height:1.45;color:#C9D6E2}
+.aiup .ai-txt b{color:#fff;font-size:15.5px}
+.aiup .ai-pr{font-family:var(--mono);font-weight:700;font-size:16px;color:#9FD27A;white-space:nowrap}
+.aiup:hover{box-shadow:var(--sh2)}
+.meta .aiup{grid-template-columns:1fr;padding:14px 16px;gap:8px}
+.meta .aiup .ai-tag{justify-self:start}.meta .aiup .ai-pr{font-size:17px}
+.meta .aiup .ai-txt{font-size:13px}.meta .aiup .ai-txt b{font-size:14.5px}
+@media (max-width:640px){.aiup{grid-template-columns:1fr}.aiup .ai-pr{justify-self:start}}
+.uptab{width:100%;border-collapse:collapse;font-size:15px}
+.uptab th,.uptab td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--rule)}
+.uptab th{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
+@media (max-width:640px){.uptab thead{display:none}.uptab tr{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:12px 0;border-bottom:1px solid var(--rule)}.uptab,.uptab tbody{display:block;width:100%;min-width:0}.uptab td{display:block;border:0;padding:0}.uptab td.num{text-align:right}.uptab td:first-child{grid-column:1/-1;font-weight:700;color:var(--ink)}.uptab td:nth-child(2){color:var(--ink-3);font-size:14px}}
+.uptab td.num{font-family:var(--mono);font-weight:700;color:var(--green);white-space:nowrap}
 .opts{display:grid;gap:8px}
 .opt{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:10px 12px;border:1px solid var(--rule);border-radius:6px;background:var(--paper,#fff)}
 .opt.rec{border-color:var(--blue);box-shadow:inset 3px 0 0 var(--blue)}
@@ -689,7 +704,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
       <div class="it"><b>30+ yrs</b><span>Sales, operations and entrepreneurship</span></div>
       <div class="it"><b>$100M</b><span>Division turned from worst to first in 180 days</span></div>
       <div class="it"><b>$270M</b><span>Revenue growth driven through partnerships and automation</span></div>
-      <div class="it"><b>540+</b><span>Specialized AI agents behind every engagement</span></div>
+      <div class="it"><b>540+</b><span>AI skills, included from $4,997/mo or $500/mo on their own</span></div>
     </div>
   </div>
 
@@ -852,7 +867,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <div class="wrap">
       <div class="head"><span class="label">Before you start</span><h2 class="h2">Questions founders ask first.</h2></div>
       <div class="faq">
-        <details><summary>What does it cost?</summary><div class="a">The Strategy Session is complimentary for qualified prospects. The Blueprint & Roadmap is $2,497, and 100% of it is credited toward the System Install if you proceed within 30 days. The System Install is a 6-month program with three options: $4,997, $6,997 (recommended) or $9,997 a month. System Support is $1,997 or $2,997 a month, and Revenue Partner starts at $5,000 a month plus a share of growth. If you only need the CRM working now, the CRM Track starts at $297 a month.</div></details>
+        <details><summary>What does it cost?</summary><div class="a">The Strategy Session is complimentary for qualified prospects. The Blueprint & Roadmap is $2,497, and 100% of it is credited toward the System Install if you proceed within 30 days. The System Install is a 6-month program with three options: $4,997, $6,997 (recommended) or $9,997 a month. System Support is $1,997 a month, and Revenue Partner starts at $5,000 a month plus a share of growth. Our AI Team is included with the System Install and Revenue Partner. You can add it to any other product, or hire it on its own, for $500 a month ($500 one-time on the Blueprint). If you only need the CRM working now, the CRM Track starts at $297 a month.</div></details>
         <details><summary>How much of my time will this take?</summary><div class="a">Less than you are spending today chasing updates. You and your leadership team join the working sessions and the weekly meeting rhythm; we do the design, the build and the automation. The point of the system is to take work off your plate, not add to it.</div></details>
         <details><summary>What if we are not a fit?</summary><div class="a">Then we will tell you on the first call. You still leave the Strategy Session with a Constraint Confirmation Brief and a documented next step, so the 30 minutes pays for itself either way.</div></details>
         <details><summary>Why not hire an EOS Implementer and a CRM agency separately?</summary><div class="a">You can. The risk is that strategy and technology stay separate: one team clarifies priorities, another builds tools, and your company is left to connect the two. We integrate operating rhythm, revenue process, CRM, automation, reporting and AI into one installed system.</div></details>
@@ -1087,6 +1102,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
           <ul class="blist"><li>Unlimited AI conversations, AI voice and voice prompt optimization*</li><li>3× Ask AI and 3× AI Studio usage</li><li>90-Day Revenue Launch Program™</li><li>Six white-glove onboarding sessions (30 days)</li></ul></div>
       </div>
       <p class="fine" style="margin-top:12px">*Fair use policy applies.</p>
+      <a class="aiup" href="#ai-upgrade" style="margin-top:22px"><span class="ai-tag">Premium upgrade</span><span class="ai-txt"><b>Add Our AI Team to any tier.</b> 44 AI specialists and 540+ skills write your campaigns, content and follow-up, and analyze what your CRM is telling you.</span><span class="ai-pr">+$500/mo</span></a>
       <div class="head" style="margin-top:56px;margin-bottom:20px"><span class="label">Every CRM platform includes</span></div>
       <div class="incl"><div>CRM &amp; pipeline management</div><div>Marketing automation</div><div>Email &amp; SMS marketing</div><div>Websites, funnels &amp; landing pages</div><div>Workflow automation</div><div>Reputation management</div><div>Mobile app</div><div>Phone system integration</div><div>Unlimited users</div><div>Ongoing platform updates</div></div>
       <div class="acts" style="margin-top:36px"><a class="btn" href="#session">Talk through the right tier <span class="ar">→</span></a><a class="btn ghost" href="#journey">Compare with the full journey</a></div>
@@ -1225,7 +1241,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <span class="crumb"><a href="#home">Home</a> / Accelerate</span>
     <span class="label" style="color:var(--green)">A³ Accelerate™ · Your AI-assisted team</span>
     <h1 class="h1">One team. <em>540+ business capabilities.</em></h1>
-    <p class="lede">Every Automate2Scale engagement is backed by a coordinated AI workforce: 44 specialists across 11 departments, running more than 540 proven skills. Mark leads the team. Your people make the decisions. The work gets done faster.</p>
+    <p class="lede">Add a coordinated AI workforce to any Automate2Scale product: 44 specialists across 11 departments, running more than 540 proven skills. Mark leads the team. Your people make the decisions. The work gets done faster.</p>
     <div class="acts"><a class="btn" href="#matcher">Match my challenge <span class="ar">↓</span></a><a class="btn ghost" href="#workforce">Meet Our AI Team <span class="ar">↓</span></a></div>
   </div></section>
 
@@ -1307,6 +1323,25 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
           <div class="agent"><i>RV</i><div><b>Review Agent</b><span>Requests reviews and referrals</span></div><em>Client</em></div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <section class="sec" id="ai-upgrade">
+    <div class="wrap">
+      <div class="head"><span class="label">Premium upgrade</span><h2 class="h2">Our AI Team, on every product.</h2>
+        <div class="body"><p>Included with every engagement from $4,997 a month. Add it to anything else, or hire it on its own, for $500 a month. The AI Team works on your priorities alongside Mark and your people.</p></div></div>
+      <div style="overflow-x:auto"><table class="uptab">
+        <thead><tr><th>Product</th><th>Base price</th><th>AI Team upgrade</th></tr></thead>
+        <tbody>
+          <tr><td>A³ Strategy Session™</td><td>Complimentary</td><td>AI Team preview included</td></tr>
+          <tr><td>A³ Blueprint &amp; Roadmap™</td><td>$2,497</td><td class="num">+$500 one-time</td></tr>
+          <tr><td>A³ System Install™</td><td>From $4,997/mo</td><td class="num">Included</td></tr>
+          <tr><td>A³ System Support™</td><td>$1,997/mo</td><td class="num">+$500/mo</td></tr>
+          <tr><td>A³ Revenue Partner™</td><td>From $5,000/mo</td><td class="num">Included</td></tr>
+          <tr><td>A³ Automate™ CRM Track</td><td>From $297/mo</td><td class="num">+$500/mo</td></tr>
+          <tr><td>Our AI Team on its own</td><td>Stand-alone</td><td class="num">$500/mo</td></tr>
+        </tbody></table></div>
+      <div class="acts" style="margin-top:26px"><a class="btn" href="#session">Book a Strategy Session <span class="ar">→</span></a><a class="btn ghost" href="#workforce">Meet Our AI Team</a></div>
     </div>
   </section>
 
@@ -1505,20 +1540,22 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
 (function(){
 const STAGES=[
  {n:"01",name:"Strategy Session",full:"A³ Strategy Session™",q:"What is this constraint costing us, and what should we do first?",price:"Complimentary",priceSub:"for qualified prospects",tag:"Complimentary",kind:"",
-  list:["<b>Constraint Confirmation Brief:</b> root cause, business impact, cost of inaction, recommended next step","<b>Five-Second Positioning Statement</b>","<b>Audio Logo™</b> in networking, sales-call, referral, website and LinkedIn versions","<b>Ideal Client Precision Card:</b> profile, triggers, decision makers, disqualifiers","A documented next-step recommendation"],
+  list:["A preview of how our AI Team would work on your constraint","<b>Constraint Confirmation Brief:</b> root cause, business impact, cost of inaction, recommended next step","<b>Five-Second Positioning Statement</b>","<b>Audio Logo™</b> in networking, sales-call, referral, website and LinkedIn versions","<b>Ideal Client Precision Card:</b> profile, triggers, decision makers, disqualifiers","A documented next-step recommendation"],
   format:"30-minute executive session",outcome:"A clear view of what the constraint is costing the business and what should happen next.",fine:"For owner-operator trade companies ($2M–$20M) and founder-led professional services firms ($1M–$10M). Not sure you fit? Start with the free Readiness Score.",cta:["Request a session","#session"],next:"With the cost named, design the system and the order to build it in."},
  {n:"02",name:"Blueprint & Roadmap",full:"A³ Blueprint & Roadmap™",q:"What system do we need, and in what order do we build it?",price:"$2,497",priceSub:"100% credited to Install",tag:"Design",kind:"",
   list:["<b>A³ Customer Ascension Blueprint™:</b> stranger to lead, client, recurring customer and referral source, with offers, stages, automations, owners and KPIs","Customer Journey Gap Analysis: every missing transition, handoff and system","<b>A³ 90-Day Executive Roadmap™:</b> what gets built, in what order, who owns it, with milestones, KPIs and risks","Revenue process and CRM architecture","AI Opportunity Portfolio, ranked by value, readiness and risk","Executive KPI Scorecard","CRM trial with a working pipeline, executive dashboard and sample workflows"],
-  format:"Executive working sessions",outcome:"You know exactly what to build, in what order, who owns it, and how success will be measured.",fine:"100% of the $2,497 is credited toward the System Install if you proceed within 30 days.",cta:["Talk about a Blueprint","#session"],next:"The plan is set. Now we build it with you."},
+  format:"Executive working sessions",outcome:"You know exactly what to build, in what order, who owns it, and how success will be measured.",up:["+$500","one-time","AI specialists research your market, competitors and customer journey to sharpen the blueprint."],
+  fine:"100% of the $2,497 is credited toward the System Install if you proceed within 30 days.",cta:["Talk about a Blueprint","#session"],next:"The plan is set. Now we build it with you."},
  {n:"03",name:"System Install",full:"A³ System Install™",q:"Can you build it with us?",price:"From $4,997/mo",priceSub:"6-month program",tag:"Main offer",kind:"core",
   groups:[["Align","al",["V/TO completed with AI support: core focus, 3-year picture, 1-year plan, issues list","Accountability Chart: every seat, owner and decision right","Quarterly Rocks with owners, milestones and a definition of done","Weekly Level 10 system run in Ninety.io","Monthly executive reviews and quarterly planning"]],["Automate","au",["CRM and pipeline installation: migration, pipelines, calendars, forms, landing pages","Workflow installation: instant lead response, routing, no-show and proposal follow-up, onboarding, reactivation, reviews, referrals","Revenue visibility dashboards: leads, appointments, conversion, pipeline value, attribution"]],["Accelerate","ac",["AI Employees: receptionist, speed-to-lead, appointment setter, follow-up and reactivation, review agent","Campaign engine: segmentation, email, LinkedIn, call tasks, lead scoring","Sales enablement: discovery, qualification, objection handling, call scorecard"]]],
   format:"Done-with-you 6-month program: install in the first 90 days, then optimize, train and hand off in the second",outcome:"The business runs from one connected system instead of owner memory: clear ownership, visible performance, less reliance on you.",opts:[["A³ Automate Install","$4,997/mo","CRM, workflows and dashboards"],["Full A³ Install","$6,997/mo","Align + Automate + Accelerate","Recommended"],["A³ Install + Fractional Integrator","$9,997/mo","Full install, with Mark in the Integrator seat"]],
+  up:["Included","every option","Our 44 AI specialists and 540+ skills work alongside your install team on campaigns, content, SOPs and analysis.",1],
   fine:"Each option runs 6 months. Pay monthly, or pay in full at a discount.",cta:["Talk about an install","#session"],next:"Once installed, keep it sharp."},
- {n:"04",name:"System Support",full:"A³ System Support™",q:"Can you keep it working?",price:"From $1,997/mo",tag:"Ongoing",kind:"cont",
-  list:["CRM hosting and 24/7 technical support","Workflow monitoring and optimization","Monthly system-health review covering adoption and workflow performance","Controlled automation adjustments, approved before any live change","AI-agent access, with expanded AI team access available","Quarterly A³ maturity rescore"],
-  opts:[["System Support","$1,997/mo","Hosting, 24/7 support, monitoring and optimization"],["System Support + AI Team","$2,997/mo","Everything in Support, plus expanded AI team access"]],
+ {n:"04",name:"System Support",full:"A³ System Support™",q:"Can you keep it working?",price:"$1,997/mo",tag:"Ongoing",kind:"cont",
+  list:["CRM hosting and 24/7 technical support","Workflow monitoring and optimization","Monthly system-health review covering adoption and workflow performance","Controlled automation adjustments, approved before any live change","AI-agent access, with the full AI Team available for $500/mo","Quarterly A³ maturity rescore"],
+  up:["+$500/mo","$2,497/mo total","Ongoing AI Team access for new campaigns, content, reporting and optimization."],
   format:"Monthly retainer that begins automatically when your install ends",outcome:"The system you installed stays sharp and never goes stale.",next:"When you want executive leadership on growth itself."},
- {n:"05",name:"Revenue Partner",full:"A³ Revenue Partner™",q:"Can you help lead and improve it?",price:"From $5,000/mo",priceSub:"+ share of growth",tag:"Fractional CGO",kind:"cont",
+ {n:"05",name:"Revenue Partner",full:"A³ Revenue Partner™",q:"Can you help lead and improve it?",price:"From $5,000/mo",priceSub:"+ share of growth",up:["Included","","The full AI Team works behind your growth agenda: research, campaigns, sales enablement and board-ready reporting."],tag:"Fractional CGO",kind:"cont",
   list:["Executive growth leadership and leadership-team facilitation","An approved executive mandate: meeting cadence, priorities, decision rights","Weekly or quarterly strategy meetings with KPI reviews","Scorecard refinement and revenue accountability","AI and automation prioritization","Board or owner reporting tied to enterprise value and owner freedom"],
   format:"Ongoing monthly engagement",outcome:"Executive-level growth leadership, so you can scale without hiring another full-time executive.",fine:"The revenue share applies only to growth above a written starting baseline, so our incentives stay tied to your results."}
 ];
@@ -1544,6 +1581,7 @@ STAGES.forEach((st,i)=>{
    <div class="get">${get}</div>
    <div class="meta"><dl><div><dt>Format</dt><dd>${st.format}</dd></div><div><dt>Investment</dt><dd class="price">${st.price}${st.priceSub?' <span class="muted" style="font-size:13px">· '+st.priceSub+'</span>':''}</dd></div></dl>
    ${st.opts?`<div class="opts">${st.opts.map(o=>`<div class="opt${o[3]?' rec':''}"><div class="ot"><b>${o[0]}</b>${o[3]?`<span class="orec">${o[3]}</span>`:''}</div><span class="op">${o[1]}</span><span class="od">${o[2]}</span></div>`).join('')}</div>`:''}
+   ${st.up?`<a class="aiup" href="#ai-upgrade"><span class="ai-tag">${st.up[3]?'Included':'Premium upgrade'}</span><span class="ai-txt"><b>${st.up[3]?'Our AI Team is included':'Add Our AI Team'}</b><br>${st.up[2]}</span>${st.up[3]?"":`<span class="ai-pr">${st.up[0]}${st.up[1]?'<br><small style="font-weight:500;font-size:11px;color:#C9D6E2">'+st.up[1]+'</small>':''}</span>`}</a>`:''}
    <div><span class="minih">Your outcome</span><p class="outcome" style="margin-top:6px">${st.outcome}</p></div>
    ${st.fine?`<p class="fine">${st.fine}</p>`:''}
    ${st.cta?`<a class="btn sm" href="${st.cta[1]}">${st.cta[0]} →</a>`:`<a class="btn ghost sm" href="#session">Ask about this stage</a>`}</div>
