@@ -235,7 +235,7 @@ button{font:inherit}
 .track-head b{font-family:var(--display);font-size:17px;font-weight:700}
 .track-head span{font-size:13px;color:var(--ink-3)}
 .scroller{overflow-x:auto;padding-bottom:6px;scrollbar-width:thin}
-.steps{display:grid;grid-template-columns:repeat(7,minmax(128px,1fr));gap:8px;align-items:end;min-width:930px}
+.steps{display:grid;grid-template-columns:repeat(5,minmax(140px,1fr));gap:10px;align-items:end;min-width:740px}
 .step{display:flex;flex-direction:column;justify-content:flex-end;text-decoration:none;color:inherit}
 .step .bar{border-radius:5px 5px 2px 2px;background:var(--tint);border-top:3px solid var(--blue);padding:12px 11px;display:flex;flex-direction:column;gap:5px;transition:transform .18s ease,box-shadow .18s ease}
 .step:hover .bar,.step:focus-visible .bar{transform:translateY(-4px);box-shadow:var(--sh2)}
@@ -248,7 +248,7 @@ button{font:inherit}
 .step.core .tagm{align-self:flex-start;font-family:var(--mono);font-size:9.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;background:var(--on-blue);color:var(--blue);padding:2px 6px;border-radius:2px}
 .step.cont .bar{background:var(--green-tint);border-top-color:var(--green)}
 .step.cont .pr{color:var(--green)}
-.phases{display:grid;grid-template-columns:3fr 1fr 2fr 1fr;gap:8px;min-width:930px;margin-top:10px}
+.phases{display:grid;grid-template-columns:1fr 1fr 1fr 2fr;gap:10px;min-width:740px;margin-top:10px}
 .phases div{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);border-top:2px solid var(--rule);padding-top:7px}
 
 /* outcomes */
@@ -833,7 +833,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <div class="wrap">
       <div class="head"><span class="label">Before you start</span><h2 class="h2">Questions founders ask first.</h2></div>
       <div class="faq">
-        <details><summary>What does it cost?</summary><div class="a">The Strategy Session is complimentary. From there, the Blueprint Session is $497 (credited toward the System Install if you proceed within 30 days), the 90-Day Roadmap Session is $1,997, and the System Install runs $4,997 a month in 90-day sprints. If you only need the CRM working now, the CRM Track starts at $297 a month. <a href="#journey">See every stage</a>.</div></details>
+        <details><summary>What does it cost?</summary><div class="a">The Strategy Session is complimentary for qualified prospects. The Blueprint & Roadmap is $2,497, and 100% of it is credited toward the System Install if you proceed within 30 days. The System Install starts at $4,997 a month as a 6-month program, and System Support starts at $1,997 a month. If you only need the CRM working now, the CRM Track starts at $297 a month.</div></details>
         <details><summary>How much of my time will this take?</summary><div class="a">Less than you are spending today chasing updates. You and your leadership team join the working sessions and the weekly meeting rhythm; we do the design, the build and the automation. The point of the system is to take work off your plate, not add to it.</div></details>
         <details><summary>What if we are not a fit?</summary><div class="a">Then we will tell you on the first call. You still leave the Strategy Session with a Constraint Confirmation Brief and a documented next step, so the 30 minutes pays for itself either way.</div></details>
         <details><summary>Why not hire an EOS Implementer and a CRM agency separately?</summary><div class="a">You can. The risk is that strategy and technology stay separate: one team clarifies priorities, another builds tools, and your company is left to connect the two. We integrate operating rhythm, revenue process, CRM, automation, reporting and AI into one installed system.</div></details>
@@ -942,7 +942,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
           <tr><td>Who connects strategy to tools</td><td><span class="no"></span>You do</td><td class="us"><span class="yes"></span>We do, by design</td></tr>
           <tr><td>Accountability for results</td><td><span class="no"></span>Split across three scopes</td><td class="us"><span class="yes"></span>One owner, one scorecard</td></tr>
           <tr><td>Sequencing</td><td><span class="no"></span>Whatever vendor starts first</td><td class="us"><span class="yes"></span>Align, then Automate, then Accelerate</td></tr>
-          <tr><td>Time to a working revenue system</td><td><span class="no"></span>Months of coordination</td><td class="us"><span class="yes"></span>One 90-day sprint for most companies</td></tr>
+          <tr><td>Time to a working revenue system</td><td><span class="no"></span>Months of coordination</td><td class="us"><span class="yes"></span>Core install in the first 90 days</td></tr>
           <tr><td>Founder time required</td><td><span class="no"></span>High: you are the integrator</td><td class="us"><span class="yes"></span>Executive sessions, not project management</td></tr>
         </tbody>
       </table></div>
@@ -959,7 +959,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <h1 class="h1">We install a system that <em>runs without you.</em></h1>
     <p class="lede">Your business grew because you carried it. That same habit is now the ceiling. Here is how we work with owner-led companies, one clear step at a time, so you always know what you are deciding and what you get.</p>
     <div class="acts"><a class="btn" href="#scorecard">Get My Free Readiness Score <span class="ar">→</span></a><a class="btn ghost" href="#finder">Find your starting point</a></div>
-    <p class="microline">Stage 01 is free · 10 minutes · it tells you which stage fits</p>
+    <p class="microline">The free Readiness Score takes 10 minutes and tells you which stage fits</p>
   </div></section>
 
   <section class="sec tight"><div class="wrap"><div class="track" data-staircase></div></div></section>
@@ -1185,7 +1185,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
         <details><summary>Do we have to run EOS® to work with you?</summary><div class="a">No. If you already run EOS, we strengthen it and connect it to your revenue system. If you don't, we install the same proven disciplines (vision, seats, Rocks, Scorecard and a weekly meeting rhythm) in a way that fits your company.</div></details>
         <details><summary>We already work with an EOS Implementer. Is this different?</summary><div class="a">Yes, and the two work well together. An Implementer teaches your leadership team the system. An Integrator runs it every day inside the business. Mark fills that seat on a fractional basis or develops the leader who will, and then connects the rhythm to your CRM, automation and AI.</div></details>
         <details><summary>Do we need a full-time Integrator?</summary><div class="a">Not always. Many owner-led companies in our range ($1M–$20M) start with a fractional Integrator to build the habits, then promote or hire into the seat once the role is clearly defined and the rhythm is working.</div></details>
-        <details><summary>What does it cost?</summary><div class="a">Align is part of the System Install, which runs $4,997 a month in 90-day sprints. Start with the free Readiness Score or a complimentary Strategy Session to confirm it's the right first step.</div></details>
+        <details><summary>What does it cost?</summary><div class="a">Align is part of the System Install, which starts at $4,997 a month as a 6-month program. Start with the free Readiness Score or a complimentary Strategy Session to confirm it's the right first step.</div></details>
       </div>
       <p class="fine" style="margin-top:28px;font-style:normal">EOS®, Entrepreneurial Operating System®, Traction®, Integrator™, Visionary™, Rocket Fuel™, Level 10 Meeting™ and Vision/Traction Organizer™ are trademarks of EOS Worldwide, LLC. Automate2Scale is an independent firm and is not affiliated with or endorsed by EOS Worldwide. Learn more at <a href="https://www.eosworldwide.com" target="_blank" rel="noopener">eosworldwide.com</a>.</p>
     </div>
@@ -1329,7 +1329,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
 <div class="page" data-page="scorecard" hidden>
   <section class="phero"><div class="wrap">
     <span class="crumb"><a href="#home">Home</a> / A³ Readiness Scorecard™</span>
-    <span class="label">Stage 01 · Free · About 10 minutes</span>
+    <span class="label">Free · About 10 minutes</span>
     <h1 class="h1">Where do you <em>actually stand?</em></h1>
     <p class="lede">Fifteen statements across Align, Automate and Accelerate. Answer for how the business runs today, not how you want it to run. You get a scored view and the constraint that is holding growth back.</p>
     <div class="acts"><a class="btn" href="#qpanel">Start the scorecard <span class="ar">↓</span></a></div>
@@ -1351,7 +1351,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
 <div class="page" data-page="session" hidden>
   <section class="phero"><div class="wrap">
     <span class="crumb"><a href="#home">Home</a> / A³ Strategy Session™</span>
-    <span class="label">Stage 02 · Complimentary · 30-minute executive session</span>
+    <span class="label">Stage 01 · Complimentary for qualified prospects · 30-minute executive session</span>
     <h1 class="h1">What is this constraint costing you, and <em>what should you do first?</em></h1>
     <p class="lede">A focused working session with Mark Cupp. We confirm the constraint, put a cost on it, and leave you with a documented next step, whether or not we ever work together.</p>
     <div class="acts"><a class="btn" href="#bookInline">Pick a time <span class="ar">↓</span></a><a class="btn ghost" href="#scorecard">Take the free scorecard first</a></div>
@@ -1444,7 +1444,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <div class="grid">
       <div><a class="flogo" href="#home" aria-label="Automate2Scale home"><img src="https://assets.cdn.filesafe.space/3UbxqX8zLDM4QvDExPHM/media/6ac2d014bbad531ac8b1be31.png" alt="Automate2Scale" onerror="this.onerror=null;this.src='https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/3UbxqX8zLDM4QvDExPHM/media/6a0955a82e98e28fa1547b2b.png';this.parentNode.className='plaque'"></a><p class="tag-line">The A³ Revenue Operating System™ for owner-operator trade companies and founder-led professional services firms. We install your system. You reclaim your life.</p></div>
       <div><h4>System</h4><a href="#system">The A³ framework</a><a href="#align">Align (operating system)</a><a href="#crm">Automate (CRM)</a><a href="#accelerate">Accelerate (AI workforce)</a><a href="#scorecard">Readiness Scorecard</a></div>
-      <div><h4>Journey</h4><a href="#stage-02">Strategy Session</a><a href="#stage-03">Blueprint Session</a><a href="#stage-05">System Install</a><a href="#stage-07">Revenue Partner</a></div>
+      <div><h4>Journey</h4><a href="#stage-01">Strategy Session</a><a href="#stage-02">Blueprint &amp; Roadmap</a><a href="#stage-03">System Install</a><a href="#stage-05">Revenue Partner</a></div>
       <div><h4>Company</h4><a href="#about">About Mark</a><a href="https://app.automate2scale.io/" target="_blank" rel="noopener">Client Login</a><a href="#session">Book a session</a><a href="#privacy">Privacy Policy</a><span style="display:block;padding:4px 0;color:var(--band-ink)">mark@automate2scale.io</span></div>
     </div>
     <div class="vals"><span>Add Value · Be Proactive · Continuous Learning · Do the Right Thing · Exceed Expectations · Find A Way</span><span>© 2026 Automate2Scale</span></div>
@@ -1478,35 +1478,29 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
 <script>
 (function(){
 const STAGES=[
- {n:"01",name:"Readiness Scorecard",full:"A³ Readiness Scorecard™",q:"Where do we actually stand?",price:"Free",tag:"Free",kind:"",
-  list:["Your overall A³ Readiness Score, with separate Align, Automate and Accelerate scores","Your primary constraint, named in plain language","A recommended next step based on your score pattern","Results on screen instantly, plus a copy by email"],
-  format:"Self-assessment, no call required",outcome:"Clarity on which system (leadership, revenue infrastructure or execution capacity) is actually holding growth back.",cta:["Take the scorecard","#scorecard"],next:"Once you know the constraint, the next question is what it costs."},
- {n:"02",name:"Strategy Session",full:"A³ Strategy Session™",q:"What is this constraint costing us, and what should we do first?",price:"Complimentary",tag:"Complimentary",kind:"",
-  list:["<b>Constraint Confirmation Brief:</b> root cause, business impact, cost of inaction, recommended next stage","<b>Five-Second Positioning Statement</b>","<b>Audio Logo™</b> in networking, sales-call, referral, website and LinkedIn versions","<b>Ideal Client Precision Card:</b> profile, triggers, decision makers, disqualifiers","A documented next-step recommendation"],
-  format:"30-minute executive session",outcome:"A clear view of what the constraint is costing the business and what should happen next.",cta:["Request a session","#session"],next:"With the cost named, design the system that removes it."},
- {n:"03",name:"Blueprint Session",full:"A³ Blueprint Session™",q:"What system do we need?",price:"$497",tag:"Design",kind:"",
-  list:["<b>A³ Customer Ascension Blueprint™:</b> stranger to lead, client, recurring customer and referral source, with offers, stages, automations, owners and KPIs","Customer Journey Gap Analysis: every missing transition, handoff and system","Offer Clarity Canvas for entry, core, implementation and recurring offers","Conversion Asset Plan","Free CRM trial with a working pipeline, calendar, lead capture and sample workflow","A recommended scope for your 90-Day Roadmap Session"],
-  format:"90-minute working sessions",outcome:"A sequenced plan: what to fix first, what can wait, and how leadership, revenue and AI should work together.",fine:"Credited toward the System Install if you proceed within 30 days.",next:"With the system designed, sequence the build."},
- {n:"04",name:"90-Day Roadmap",full:"A³ 90-Day Roadmap Session™",q:"How do all the pieces fit together?",price:"$1,997",tag:"Design",kind:"",
-  list:["<b>A³ 90-Day Executive Roadmap™:</b> what gets built, in what order, who owns it, with weekly milestones, KPIs, risks and scope","Current-State Revenue System Map","Future-State Operating Model: roles, decision rights, meeting cadence","Revenue Process & CRM Architecture","AI Opportunity Portfolio, ranked by value, readiness and risk","Executive KPI Scorecard","90-day CRM trial with custom pipeline, executive dashboard and nurture workflows"],
-  format:"Half-day executive working session",outcome:"You know exactly what must be built, in what order, who owns it, and how success will be measured.",next:"The plan is set. Now we build it with you."},
- {n:"05",name:"System Install",full:"A³ System Install™",q:"Can you build it with us?",price:"$4,997/mo",priceSub:"90-day sprints",tag:"Main offer",kind:"core",
+ {n:"01",name:"Strategy Session",full:"A³ Strategy Session™",q:"What is this constraint costing us, and what should we do first?",price:"Complimentary",priceSub:"for qualified prospects",tag:"Complimentary",kind:"",
+  list:["<b>Constraint Confirmation Brief:</b> root cause, business impact, cost of inaction, recommended next step","<b>Five-Second Positioning Statement</b>","<b>Audio Logo™</b> in networking, sales-call, referral, website and LinkedIn versions","<b>Ideal Client Precision Card:</b> profile, triggers, decision makers, disqualifiers","A documented next-step recommendation"],
+  format:"30-minute executive session",outcome:"A clear view of what the constraint is costing the business and what should happen next.",fine:"For owner-operator trade companies ($2M–$20M) and founder-led professional services firms ($1M–$10M). Not sure you fit? Start with the free Readiness Score.",cta:["Request a session","#session"],next:"With the cost named, design the system and the order to build it in."},
+ {n:"02",name:"Blueprint & Roadmap",full:"A³ Blueprint & Roadmap™",q:"What system do we need, and in what order do we build it?",price:"$2,497",priceSub:"100% credited to Install",tag:"Design",kind:"",
+  list:["<b>A³ Customer Ascension Blueprint™:</b> stranger to lead, client, recurring customer and referral source, with offers, stages, automations, owners and KPIs","Customer Journey Gap Analysis: every missing transition, handoff and system","<b>A³ 90-Day Executive Roadmap™:</b> what gets built, in what order, who owns it, with milestones, KPIs and risks","Revenue process and CRM architecture","AI Opportunity Portfolio, ranked by value, readiness and risk","Executive KPI Scorecard","CRM trial with a working pipeline, executive dashboard and sample workflows"],
+  format:"Executive working sessions",outcome:"You know exactly what to build, in what order, who owns it, and how success will be measured.",fine:"100% of the $2,497 is credited toward the System Install if you proceed within 30 days.",cta:["Talk about a Blueprint","#session"],next:"The plan is set. Now we build it with you."},
+ {n:"03",name:"System Install",full:"A³ System Install™",q:"Can you build it with us?",price:"From $4,997/mo",priceSub:"6-month program",tag:"Main offer",kind:"core",
   groups:[["Align","al",["V/TO completed with AI support: core focus, 3-year picture, 1-year plan, issues list","Accountability Chart: every seat, owner and decision right","Quarterly Rocks with owners, milestones and a definition of done","Weekly Level 10 system run in Ninety.io","Monthly executive reviews and quarterly planning"]],["Automate","au",["CRM and pipeline installation: migration, pipelines, calendars, forms, landing pages","Workflow installation: instant lead response, routing, no-show and proposal follow-up, onboarding, reactivation, reviews, referrals","Revenue visibility dashboards: leads, appointments, conversion, pipeline value, attribution"]],["Accelerate","ac",["AI Employees: receptionist, speed-to-lead, appointment setter, follow-up and reactivation, review agent","Campaign engine: segmentation, email, LinkedIn, call tasks, lead scoring","Sales enablement: discovery, qualification, objection handling, call scorecard"]]],
-  format:"Done-with-you 90-day sprints with executive facilitation",outcome:"The business runs from one connected system instead of founder memory: clear ownership, visible performance, less reliance on you.",fine:"Billed monthly for each 90-day sprint. Most companies complete the core install in one sprint.",cta:["Talk about an install","#session"],next:"Once installed, keep it sharp."},
- {n:"06",name:"System Support",full:"A³ System Support™",q:"Can you keep it working?",price:"$997–$1,997/mo",tag:"Ongoing",kind:"cont",
-  list:["CRM hosting and technical support","Workflow monitoring and minor optimization","Monthly system-health review covering adoption and workflow performance","Controlled automation adjustments, approved before any live change","AI-agent access","Quarterly A³ maturity rescore"],
-  format:"Monthly retainer",outcome:"The system you installed stays sharp and never goes stale.",next:"When you want executive leadership on growth itself."},
- {n:"07",name:"Revenue Partner",full:"A³ Revenue Partner™",q:"Can you help lead and improve it?",price:"Retainer + rev share",tag:"Fractional CGO",kind:"cont",
-  list:["Executive growth leadership and leadership-team facilitation","An approved executive mandate: meeting cadence, priorities, decision rights","Weekly or quarterly strategy meetings with KPI reviews","Scorecard refinement and revenue accountability","AI and automation prioritization","Board or owner reporting tied to enterprise value and founder freedom"],
-  format:"Ongoing monthly engagement",outcome:"Executive-level growth leadership, so you can scale without hiring another full-time executive.",fine:"The revenue share applies only to growth above your starting baseline, so our incentives stay tied to your results."}
+  format:"Done-with-you 6-month program: install in the first 90 days, then optimize, train and hand off in the second",outcome:"The business runs from one connected system instead of owner memory: clear ownership, visible performance, less reliance on you.",fine:"Three options: A³ Automate Install, Full A³ Install (recommended), or A³ Install + Fractional Integrator. Pay monthly or in full.",cta:["Talk about an install","#session"],next:"Once installed, keep it sharp."},
+ {n:"04",name:"System Support",full:"A³ System Support™",q:"Can you keep it working?",price:"From $1,997/mo",tag:"Ongoing",kind:"cont",
+  list:["CRM hosting and 24/7 technical support","Workflow monitoring and optimization","Monthly system-health review covering adoption and workflow performance","Controlled automation adjustments, approved before any live change","AI-agent access, with expanded AI team access available","Quarterly A³ maturity rescore"],
+  format:"Monthly retainer that begins when your install ends",outcome:"The system you installed stays sharp and never goes stale.",next:"When you want executive leadership on growth itself."},
+ {n:"05",name:"Revenue Partner",full:"A³ Revenue Partner™",q:"Can you help lead and improve it?",price:"Retainer + rev share",tag:"Fractional CGO",kind:"cont",
+  list:["Executive growth leadership and leadership-team facilitation","An approved executive mandate: meeting cadence, priorities, decision rights","Weekly or quarterly strategy meetings with KPI reviews","Scorecard refinement and revenue accountability","AI and automation prioritization","Board or owner reporting tied to enterprise value and owner freedom"],
+  format:"Ongoing monthly engagement",outcome:"Executive-level growth leadership, so you can scale without hiring another full-time executive.",fine:"The revenue share applies only to growth above a written starting baseline, so our incentives stay tied to your results."}
 ];
 
 /* staircase */
-const heights=[180,205,230,255,295,230,205]; /* rises to 05 (main offer), then 06 = 03 and 07 = 02 */
+const heights=[200,245,300,245,215]; /* rises to 03 (main offer), then steps down */
 function staircase(el){
   let s='<div class="track-head"><b>The journey at a glance <span class="muted" style="font-weight:500">· the question each step answers</span></b><span>Select a stage to jump to it</span></div><div class="scroller"><div class="steps">';
-  STAGES.forEach((st,i)=>{s+=`<a class="step ${st.kind}" href="#stage-${st.n}"><div class="bar" style="height:${heights[i]}px"><span class="n">${st.n}</span>${st.kind==='core'?'<span class="tagm">Main offer</span>':''}<span class="nm">${st.name}</span><span class="sq">${st.q}</span><span class="pr">${st.price}${st.priceSub?'<br>'+st.priceSub:''}</span></div></a>`});
-  s+='</div><div class="phases"><div>Diagnose</div><div>Design</div><div>Install</div><div>Lead</div></div></div>';
+  STAGES.forEach((st,i)=>{s+=`<a class="step ${st.kind}" href="#stage-${st.n}"><div class="bar" style="min-height:${heights[i]}px"><span class="n">${st.n}</span>${st.kind==='core'?'<span class="tagm">Main offer</span>':''}<span class="nm">${st.name}</span><span class="sq">${st.q}</span><span class="pr">${st.price}${st.priceSub?'<br>'+st.priceSub:''}</span></div></a>`});
+  s+='</div><div class="phases"><div>Diagnose</div><div>Design</div><div>Install</div><div>Sustain &amp; lead</div></div></div>';
   el.innerHTML=s;
 }
 document.querySelectorAll('[data-staircase]').forEach(staircase);
@@ -1541,9 +1535,9 @@ const howStyle=document.createElement('style');howStyle.textContent='#howSeq li:
 /* finder */
 const FIND=[
  ["I know something is off, but I can't name exactly what.","A³ Readiness Scorecard™","Ten minutes of honest answers gives you a scored view of Align, Automate and Accelerate, and names the constraint that is actually holding you back.","Free","#scorecard"],
- ["I can see the problem. I need a plan for fixing it in the right order.","A³ Blueprint Session™","Design the system you need: the customer journey, the gaps, the offers and the assets, sequenced so you fix the right thing first.","$497 · credited toward Install","#stage-03"],
- ["We know the journey we want. We need the build plan: who owns what, in what order.","A³ 90-Day Roadmap Session™","Leave with the executive roadmap: what gets built, in what order, who owns it, and the KPIs that prove it is working.","$1,997","#stage-04"],
- ["We have a plan and the budget. We need it built.","A³ System Install™","We install Align, Automate and Accelerate with your team in done-with-you 90-day sprints.","$4,997/month · 90-day sprints","#stage-05"],
+ ["I know the problem. I want to know what it is costing us and what to do first.","A³ Strategy Session™","Thirty focused minutes to confirm the constraint, put a cost on it and leave with a documented next step.","Complimentary · for qualified prospects","#session"],
+ ["I need a plan: the system we need and the order to build it in.","A³ Blueprint & Roadmap™","Design the system and sequence the build: the customer journey, the gaps, the roadmap, owners and KPIs.","$2,497 · 100% credited toward Install","#stage-02"],
+ ["We have a plan and the budget. We need it built.","A³ System Install™","We install Align, Automate and Accelerate with your team in a done-with-you 6-month program.","From $4,997/month · 6-month program","#stage-03"],
  ["Leads are slipping through the cracks and I need a working CRM now.","A³ Automate™ CRM Track","Get the revenue system working now with white-glove onboarding. The path to the full install stays open.","From $297/month","#crm"]
 ];
 const fo=document.getElementById('finderOpts');
@@ -1653,8 +1647,8 @@ function results(){
   const ps=ans.map(score),ov=Math.round(ps.reduce((a,b)=>a+b)/3);
   const lo=ps.indexOf(Math.min(...ps)),names=["Align","Automate","Accelerate"];
   let rec;if(ov<45)rec=["A³ Strategy Session™","Your score points to a foundational constraint. Start by confirming it and putting a cost on it.","Complimentary","#session"];
-  else if(ov<70)rec=["A³ Blueprint Session™","You have pieces in place. The highest-leverage move is designing the full system so you fix things in the right order.","$497","#stage-03"];
-  else rec=["A³ 90-Day Roadmap Session™","You are further along than most. Sequence the build and put owners and KPIs on it.","$1,997","#stage-04"];
+  else if(ov<70)rec=["A³ Blueprint & Roadmap™","You have pieces in place. The highest-leverage move is designing the full system and the order to build it in.","$2,497 · credited toward Install","#stage-02"];
+  else rec=["A³ System Install™","You are further along than most. You are ready to install the full system with your team.","From $4,997/month","#stage-03"];
   if(lo===1&&ps[1]<40&&ov>=45)rec=["A³ Automate™ CRM Track","Your revenue engine is the clear gap. Get the CRM working now while you plan the rest.","From $297/month","#crm"];
   return {ps,ov,lo,names,rec};
 }
