@@ -43,3 +43,14 @@
   to = "https://automate2scale.io/zoom"
   status = 302
   force = true
+
+# Private booking page (unlisted, noindex)
+[[redirects]]
+  from = "/mark"
+  to = "/mark.html"
+  status = 200
+
+[[headers]]
+  for = "/mark*"
+  [headers.values]
+    X-Robots-Tag = "noindex, nofollow"
