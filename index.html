@@ -440,6 +440,14 @@ tr:last-child td{border-bottom:0}
 .scale button:hover{border-color:var(--blue)}
 .scale button[aria-pressed="true"]{background:var(--blue);border-color:var(--blue);color:var(--on-blue)}
 .scale button[aria-pressed="true"] b{color:var(--on-blue)}
+.lf{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.lf label{display:grid;gap:6px;font-size:13.5px;font-weight:600;color:var(--ink-2)}
+.lf label.full{grid-column:1/-1}
+.lf input,.lf select{font:inherit;font-weight:400;font-size:15px;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:3px;padding:11px 12px;min-height:46px;width:100%;box-sizing:border-box}
+.lf input:focus,.lf select:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}
+.lf input[aria-invalid="true"]{border-color:#C0392B}
+.lf .consent{grid-column:1/-1;font-size:12.5px;color:var(--ink-3);line-height:1.5;margin:0}
+@media (max-width:600px){.lf{grid-template-columns:1fr}}
 .qnav{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;align-items:center}
 .qnav .hint{font-size:13.5px;color:var(--ink-3)}
 .btn[disabled]{opacity:.45;cursor:not-allowed;filter:none}
@@ -908,7 +916,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <div class="wrap sc">
       <aside class="sc-side">
         <div class="progress"><div class="bar"><i id="scBar"></i></div><span id="scCount">0 of 15 answered</span></div>
-        <ol class="steplist" id="scSteps"><li data-s="0"><i></i>A¹ Align</li><li data-s="1"><i></i>A² Automate</li><li data-s="2"><i></i>A³ Accelerate</li><li data-s="3"><i></i>Your results</li></ol>
+        <ol class="steplist" id="scSteps"><li data-s="0"><i></i>A¹ Align</li><li data-s="1"><i></i>A² Automate</li><li data-s="2"><i></i>A³ Accelerate</li><li data-s="3"><i></i>Your details</li><li data-s="4"><i></i>Your results</li></ol>
         <p class="muted" style="font-size:14px">Want the full personalized PDF report? Book a Strategy Session and we will walk through it together.</p>
       </aside>
       <div class="qpanel" id="qpanel"></div>
@@ -1182,35 +1190,76 @@ function updSide(){
   document.querySelectorAll('#scSteps li').forEach(li=>{const s=+li.dataset.s;li.className=s===step?'on':(s<step?'done':'')});
 }
 function renderQ(){
-  if(step===3)return renderR();
+  if(step===3)return renderC();
+  if(step===4)return renderR();
   const g=Q[step];
-  qp.innerHTML=`<div class="qh"><span class="label" style="color:var(--${g.c})">Step ${step+1} of 3 · ${g.k}</span><h2 class="h3">${["How clearly does the business run?","How connected is the revenue engine?","How much capacity does the system add?"][step]}</h2><p class="muted" style="font-size:14.5px">Rate each statement for how things work today.</p></div>`+
+  qp.innerHTML=`<div class="qh"><span class="label" style="color:var(--${g.c})">Step ${step+1} of 4 · ${g.k}</span><h2 class="h3">${["How clearly does the business run?","How connected is the revenue engine?","How much capacity does the system add?"][step]}</h2><p class="muted" style="font-size:14.5px">Rate each statement for how things work today.</p></div>`+
   g.items.map((t,i)=>`<div class="qitem"><p id="q${step}-${i}">${t}</p><div class="scale" role="group" aria-labelledby="q${step}-${i}">${LBL.map((l,v)=>`<button type="button" data-i="${i}" data-v="${v+1}" aria-pressed="${ans[step][i]===v+1}"><b>${v+1}</b>${l}</button>`).join('')}</div></div>`).join('')+
-  `<div class="qnav"><button class="btn ghost" type="button" id="qBack" ${step===0?'disabled':''}>← Back</button><span class="hint" id="qHint"></span><button class="btn" type="button" id="qNext">${step===2?'See my results':'Next: '+Q[step+1].k} →</button></div>`;
+  `<div class="qnav"><button class="btn ghost" type="button" id="qBack" ${step===0?'disabled':''}>← Back</button><span class="hint" id="qHint"></span><button class="btn" type="button" id="qNext">${step===2?'Next: your details':'Next: '+Q[step+1].k} →</button></div>`;
   qp.querySelectorAll('.scale button').forEach(b=>b.onclick=()=>{ans[step][+b.dataset.i]=+b.dataset.v;b.parentElement.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));updSide();chk()});
   document.getElementById('qBack').onclick=()=>{step--;renderQ();updSide();qp.scrollIntoView({block:'start'})};
   document.getElementById('qNext').onclick=()=>{if(ans[step].includes(0)){document.getElementById('qHint').textContent='Answer all five to continue.';return}step++;renderQ();updSide();qp.scrollIntoView({block:'start'})};
   chk();
 }
 function chk(){const m=ans[step]?ans[step].filter(x=>!x).length:0;const h=document.getElementById('qHint');if(h)h.textContent=m?m+' left on this step':'Ready'}
-function score(a){return Math.round((a.reduce((s,x)=>s+x,0)-5)/20*100)}
-function renderR(){
+/* Lead capture. Paste the GHL workflow Inbound Webhook URL below. */
+const WEBHOOK='';
+let lead=null;
+function esc(t){return String(t).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function results(){
   const ps=ans.map(score),ov=Math.round(ps.reduce((a,b)=>a+b)/3);
   const lo=ps.indexOf(Math.min(...ps)),names=["Align","Automate","Accelerate"];
-  const cdesc=["Leadership. Priorities, ownership and meeting rhythm are not yet carrying the weight, so decisions keep routing back to you.","Revenue infrastructure. Leads, follow-up and reporting depend on people remembering, so revenue comes in waves.","Execution capacity. The foundation may be sound, but the team is maxed out and routine work is still manual."];
   let rec;if(ov<45)rec=["A³ Strategy Session™","Your score points to a foundational constraint. Start by confirming it and putting a cost on it.","Complimentary","#session"];
   else if(ov<70)rec=["A³ Blueprint Session™","You have pieces in place. The highest-leverage move is designing the full system so you fix things in the right order.","$497","#stage-03"];
   else rec=["A³ 90-Day Roadmap Session™","You are further along than most. Sequence the build and put owners and KPIs on it.","$1,997","#stage-04"];
   if(lo===1&&ps[1]<40&&ov>=45)rec=["A³ Automate™ CRM Track","Your revenue engine is the clear gap. Get the CRM working now while you plan the rest.","From $297/month","#crm"];
+  return {ps,ov,lo,names,rec};
+}
+function renderC(){
+  const v=lead||{};
+  qp.innerHTML=`<div class="qh"><span class="label">Step 4 of 4 · Your details</span><h2 class="h3">Where should we send your results?</h2><p class="muted" style="font-size:14.5px">Your score shows on the next screen. We also email you a copy with your primary constraint and a recommended next step.</p></div>
+  <form class="lf" id="leadForm" novalidate>
+    <label>First name<input name="first_name" autocomplete="given-name" required value="${esc(v.first_name||'')}"></label>
+    <label>Last name<input name="last_name" autocomplete="family-name" value="${esc(v.last_name||'')}"></label>
+    <label>Work email<input name="email" type="email" autocomplete="email" required value="${esc(v.email||'')}"></label>
+    <label>Company<input name="company" autocomplete="organization" required value="${esc(v.company||'')}"></label>
+    <label class="full">Annual revenue (optional)<select name="revenue"><option value="">Select a range</option>${['Under $1M','$1M–$3M','$3M–$5M','$5M–$10M','Over $10M'].map(r=>`<option${v.revenue===r?' selected':''}>${r}</option>`).join('')}</select></label>
+    <p class="consent">By continuing you agree that Automate2Scale may email you about your results and related services. You can unsubscribe at any time. We never sell your details.</p>
+    <div class="qnav full" style="grid-column:1/-1"><button class="btn ghost" type="button" id="qBack">← Back</button><span class="hint" id="qHint"></span><button class="btn" type="submit" id="qSend">See my results →</button></div>
+  </form>`;
+  document.getElementById('qBack').onclick=()=>{step=2;renderQ();updSide();qp.scrollIntoView({block:'start'})};
+  const f=document.getElementById('leadForm');
+  f.addEventListener('input',e=>{if(e.target.getAttribute('aria-invalid')==='true')e.target.setAttribute('aria-invalid','false')});
+  f.onsubmit=e=>{
+    e.preventDefault();
+    const d=Object.fromEntries(new FormData(f).entries());Object.keys(d).forEach(k=>d[k]=d[k].trim());
+    let bad=null;
+    [['first_name',!d.first_name],['email',!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)],['company',!d.company]].forEach(([n,x])=>{const el=f.elements[n];el.setAttribute('aria-invalid',x);if(x&&!bad)bad=el});
+    if(bad){document.getElementById('qHint').textContent=bad.name==='email'?'Enter a valid work email.':'Fill in the required fields.';bad.focus();return}
+    lead=d;const r=results();
+    const payload={...d,full_name:(d.first_name+' '+d.last_name).trim(),
+      score_overall:r.ov,score_align:r.ps[0],score_automate:r.ps[1],score_accelerate:r.ps[2],
+      primary_constraint:r.names[r.lo],recommendation:r.rec[0].replace(/™/g,''),recommendation_price:r.rec[2],
+      answers:ans.map((a,i)=>r.names[i]+': '+a.join(',')).join(' | '),
+      source:'A3 Readiness Scorecard',page_url:location.href,submitted_at:new Date().toISOString()};
+    if(WEBHOOK){try{fetch(WEBHOOK,{method:'POST',mode:'no-cors',body:new URLSearchParams(payload),keepalive:true}).catch(()=>{})}catch(err){}}
+    try{window.dataLayer&&window.dataLayer.push({event:'scorecard_lead',score:r.ov})}catch(err){}
+    step=4;renderQ();updSide();qp.scrollIntoView({block:'start'});
+  };
+}
+function score(a){return Math.round((a.reduce((s,x)=>s+x,0)-5)/20*100)}
+function renderR(){
+  const {ps,ov,lo,names,rec}=results();
+  const cdesc=["Leadership. Priorities, ownership and meeting rhythm are not yet carrying the weight, so decisions keep routing back to you.","Revenue infrastructure. Leads, follow-up and reporting depend on people remembering, so revenue comes in waves.","Execution capacity. The foundation may be sound, but the team is maxed out and routine work is still manual."];
   const C=2*Math.PI*56;
-  qp.innerHTML=`<div class="qh"><span class="label">Your A³ Readiness Score</span><h2 class="h3">Here is where the business stands today.</h2></div>
+  qp.innerHTML=`<div class="qh"><span class="label">Your A³ Readiness Score</span><h2 class="h3">${lead?esc(lead.first_name)+', here':'Here'} is where the business stands today.</h2></div>
   <div class="res-top"><div class="dial"><svg viewBox="0 0 132 132"><circle class="bg" cx="66" cy="66" r="56"/><circle class="fg" id="dialFg" cx="66" cy="66" r="56" stroke-dasharray="${C}" stroke-dashoffset="${C}"/></svg><b>${ov}</b></div>
   <div class="pbars">${ps.map((p,i)=>`<div class="pb" style="--c:var(--${Q[i].c})"><span>${['A¹','A²','A³'][i]} ${names[i]}</span><div class="t"><i data-w="${p}"></i></div><b>${p}</b></div>`).join('')}</div></div>
   <div class="constraint"><span class="minih">Primary constraint · ${names[lo]}</span><p style="color:var(--ink)">${cdesc[lo]}</p></div>
   <div class="diag" style="box-shadow:none;background:var(--panel);border:0"><span class="diag-h">Recommended next step</span><h3 class="h3">${rec[0]}</h3><p class="muted">${rec[1]}</p><span class="mono" style="color:var(--blue);font-weight:600">${rec[2]}</span><div class="acts"><a class="btn" href="${rec[3]}">Take the next step →</a><button class="btn ghost" type="button" id="copyRes">Copy my results</button></div></div>
-  <div class="qnav"><button class="btn ghost sm" type="button" id="qRedo">Retake the scorecard</button><span class="hint">Email your copied results to mark@automate2scale.io to get the full PDF report.</span></div>`;
+  <div class="qnav"><button class="btn ghost sm" type="button" id="qRedo">Retake the scorecard</button><span class="hint">${lead?`A copy is on its way to ${esc(lead.email)}.`:""}</span></div>`;
   requestAnimationFrame(()=>{document.getElementById('dialFg').style.strokeDashoffset=C*(1-ov/100);qp.querySelectorAll('.pb i').forEach(i=>i.style.width=i.dataset.w+'%')});
-  document.getElementById('qRedo').onclick=()=>{ans.forEach(a=>a.fill(0));step=0;renderQ();updSide()};
+  document.getElementById('qRedo').onclick=()=>{ans.forEach(a=>a.fill(0));step=0;lead=null;renderQ();updSide()};
   const cr=document.getElementById('copyRes');cr.onclick=()=>{const t=`A³ Readiness Score: ${ov}/100\nAlign ${ps[0]} · Automate ${ps[1]} · Accelerate ${ps[2]}\nPrimary constraint: ${names[lo]}\nRecommended: ${rec[0]}`;try{navigator.clipboard.writeText(t).then(()=>{cr.textContent='Copied'},()=>{cr.textContent='Copy not available here'})}catch(e){cr.textContent='Copy not available here'}};
 }
 renderQ();updSide();
