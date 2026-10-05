@@ -494,6 +494,13 @@ tr:last-child td{border-bottom:0}
 .starthere .sh-txt{flex:1;min-width:240px;font-size:15.5px;color:var(--ink-2)}
 .starthere .sh-txt b{color:var(--ink)}
 .starthere .sh-go{font-weight:700;font-size:15px;color:var(--blue);white-space:nowrap}
+.opts{display:grid;gap:8px}
+.opt{display:grid;grid-template-columns:1fr auto;gap:2px 12px;padding:10px 12px;border:1px solid var(--rule);border-radius:6px;background:var(--paper,#fff)}
+.opt.rec{border-color:var(--blue);box-shadow:inset 3px 0 0 var(--blue)}
+.opt .ot{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:14.5px;color:var(--ink)}
+.opt .orec{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#fff;background:var(--blue);padding:2px 6px;border-radius:3px}
+.opt .op{font-weight:700;font-size:14.5px;color:var(--blue);white-space:nowrap}
+.opt .od{grid-column:1/-1;font-size:13px;color:var(--ink-2)}
 /* scorecard */
 .sc{display:grid;grid-template-columns:320px 1fr;gap:clamp(24px,4vw,48px);align-items:start}
 .sc>*{min-width:0}
@@ -845,7 +852,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <div class="wrap">
       <div class="head"><span class="label">Before you start</span><h2 class="h2">Questions founders ask first.</h2></div>
       <div class="faq">
-        <details><summary>What does it cost?</summary><div class="a">The Strategy Session is complimentary for qualified prospects. The Blueprint & Roadmap is $2,497, and 100% of it is credited toward the System Install if you proceed within 30 days. The System Install starts at $4,997 a month as a 6-month program, and System Support starts at $1,997 a month. If you only need the CRM working now, the CRM Track starts at $297 a month.</div></details>
+        <details><summary>What does it cost?</summary><div class="a">The Strategy Session is complimentary for qualified prospects. The Blueprint & Roadmap is $2,497, and 100% of it is credited toward the System Install if you proceed within 30 days. The System Install is a 6-month program with three options: $4,997, $6,997 (recommended) or $9,997 a month. System Support is $1,997 or $2,997 a month, and Revenue Partner starts at $5,000 a month plus a share of growth. If you only need the CRM working now, the CRM Track starts at $297 a month.</div></details>
         <details><summary>How much of my time will this take?</summary><div class="a">Less than you are spending today chasing updates. You and your leadership team join the working sessions and the weekly meeting rhythm; we do the design, the build and the automation. The point of the system is to take work off your plate, not add to it.</div></details>
         <details><summary>What if we are not a fit?</summary><div class="a">Then we will tell you on the first call. You still leave the Strategy Session with a Constraint Confirmation Brief and a documented next step, so the 30 minutes pays for itself either way.</div></details>
         <details><summary>Why not hire an EOS Implementer and a CRM agency separately?</summary><div class="a">You can. The risk is that strategy and technology stay separate: one team clarifies priorities, another builds tools, and your company is left to connect the two. We integrate operating rhythm, revenue process, CRM, automation, reporting and AI into one installed system.</div></details>
@@ -1505,11 +1512,13 @@ const STAGES=[
   format:"Executive working sessions",outcome:"You know exactly what to build, in what order, who owns it, and how success will be measured.",fine:"100% of the $2,497 is credited toward the System Install if you proceed within 30 days.",cta:["Talk about a Blueprint","#session"],next:"The plan is set. Now we build it with you."},
  {n:"03",name:"System Install",full:"A³ System Install™",q:"Can you build it with us?",price:"From $4,997/mo",priceSub:"6-month program",tag:"Main offer",kind:"core",
   groups:[["Align","al",["V/TO completed with AI support: core focus, 3-year picture, 1-year plan, issues list","Accountability Chart: every seat, owner and decision right","Quarterly Rocks with owners, milestones and a definition of done","Weekly Level 10 system run in Ninety.io","Monthly executive reviews and quarterly planning"]],["Automate","au",["CRM and pipeline installation: migration, pipelines, calendars, forms, landing pages","Workflow installation: instant lead response, routing, no-show and proposal follow-up, onboarding, reactivation, reviews, referrals","Revenue visibility dashboards: leads, appointments, conversion, pipeline value, attribution"]],["Accelerate","ac",["AI Employees: receptionist, speed-to-lead, appointment setter, follow-up and reactivation, review agent","Campaign engine: segmentation, email, LinkedIn, call tasks, lead scoring","Sales enablement: discovery, qualification, objection handling, call scorecard"]]],
-  format:"Done-with-you 6-month program: install in the first 90 days, then optimize, train and hand off in the second",outcome:"The business runs from one connected system instead of owner memory: clear ownership, visible performance, less reliance on you.",fine:"Three options: A³ Automate Install, Full A³ Install (recommended), or A³ Install + Fractional Integrator. Pay monthly or in full.",cta:["Talk about an install","#session"],next:"Once installed, keep it sharp."},
+  format:"Done-with-you 6-month program: install in the first 90 days, then optimize, train and hand off in the second",outcome:"The business runs from one connected system instead of owner memory: clear ownership, visible performance, less reliance on you.",opts:[["A³ Automate Install","$4,997/mo","CRM, workflows and dashboards"],["Full A³ Install","$6,997/mo","Align + Automate + Accelerate","Recommended"],["A³ Install + Fractional Integrator","$9,997/mo","Full install, with Mark in the Integrator seat"]],
+  fine:"Each option runs 6 months. Pay monthly, or pay in full at a discount.",cta:["Talk about an install","#session"],next:"Once installed, keep it sharp."},
  {n:"04",name:"System Support",full:"A³ System Support™",q:"Can you keep it working?",price:"From $1,997/mo",tag:"Ongoing",kind:"cont",
   list:["CRM hosting and 24/7 technical support","Workflow monitoring and optimization","Monthly system-health review covering adoption and workflow performance","Controlled automation adjustments, approved before any live change","AI-agent access, with expanded AI team access available","Quarterly A³ maturity rescore"],
-  format:"Monthly retainer that begins when your install ends",outcome:"The system you installed stays sharp and never goes stale.",next:"When you want executive leadership on growth itself."},
- {n:"05",name:"Revenue Partner",full:"A³ Revenue Partner™",q:"Can you help lead and improve it?",price:"Retainer + rev share",tag:"Fractional CGO",kind:"cont",
+  opts:[["System Support","$1,997/mo","Hosting, 24/7 support, monitoring and optimization"],["System Support + AI Team","$2,997/mo","Everything in Support, plus expanded AI team access"]],
+  format:"Monthly retainer that begins automatically when your install ends",outcome:"The system you installed stays sharp and never goes stale.",next:"When you want executive leadership on growth itself."},
+ {n:"05",name:"Revenue Partner",full:"A³ Revenue Partner™",q:"Can you help lead and improve it?",price:"From $5,000/mo",priceSub:"+ share of growth",tag:"Fractional CGO",kind:"cont",
   list:["Executive growth leadership and leadership-team facilitation","An approved executive mandate: meeting cadence, priorities, decision rights","Weekly or quarterly strategy meetings with KPI reviews","Scorecard refinement and revenue accountability","AI and automation prioritization","Board or owner reporting tied to enterprise value and owner freedom"],
   format:"Ongoing monthly engagement",outcome:"Executive-level growth leadership, so you can scale without hiring another full-time executive.",fine:"The revenue share applies only to growth above a written starting baseline, so our incentives stay tied to your results."}
 ];
@@ -1534,6 +1543,7 @@ STAGES.forEach((st,i)=>{
    <div class="id"><span class="num">STAGE ${st.n}</span><h3>${st.full}</h3><span class="tag ${st.kind}">${st.tag}</span><p class="q"><small>The question it answers</small>${st.q}</p></div>
    <div class="get">${get}</div>
    <div class="meta"><dl><div><dt>Format</dt><dd>${st.format}</dd></div><div><dt>Investment</dt><dd class="price">${st.price}${st.priceSub?' <span class="muted" style="font-size:13px">· '+st.priceSub+'</span>':''}</dd></div></dl>
+   ${st.opts?`<div class="opts">${st.opts.map(o=>`<div class="opt${o[3]?' rec':''}"><div class="ot"><b>${o[0]}</b>${o[3]?`<span class="orec">${o[3]}</span>`:''}</div><span class="op">${o[1]}</span><span class="od">${o[2]}</span></div>`).join('')}</div>`:''}
    <div><span class="minih">Your outcome</span><p class="outcome" style="margin-top:6px">${st.outcome}</p></div>
    ${st.fine?`<p class="fine">${st.fine}</p>`:''}
    ${st.cta?`<a class="btn sm" href="${st.cta[1]}">${st.cta[0]} →</a>`:`<a class="btn ghost sm" href="#session">Ask about this stage</a>`}</div>
