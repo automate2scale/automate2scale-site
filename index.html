@@ -487,6 +487,13 @@ tr:last-child td{border-bottom:0}
 .legal{max-width:760px;display:grid;gap:14px}
 .legal .h3{margin-top:18px}
 .legal p,.legal li{color:var(--ink-2);font-size:16px;line-height:1.65}
+/* start-here bar */
+.starthere{display:flex;align-items:center;gap:16px 22px;flex-wrap:wrap;margin-bottom:16px;padding:16px 20px;background:var(--green-tint);border:1px solid var(--rule);border-left:4px solid var(--green);border-radius:6px;text-decoration:none;color:var(--ink);transition:box-shadow .18s ease}
+.starthere:hover{box-shadow:var(--sh2)}
+.starthere .sh-tag{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green);white-space:nowrap}
+.starthere .sh-txt{flex:1;min-width:240px;font-size:15.5px;color:var(--ink-2)}
+.starthere .sh-txt b{color:var(--ink)}
+.starthere .sh-go{font-weight:700;font-size:15px;color:var(--blue);white-space:nowrap}
 /* scorecard */
 .sc{display:grid;grid-template-columns:320px 1fr;gap:clamp(24px,4vw,48px);align-items:start}
 .sc>*{min-width:0}
@@ -959,10 +966,17 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <h1 class="h1">We install a system that <em>runs without you.</em></h1>
     <p class="lede">Your business grew because you carried it. That same habit is now the ceiling. Here is how we work with owner-led companies, one clear step at a time, so you always know what you are deciding and what you get.</p>
     <div class="acts"><a class="btn" href="#scorecard">Get My Free Readiness Score <span class="ar">→</span></a><a class="btn ghost" href="#finder">Find your starting point</a></div>
-    <p class="microline">The free Readiness Score takes 10 minutes and tells you which stage fits</p>
+    <p class="microline">The free Readiness Score takes less than 10 minutes and tells you which stage fits</p>
   </div></section>
 
-  <section class="sec tight"><div class="wrap"><div class="track" data-staircase></div></div></section>
+  <section class="sec tight"><div class="wrap">
+    <a class="starthere" href="#scorecard">
+      <span class="sh-tag">Start here · Free</span>
+      <span class="sh-txt"><b>Not sure where you fit?</b> Take the free A³ Readiness Score. It takes less than 10 minutes and qualifies you for a complimentary Strategy Session.</span>
+      <span class="sh-go">Get My Free Readiness Score <span class="ar">→</span></span>
+    </a>
+    <div class="track" data-staircase></div>
+  </div></section>
 
   <section class="sec" style="padding-top:0"><div class="wrap"><div class="stages" id="stages"></div></div></section>
 
