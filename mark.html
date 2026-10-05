@@ -556,6 +556,12 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
 .bk-body{padding:8px 16px 16px;overflow:auto}
 .bk-fallback{display:grid;gap:12px;justify-items:start;padding:28px 10px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+.mk-hero{padding-block:clamp(20px,3vw,36px) clamp(36px,5vw,64px)}
+.mk-hero .wrap{gap:16px}
+.mk-head{display:grid;gap:8px;max-width:760px}
+.mk-head .muted{font-size:15.5px}
+.mk-cal{padding:clamp(8px,1.5vw,16px)}
+@media (max-width:600px){.mk-hero .h2{font-size:28px}}
 </style>
 </head>
 <body>
@@ -583,21 +589,18 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
   </div>
 </header>
 <main>
-  <section class="phero"><div class="wrap">
-    <span class="label">Private booking · By invitation</span>
-    <h1 class="h1">Pick a time with <em>Mark.</em></h1>
-    <p class="lede">This calendar is for people Mark has invited directly. Choose the time that works best for you. You will get a confirmation with everything you need before we meet.</p>
-  </div></section>
-  <section class="sec">
-    <div class="wrap">
-      <div class="diag" style="gap:14px">
-        <span class="diag-h">Book your time with Mark Cupp</span>
-        <iframe src="https://link.automate2scale.io/widget/booking/nLfDZ3T9hVMKSUP1ZQAI" allow="payment" style="width:100%;border:none;overflow:hidden;min-height:680px" scrolling="no" id="k0yRIZSEs4DWHkZxn5MU_1791174987173" title="Book time with Mark Cupp"></iframe>
-        <script src="https://link.automate2scale.io/js/form_embed.js" type="text/javascript"></script>
-      </div>
-      <p class="microline" style="margin-top:18px">Questions before you book? Email <a href="mailto:mark@automate2scale.io">mark@automate2scale.io</a>.</p>
+  <section class="phero mk-hero"><div class="wrap">
+    <div class="mk-head">
+      <span class="label">Private booking · By invitation</span>
+      <h1 class="h2">Pick a time with <em style="font-style:normal;color:var(--blue)">Mark.</em></h1>
+      <p class="muted">Choose the time that works best. You will get a confirmation with everything you need before we meet.</p>
     </div>
-  </section>
+    <div class="diag mk-cal">
+      <iframe src="https://link.automate2scale.io/widget/booking/nLfDZ3T9hVMKSUP1ZQAI" allow="payment" style="width:100%;border:none;overflow:hidden;min-height:680px" scrolling="no" id="k0yRIZSEs4DWHkZxn5MU_1791174987173" title="Book time with Mark Cupp"></iframe>
+      <script src="https://link.automate2scale.io/js/form_embed.js" type="text/javascript"></script>
+    </div>
+    <p class="microline">Questions before you book? Email <a href="mailto:mark@automate2scale.io">mark@automate2scale.io</a>.</p>
+  </div></section>
 </main>
 <footer>
   <div class="wrap">
