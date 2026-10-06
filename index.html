@@ -13,12 +13,13 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@500;600&display=swap">
 <style>
-/* Layout: a precision operating manual. Sticky brand header, hash-routed pages, white/mist sections punctuated by deep ink-navy bands; pillar colors (navy · blue · green) are the only visual system. */
+/* Layout: a precision operating manual. Sticky brand header, hash-routed pages, white/mist sections punctuated by deep ink-navy bands; A³ pillar colors (Align blue · Automate green · Accelerate grey) are the only visual system. */
 :root{
   color-scheme:light;
   --ground:#F3F5F7;--mist:#F7FAFC;--paper:#FFFFFF;--panel:#EBEFF3;--tint:#E6F0F6;--green-tint:#EAF3E2;
   --ink:#131C24;--ink-2:#3E4C57;--ink-3:#6C7C88;--rule:#D7DEE4;--rule-2:#E6EBEF;
   --blue:#005B8E;--navy:#003D70;--green:#388E00;--grey:#666666;--on-blue:#FFFFFF;
+  --al:#005488;--au:#388E00;--ac:#646464;
   --band:#082437;--band-2:#0D2E46;--band-ink:#E6ECF1;--band-ink-2:#AEBCC6;--band-rule:rgba(255,255,255,.14);--band-accent:#7FBBDE;--band-green:#8CC85F;
   --sh1:0 1px 3px rgba(0,61,112,.07);--sh2:0 16px 40px rgba(0,61,112,.13);
   --display:"Archivo","Arial Narrow",Arial,sans-serif;
@@ -32,6 +33,7 @@
   --ground:#101820;--mist:#131D27;--paper:#16202A;--panel:#1B2530;--tint:#10293A;--green-tint:#18270F;
   --ink:#E6ECF1;--ink-2:#AEBCC6;--ink-3:#7C8B96;--rule:#27333D;--rule-2:#1E2831;
   --blue:#7FBBDE;--navy:#A9CFE8;--green:#8CC85F;--grey:#A0AEB8;--on-blue:#0D1620;
+  --al:#7FBBDE;--au:#8CC85F;--ac:#A0AEB8;
   --band:#0A1620;--band-2:#0F2233;
   --sh1:0 1px 3px rgba(0,0,0,.3);--sh2:0 16px 40px rgba(0,0,0,.42);
   --logo-bg:#FFFFFF;--logo-sh:0 1px 3px rgba(0,0,0,.3);--logo-pad:9px 14px;
@@ -41,6 +43,7 @@
   --ground:#101820;--mist:#131D27;--paper:#16202A;--panel:#1B2530;--tint:#10293A;--green-tint:#18270F;
   --ink:#E6ECF1;--ink-2:#AEBCC6;--ink-3:#7C8B96;--rule:#27333D;--rule-2:#1E2831;
   --blue:#7FBBDE;--navy:#A9CFE8;--green:#8CC85F;--grey:#A0AEB8;--on-blue:#0D1620;
+  --al:#7FBBDE;--au:#8CC85F;--ac:#A0AEB8;
   --band:#0A1620;--band-2:#0F2233;
   --sh1:0 1px 3px rgba(0,0,0,.3);--sh2:0 16px 40px rgba(0,0,0,.42);
   --logo-bg:#FFFFFF;--logo-sh:0 1px 3px rgba(0,0,0,.3);--logo-pad:9px 14px;
@@ -165,12 +168,12 @@ button{font:inherit}
 .nd .ping{position:absolute;top:-4px;right:-4px;width:9px;height:9px;border-radius:50%;background:#A8321F;box-shadow:0 0 0 3px var(--paper)}
 .stack{display:flex;flex-direction:column;gap:10px;justify-content:center;height:100%}
 .lead{align-self:flex-start;background:var(--navy);color:var(--paper);font-family:var(--display);font-weight:700;font-size:14px;padding:10px 15px;border-radius:3px}
-.layer{border:1px solid var(--rule);border-left:4px solid var(--navy);border-radius:3px;padding:12px 14px;display:grid;grid-template-columns:auto 1fr;gap:2px 12px;align-items:baseline;background:var(--paper);transform:translateY(0);transition:transform .4s ease,opacity .4s ease}
+.layer{border:1px solid var(--rule);border-left:4px solid var(--al);border-radius:3px;padding:12px 14px;display:grid;grid-template-columns:auto 1fr;gap:2px 12px;align-items:baseline;background:var(--paper);transform:translateY(0);transition:transform .4s ease,opacity .4s ease}
 .layer b{font-family:var(--display);font-size:15px;font-weight:700}
 .layer span{grid-column:1/-1;font-size:13px;color:var(--ink-3)}
 .layer small{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);letter-spacing:.08em;text-transform:uppercase;justify-self:end}
-.layer.l2{border-left-color:var(--blue)}
-.layer.l3{border-left-color:var(--green)}
+.layer.l2{border-left-color:var(--au)}
+.layer.l3{border-left-color:var(--ac)}
 .os-view[data-off] .layer{transform:translateY(10px);opacity:0}
 .os-view:not([data-off]) .layer.l2{transition-delay:.08s}
 .os-view:not([data-off]) .layer.l3{transition-delay:.16s}
@@ -218,7 +221,7 @@ button{font:inherit}
 .chip{font-size:12.5px;font-weight:600;padding:4px 10px;border-radius:999px;background:var(--panel);color:var(--ink-2)}
 .pillar .outp{margin-top:6px;border-top:1px solid var(--rule-2);padding-top:12px;font-size:13.5px;font-weight:700;color:var(--ink)}
 .pillar .outp span{font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);display:block;font-weight:600}
-.p-al{--c:var(--navy)}.p-au{--c:var(--blue)}.p-ac{--c:var(--green)}
+.p-al{--c:var(--al)}.p-au{--c:var(--au)}.p-ac{--c:var(--ac)}
 .order-note{margin-top:18px;font-size:15px;color:var(--ink-2)}
 .order-note b{color:var(--ink)}
 @media (max-width:900px){.spine{grid-template-columns:1fr}.pillar{border-right:0;border-bottom:1px solid var(--rule-2)}.pillar:last-child{border-bottom:0}}
@@ -266,7 +269,7 @@ button{font:inherit}
 .g4{display:grid;grid-template-columns:repeat(4,1fr);gap:28px}
 .g3{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
 .g2{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-.oc{border-top:2px solid var(--c,var(--navy));padding-top:18px;display:grid;gap:8px;align-content:start}
+.oc{border-top:2px solid var(--c,var(--al));padding-top:18px;display:grid;gap:8px;align-content:start}
 .oc p{color:var(--ink-3);font-size:15px}
 .wordline{margin-top:clamp(40px,5vw,64px);display:flex;flex-wrap:wrap;gap:4px 20px;font-family:var(--display);font-weight:760;font-stretch:76%;font-size:clamp(24px,3.4vw,44px);line-height:1.1;color:var(--ink-3)}
 .wordline span:nth-child(odd){color:var(--ink)}
@@ -332,7 +335,7 @@ button{font:inherit}
 .blist li::before{content:"";position:absolute;left:0;top:.62em;width:7px;height:7px;border-radius:1px;background:var(--bc,var(--blue))}
 .blist li b{color:var(--ink);font-weight:650}
 .sub{font-family:var(--display);font-weight:700;font-size:14.5px;margin-top:8px}
-.sub.al{color:var(--navy)}.sub.au{color:var(--blue)}.sub.ac{color:var(--green)}
+.sub.al{color:var(--al)}.sub.au{color:var(--au)}.sub.ac{color:var(--ac)}
 .stage .meta{padding:26px;background:var(--panel);display:grid;gap:16px;align-content:start}
 .meta dl{margin:0;display:grid;gap:14px}
 .meta dt{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-3)}
@@ -391,17 +394,17 @@ button{font:inherit}
 .diag-h{font-family:var(--mono);font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3);font-weight:600}
 .org{display:grid;gap:10px;justify-items:center}
 .org .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;width:100%}
-.ob{border:1px solid var(--rule);border-top:3px solid var(--navy);border-radius:3px;padding:9px 12px;font-size:13px;background:var(--paper);min-width:120px;flex:1;max-width:190px;display:grid;gap:2px}
+.ob{border:1px solid var(--rule);border-top:3px solid var(--al);border-radius:3px;padding:9px 12px;font-size:13px;background:var(--paper);min-width:120px;flex:1;max-width:190px;display:grid;gap:2px}
 .ob b{font-family:var(--display);font-size:14px}
 .ob span{font-size:12px;color:var(--ink-3)}
-.ob.top{background:var(--navy);color:var(--paper);border-color:var(--navy)}
+.ob.top{background:var(--al);color:var(--paper);border-color:var(--al)}
 .ob.top b{color:var(--paper)}.ob.top span{color:var(--paper);opacity:.8}
 .vline{width:2px;height:14px;background:var(--rule)}
 .flow{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
-.fs{border:1px solid var(--rule);border-radius:3px;padding:10px 8px;text-align:center;font-size:12.5px;font-weight:700;color:var(--ink);background:var(--tint);position:relative}
+.fs{border:1px solid var(--rule);border-radius:3px;padding:10px 8px;text-align:center;font-size:12.5px;font-weight:700;color:var(--ink);background:var(--green-tint);position:relative}
 .fs small{display:block;font-family:var(--mono);font-size:10px;font-weight:500;color:var(--ink-3);margin-top:2px}
 .autos{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
-.autos span{font-size:11.5px;color:var(--blue);text-align:center;border-top:2px dotted var(--blue);padding-top:6px;line-height:1.3}
+.autos span{font-size:11.5px;color:var(--au);text-align:center;border-top:2px dotted var(--au);padding-top:6px;line-height:1.3}
 .dash{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .kpi{background:var(--panel);border-radius:3px;padding:10px;display:grid;gap:2px}
 .kpi b{font-family:var(--mono);font-size:17px;color:var(--ink);font-variant-numeric:tabular-nums}
@@ -630,8 +633,6 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
 <link rel="icon" href="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/3UbxqX8zLDM4QvDExPHM/media/6a0955a82e98e28fa1547b2b.png">
 </head>
 <body>
-
-
 <header class="top">
   <div class="wrap">
     <a class="plaque" href="#home" aria-label="Automate2Scale home"><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/3UbxqX8zLDM4QvDExPHM/media/6a0955a82e98e28fa1547b2b.png" alt="Automate2Scale"></a>
@@ -855,9 +856,9 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
         <h2 class="h2">Less founder pull. More visible execution.</h2>
       </div>
       <div class="g4">
-        <div class="oc" style="--c:var(--navy)"><h3 class="h4">Leadership clarity</h3><p>Your team knows what matters, who owns it, and how progress is measured.</p></div>
-        <div class="oc" style="--c:var(--blue)"><h3 class="h4">Revenue visibility</h3><p>Leads, pipeline, follow-up, appointments and conversion in one place.</p></div>
-        <div class="oc" style="--c:var(--green)"><h3 class="h4">Execution capacity</h3><p>Automation and AI remove manual work so people focus on decisions, relationships and delivery.</p></div>
+        <div class="oc" style="--c:var(--al)"><h3 class="h4">Leadership clarity</h3><p>Your team knows what matters, who owns it, and how progress is measured.</p></div>
+        <div class="oc" style="--c:var(--au)"><h3 class="h4">Revenue visibility</h3><p>Leads, pipeline, follow-up, appointments and conversion in one place.</p></div>
+        <div class="oc" style="--c:var(--ac)"><h3 class="h4">Execution capacity</h3><p>Automation and AI remove manual work so people focus on decisions, relationships and delivery.</p></div>
         <div class="oc" style="--c:var(--grey)"><h3 class="h4">Founder leverage</h3><p>Less time chasing updates. More time leading the business.</p></div>
       </div>
     </div>
@@ -910,10 +911,10 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <div class="wrap pdeep p-al">
       <div class="txt">
         <span class="big">A<sup>1</sup></span>
-        <span class="label" style="color:var(--navy)">Align · Leadership</span>
+        <span class="label" style="color:var(--al)">Align · Leadership</span>
         <h2 class="h2">A leadership rhythm your team runs without you.</h2>
         <div class="body"><p>Most owner-led companies have talented people and unclear seats. We install the structure that moves decisions to the right level: a clear vision, one owner per function, quarterly priorities and a weekly scorecard the team actually reviews.</p></div>
-        <ul class="blist" style="--bc:var(--navy)"><li><b>V/TO</b> completed with AI support: core focus, 3-year picture, 1-year plan</li><li><b>Accountability Chart:</b> every seat, owner and decision right</li><li><b>Quarterly Rocks</b> with owners, milestones and a definition of done</li><li><b>Weekly Level 10</b> meetings run in Ninety.io</li></ul>
+        <ul class="blist" style="--bc:var(--al)"><li><b>V/TO</b> completed with AI support: core focus, 3-year picture, 1-year plan</li><li><b>Accountability Chart:</b> every seat, owner and decision right</li><li><b>Quarterly Rocks</b> with owners, milestones and a definition of done</li><li><b>Weekly Level 10</b> meetings run in Ninety.io</li></ul>
         <a class="textlink" href="#align">Why an operating system comes first →</a>
       </div>
       <div class="diag" aria-label="Example accountability chart">
@@ -948,7 +949,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
       </div>
       <div class="txt">
         <span class="big">A<sup>2</sup></span>
-        <span class="label">Automate · Revenue</span>
+        <span class="label" style="color:var(--au)">Automate · Revenue</span>
         <h2 class="h2">Every lead captured, followed up and reported.</h2>
         <div class="body"><p>We connect marketing, sales, follow-up, appointments, pipeline and reporting into one revenue system, designed around how your buyers actually move, then automate every handoff that used to rely on someone's memory.</p></div>
         <ul class="blist"><li><b>CRM and pipeline installation:</b> data migration, calendars, forms, landing pages, permissions</li><li><b>Workflow installation:</b> lead response, routing, reminders, proposal follow-up, reactivation, reviews, referrals</li><li><b>Revenue dashboards:</b> leads, appointments, conversion, pipeline value and attribution</li></ul>
@@ -960,10 +961,10 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <div class="wrap pdeep p-ac">
       <div class="txt">
         <span class="big">A<sup>3</sup></span>
-        <span class="label" style="color:var(--green)">Accelerate · Capacity</span>
+        <span class="label" style="color:var(--ac)">Accelerate · Capacity</span>
         <h2 class="h2">AI employees on top of a system that works.</h2>
         <div class="body"><p>Once ownership is clear and the revenue engine is connected, AI has something solid to amplify. We deploy AI employees inside your pipeline so your team does more with the same headcount, with people approving anything that matters.</p></div>
-        <ul class="blist" style="--bc:var(--green)"><li><b>Campaign engine:</b> segmentation, email, LinkedIn, call tasks and lead scoring</li><li><b>Sales enablement:</b> discovery questions, qualification, objection handling, call scorecard</li></ul>
+        <ul class="blist" style="--bc:var(--ac)"><li><b>Campaign engine:</b> segmentation, email, LinkedIn, call tasks and lead scoring</li><li><b>Sales enablement:</b> discovery questions, qualification, objection handling, call scorecard</li></ul>
         <a class="textlink" href="#accelerate">Meet the 44-specialist AI workforce behind it →</a>
       </div>
       <div class="diag" aria-label="Example AI employees">
@@ -1058,9 +1059,9 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
         <div class="body"><p>The leads come in. Then they wait in an inbox, depend on someone remembering, or disappear between tools that do not talk to each other.</p></div>
       </div>
       <div class="g4">
-        <div class="oc" style="--c:var(--navy)"><span class="mono">01</span><h3 class="h4">Slow response</h3><p>High-intent leads cool off while the team routes messages by hand and searches disconnected inboxes.</p></div>
-        <div class="oc" style="--c:var(--blue)"><span class="mono">02</span><h3 class="h4">Missed follow-up</h3><p>Opportunities stall when the next step depends on memory, sticky notes and manual reminders.</p></div>
-        <div class="oc" style="--c:var(--green)"><span class="mono">03</span><h3 class="h4">Tool fragmentation</h3><p>Context gets lost switching between systems that never share one complete customer record.</p></div>
+        <div class="oc" style="--c:var(--al)"><span class="mono">01</span><h3 class="h4">Slow response</h3><p>High-intent leads cool off while the team routes messages by hand and searches disconnected inboxes.</p></div>
+        <div class="oc" style="--c:var(--au)"><span class="mono">02</span><h3 class="h4">Missed follow-up</h3><p>Opportunities stall when the next step depends on memory, sticky notes and manual reminders.</p></div>
+        <div class="oc" style="--c:var(--ac)"><span class="mono">03</span><h3 class="h4">Tool fragmentation</h3><p>Context gets lost switching between systems that never share one complete customer record.</p></div>
         <div class="oc" style="--c:var(--grey)"><span class="mono">04</span><h3 class="h4">Limited visibility</h3><p>You cannot improve what you cannot see across pipeline, conversion, activity and revenue.</p></div>
       </div>
     </div>
@@ -1127,7 +1128,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
 <div class="page" data-page="align" hidden>
   <section class="phero"><div class="wrap">
     <span class="crumb"><a href="#home">Home</a> / Align</span>
-    <span class="label" style="color:var(--navy)">A³ Align™ · Leadership &amp; operating system</span>
+    <span class="label" style="color:var(--al)">A³ Align™ · Leadership &amp; operating system</span>
     <h1 class="h1">Your business can only grow as fast as <em>the way it runs.</em></h1>
     <p class="lede">Most owner-led companies hit a ceiling that has nothing to do with demand. Decisions route back to the founder, priorities shift every week and nobody owns the numbers. Align installs a business operating system, led by Mark Cupp, who holds the EOS® Integrator Certification. Your leadership team runs the company, and you get your time back.</p>
     <div class="acts"><a class="btn" href="#scorecard">Get My Free Readiness Score <span class="ar">→</span></a><a class="btn ghost" href="#session">Book a Strategy Session</a></div>
@@ -1170,12 +1171,12 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
         <div class="body"><p>EOS® organizes a business around six key components. Align strengthens each one with simple, practical tools your team uses every week, not a binder on a shelf.</p></div>
       </div>
       <div class="g3 six">
-        <div class="oc" style="--c:var(--navy)"><span class="mono">01 · Vision</span><h3 class="h4">Everyone sees the same future</h3><p>Core values, core focus, a 10-year target, 3-year picture and 1-year plan on one page: the Vision/Traction Organizer™.</p></div>
-        <div class="oc" style="--c:var(--blue)"><span class="mono">02 · People</span><h3 class="h4">Right people, right seats</h3><p>An Accountability Chart with one owner per function, and people who share your values and fit their seat.</p></div>
-        <div class="oc" style="--c:var(--green)"><span class="mono">03 · Data</span><h3 class="h4">A weekly Scorecard</h3><p>5 to 15 numbers that tell you how the business is doing, with an owner and a goal for each.</p></div>
-        <div class="oc" style="--c:var(--navy)"><span class="mono">04 · Issues</span><h3 class="h4">Problems solved at the root</h3><p>One running list and a simple discipline: identify, discuss, solve. Issues get resolved, not revisited.</p></div>
-        <div class="oc" style="--c:var(--blue)"><span class="mono">05 · Process</span><h3 class="h4">Your way, documented</h3><p>The handful of core processes that make your company work, written down simply and followed by all.</p></div>
-        <div class="oc" style="--c:var(--green)"><span class="mono">06 · Traction®</span><h3 class="h4">Discipline and accountability</h3><p>Quarterly Rocks with clear owners, and a weekly Level 10 Meeting™ that keeps the whole team on track.</p></div>
+        <div class="oc" style="--c:var(--al)"><span class="mono">01 · Vision</span><h3 class="h4">Everyone sees the same future</h3><p>Core values, core focus, a 10-year target, 3-year picture and 1-year plan on one page: the Vision/Traction Organizer™.</p></div>
+        <div class="oc" style="--c:var(--au)"><span class="mono">02 · People</span><h3 class="h4">Right people, right seats</h3><p>An Accountability Chart with one owner per function, and people who share your values and fit their seat.</p></div>
+        <div class="oc" style="--c:var(--ac)"><span class="mono">03 · Data</span><h3 class="h4">A weekly Scorecard</h3><p>5 to 15 numbers that tell you how the business is doing, with an owner and a goal for each.</p></div>
+        <div class="oc" style="--c:var(--al)"><span class="mono">04 · Issues</span><h3 class="h4">Problems solved at the root</h3><p>One running list and a simple discipline: identify, discuss, solve. Issues get resolved, not revisited.</p></div>
+        <div class="oc" style="--c:var(--au)"><span class="mono">05 · Process</span><h3 class="h4">Your way, documented</h3><p>The handful of core processes that make your company work, written down simply and followed by all.</p></div>
+        <div class="oc" style="--c:var(--ac)"><span class="mono">06 · Traction®</span><h3 class="h4">Discipline and accountability</h3><p>Quarterly Rocks with clear owners, and a weekly Level 10 Meeting™ that keeps the whole team on track.</p></div>
       </div>
     </div>
   </section>
@@ -1183,13 +1184,13 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
   <section class="sec">
     <div class="wrap split" style="align-items:start">
       <div style="display:grid;gap:18px">
-        <span class="label" style="color:var(--navy)">The seat most companies are missing</span>
+        <span class="label" style="color:var(--al)">The seat most companies are missing</span>
         <h2 class="h2">Every Visionary needs an Integrator.</h2>
         <div class="body">
           <p>The Visionary sees the future, creates the ideas and builds the key relationships. The Integrator runs the business day to day: harmonizing the leadership team, holding people accountable and turning ideas into execution.</p>
           <p>When the two work together, EOS calls it Rocket Fuel™. Integrators are scarce: for every four Visionaries there is roughly one. Most owner-led companies have a Visionary doing both jobs, and that is exactly where growth stalls.</p>
         </div>
-        <ul class="blist" style="--bc:var(--navy)">
+        <ul class="blist" style="--bc:var(--al)">
           <li><b>Fractional Integrator:</b> Mark sits in the seat while your team builds the habit</li>
           <li><b>Integrator development:</b> we prepare an internal leader to own the seat for good</li>
         </ul>
@@ -1224,9 +1225,9 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <div class="wrap">
       <div class="head"><span class="label">How Align works</span><h2 class="h2">From founder-dependent to a team that runs itself.</h2></div>
       <div class="g4">
-        <div class="oc" style="--c:var(--navy)"><span class="mono">01</span><h3 class="h4">Diagnose</h3><p>The free Readiness Score and a Strategy Session confirm where leadership alignment is breaking down and what it costs.</p></div>
-        <div class="oc" style="--c:var(--blue)"><span class="mono">02</span><h3 class="h4">Clarify</h3><p>Set the vision on one page and build the Accountability Chart, so every seat has one owner.</p></div>
-        <div class="oc" style="--c:var(--green)"><span class="mono">03</span><h3 class="h4">Install the rhythm</h3><p>Quarterly Rocks, a weekly Scorecard and a weekly Level 10 Meeting™, run in Ninety.io.</p></div>
+        <div class="oc" style="--c:var(--al)"><span class="mono">01</span><h3 class="h4">Diagnose</h3><p>The free Readiness Score and a Strategy Session confirm where leadership alignment is breaking down and what it costs.</p></div>
+        <div class="oc" style="--c:var(--au)"><span class="mono">02</span><h3 class="h4">Clarify</h3><p>Set the vision on one page and build the Accountability Chart, so every seat has one owner.</p></div>
+        <div class="oc" style="--c:var(--ac)"><span class="mono">03</span><h3 class="h4">Install the rhythm</h3><p>Quarterly Rocks, a weekly Scorecard and a weekly Level 10 Meeting™, run in Ninety.io.</p></div>
         <div class="oc" style="--c:var(--grey)"><span class="mono">04</span><h3 class="h4">Integrate</h3><p>Mark holds the Integrator seat or hands it to your internal leader, then we connect it to Automate and Accelerate.</p></div>
       </div>
     </div>
@@ -1251,7 +1252,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
 <div class="page" data-page="accelerate" hidden>
   <section class="phero"><div class="wrap">
     <span class="crumb"><a href="#home">Home</a> / Accelerate</span>
-    <span class="label" style="color:var(--green)">A³ Accelerate™ · Your AI-assisted team</span>
+    <span class="label" style="color:var(--ac)">A³ Accelerate™ · Your AI-assisted team</span>
     <h1 class="h1">One team. <em>540+ business capabilities.</em></h1>
     <p class="lede">Add a coordinated AI workforce to any Automate2Scale product: 44 specialists across 11 departments, running more than 540 proven skills. Mark leads the team. Your people make the decisions. The work gets done faster.</p>
     <div class="acts"><a class="btn" href="#session">Book a Strategy Call <span class="ar">→</span></a><a class="btn ghost" href="#workforce">Meet Our AI Team <span class="ar">↓</span></a></div>
@@ -1271,9 +1272,9 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
       <div class="head"><span class="label">How the team works</span><h2 class="h2">More capacity without more chaos.</h2>
         <div class="body"><p>AI only accelerates what is already aligned and automated. That is why the workforce plugs into your operating system instead of sitting beside it as another tool.</p></div></div>
       <div class="g4">
-        <div class="oc" style="--c:var(--navy)"><h3 class="h4">Strategy before technology</h3><p>Every specialist supports a defined business outcome, never a shiny tool.</p></div>
-        <div class="oc" style="--c:var(--blue)"><h3 class="h4">Human-led decisions</h3><p>AI strengthens your leaders. People approve anything that matters.</p></div>
-        <div class="oc" style="--c:var(--green)"><h3 class="h4">Connected execution</h3><p>Specialists hand work across departments inside one system, with one source of truth.</p></div>
+        <div class="oc" style="--c:var(--al)"><h3 class="h4">Strategy before technology</h3><p>Every specialist supports a defined business outcome, never a shiny tool.</p></div>
+        <div class="oc" style="--c:var(--au)"><h3 class="h4">Human-led decisions</h3><p>AI strengthens your leaders. People approve anything that matters.</p></div>
+        <div class="oc" style="--c:var(--ac)"><h3 class="h4">Connected execution</h3><p>Specialists hand work across departments inside one system, with one source of truth.</p></div>
         <div class="oc" style="--c:var(--grey)"><h3 class="h4">Built for scale</h3><p>Repeatable playbooks replace founder memory, so growth stops depending on you.</p></div>
       </div>
     </div>
@@ -1295,7 +1296,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
   <section class="sec bg-ground">
     <div class="wrap split" style="align-items:start">
       <div style="display:grid;gap:18px">
-        <span class="label" style="color:var(--green)">Two kinds of AI capacity</span>
+        <span class="label" style="color:var(--ac)">Two kinds of AI capacity</span>
         <h2 class="h2">The workforce builds the system. AI employees run inside it.</h2>
         <div class="body"><p>The specialist team works with Mark on your strategy, offers, content, sales assets and operating rhythm. Once your revenue engine is connected, AI employees go to work inside the pipeline itself, answering, booking and following up around the clock.</p></div>
         <div class="acts"><a class="btn" href="#system">See how A³ fits together <span class="ar">→</span></a></div>
@@ -1336,9 +1337,9 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <div class="wrap">
       <div class="head"><span class="label">How we deploy it</span><h2 class="h2">The value is knowing which specialist to use, and when.</h2></div>
       <div class="g4">
-        <div class="oc" style="--c:var(--navy)"><span class="mono">01</span><h3 class="h4">Diagnose the challenge</h3><p>Find the root constraint, the department it lives in and the outcome that matters before choosing a solution.</p></div>
-        <div class="oc" style="--c:var(--blue)"><span class="mono">02</span><h3 class="h4">Assemble the right team</h3><p>Select the specialists and skills that fit the challenge, the workflow and the deliverables required.</p></div>
-        <div class="oc" style="--c:var(--green)"><span class="mono">03</span><h3 class="h4">Connect the systems</h3><p>Align strategy, people, CRM, automation and reporting so the work runs consistently.</p></div>
+        <div class="oc" style="--c:var(--al)"><span class="mono">01</span><h3 class="h4">Diagnose the challenge</h3><p>Find the root constraint, the department it lives in and the outcome that matters before choosing a solution.</p></div>
+        <div class="oc" style="--c:var(--au)"><span class="mono">02</span><h3 class="h4">Assemble the right team</h3><p>Select the specialists and skills that fit the challenge, the workflow and the deliverables required.</p></div>
+        <div class="oc" style="--c:var(--ac)"><span class="mono">03</span><h3 class="h4">Connect the systems</h3><p>Align strategy, people, CRM, automation and reporting so the work runs consistently.</p></div>
         <div class="oc" style="--c:var(--grey)"><span class="mono">04</span><h3 class="h4">Measure the outcome</h3><p>Clear KPIs, owners and review rhythms turn AI-assisted work into measurable progress.</p></div>
       </div>
     </div>
@@ -1463,9 +1464,9 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <div class="wrap">
       <div class="head"><span class="label">How we work</span><h2 class="h2">Three convictions behind every engagement.</h2></div>
       <div class="g3">
-        <div class="oc" style="--c:var(--navy)"><h3 class="h4">Strategy before technology</h3><p>Clarity first, automation second, acceleration third. We never automate confusion.</p></div>
-        <div class="oc" style="--c:var(--blue)"><h3 class="h4">Diagnose before prescribing</h3><p>Every recommendation starts with the constraint, its cost and its root cause.</p></div>
-        <div class="oc" style="--c:var(--green)"><h3 class="h4">Amplify people</h3><p>AI adds capacity and consistency. It never replaces the relationships that win business.</p></div>
+        <div class="oc" style="--c:var(--al)"><h3 class="h4">Strategy before technology</h3><p>Clarity first, automation second, acceleration third. We never automate confusion.</p></div>
+        <div class="oc" style="--c:var(--au)"><h3 class="h4">Diagnose before prescribing</h3><p>Every recommendation starts with the constraint, its cost and its root cause.</p></div>
+        <div class="oc" style="--c:var(--ac)"><h3 class="h4">Amplify people</h3><p>AI adds capacity and consistency. It never replaces the relationships that win business.</p></div>
       </div>
     </div>
   </section>
@@ -1561,7 +1562,7 @@ document.querySelectorAll('[data-staircase]').forEach(staircase);
 const box=document.getElementById('stages');let h='';
 STAGES.forEach((st,i)=>{
   let get='';
-  if(st.groups){get='<span class="minih">What we install</span>'+st.groups.map(g=>`<p class="sub ${g[1]}">${g[0]}</p><ul class="blist" style="--bc:var(--${g[1]==='al'?'navy':g[1]==='au'?'blue':'green'})">${g[2].map(x=>`<li>${x}</li>`).join('')}</ul>`).join('')}
+  if(st.groups){get='<span class="minih">What we install</span>'+st.groups.map(g=>`<p class="sub ${g[1]}">${g[0]}</p><ul class="blist" style="--bc:var(--${g[1]})">${g[2].map(x=>`<li>${x}</li>`).join('')}</ul>`).join('')}
   else{get=`<span class="minih">${st.kind==='cont'?"What's included":'What you receive'}</span><ul class="blist">${st.list.map(x=>`<li>${x}</li>`).join('')}</ul>`}
   h+=`<article class="stage ${st.kind==='core'?'main':''}" id="stage-${st.n}">
    <div class="id"><span class="num">STAGE ${st.n}</span><h3>${st.full}</h3><span class="tag ${st.kind}">${st.tag}</span><p class="q"><small>The question it answers</small>${st.q}</p></div>
@@ -1668,9 +1669,9 @@ addEventListener('hashchange',route);route();
 
 /* scorecard */
 const Q=[
- {k:"Align",c:"navy",items:["Our leadership team can name the company's top three priorities this quarter.","Every key function has one clear owner, and it is not always me.","We review a weekly scorecard of the numbers that matter.","Our leadership meetings end with owners and due dates, and those get done.","Decisions get made at the right level without waiting on the founder."]},
- {k:"Automate",c:"blue",items:["Every new lead gets a response within five minutes, day or night.","Our entire pipeline lives in one system, not in inboxes and spreadsheets.","Follow-up on proposals and no-shows happens without someone remembering to do it.","I can see this month's pipeline and forecast without asking anyone.","We know which marketing sources produce revenue, not just leads."]},
- {k:"Accelerate",c:"green",items:["We use AI in at least one revenue workflow today.","Routine tasks like scheduling, reminders and data entry run without a person.","Our team has more capacity this year without adding headcount.","Past customers and dormant leads are reactivated on a regular cadence.","The business keeps moving when I step away for a week."]}
+ {k:"Align",c:"al",items:["Our leadership team can name the company's top three priorities this quarter.","Every key function has one clear owner, and it is not always me.","We review a weekly scorecard of the numbers that matter.","Our leadership meetings end with owners and due dates, and those get done.","Decisions get made at the right level without waiting on the founder."]},
+ {k:"Automate",c:"au",items:["Every new lead gets a response within five minutes, day or night.","Our entire pipeline lives in one system, not in inboxes and spreadsheets.","Follow-up on proposals and no-shows happens without someone remembering to do it.","I can see this month's pipeline and forecast without asking anyone.","We know which marketing sources produce revenue, not just leads."]},
+ {k:"Accelerate",c:"ac",items:["We use AI in at least one revenue workflow today.","Routine tasks like scheduling, reminders and data entry run without a person.","Our team has more capacity this year without adding headcount.","Past customers and dormant leads are reactivated on a regular cadence.","The business keeps moving when I step away for a week."]}
 ];
 const LBL=["Strongly disagree","Disagree","Neutral","Agree","Strongly agree"];
 const ans=Q.map(g=>g.items.map(()=>0));let step=0;
@@ -1803,6 +1804,5 @@ render();
 })();
 
 </script>
-
 </body>
 </html>
