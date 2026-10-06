@@ -1267,31 +1267,6 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     </div>
   </section>
 
-  <section class="sec bg-mist" id="matcher">
-    <div class="wrap">
-      <div class="head"><span class="label">Challenge matcher</span><h2 class="h2">Not sure who you need? Describe the problem.</h2>
-        <div class="body"><p>Type the challenge in plain language. We match it to the specialists and skills most relevant to your situation.</p></div></div>
-      <div class="mt">
-        <form class="mt-in" id="mtForm">
-          <label for="mtQ" class="minih">What are you trying to solve?</label>
-          <textarea id="mtQ" rows="4" placeholder="e.g. Leads come in but nobody follows up, and I can't see what's in the pipeline."></textarea>
-          <div class="mt-ex" aria-label="Examples"><span>Try:</span>
-            <button type="button" data-ex="Leads go cold because follow-up depends on me remembering">Follow-up depends on me</button>
-            <button type="button" data-ex="Our pricing is too low and prospects keep saying it is too expensive">Pricing and objections</button>
-            <button type="button" data-ex="I want referral partners and strategic alliances to send us qualified clients">Referral partners</button>
-            <button type="button" data-ex="My leadership team needs accountability, meeting rhythm and clear goals">Team accountability</button>
-            <button type="button" data-ex="I want to build AI agents and automate workflows for my team">AI agents and automation</button>
-          </div>
-          <button class="btn" type="submit">Match my challenge <span class="ar">→</span></button>
-        </form>
-        <div class="mt-out" id="mtOut" aria-live="polite">
-          <span class="diag-h">Your matched team</span>
-          <p class="muted" style="font-size:15px">Describe a challenge or pick an example. Your best-fit specialists and their most relevant skills appear here.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section class="sec" id="workforce">
     <div class="wrap">
       <div class="head"><span class="label">Explore the workforce</span><h2 class="h2">Our AI team, department by department.</h2>
@@ -1794,15 +1769,6 @@ function match(q){
     return {sp,sc:head*4+Math.min(sk,6),hits:hits.map(h=>h[1])}}).filter(r=>r.sc>=4).sort((a,b)=>b.sc-a.sc).slice(0,3);
 }
 const esc=t=>String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-const out=document.getElementById('mtOut'),qi=document.getElementById('mtQ');
-function runMatch(){
-  const r=match(qi.value);
-  if(!r.length){out.innerHTML=`<span class="diag-h">Your matched team</span><p style="font-size:15px;color:var(--ink)">We could not match that one yet. Add a few more words about the problem, or take the free Readiness Score and we will find the constraint for you.</p><a class="btn" href="#scorecard">Get My Free Readiness Score →</a>`;return}
-  out.innerHTML=`<span class="diag-h">Your matched team</span>`+r.map(x=>`<div class="mres"><div class="mres-h"><span class="badge">${x.sp.c}</span><div><small>${x.sp.d}</small><b>${esc(x.sp.n)}</b></div></div><p class="muted" style="font-size:14px">${esc(x.sp.t)}</p>${x.hits.length?`<div class="chips">${x.hits.slice(0,5).map(n=>`<span class="chip">${esc(n)}</span>`).join('')}</div>`:''}</div>`).join('')+
-  `<div class="acts" style="margin-top:4px"><a class="btn" href="#session">Put this team on it <span class="ar">→</span></a><a class="sublink" href="#scorecard">Or get your free Readiness Score →</a></div>`;
-}
-document.getElementById('mtForm').onsubmit=e=>{e.preventDefault();runMatch()};
-document.querySelectorAll('.mt-ex button').forEach(b=>b.onclick=()=>{qi.value=b.dataset.ex;runMatch()});
 /* explorer */
 let dept='All',open=new Set(),shut=new Set();const grid=document.getElementById('accGrid'),dc=document.getElementById('accDepts'),qs=document.getElementById('accQ'),cnt=document.getElementById('accCount');
 dc.innerHTML=['All',...DEPTS].map(d=>`<button type="button" data-d="${d}" aria-pressed="${d==='All'}">${d==='All'?'All departments':d}<em>${d==='All'?SP.length:SP.filter(s=>s.d===d).length}</em></button>`).join('');
@@ -1813,7 +1779,7 @@ function render(){
   const list=SP.filter(s=>dept==='All'||s.d===dept).map(s=>{const head=!q||low(s.n+' '+s.t+' '+s.k.join(' ')+' '+s.d).includes(q);const hit=q?s.s.filter(n=>low(n).includes(q)):[];return {s,head,hit}}).filter(x=>!q||x.head||x.hit.length);
   list.forEach(x=>skills+=q?(x.head?x.s.s.length:x.hit.length):x.s.s.length);
   cnt.textContent=`Showing ${list.length} specialist${list.length===1?'':'s'} · ${skills} skill${skills===1?'':'s'}`;
-  if(!list.length){grid.innerHTML=`<div class="acc-empty">No match for “${esc(qs.value)}”. Try a broader word, or <a href="#matcher" class="textlink">describe the challenge</a> instead.</div>`;return}
+  if(!list.length){grid.innerHTML=`<div class="acc-empty">No match for “${esc(qs.value)}”. Try a broader word, or <a href="#session" class="textlink">book a Strategy Call</a> and we will match the team for you.</div>`;return}
   grid.innerHTML=list.map(({s,hit})=>{const isOpen=!shut.has(s.c)&&(open.has(s.c)||(q&&hit.length>0));const shown=q&&hit.length?s.s.filter(n=>hit.includes(n)).concat(s.s.filter(n=>!hit.includes(n))):s.s;
     return `<article class="sp">${s.x?'<span class="new">New</span>':''}<div class="sp-h"><span class="badge">${s.c}</span><div><small>${s.d}</small><b>${esc(s.n)}</b></div></div><p>${esc(s.t)}</p><div class="chips">${s.k.map(k=>`<span class="chip">${esc(k)}</span>`).join('')}</div>
     <button class="sp-tg" type="button" data-c="${s.c}" aria-expanded="${isOpen}">${isOpen?'Hide':'See all'} ${s.s.length} skill${s.s.length===1?'':'s'} ${isOpen?'↑':'↓'}</button>
