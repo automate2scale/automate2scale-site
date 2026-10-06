@@ -119,10 +119,13 @@ button{font:inherit}
 .menu-btn{display:none;background:transparent;border:1px solid var(--rule);border-radius:3px;padding:9px 12px;color:var(--ink);cursor:pointer;font-weight:600;font-size:14px}
 .drawer{border-top:1px solid var(--rule-2);background:var(--paper);padding-block:12px 20px}
 .drawer a{display:block;padding:12px 0;border-bottom:1px solid var(--rule-2);color:var(--ink);text-decoration:none;font-weight:600}
-.drawer .acts{margin-top:16px}
+.top .drawer .wrap{display:block;min-height:0}
+.drawer .acts{margin-top:16px;flex-direction:column;align-items:stretch}
 .drawer .btn{width:100%}
 .drawer a.btn{color:var(--on-blue);border:1.5px solid var(--blue);padding:15px 24px}
 .drawer a.btn.ghost{color:var(--blue);border-color:var(--rule)}
+.btn.green{background:#2F7A00;border-color:#2F7A00;color:#FFFFFF}
+.drawer a.btn.green{color:#FFFFFF;border-color:#2F7A00}
 @media (max-width:1180px){.top .nav,.top .acts.desk{display:none}.menu-btn{display:inline-block}}
 @media (min-width:1181px){.drawer{display:none!important}}
 @media (max-width:600px){.plaque img{height:26px}}
@@ -639,6 +642,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
       <a href="#about" data-nav="about">About</a>
     </nav>
     <div class="acts desk">
+      <a class="btn sm green" href="https://app.automate2scale.io/" target="_blank" rel="noopener" title="Existing clients: log in to your CRM">CRM Login</a>
       <a class="btn sm" href="#scorecard">Get My Free Readiness Score</a>
     </div>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="drawer">Menu</button>
@@ -646,7 +650,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
   <div class="drawer" id="drawer" hidden>
     <div class="wrap">
       <a href="#home">Home</a><a href="#align">Align</a><a href="#crm">Automate</a><a href="#accelerate">Accelerate</a><a href="#about">About</a>
-      <div class="acts"><a class="btn" href="#scorecard">Get My Free Readiness Score</a><a class="btn ghost" href="#session">Book a Strategy Session</a></div>
+      <div class="acts"><a class="btn" href="#scorecard">Get My Free Readiness Score</a><a class="btn ghost" href="#session">Book a Strategy Session</a><a class="btn green" href="https://app.automate2scale.io/" target="_blank" rel="noopener">CRM Login (existing clients)</a></div>
     </div>
   </div>
 </header>
