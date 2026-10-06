@@ -623,6 +623,12 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
 .bk-body{padding:8px 16px 16px;overflow:auto}
 .bk-fallback{display:grid;gap:12px;justify-items:start;padding:28px 10px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+.mk-hero{padding-block:clamp(20px,3vw,36px) clamp(36px,5vw,64px)}
+.mk-hero .wrap{gap:16px}
+.mk-head{display:grid;gap:8px;max-width:760px}
+.mk-head .muted{font-size:15.5px}
+.mk-cal{padding:clamp(8px,1.5vw,16px)}
+@media (max-width:600px){.mk-hero .h2{font-size:28px}}
 </style>
 <meta property="og:title" content="Automate2Scale | The A³ Revenue Operating System">
 <meta property="og:description" content="Replace owner hustle with a revenue operating system, installed in 90 days. For owner-operator trade companies ($2M–$20M) and founder-led professional services firms ($1M–$10M).">
@@ -1486,6 +1492,21 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
   <section class="band" data-closing></section>
 </div>
 
+<!-- ======================= MARK (private booking, unlisted) ======================= -->
+<div class="page" data-page="mark" hidden>
+  <section class="phero mk-hero"><div class="wrap">
+    <div class="mk-head">
+      <span class="label">Private booking · By invitation</span>
+      <h1 class="h2">Pick a time with <em style="font-style:normal;color:var(--blue)">Mark.</em></h1>
+      <p class="muted">Choose the time that works best. You will get a confirmation with everything you need before we meet.</p>
+    </div>
+    <div class="diag mk-cal">
+      <iframe data-src="https://link.automate2scale.io/widget/booking/nLfDZ3T9hVMKSUP1ZQAI" allow="payment" style="width:100%;border:none;overflow:hidden;min-height:680px" scrolling="no" id="k0yRIZSEs4DWHkZxn5MU_1791174987173" title="Book time with Mark Cupp"></iframe>
+    </div>
+    <p class="microline">Questions before you book? Email <a href="mailto:mark@automate2scale.io">mark@automate2scale.io</a>.</p>
+  </div></section>
+</div>
+
 </main>
 
 <footer>
@@ -1649,7 +1670,7 @@ const mb=document.getElementById('menuBtn'),dr=document.getElementById('drawer')
 mb.onclick=()=>{const o=dr.hidden;dr.hidden=!o;mb.setAttribute('aria-expanded',o);mb.textContent=o?'Close':'Menu'};
 
 /* router */
-const PAGES=['home','system','journey','align','crm','accelerate','scorecard','session','about','privacy'];
+const PAGES=['home','system','journey','align','crm','accelerate','scorecard','session','about','privacy','mark'];
 function route(){
   let h=(location.hash||'#home').slice(1),page=h,target=null;
   if(!PAGES.includes(h)){
@@ -1661,7 +1682,9 @@ function route(){
   document.querySelectorAll('[data-nav]').forEach(a=>a.dataset.nav===page?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
   dr.hidden=true;mb.setAttribute('aria-expanded','false');mb.textContent='Menu';
   const T={home:'Automate2Scale | Revenue Operating Systems for Owner-Led Companies',system:'The A³ Revenue Operating System™ | Automate2Scale',journey:'The A³ Customer Journey | Automate2Scale',align:'Align: Business Operating System & Integrator | Automate2Scale',crm:'Automate: AI-Powered CRM | Automate2Scale',accelerate:'Accelerate: Your AI Team | Automate2Scale',scorecard:'Free A³ Readiness Scorecard | Automate2Scale',session:'Book a Strategy Session | Automate2Scale',about:'About Mark Cupp | Automate2Scale',privacy:'Privacy Policy | Automate2Scale'};
+  T.mark='Book Time with Mark Cupp | Automate2Scale';
   if(T[page])document.title=T[page];
+  let rb=document.querySelector('meta[name="robots"]');if(page==='mark'){if(!rb){rb=document.createElement('meta');rb.name='robots';document.head.appendChild(rb)}rb.content='noindex, nofollow';const mf=document.querySelector('[data-page=mark] iframe[data-src]');if(mf){mf.src=mf.dataset.src;mf.removeAttribute('data-src');if(!window.__a2sFE){window.__a2sFE=1;try{const sc=document.createElement('script');sc.src='https://link.automate2scale.io/js/form_embed.js';sc.onerror=()=>{};document.body.appendChild(sc)}catch(e){}}}}else if(rb){rb.content='index, follow'}
   track('page_view',{page_title:document.title,page_path:'/'+(page==='home'?'':page)});
   if(target){requestAnimationFrame(()=>target.scrollIntoView({block:'start'}))}else window.scrollTo(0,0);
 }
