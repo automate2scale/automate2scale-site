@@ -49,9 +49,6 @@
 html{scroll-behavior:smooth}
 body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
 img{max-width:100%}
-/* paint our own surface so a host page (GoHighLevel, preview frames) never shows its own background behind our text */
-html{background:var(--paper)}
-#a2s-root,#a2s-mark-root,main{background:var(--paper);color:var(--ink)}
 a{color:var(--blue)}
 h1,h2,h3,h4{font-family:var(--display);margin:0;text-wrap:balance;color:var(--ink)}
 p{margin:0}
@@ -637,16 +634,15 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
       <a href="#crm" data-nav="crm">Automate</a>
       <a href="#accelerate" data-nav="accelerate">Accelerate</a>
       <a href="#about" data-nav="about">About</a>
-      <a href="https://app.automate2scale.io/" target="_blank" rel="noopener">Client Login</a>
     </nav>
     <div class="acts desk">
-      <a class="btn sm" href="#scorecard">Get My Readiness Score</a>
+      <a class="btn sm" href="#scorecard">Get My Free Readiness Score</a>
     </div>
     <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="drawer">Menu</button>
   </div>
   <div class="drawer" id="drawer" hidden>
     <div class="wrap">
-      <a href="#home">Home</a><a href="#align">Align</a><a href="#crm">Automate</a><a href="#accelerate">Accelerate</a><a href="#about">About</a><a href="https://app.automate2scale.io/" target="_blank" rel="noopener">Client Login</a>
+      <a href="#home">Home</a><a href="#align">Align</a><a href="#crm">Automate</a><a href="#accelerate">Accelerate</a><a href="#about">About</a>
       <div class="acts"><a class="btn" href="#scorecard">Get My Free Readiness Score</a><a class="btn ghost" href="#session">Book a Strategy Session</a></div>
     </div>
   </div>
@@ -661,12 +657,13 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
       <div class="hero-copy">
         <span class="label">A³ <span class="sl">/</span> The Revenue Operating System™</span>
         <h1 class="h1">Replace founder hustle with a revenue operating system, <em>installed in 90 days.</em></h1>
-        <p class="lede">For owner-operator trade companies doing $2M–$20M and founder-led professional services firms doing $1M–$10M. We align your leadership team, automate your revenue engine and add AI capacity, so growth stops depending on you remembering, deciding and following up.</p>
+        <p class="lede">For owner-operator trade companies doing $2M–$20M and founder-led professional services firms doing $1M–$10M. We align your leadership team, automate your revenue engine and add AI capacity, so growth stops depending on you remembering, deciding and following up. The core system is installed in the first 90 days of a 6-month done-with-you program.</p>
         <div class="acts">
           <a class="btn" href="#scorecard">Get My Free Readiness Score <span class="ar">→</span></a>
         </div>
         <p class="microline">Free · 10 minutes · 15 questions · instant score, your #1 constraint and the right next step</p>
-        <a class="sublink" href="#session" style="justify-self:start">Ready to talk now? Book a complimentary Strategy Session →</a>
+        <a class="sublink" href="#session" style="justify-self:start">Ready to talk now? Book a Strategy Session with Mark →</a>
+        <p class="microline" style="margin-top:-14px">30 minutes. You leave with a written Constraint Brief, your Five-Second Positioning Statement and an Ideal Client Precision Card, whether or not we ever work together.</p>
       </div>
 
       <div class="os" aria-label="How your company runs today compared with A³">
@@ -710,9 +707,9 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <div class="wrap">
       <a class="strip-who" href="#about">Led by Mark Cupp · Fractional Chief Growth Officer since 2018 →</a>
       <div class="it"><b>30+ yrs</b><span>Sales, operations and entrepreneurship</span></div>
-      <div class="it"><b>$100M</b><span>Division turned from worst to first in 180 days</span></div>
-      <div class="it"><b>$270M</b><span>Revenue growth driven through partnerships and automation</span></div>
-      <div class="it"><b>540+</b><span>AI skills, included with Install, Support and Revenue Partner</span></div>
+      <div class="it"><b>$100M</b><span>Freight division taken from worst to first in 180 days · Central Freight Lines</span></div>
+      <div class="it"><b>$270M</b><span>Revenue growth through joint ventures, digital marketing and automation · A3 K-12</span></div>
+      <div class="it"><b>7 locations</b><span>Franchise built from zero to the highest NPS in the national system · i9 Sports</span></div>
     </div>
   </div>
 
@@ -839,7 +836,8 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
             <span class="sh-go">Get My Free Readiness Score <span class="ar">→</span></span>
           </a>
       <div class="track" data-staircase></div>
-      <div class="acts" style="margin-top:26px"><a class="btn" href="#journey">See every stage <span class="ar">→</span></a><a class="btn ghost" href="#finder">Find your starting point</a></div>
+      <div class="acts" style="margin-top:26px"><a class="btn ghost" href="#finder">Find my starting point <span class="ar">→</span></a></div>
+      <p class="microline" style="margin-top:12px">Every stage stands on its own. The $2,497 Blueprint &amp; Roadmap is 100% credited to the System Install if you proceed within 30 days.</p>
     </div>
   </section>
 
@@ -855,7 +853,6 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
         <div class="oc" style="--c:var(--green)"><h3 class="h4">Execution capacity</h3><p>Automation and AI remove manual work so people focus on decisions, relationships and delivery.</p></div>
         <div class="oc" style="--c:var(--grey)"><h3 class="h4">Founder leverage</h3><p>Less time chasing updates. More time leading the business.</p></div>
       </div>
-      <div class="wordline" aria-label="Clarity, Accountability, Visibility, Automation, AI, Scale"><span>Clarity ·</span><span>Accountability ·</span><span>Visibility ·</span><span>Automation ·</span><span>AI ·</span><span>Scale</span></div>
     </div>
   </section>
 
@@ -875,7 +872,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <div class="wrap">
       <div class="head"><span class="label">Before you start</span><h2 class="h2">Questions founders ask first.</h2></div>
       <div class="faq">
-        <details><summary>What does it cost?</summary><div class="a">The Strategy Session is complimentary for qualified prospects. The Blueprint & Roadmap is $2,497, and 100% of it is credited toward the System Install if you proceed within 30 days. The System Install is a 6-month program with three options: $4,997, $6,997 (recommended) or $9,997 a month. System Support is $1,997 a month, and Revenue Partner starts at $5,000 a month plus a share of growth. Our AI Team is included with the System Install, System Support and Revenue Partner. You can add it to any other product, or hire it on its own, for $500 a month ($500 one-time on the Blueprint). If you only need the CRM working now, the CRM Track starts at $297 a month.</div></details>
+        <details><summary>What does it cost?</summary><div class="a">The Strategy Session is complimentary for qualified prospects. The Blueprint & Roadmap is $2,497, and 100% of it is credited toward the System Install if you proceed within 30 days. The System Install is a 6-month program, with the core system installed in the first 90 days, in three options: $4,997, $6,997 (recommended) or $9,997 a month. System Support is $1,997 a month, and Revenue Partner starts at $5,000 a month plus a share of growth. Our AI Team is included with the System Install, System Support and Revenue Partner. You can add it to any other product, or hire it on its own, for $500 a month ($500 one-time on the Blueprint). If you only need the CRM working now, the CRM Track starts at $297 a month.</div></details>
         <details><summary>How much of my time will this take?</summary><div class="a">Less than you are spending today chasing updates. You and your leadership team join the working sessions and the weekly meeting rhythm; we do the design, the build and the automation. The point of the system is to take work off your plate, not add to it.</div></details>
         <details><summary>What if we are not a fit?</summary><div class="a">Then we will tell you on the first call. You still leave the Strategy Session with a Constraint Confirmation Brief and a documented next step, so the 30 minutes pays for itself either way.</div></details>
         <details><summary>Why not hire an EOS Implementer and a CRM agency separately?</summary><div class="a">You can. The risk is that strategy and technology stay separate: one team clarifies priorities, another builds tools, and your company is left to connect the two. We integrate operating rhythm, revenue process, CRM, automation, reporting and AI into one installed system.</div></details>
@@ -1489,7 +1486,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
       <div><a class="flogo" href="#home" aria-label="Automate2Scale home"><img src="https://assets.cdn.filesafe.space/3UbxqX8zLDM4QvDExPHM/media/6ac2d014bbad531ac8b1be31.png" alt="Automate2Scale" onerror="this.onerror=null;this.src='https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/3UbxqX8zLDM4QvDExPHM/media/6a0955a82e98e28fa1547b2b.png';this.parentNode.className='plaque'"></a><p class="tag-line">The A³ Revenue Operating System™ for owner-operator trade companies and founder-led professional services firms. We install your system. You reclaim your life.</p></div>
       <div><h4>System</h4><a href="#system">The A³ framework</a><a href="#align">Align (operating system)</a><a href="#crm">Automate (CRM)</a><a href="#accelerate">Accelerate (AI workforce)</a><a href="#scorecard">Readiness Scorecard</a></div>
       <div><h4>Journey</h4><a href="#stage-01">Strategy Session</a><a href="#stage-02">Blueprint &amp; Roadmap</a><a href="#stage-03">System Install</a><a href="#stage-05">Revenue Partner</a></div>
-      <div><h4>Company</h4><a href="#about">About Mark</a><a href="https://app.automate2scale.io/" target="_blank" rel="noopener">Client Login</a><a href="#session">Book a session</a><a href="#privacy">Privacy Policy</a><span style="display:block;padding:4px 0;color:var(--band-ink)">mark@automate2scale.io</span></div>
+      <div><h4>Company</h4><a href="#about">About Mark</a><a href="https://app.automate2scale.io/" target="_blank" rel="noopener">Client Login</a><a href="#session">Book a session</a><a href="#privacy">Privacy Policy</a><span style="display:block;padding:4px 0;color:var(--band-ink)">mark@automate2scale.io</span><span style="display:block;padding:4px 0;color:var(--band-ink-2)">Fort Worth, Texas</span></div>
     </div>
     <div class="vals"><span>Add Value · Be Proactive · Continuous Learning · Do the Right Thing · Exceed Expectations · Find A Way</span><span>© 2026 Automate2Scale</span></div>
   </div>
