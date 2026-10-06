@@ -49,6 +49,9 @@
 html{scroll-behavior:smooth}
 body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.62;-webkit-font-smoothing:antialiased}
 img{max-width:100%}
+/* paint our own surface so a host page (GoHighLevel, preview frames) never shows its own background behind our text */
+html{background:var(--paper)}
+#a2s-root,#a2s-mark-root,main{background:var(--paper);color:var(--ink)}
 a{color:var(--blue)}
 h1,h2,h3,h4{font-family:var(--display);margin:0;text-wrap:balance;color:var(--ink)}
 p{margin:0}
