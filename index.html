@@ -530,6 +530,19 @@ tr:last-child td{border-bottom:0}
 .opt .orec{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--on-blue);background:var(--blue);padding:2px 6px;border-radius:3px}
 .opt .op{font-weight:700;font-size:14.5px;color:var(--blue);white-space:nowrap}
 .opt .od{grid-column:1/-1;font-size:13px;color:var(--ink-2)}
+/* hero background graphics (one per page, drawn in A3 colors, theme-aware) */
+.hero,.phero{position:relative;overflow:hidden;isolation:isolate}
+.hero>.wrap,.phero>.wrap{position:relative;z-index:1}
+.hbg{position:absolute;top:0;bottom:0;right:max(0px,calc((100vw - 1180px)/2 - 40px));width:min(46%,600px);z-index:0;pointer-events:none;opacity:.6;-webkit-mask-image:linear-gradient(90deg,transparent 0%,#000 30%);mask-image:linear-gradient(90deg,transparent 0%,#000 30%)}
+.hbg svg{position:absolute;inset:0;width:100%;height:100%}
+.phero:not(.mk-hero) .wrap>*{max-width:min(100%,640px)}
+.phero .wrap>.acts,.phero .wrap>.crumb,.phero .wrap>.label{max-width:none}
+.hbg .a{stroke:var(--al)}.hbg .u{stroke:var(--au)}.hbg .c{stroke:var(--ac)}.hbg .r{stroke:var(--rule)}
+.hbg .fa{fill:var(--al)}.hbg .fu{fill:var(--au)}.hbg .fc{fill:var(--ac)}.hbg .fp{fill:var(--paper)}
+.hbg *{vector-effect:non-scaling-stroke}
+@media (max-width:1000px){.hbg{display:none}}
+@media (prefers-reduced-motion:no-preference){.hbg .mv{animation:hbgdash 6s linear infinite}}
+@keyframes hbgdash{to{stroke-dashoffset:-48}}
 /* scorecard */
 .sc{display:grid;grid-template-columns:320px 1fr;gap:clamp(24px,4vw,48px);align-items:start}
 .sc>*{min-width:0}
@@ -1689,6 +1702,30 @@ function route(){
   if(target){requestAnimationFrame(()=>target.scrollIntoView({block:'start'}))}else window.scrollTo(0,0);
 }
 addEventListener('hashchange',route);route();
+
+/* hero background graphics */
+(function(){
+const W=900,H=420;const sv=b=>`<svg viewBox="340 20 560 400" preserveAspectRatio="xMidYMid meet" fill="none" stroke-linecap="round" stroke-linejoin="round">${b}</svg>`;
+const ln=(x1,y1,x2,y2,c,w=1.2,o=1,d='')=>`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" class="${c}" stroke-width="${w}" opacity="${o}" ${d?`stroke-dasharray="${d}"`:''}/>`;
+const dot=(x,y,r,f,o=1)=>`<circle cx="${x}" cy="${y}" r="${r}" class="${f}" opacity="${o}"/>`;
+const ring=(x,y,r,c,w=1.2,o=1,d='')=>`<circle cx="${x}" cy="${y}" r="${r}" class="${c}" stroke-width="${w}" opacity="${o}" ${d?`stroke-dasharray="${d}"`:''}/>`;
+const rect=(x,y,w,h,c,sw=1.2,o=1,rx=6)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}" class="${c}" stroke-width="${sw}" opacity="${o}"/>`;
+const grid=(o=.35)=>{let g='';for(let x=0;x<=W;x+=36)g+=ln(x,0,x,H,'r',1,o);for(let y=0;y<=H;y+=36)g+=ln(0,y,W,y,'r',1,o);return g};
+const A={
+ home(){let g=grid(.25);const cx=230,cy=230;[[170,'c'],[120,'u'],[72,'a']].forEach(([r,c],i)=>{g+=ring(cx,cy,r,c,1.6,.55,i?'':'3 7')});for(let i=0;i<12;i++){const t=i/12*Math.PI*2,r=[170,120,72][i%3],c=['c','u','a'][i%3];g+=dot(cx+r*Math.cos(t),cy+r*Math.sin(t),3.5,'f'+c,.7)}g+=dot(cx,cy,9,'fa',.8);return sv(g)},
+ system(){let g=grid(.22);[['a',300],['u',220],['c',140]].forEach(([c,y],i)=>{const x=430+i*40;g+=`<path d="M${x} ${y} l170 -60 l170 60 l-170 60 z" class="${c}" stroke-width="1.6" opacity=".7"/>`;g+=`<path d="M${x} ${y} l170 60 l170 -60" class="f${c}" opacity=".06" stroke="none"/>`});g+=ln(640,120,640,410,'r',1.2,.9,'4 6');return sv(g)},
+ journey(){let g=grid(.22);const hs=[60,105,160,105,75],cs=['a','a','u','c','c'];let x=360;hs.forEach((h,i)=>{const y=H-40-h*1.6;g+=rect(x,y,92,h*1.6,cs[i],1.5,.7,4);g+=`<rect x="${x}" y="${y}" width="92" height="4" class="f${cs[i]}" opacity=".7"/>`;x+=104});g+=`<path d="M380 ${H-150} C 470 ${H-250}, 560 ${H-330}, 620 ${H-320} S 760 ${H-230}, 860 ${H-200}" class="u mv" stroke-width="1.6" stroke-dasharray="6 10" opacity=".8"/>`;return sv(g)},
+ align(){let g=grid(.2);const top=[620,70],mid=[[470,190],[620,190],[770,190]],bot=[[410,310],[530,310],[620,310],[710,310],[830,310]];g+=rect(top[0]-60,top[1]-22,120,44,'a',1.6,.85);mid.forEach(([x,y])=>{g+=ln(top[0],top[1]+22,x,y-22,'a',1.2,.5);g+=rect(x-55,y-20,110,40,'a',1.4,.7)});bot.forEach(([x,y],i)=>{const p=mid[Math.min(2,Math.floor(i*3/5))];g+=ln(p[0],p[1]+20,x,y-18,'a',1,.4);g+=rect(x-45,y-18,90,36,'a',1.2,.5)});g+=`<rect x="${top[0]-60}" y="${top[1]-22}" width="120" height="44" rx="6" class="fa" opacity=".08"/>`;return sv(g)},
+ crm(){let g=grid(.18);for(let i=0;i<7;i++){const y=70+i*48;g+=`<path d="M300 ${y} C 480 ${y}, 520 ${210+(i-3)*14}, 640 ${210+(i-3)*14} S 800 ${y}, 900 ${y}" class="u${i==3?' mv':''}" stroke-width="${i==3?2:1.2}" opacity="${i==3?.9:.45}" ${i==3?'stroke-dasharray="8 8"':''}/>`}[380,520,640,760,860].forEach((x,i)=>{g+=ring(x,210+(i-2)*6,10,'u',1.6,.8);g+=dot(x,210+(i-2)*6,4,'fu',.8)});return sv(g)},
+ accelerate(){let g=grid(.15);const L=[[420,[110,210,310]],[560,[70,150,230,310,390]],[700,[110,210,310]],[830,[160,260]]];for(let a=0;a<L.length-1;a++)L[a][1].forEach(y1=>L[a+1][1].forEach(y2=>{g+=ln(L[a][0],y1,L[a+1][0],y2,a%2?'u':'c',1,.35)}));L.forEach(([x,ys],a)=>ys.forEach(y=>{g+=ring(x,y,11,a==3?'u':'c',1.6,.85);g+=dot(x,y,4,a==3?'fu':'fc',.85)}));return sv(g)},
+ scorecard(){let g=grid(.2);const cx=640,cy=250;[[150,'a',.62],[115,'u',.48],[80,'c',.34]].forEach(([r,c,f])=>{const C=2*Math.PI*r;g+=ring(cx,cy,r,'r',10,.6);g+=`<circle cx="${cx}" cy="${cy}" r="${r}" class="${c}" stroke-width="10" opacity=".75" stroke-dasharray="${C*f} ${C}" transform="rotate(-90 ${cx} ${cy})"/>`});return sv(g)},
+ session(){let g='';const x0=420,y0=70,cw=62,ch=50;for(let r=0;r<6;r++)for(let c=0;c<7;c++){const hi=(r==2&&c==3);g+=rect(x0+c*cw,y0+r*ch,cw-8,ch-8,hi?'u':'r',hi?2:1.2,hi?.95:.8,4);if(hi)g+=`<rect x="${x0+c*cw}" y="${y0+r*ch}" width="${cw-8}" height="${ch-8}" rx="4" class="fu" opacity=".15"/>`}g+=ln(x0,y0-22,x0+7*cw-8,y0-22,'a',2,.6);return sv(g)},
+ mark(){return A.session()},
+ about(){let g='';const cx=700,cy=230;for(let i=1;i<=11;i++){let d='';for(let k=0;k<=64;k++){const t=k/64*Math.PI*2,r=i*24*(1+.12*Math.sin(3*t+i*.6)+.06*Math.cos(5*t));d+=(k?'L':'M')+(cx+r*Math.cos(t)).toFixed(1)+' '+(cy+r*.8*Math.sin(t)).toFixed(1)}g+=`<path d="${d}Z" class="${i%4==0?'a':'r'}" stroke-width="1.2" opacity="${i%4==0?.7:.9}"/>`}g+=dot(cx,cy,5,'fa',.8);return sv(g)},
+ privacy(){let g=grid(.18);g+=`<path d="M650 70 L770 115 V215 C770 300 710 350 650 375 C590 350 530 300 530 215 V115 Z" class="a" stroke-width="1.8" opacity=".6"/>`;g+=`<path d="M650 110 L735 142 V215 C735 280 693 318 650 337 C607 318 565 280 565 215 V142 Z" class="r" stroke-width="1.2"/>`;g+=`<path d="M605 225 l30 30 l60 -60" class="u" stroke-width="2.2" opacity=".75"/>`;return sv(g)}
+};
+document.querySelectorAll('[data-page]').forEach(p=>{const h=p.querySelector(':scope > .hero, :scope > .phero');const f=(p.dataset.page==='home'||p.dataset.page==='mark')?null:A[p.dataset.page];if(!h||!f||h.querySelector('.hbg'))return;const d=document.createElement('div');d.className='hbg';d.setAttribute('aria-hidden','true');d.innerHTML=f();h.prepend(d)});
+})();
 
 /* scorecard */
 const Q=[
