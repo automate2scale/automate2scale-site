@@ -530,6 +530,39 @@ tr:last-child td{border-bottom:0}
 .opt .orec{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--on-blue);background:var(--blue);padding:2px 6px;border-radius:3px}
 .opt .op{font-weight:700;font-size:14.5px;color:var(--blue);white-space:nowrap}
 .opt .od{grid-column:1/-1;font-size:13px;color:var(--ink-2)}
+/* inbox autopilot page */
+.ia-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,5vw,56px);align-items:start}
+.ia-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.ia-card{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:26px;display:grid;gap:10px;align-content:start}
+.ia-card p,.ia-faq p{margin:0;color:var(--ink-2)}
+.ia-n{font-family:var(--mono);font-weight:700;font-size:13px;color:var(--blue)}.ia-n.g{color:var(--green)}
+.ia-calcsec{background:var(--mist);border-block:1px solid var(--rule-2)}
+.ia-calc{display:flex;flex-wrap:wrap;gap:28px;align-items:stretch}
+.ia-in,.ia-out{flex:1 1 360px;min-width:0;display:flex;flex-direction:column}
+.ia-in{gap:30px;background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:clamp(22px,3vw,32px)}
+.ia-out{gap:14px}
+.ia-f{display:grid;gap:8px}.ia-f small{font-size:14px;color:var(--ink-2)}
+.ia-fh{display:flex;justify-content:space-between;align-items:baseline;gap:12px}.ia-fh label{font-weight:600}
+.ia-v{font-family:var(--display);font-weight:760;font-size:26px;color:var(--blue);white-space:nowrap}
+.ia input[type=range]{width:100%;accent-color:var(--blue);height:28px;cursor:pointer}
+.ia-be{background:var(--band);color:var(--band-ink);border-radius:8px;padding:clamp(22px,3vw,32px);display:grid;gap:6px}
+.ia-be .ia-k{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--band-accent)}
+.ia-be strong{font-family:var(--display);font-size:clamp(38px,5vw,52px);line-height:1.05;color:#FFFFFF}
+.ia-be p{margin:0;color:var(--band-ink)}
+.ia-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ia-m{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:20px;display:grid;gap:4px}
+.ia-m span{font-size:14px;color:var(--ink-2)}
+.ia-m strong{font-family:var(--display);font-size:clamp(22px,2.4vw,28px);color:var(--ink)}
+.ia-m strong.neg{color:light-dark(#A8321F,#F08A73)}.ia-m strong.pos{color:light-dark(#2F7A00,#8CC85F)}
+.ia-note{font-size:14px;color:var(--ink-2);margin:0}
+.ia-list{list-style:none;padding:0;margin:0 0 clamp(36px,5vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px 44px;color:var(--ink-2)}
+.ia-list li{position:relative;padding-left:32px}.ia-list b{color:var(--ink)}
+.ia-list li::before{content:"";position:absolute;left:2px;top:6px;width:14px;height:8px;border-left:2.5px solid var(--green);border-bottom:2.5px solid var(--green);transform:rotate(-45deg)}
+.ia-price{background:var(--paper);border:1px solid var(--rule);border-radius:8px;box-shadow:var(--sh2);padding:clamp(24px,4vw,40px);display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.ia-price>div{display:grid;gap:8px}.ia-price p{margin:0;color:var(--ink-2)}
+.ia-big{color:var(--ink-2);font-size:18px}.ia-big strong{font-family:var(--display);font-size:clamp(36px,4vw,48px);color:var(--blue);margin-right:8px}
+.ia-faq{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px 44px}.ia-faq>div{display:grid;gap:8px}
+@media (max-width:480px){.ia-grid{grid-template-columns:1fr}}
 /* hero background graphics (one per page, drawn in A3 colors, theme-aware) */
 .hero,.phero{position:relative;overflow:hidden;isolation:isolate}
 .hero>.wrap,.phero>.wrap{position:relative;z-index:1}
@@ -1506,6 +1539,89 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
 </div>
 
 <!-- ======================= MARK (private booking, unlisted) ======================= -->
+<div class="page ia" data-page="inbox" hidden>
+  <section class="phero"><div class="wrap">
+    <span class="crumb"><a href="#home">Home</a> / Inbox Autopilot</span>
+    <span class="label">Inbox Autopilot · AI email triage installed in your Gmail</span>
+    <h1 class="h1">Stop being the person who <em>sorts the inbox.</em></h1>
+    <p class="lede">Every email gets read, labeled and routed the moment it arrives. The noise is archived. The emails that need you are waiting at the top, often with a reply already drafted. It runs inside the Gmail you already use.</p>
+    <div class="acts"><a class="btn" href="#ia-calc">See what your inbox costs you <span class="ar">→</span></a><a class="btn ghost" href="#ia-how">How it works</a></div>
+  </div></section>
+
+  <section class="sec"><div class="wrap ia-two">
+    <div class="head" style="margin:0"><span class="label">The real problem</span><h2 class="h2">Your inbox is a job you never hired for.</h2></div>
+    <div class="body">
+      <p>Most founders spend hours a week deciding what each email is before they can decide what to do with it. Newsletters, receipts, vendor pitches and notifications sit right next to the client who needs an answer today.</p>
+      <p>That sorting is low-value work done by your highest-value person. Inbox Autopilot takes the sorting off your plate so your time goes to the conversations that move revenue.</p>
+    </div>
+  </div></section>
+
+  <section class="sec tight" id="ia-how" style="padding-top:0"><div class="wrap">
+    <div class="head"><span class="label">How it works</span><h2 class="h2">Four steps, running on every email, all day.</h2></div>
+    <div class="ia-steps">
+      <div class="ia-card"><span class="ia-n">01</span><h3 class="h3">Email arrives</h3><p>A watcher on your Gmail picks up each new message within moments.</p></div>
+      <div class="ia-card"><span class="ia-n">02</span><h3 class="h3">AI reads it</h3><p>Claude classifies it against your categories: clients, prospects, partners, vendors, admin and noise.</p></div>
+      <div class="ia-card"><span class="ia-n">03</span><h3 class="h3">It gets routed</h3><p>The right Gmail label is applied. Low-priority mail skips the inbox entirely.</p></div>
+      <div class="ia-card"><span class="ia-n g">04</span><h3 class="h3">You get a head start</h3><p>Emails that need a response get a draft reply waiting. You review, edit and send. Nothing goes out without you.</p></div>
+    </div>
+  </div></section>
+
+  <section class="sec ia-calcsec" id="ia-calc"><div class="wrap">
+    <div class="head"><span class="label">ROI calculator</span><h2 class="h2">What is your inbox costing you?</h2><p class="lede">Set what your time is worth and how much of it email takes today. You will see the cost, the time you could get back and how fast the system pays for itself.</p></div>
+    <div class="ia-calc">
+      <div class="ia-in">
+        <div class="ia-f"><div class="ia-fh"><label for="ia-rate">What do you want to earn per hour?</label><output id="ia-rate-o" class="ia-v"></output></div><input id="ia-rate" type="range" min="50" max="1000" step="25" value="250"><small>Use the rate your time should be worth, not what you pay yourself today.</small></div>
+        <div class="ia-f"><div class="ia-fh"><label for="ia-hours">Hours per week you spend on email</label><output id="ia-hours-o" class="ia-v"></output></div><input id="ia-hours" type="range" min="1" max="40" step="1" value="10"><small>Reading, sorting, searching and replying. Most people underestimate this.</small></div>
+        <div class="ia-f"><div class="ia-fh"><label for="ia-rec">Share of that time you expect to get back</label><output id="ia-rec-o" class="ia-v"></output></div><input id="ia-rec" type="range" min="10" max="80" step="5" value="40"><small>Your own estimate. Start conservative.</small></div>
+      </div>
+      <div class="ia-out" aria-live="polite">
+        <div class="ia-be"><span class="ia-k">Your break-even</span><strong id="ia-be"></strong><p id="ia-ben"></p></div>
+        <div class="ia-grid">
+          <div class="ia-m"><span>Email costs you per year</span><strong id="ia-cost" class="neg"></strong></div>
+          <div class="ia-m"><span>Value recovered per year</span><strong id="ia-recv" class="pos"></strong></div>
+          <div class="ia-m"><span>Hours back per year</span><strong id="ia-hb"></strong></div>
+          <div class="ia-m"><span>First-year return</span><strong id="ia-roi"></strong></div>
+        </div>
+        <p class="ia-note">Based on a first-year investment of <span id="ia-fy"></span> ($2,500 setup plus $150/month). Value recovered = hourly rate × weekly email hours × share reclaimed × 52 weeks.</p>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="sec"><div class="wrap">
+    <div class="head"><span class="label">What you get</span><h2 class="h2">Installed for you. Built around how you work.</h2></div>
+    <ul class="ia-list">
+      <li><b>Inbox audit.</b> We review what actually hits your inbox and design categories that match your business.</li>
+      <li><b>Always-on AI sorting.</b> Every new email is classified and labeled in Gmail automatically.</li>
+      <li><b>Auto-archive rules.</b> Newsletters, receipts and notifications stay out of your way but stay searchable.</li>
+      <li><b>Draft replies in your voice.</b> Emails that need you get a ready-to-edit draft.</li>
+      <li><b>Backlog cleanup.</b> Your existing inbox gets sorted on day one, not just new mail.</li>
+      <li><b>30-day tuning.</b> We adjust the rules as the system learns what matters to you.</li>
+    </ul>
+    <div class="ia-price">
+      <div><span class="label">Investment</span><div class="ia-big"><strong>$2,500</strong> one-time setup</div><p>Then $150/month for hosting, AI usage and support.</p></div>
+      <a class="btn" href="#session">Book a fit call <span class="ar">→</span></a>
+    </div>
+  </div></section>
+
+  <section class="sec tight" style="padding-top:0"><div class="wrap">
+    <div class="head"><h2 class="h2">Common questions</h2></div>
+    <div class="ia-faq">
+      <div><h3 class="h3">Do I have to switch email apps?</h3><p>No. Everything happens inside Gmail. Labels show in your sidebar on desktop and mobile.</p></div>
+      <div><h3 class="h3">Will it send emails on its own?</h3><p>No. It drafts. You decide what gets sent.</p></div>
+      <div><h3 class="h3">What if it mislabels something?</h3><p>Nothing is deleted. Archived mail stays searchable, and we tune the categories during the first 30 days.</p></div>
+      <div><h3 class="h3">How much of my time does setup take?</h3><p>One kickoff call to define what matters. We handle the rest.</p></div>
+    </div>
+  </div></section>
+
+  <section class="band"><div class="wrap">
+    <div class="head" style="margin:0">
+      <h2 class="h2" style="color:#FFFFFF">Your time is worth <span id="ia-rate2">$250</span> an hour. Spend it there.</h2>
+      <p class="lede" style="color:var(--band-ink)">Book a short call. We will look at your inbox together and tell you plainly whether this is worth it for you.</p>
+      <div class="acts"><a class="btn" href="#session">Book your fit call <span class="ar">→</span></a></div>
+    </div>
+  </div></section>
+</div>
+
 <div class="page" data-page="mark" hidden>
   <section class="phero mk-hero"><div class="wrap">
     <div class="mk-head">
@@ -1526,7 +1642,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
   <div class="wrap">
     <div class="grid">
       <div><a class="flogo" href="#home" aria-label="Automate2Scale home"><img src="https://assets.cdn.filesafe.space/3UbxqX8zLDM4QvDExPHM/media/6ac2d014bbad531ac8b1be31.png" alt="Automate2Scale" onerror="this.onerror=null;this.src='https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/3UbxqX8zLDM4QvDExPHM/media/6a0955a82e98e28fa1547b2b.png';this.parentNode.className='plaque'"></a><p class="tag-line">The A³ Revenue Operating System™ for owner-operator trade companies and founder-led professional services firms. We install your system. You reclaim your life.</p></div>
-      <div><h4>System</h4><a href="#system">The A³ framework</a><a href="#align">Align (operating system)</a><a href="#crm">Automate (CRM)</a><a href="#accelerate">Accelerate (AI workforce)</a><a href="#scorecard">Readiness Scorecard</a></div>
+      <div><h4>System</h4><a href="#system">The A³ framework</a><a href="#align">Align (operating system)</a><a href="#crm">Automate (CRM)</a><a href="#accelerate">Accelerate (AI workforce)</a><a href="#scorecard">Readiness Scorecard</a><a href="#inbox">Inbox Autopilot</a></div>
       <div><h4>Journey</h4><a href="#stage-01">Strategy Session</a><a href="#stage-02">Blueprint &amp; Roadmap</a><a href="#stage-03">System Install</a><a href="#stage-05">Revenue Partner</a></div>
       <div><h4>Company</h4><a href="#about">About Mark</a><a href="https://app.automate2scale.io/" target="_blank" rel="noopener">Client Login</a><a href="#session">Book a session</a><a href="#privacy">Privacy Policy</a><span style="display:block;padding:4px 0;color:var(--band-ink)">mark@automate2scale.io</span><span style="display:block;padding:4px 0;color:var(--band-ink-2)">Fort Worth, Texas</span></div>
     </div>
@@ -1683,7 +1799,7 @@ const mb=document.getElementById('menuBtn'),dr=document.getElementById('drawer')
 mb.onclick=()=>{const o=dr.hidden;dr.hidden=!o;mb.setAttribute('aria-expanded',o);mb.textContent=o?'Close':'Menu'};
 
 /* router */
-const PAGES=['home','system','journey','align','crm','accelerate','scorecard','session','about','privacy','mark'];
+const PAGES=['home','system','journey','align','crm','accelerate','scorecard','session','about','privacy','mark','inbox'];
 function route(){
   let h=(location.hash||'#home').slice(1),page=h,target=null;
   if(!PAGES.includes(h)){
@@ -1695,13 +1811,25 @@ function route(){
   document.querySelectorAll('[data-nav]').forEach(a=>a.dataset.nav===page?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
   dr.hidden=true;mb.setAttribute('aria-expanded','false');mb.textContent='Menu';
   const T={home:'Automate2Scale | Revenue Operating Systems for Owner-Led Companies',system:'The A³ Revenue Operating System™ | Automate2Scale',journey:'The A³ Customer Journey | Automate2Scale',align:'Align: Business Operating System & Integrator | Automate2Scale',crm:'Automate: AI-Powered CRM | Automate2Scale',accelerate:'Accelerate: Your AI Team | Automate2Scale',scorecard:'Free A³ Readiness Scorecard | Automate2Scale',session:'Book a Strategy Session | Automate2Scale',about:'About Mark Cupp | Automate2Scale',privacy:'Privacy Policy | Automate2Scale'};
-  T.mark='Book Time with Mark Cupp | Automate2Scale';
+  T.mark='Book Time with Mark Cupp | Automate2Scale';T.inbox='Inbox Autopilot: AI Email Triage for Gmail | Automate2Scale';
   if(T[page])document.title=T[page];
   let rb=document.querySelector('meta[name="robots"]');if(page==='mark'){if(!rb){rb=document.createElement('meta');rb.name='robots';document.head.appendChild(rb)}rb.content='noindex, nofollow';const mf=document.querySelector('[data-page=mark] iframe[data-src]');if(mf){mf.src=mf.dataset.src;mf.removeAttribute('data-src');if(!window.__a2sFE){window.__a2sFE=1;try{const sc=document.createElement('script');sc.src='https://link.automate2scale.io/js/form_embed.js';sc.onerror=()=>{};document.body.appendChild(sc)}catch(e){}}}}else if(rb){rb.content='index, follow'}
   track('page_view',{page_title:document.title,page_path:'/'+(page==='home'?'':page)});
   if(target){requestAnimationFrame(()=>target.scrollIntoView({block:'start'}))}else window.scrollTo(0,0);
 }
 addEventListener('hashchange',route);route();
+
+/* inbox autopilot calculator */
+(function(){const $=id=>document.getElementById(id);if(!$('ia-rate'))return;const SETUP=2500,MONTHLY=150;
+const m=n=>{const r=Math.round(n);return(r<0?'-$':'$')+Math.abs(r).toLocaleString('en-US')};
+function calc(){const rate=+$('ia-rate').value,hours=+$('ia-hours').value,rec=+$('ia-rec').value;
+$('ia-rate-o').textContent=m(rate);$('ia-hours-o').textContent=hours+' hrs';$('ia-rec-o').textContent=rec+'%';$('ia-rate2').textContent=m(rate);
+const wc=rate*hours,wr=wc*rec/100,net=wr-MONTHLY*12/52,fy=SETUP+MONTHLY*12,ar=wr*52;let be,note;
+if(net<=0){be='Not yet';note='At these numbers the monthly fee outweighs the time you get back. Adjust the inputs.'}
+else{const d=Math.ceil(SETUP/net*7);be=d<=1?'1 day':d<14?d+' days':d<120?Math.ceil(d/7)+' weeks':(d/30.4).toFixed(1)+' months';note='After that, you keep about '+m(net*52/12)+' a month in recovered time.'}
+$('ia-be').textContent=be;$('ia-ben').textContent=note;$('ia-cost').textContent=m(wc*52);$('ia-recv').textContent=m(ar);
+$('ia-hb').textContent=Math.round(hours*rec/100*52).toLocaleString('en-US');$('ia-roi').textContent=(fy>0?ar/fy:0).toFixed(1)+'x';$('ia-fy').textContent=m(fy)}
+['ia-rate','ia-hours','ia-rec'].forEach(i=>$(i).addEventListener('input',calc));calc()})();
 
 /* hero background graphics */
 (function(){
