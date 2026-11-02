@@ -530,6 +530,78 @@ tr:last-child td{border-bottom:0}
 .opt .orec{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--on-blue);background:var(--blue);padding:2px 6px;border-radius:3px}
 .opt .op{font-weight:700;font-size:14.5px;color:var(--blue);white-space:nowrap}
 .opt .od{grid-column:1/-1;font-size:13px;color:var(--ink-2)}
+/* inbox autopilot page */
+.ia-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,5vw,56px);align-items:start}
+.ia-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.ia-card{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:26px;display:grid;gap:10px;align-content:start}
+.ia-card p,.ia-faq p{margin:0;color:var(--ink-2)}
+.ia-n{font-family:var(--mono);font-weight:700;font-size:13px;color:var(--blue)}.ia-n.g{color:var(--green)}
+.ia-calcsec{background:var(--mist);border-block:1px solid var(--rule-2)}
+.ia-calc{display:flex;flex-wrap:wrap;gap:28px;align-items:stretch}
+.ia-in,.ia-out{flex:1 1 360px;min-width:0;display:flex;flex-direction:column}
+.ia-in{gap:30px;background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:clamp(22px,3vw,32px)}
+.ia-out{gap:14px}
+.ia-f{display:grid;gap:8px}.ia-f small{font-size:14px;color:var(--ink-2)}
+.ia-fh{display:flex;justify-content:space-between;align-items:baseline;gap:12px}.ia-fh label{font-weight:600}
+.ia-v{font-family:var(--display);font-weight:760;font-size:26px;color:var(--blue);white-space:nowrap}
+.ia input[type=range]{width:100%;accent-color:var(--blue);height:28px;cursor:pointer}
+.ia-be{background:var(--band);color:var(--band-ink);border-radius:8px;padding:clamp(22px,3vw,32px);display:grid;gap:6px}
+.ia-be .ia-k{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--band-accent)}
+.ia-be strong{font-family:var(--display);font-size:clamp(38px,5vw,52px);line-height:1.05;color:#FFFFFF}
+.ia-be p{margin:0;color:var(--band-ink)}
+.ia-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.ia-m{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:20px;display:grid;gap:4px}
+.ia-m span{font-size:14px;color:var(--ink-2)}
+.ia-m strong{font-family:var(--display);font-size:clamp(22px,2.4vw,28px);color:var(--ink)}
+.ia-m strong.neg{color:light-dark(#A8321F,#F08A73)}.ia-m strong.pos{color:light-dark(#2F7A00,#8CC85F)}
+.ia-note{font-size:14px;color:var(--ink-2);margin:0}
+.ia-list{list-style:none;padding:0;margin:0 0 clamp(36px,5vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px 44px;color:var(--ink-2)}
+.ia-list li{position:relative;padding-left:32px}.ia-list b{color:var(--ink)}
+.ia-list li::before{content:"";position:absolute;left:2px;top:6px;width:14px;height:8px;border-left:2.5px solid var(--green);border-bottom:2.5px solid var(--green);transform:rotate(-45deg)}
+.ia-price{background:var(--paper);border:1px solid var(--rule);border-radius:8px;box-shadow:var(--sh2);padding:clamp(24px,4vw,40px);display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
+.ia-price>div{display:grid;gap:8px}.ia-price p{margin:0;color:var(--ink-2)}
+.ia-big{color:var(--ink-2);font-size:18px}.ia-big strong{font-family:var(--display);font-size:clamp(36px,4vw,48px);color:var(--blue);margin-right:8px}
+.ia-faq{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px 44px}.ia-faq>div{display:grid;gap:8px}
+@media (max-width:480px){.ia-grid{grid-template-columns:1fr}}
+/* website audit page */
+.wa-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(28px,5vw,56px);align-items:start}
+.wa-demo{background:var(--paper);border:1px solid var(--rule);border-radius:8px;box-shadow:var(--sh2);padding:clamp(18px,3vw,32px);display:grid;gap:24px}
+.wa-seg{display:inline-flex;justify-self:start;background:var(--panel);border-radius:4px;padding:4px;gap:4px}
+.wa-seg button{border:0;background:transparent;color:var(--ink-2);font:inherit;font-weight:700;font-size:14px;padding:10px 18px;min-height:44px;border-radius:3px;cursor:pointer}
+.wa-seg button[aria-selected="true"]{background:var(--paper);color:var(--ink);box-shadow:var(--sh1)}
+.wa-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,4vw,44px);align-items:start}
+.wa-score{background:var(--mist);border:1px solid var(--rule-2);border-radius:6px;padding:22px;display:grid;gap:14px;position:relative}
+.wa-tag{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
+.wa-pill{display:grid;grid-template-columns:1fr auto;gap:6px 10px;font-size:14px;font-weight:600;color:var(--ink-2)}
+.wa-pill i{grid-column:1/-1;grid-row:2;height:8px;border-radius:4px;background:linear-gradient(90deg,var(--c) var(--w),var(--rule-2) var(--w))}
+.wa-pill b{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
+.wa-leak{border-top:1px solid var(--rule);padding-top:12px}.wa-leak p{margin:4px 0 0;color:var(--ink);font-weight:600}
+.wa-list{list-style:none;padding:0;margin:0;display:grid;gap:14px;color:var(--ink-2)}
+.wa-list li{position:relative;padding-left:30px}.wa-list b{color:var(--ink)}
+.wa-list li::before{content:"";position:absolute;left:2px;top:7px;width:13px;height:7px;border-left:2.5px solid var(--green);border-bottom:2.5px solid var(--green);transform:rotate(-45deg)}
+.wa-browser{border:1px solid var(--rule);border-radius:6px;overflow:hidden;background:var(--paper)}
+.wa-bar{display:flex;align-items:center;gap:6px;padding:10px 12px;background:var(--panel);border-bottom:1px solid var(--rule)}
+.wa-bar i{width:9px;height:9px;border-radius:50%;background:var(--rule)}
+.wa-bar span{margin-left:10px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3);background:var(--paper);border-radius:3px;padding:3px 10px}
+.wa-shot{padding:24px;display:grid;gap:12px;background:linear-gradient(180deg,var(--tint),var(--paper) 70%)}
+.wa-l1{height:22px;width:78%;border-radius:3px;background:var(--navy);opacity:.85}
+.wa-l2{height:10px;width:60%;border-radius:3px;background:var(--ink-3);opacity:.45}
+.wa-btns{display:flex;gap:8px}.wa-btns span{height:28px;width:110px;border-radius:3px;background:var(--green)}.wa-btns span+span{background:transparent;border:1.5px solid var(--rule)}
+.wa-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px}.wa-tiles span{height:62px;border-radius:4px;background:var(--panel);border:1px solid var(--rule-2)}
+.wa-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.wa-card{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:26px;display:grid;gap:10px;align-content:start}
+.wa-card p{margin:0;color:var(--ink-2)}
+.wa-n{font-family:var(--mono);font-weight:700;font-size:13px;color:var(--blue)}.wa-n.g{color:var(--green)}
+.wa-bandsec,.wa-formsec{background:var(--mist);border-block:1px solid var(--rule-2)}
+.wa-bands{display:grid;gap:10px}
+.wa-bands>div{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:center;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:16px 20px}
+.wa-bands b{font-family:var(--display);font-size:22px;color:var(--blue)}.wa-bands span{color:var(--ink-2);font-weight:600}
+.wa-formbox{background:var(--paper);border:1px solid var(--rule);border-radius:8px;box-shadow:var(--sh2);padding:clamp(20px,3vw,32px)}
+.lf textarea{font:inherit;font-weight:400;font-size:15px;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:3px;padding:11px 12px;width:100%;box-sizing:border-box;resize:vertical}
+.lf textarea:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}
+.wa-sub{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:flex-end}
+.wa-sub .hint{margin-right:auto;font-size:13.5px;color:#C0392B}
+.wa-done{display:grid;gap:12px}.wa-done p{margin:0;color:var(--ink-2)}
 /* hero background graphics (one per page, drawn in A3 colors, theme-aware) */
 .hero,.phero{position:relative;overflow:hidden;isolation:isolate}
 .hero>.wrap,.phero>.wrap{position:relative;z-index:1}
@@ -683,8 +755,8 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <div class="wrap hero-grid">
       <div class="hero-copy">
         <span class="label">A³ <span class="sl">/</span> The Revenue Operating System™</span>
-        <h1 class="h1">Replace founder hustle with a revenue operating system, <em>installed in 90 days.</em></h1>
-        <p class="lede">For owner-operator trade companies doing $2M–$20M and founder-led professional services firms doing $1M–$10M. We align your leadership team, automate your revenue engine and add AI capacity, so growth stops depending on you remembering, deciding and following up. The core system is installed in the first 90 days of a 6-month done-with-you program.</p>
+        <h1 class="h1">Replace founder hustle with an AI-powered operating system, <em>installed in 90 days.</em></h1>
+        <p class="lede">For owner-operator trade companies doing $2M–$20M and founder-led professional services firms doing $1M–$10M. We align your leadership team, automate your revenue engine and add AI capacity, so growth stops depending on you remembering, deciding and following up. The core system is installed in a 3-month done-with-you program.</p>
         <div class="acts">
           <a class="btn" href="#scorecard">Get My Free Readiness Score <span class="ar">→</span></a>
         </div>
@@ -899,7 +971,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <div class="wrap">
       <div class="head"><span class="label">Before you start</span><h2 class="h2">Questions founders ask first.</h2></div>
       <div class="faq">
-        <details><summary>What does it cost?</summary><div class="a">The Strategy Session is complimentary for qualified prospects. The Blueprint & Roadmap is $2,497, and 100% of it is credited toward the System Install if you proceed within 30 days. The System Install is a 6-month program, with the core system installed in the first 90 days, in three options: $4,997, $6,997 (recommended) or $9,997 a month. System Support is $1,997 a month, and Revenue Partner starts at $5,000 a month plus a share of growth. Our AI Team is included with the System Install, System Support and Revenue Partner. You can add it to any other product, or hire it on its own, for $500 a month ($500 one-time on the Blueprint). If you only need the CRM working now, the CRM Track starts at $297 a month.</div></details>
+        <details><summary>What does it cost?</summary><div class="a">The Strategy Session is complimentary for qualified prospects. The Blueprint & Roadmap is $2,497, and 100% of it is credited toward the System Install if you proceed within 30 days. The System Install is a 3-month commitment, with the core system installed in those 90 days, in three options: $4,997, $6,997 (recommended) or $9,997 a month. System Support is $1,997 a month, and Revenue Partner starts at $5,000 a month plus a share of growth. Our AI Team is included with the System Install, System Support and Revenue Partner. You can add it to any other product, or hire it on its own, for $500 a month ($500 one-time on the Blueprint). If you only need the CRM working now, the CRM Track starts at $297 a month.</div></details>
         <details><summary>How much of my time will this take?</summary><div class="a">Less than you are spending today chasing updates. You and your leadership team join the working sessions and the weekly meeting rhythm; we do the design, the build and the automation. The point of the system is to take work off your plate, not add to it.</div></details>
         <details><summary>What if we are not a fit?</summary><div class="a">Then we will tell you on the first call. You still leave the Strategy Session with a Constraint Confirmation Brief and a documented next step, so the 30 minutes pays for itself either way.</div></details>
         <details><summary>Why not hire an EOS Implementer and a CRM agency separately?</summary><div class="a">You can. The risk is that strategy and technology stay separate: one team clarifies priorities, another builds tools, and your company is left to connect the two. We integrate operating rhythm, revenue process, CRM, automation, reporting and AI into one installed system.</div></details>
@@ -1259,7 +1331,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
         <details><summary>Do we have to run EOS® to work with you?</summary><div class="a">No. If you already run EOS, we strengthen it and connect it to your revenue system. If you don't, we install the same proven disciplines (vision, seats, Rocks, Scorecard and a weekly meeting rhythm) in a way that fits your company.</div></details>
         <details><summary>We already work with an EOS Implementer. Is this different?</summary><div class="a">Yes, and the two work well together. An Implementer teaches your leadership team the system. An Integrator runs it every day inside the business. Mark fills that seat on a fractional basis or develops the leader who will, and then connects the rhythm to your CRM, automation and AI.</div></details>
         <details><summary>Do we need a full-time Integrator?</summary><div class="a">Not always. Many owner-led companies in our range ($1M–$20M) start with a fractional Integrator to build the habits, then promote or hire into the seat once the role is clearly defined and the rhythm is working.</div></details>
-        <details><summary>What does it cost?</summary><div class="a">Align is part of the System Install, which starts at $4,997 a month as a 6-month program. Start with the free Readiness Score or a complimentary Strategy Session to confirm it's the right first step.</div></details>
+        <details><summary>What does it cost?</summary><div class="a">Align is part of the System Install, which starts at $4,997 a month with a 3-month commitment. Start with the free Readiness Score or a complimentary Strategy Session to confirm it's the right first step.</div></details>
       </div>
       <p class="fine" style="margin-top:28px;font-style:normal">EOS®, Entrepreneurial Operating System®, Traction®, Integrator™, Visionary™, Rocket Fuel™, Level 10 Meeting™ and Vision/Traction Organizer™ are trademarks of EOS Worldwide, LLC. Automate2Scale is an independent firm and is not affiliated with or endorsed by EOS Worldwide. Learn more at <a href="https://www.eosworldwide.com" target="_blank" rel="noopener">eosworldwide.com</a>.</p>
     </div>
@@ -1506,6 +1578,210 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
 </div>
 
 <!-- ======================= MARK (private booking, unlisted) ======================= -->
+<div class="page ia" data-page="inbox" hidden>
+  <section class="phero"><div class="wrap">
+    <span class="crumb"><a href="#home">Home</a> / Inbox Autopilot</span>
+    <span class="label">Inbox Autopilot · AI email triage installed in your Gmail</span>
+    <h1 class="h1">Stop being the person who <em>sorts the inbox.</em></h1>
+    <p class="lede">Every email gets read, labeled and routed the moment it arrives. The noise is archived. The emails that need you are waiting at the top, often with a reply already drafted. It runs inside the Gmail you already use.</p>
+    <div class="acts"><a class="btn" href="#ia-calc">See what your inbox costs you <span class="ar">→</span></a><a class="btn ghost" href="#ia-how">How it works</a></div>
+  </div></section>
+
+  <section class="sec"><div class="wrap ia-two">
+    <div class="head" style="margin:0"><span class="label">The real problem</span><h2 class="h2">Your inbox is a job you never hired for.</h2></div>
+    <div class="body">
+      <p>Most founders spend hours a week deciding what each email is before they can decide what to do with it. Newsletters, receipts, vendor pitches and notifications sit right next to the client who needs an answer today.</p>
+      <p>That sorting is low-value work done by your highest-value person. Inbox Autopilot takes the sorting off your plate so your time goes to the conversations that move revenue.</p>
+    </div>
+  </div></section>
+
+  <section class="sec tight" id="ia-how" style="padding-top:0"><div class="wrap">
+    <div class="head"><span class="label">How it works</span><h2 class="h2">Four steps, running on every email, all day.</h2></div>
+    <div class="ia-steps">
+      <div class="ia-card"><span class="ia-n">01</span><h3 class="h3">Email arrives</h3><p>A watcher on your Gmail picks up each new message within moments.</p></div>
+      <div class="ia-card"><span class="ia-n">02</span><h3 class="h3">AI reads it</h3><p>Claude classifies it against your categories: clients, prospects, partners, vendors, admin and noise.</p></div>
+      <div class="ia-card"><span class="ia-n">03</span><h3 class="h3">It gets routed</h3><p>The right Gmail label is applied. Low-priority mail skips the inbox entirely.</p></div>
+      <div class="ia-card"><span class="ia-n g">04</span><h3 class="h3">You get a head start</h3><p>Emails that need a response get a draft reply waiting. You review, edit and send. Nothing goes out without you.</p></div>
+    </div>
+  </div></section>
+
+  <section class="sec ia-calcsec" id="ia-calc"><div class="wrap">
+    <div class="head"><span class="label">ROI calculator</span><h2 class="h2">What is your inbox costing you?</h2><p class="lede">Set what your time is worth and how much of it email takes today. You will see the cost, the time you could get back and how fast the system pays for itself.</p></div>
+    <div class="ia-calc">
+      <div class="ia-in">
+        <div class="ia-f"><div class="ia-fh"><label for="ia-rate">What do you want to earn per hour?</label><output id="ia-rate-o" class="ia-v"></output></div><input id="ia-rate" type="range" min="50" max="1000" step="25" value="250"><small>Use the rate your time should be worth, not what you pay yourself today.</small></div>
+        <div class="ia-f"><div class="ia-fh"><label for="ia-hours">Hours per week you spend on email</label><output id="ia-hours-o" class="ia-v"></output></div><input id="ia-hours" type="range" min="1" max="40" step="1" value="10"><small>Reading, sorting, searching and replying. Most people underestimate this.</small></div>
+        <div class="ia-f"><div class="ia-fh"><label for="ia-rec">Share of that time you expect to get back</label><output id="ia-rec-o" class="ia-v"></output></div><input id="ia-rec" type="range" min="10" max="80" step="5" value="40"><small>Your own estimate. Start conservative.</small></div>
+      </div>
+      <div class="ia-out" aria-live="polite">
+        <div class="ia-be"><span class="ia-k">Your break-even</span><strong id="ia-be"></strong><p id="ia-ben"></p></div>
+        <div class="ia-grid">
+          <div class="ia-m"><span>Email costs you per year</span><strong id="ia-cost" class="neg"></strong></div>
+          <div class="ia-m"><span>Value recovered per year</span><strong id="ia-recv" class="pos"></strong></div>
+          <div class="ia-m"><span>Hours back per year</span><strong id="ia-hb"></strong></div>
+          <div class="ia-m"><span>First-year return</span><strong id="ia-roi"></strong></div>
+        </div>
+        <p class="ia-note">Based on a first-year investment of <span id="ia-fy"></span> ($2,500 setup plus $150/month). Value recovered = hourly rate × weekly email hours × share reclaimed × 52 weeks.</p>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="sec"><div class="wrap">
+    <div class="head"><span class="label">What you get</span><h2 class="h2">Installed for you. Built around how you work.</h2></div>
+    <ul class="ia-list">
+      <li><b>Inbox audit.</b> We review what actually hits your inbox and design categories that match your business.</li>
+      <li><b>Always-on AI sorting.</b> Every new email is classified and labeled in Gmail automatically.</li>
+      <li><b>Auto-archive rules.</b> Newsletters, receipts and notifications stay out of your way but stay searchable.</li>
+      <li><b>Draft replies in your voice.</b> Emails that need you get a ready-to-edit draft.</li>
+      <li><b>Backlog cleanup.</b> Your existing inbox gets sorted on day one, not just new mail.</li>
+      <li><b>30-day tuning.</b> We adjust the rules as the system learns what matters to you.</li>
+    </ul>
+    <div class="ia-price">
+      <div><span class="label">Investment</span><div class="ia-big"><strong>$2,500</strong> one-time setup</div><p>Then $150/month for hosting, AI usage and support.</p></div>
+      <a class="btn" href="#session">Book a fit call <span class="ar">→</span></a>
+    </div>
+  </div></section>
+
+  <section class="sec tight" style="padding-top:0"><div class="wrap">
+    <div class="head"><h2 class="h2">Common questions</h2></div>
+    <div class="ia-faq">
+      <div><h3 class="h3">Do I have to switch email apps?</h3><p>No. Everything happens inside Gmail. Labels show in your sidebar on desktop and mobile.</p></div>
+      <div><h3 class="h3">Will it send emails on its own?</h3><p>No. It drafts. You decide what gets sent.</p></div>
+      <div><h3 class="h3">What if it mislabels something?</h3><p>Nothing is deleted. Archived mail stays searchable, and we tune the categories during the first 30 days.</p></div>
+      <div><h3 class="h3">How much of my time does setup take?</h3><p>One kickoff call to define what matters. We handle the rest.</p></div>
+    </div>
+  </div></section>
+
+  <section class="band"><div class="wrap">
+    <div class="head" style="margin:0">
+      <h2 class="h2" style="color:#FFFFFF">Your time is worth <span id="ia-rate2">$250</span> an hour. Spend it there.</h2>
+      <p class="lede" style="color:var(--band-ink)">Book a short call. We will look at your inbox together and tell you plainly whether this is worth it for you.</p>
+      <div class="acts"><a class="btn" href="#session">Book your fit call <span class="ar">→</span></a></div>
+    </div>
+  </div></section>
+</div>
+
+<div class="page wa" data-page="audit" hidden>
+  <section class="phero"><div class="wrap">
+    <span class="crumb"><a href="#home">Home</a> / Free Website Audit</span>
+    <span class="label">Free Website Audit + Prototype</span>
+    <h1 class="h1">See what your website is costing you. <em>Then see the fix.</em></h1>
+    <p class="lede">We score your site on a 100-point audit, name the one place it loses buyers, and build a working prototype of your new site in your own brand. The audit is free. Enter your email to unlock your prototype.</p>
+    <div class="acts"><a class="btn" href="#wa-form">Request my free audit <span class="ar">→</span></a><a class="btn ghost" href="#wa-get">What you get</a></div>
+    <p class="fitline"><span>Free audit, no obligation</span><span>Prototype unlocks with your email</span><span>Built from your public site, no logins</span></p>
+  </div></section>
+
+  <section class="sec" id="wa-get"><div class="wrap">
+    <div class="head"><span class="label">What you get</span><h2 class="h2">Two halves. One link.</h2><p class="lede">A switch at the top flips between the diagnosis and the cure, so you can see exactly what is broken and exactly what fixed looks like. The audit is open to read. The new site unlocks with your email.</p></div>
+    <div class="wa-demo">
+      <div class="wa-seg" role="tablist" aria-label="Preview">
+        <button type="button" role="tab" aria-selected="true" data-wa="audit">The audit</button>
+        <button type="button" role="tab" aria-selected="false" data-wa="site">The new site</button>
+      </div>
+      <div class="wa-pane" data-wa-pane="audit">
+        <div class="wa-cols">
+          <div class="wa-score">
+            <span class="wa-tag">Example layout</span>
+            <div class="wa-pill"><span>Copy &amp; message</span><i style="--w:56%;--c:var(--al)"></i><b>/30</b></div>
+            <div class="wa-pill"><span>CRO &amp; persuasion</span><i style="--w:40%;--c:var(--au)"></i><b>/30</b></div>
+            <div class="wa-pill"><span>Layout &amp; UX</span><i style="--w:68%;--c:var(--ac)"></i><b>/20</b></div>
+            <div class="wa-pill"><span>Design &amp; visual</span><i style="--w:62%;--c:var(--blue)"></i><b>/20</b></div>
+            <div class="wa-leak"><span class="minih">The leak</span><p>One bold sentence naming the single weakest point, in words you can repeat to your team.</p></div>
+          </div>
+          <ul class="wa-list">
+            <li><b>100-point Total Page Audit.</b> 20 checkpoints across copy, conversion, layout and design, each with evidence quoted from your site.</li>
+            <li><b>The one leak.</b> We rate Attention, Clarity, Belief, Desire, Certainty and Action, and name the layer losing you the most business.</li>
+            <li><b>The five-second test.</b> What a stranger thinks you sell after five seconds on your homepage.</li>
+            <li><b>Top five fixes, ranked.</b> Impact and effort for each, with paste-ready headlines, buttons and navigation.</li>
+            <li><b>Buyer lanes.</b> How your site, not you, should sort buyers who are ready from buyers who need help.</li>
+            <li><b>The one number to watch.</b> The metric that tells you the fix is working.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="wa-pane" data-wa-pane="site" hidden>
+        <div class="wa-cols">
+          <div class="wa-browser" aria-hidden="true">
+            <div class="wa-bar"><i></i><i></i><i></i><span>yourcompany.com</span></div>
+            <div class="wa-shot"><div class="wa-l1"></div><div class="wa-l2"></div><div class="wa-btns"><span></span><span></span></div><div class="wa-tiles"><span></span><span></span><span></span></div></div>
+          </div>
+          <ul class="wa-list">
+            <li><b>A working prototype, not a mockup.</b> Click through it like it is live: pages, navigation and the flow that converts.</li>
+            <li><b>Your brand, not ours.</b> Your logo, colors and type, built from your real content and your real photos.</li>
+            <li><b>Leads with the fix.</b> The first thing the new site does is close the leak the audit found.</li>
+            <li><b>Mobile-first.</b> Checked at phone width and in light and dark mode.</li>
+            <li><b>Honest about what is sample.</b> Any price, policy or timeline we could not confirm from your site is clearly marked until you confirm it.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div></section>
+
+  <section class="sec tight" style="padding-top:0"><div class="wrap">
+    <div class="head"><span class="label">How it works</span><h2 class="h2">You fill in one short form. We do the rest.</h2></div>
+    <div class="wa-steps">
+      <div class="wa-card"><span class="wa-n">01</span><h3 class="h3">Tell us about your site</h3><p>Your URL, what you sell and what you wish your website did for you.</p></div>
+      <div class="wa-card"><span class="wa-n">02</span><h3 class="h3">We research and score it</h3><p>We review every page that matters to a buyer and score it on the 100-point audit.</p></div>
+      <div class="wa-card"><span class="wa-n">03</span><h3 class="h3">We build your prototype</h3><p>A working version of your new site that applies every fix, in your brand.</p></div>
+      <div class="wa-card"><span class="wa-n g">04</span><h3 class="h3">Unlock your prototype</h3><p>Enter your email to open your new site, then book a Strategy Session with Mark to plan the build.</p></div>
+    </div>
+  </div></section>
+
+  <section class="sec wa-bandsec"><div class="wrap wa-two">
+    <div class="head" style="margin:0"><span class="label">How we score</span><h2 class="h2">Four bands. No grade inflation.</h2><p class="lede">Every score carries evidence from your own pages. Anything we cannot see is marked N/A and left out of the total, never guessed.</p></div>
+    <div class="wa-bands">
+      <div><b>90–100</b><span>Rockstar Page</span></div>
+      <div><b>75–89</b><span>Converting but leaking</span></div>
+      <div><b>60–74</b><span>Underperforming</span></div>
+      <div><b>Under 60</b><span>Rebuild, keeping what already works</span></div>
+    </div>
+  </div></section>
+
+  <section class="sec"><div class="wrap wa-two">
+    <div class="head" style="margin:0"><span class="label">Best fit</span><h2 class="h2">Built for owner-led companies whose website should be selling.</h2></div>
+    <ul class="ia-list" style="grid-template-columns:1fr;margin:0">
+      <li><b>Your site gets visits, but leads still route through you.</b> Every question becomes a call you have to take.</li>
+      <li><b>Buyers ask what the page should have answered.</b> Price, fit, timing, process.</li>
+      <li><b>You are planning a redesign.</b> See the new site working before you pay for it.</li>
+    </ul>
+  </div></section>
+
+  <section class="sec wa-formsec" id="wa-form"><div class="wrap wa-two">
+    <div class="head" style="margin:0"><span class="label">Request your audit</span><h2 class="h2">Get your free audit and prototype.</h2><p class="lede">Two minutes. We will email you your private link when your audit is ready.</p></div>
+    <div class="wa-formbox" id="waBox">
+      <form class="lf" id="waForm" novalidate>
+        <label>First name<input name="first_name" autocomplete="given-name" required></label>
+        <label>Last name<input name="last_name" autocomplete="family-name"></label>
+        <label>Work email<input name="email" type="email" autocomplete="email" required></label>
+        <label>Company<input name="company" autocomplete="organization" required></label>
+        <label class="full">Website URL<input name="website" type="url" inputmode="url" placeholder="yourcompany.com" required></label>
+        <label class="full">Business type<select name="business_type"><option value="">Select one</option><option>Trade or field services company</option><option>Professional services firm</option><option>Other</option></select></label>
+        <label class="full">What should your website do that it does not today? (optional)<textarea name="vision" rows="3" placeholder="For example: let buyers see pricing and book without calling me."></textarea></label>
+        <p class="consent">By submitting you agree that Automate2Scale may email you about your audit and related services. You can unsubscribe at any time. We never sell your details. <a href="#privacy" target="_blank">Privacy Policy</a>.</p>
+        <div class="wa-sub"><span class="hint" id="waHint" role="status"></span><button class="btn" type="submit">Request my free audit <span class="ar">→</span></button></div>
+      </form>
+    </div>
+  </div></section>
+
+  <section class="sec tight"><div class="wrap">
+    <div class="head"><h2 class="h2">Common questions</h2></div>
+    <div class="ia-faq">
+      <div><h3 class="h3">Is it really free?</h3><p>Yes. The audit is free to read and keep, with no card and no obligation. Your prototype opens when you enter your email.</p></div>
+      <div><h3 class="h3">Why do you do this?</h3><p>It is the fastest way to show what working with us looks like. If you want the new site built, we plan it together in a free Strategy Session.</p></div>
+      <div><h3 class="h3">Do you need logins or access?</h3><p>No. We work only from your public website.</p></div>
+      <div><h3 class="h3">Who sees my results?</h3><p>You do. Your link is private, and we never share your audit without your permission.</p></div>
+      <div><h3 class="h3">What if I do not have a website yet?</h3><p>Then start with a <a href="#session">Strategy Session</a> and we will map what your site needs to do first.</p></div>
+    </div>
+  </div></section>
+
+  <section class="band"><div class="wrap">
+    <div class="head" style="margin:0">
+      <h2 class="h2" style="color:#FFFFFF">Stop guessing what your website is costing you.</h2>
+      <p class="lede" style="color:var(--band-ink)">See the score, the leak and the fix, working, in your own brand.</p>
+      <div class="acts"><a class="btn" href="#wa-form">Request my free audit <span class="ar">→</span></a><a class="sublink" href="#session">Or book a Strategy Session with Mark →</a></div>
+    </div>
+  </div></section>
+</div>
+
 <div class="page" data-page="mark" hidden>
   <section class="phero mk-hero"><div class="wrap">
     <div class="mk-head">
@@ -1526,7 +1802,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
   <div class="wrap">
     <div class="grid">
       <div><a class="flogo" href="#home" aria-label="Automate2Scale home"><img src="https://assets.cdn.filesafe.space/3UbxqX8zLDM4QvDExPHM/media/6ac2d014bbad531ac8b1be31.png" alt="Automate2Scale" onerror="this.onerror=null;this.src='https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/3UbxqX8zLDM4QvDExPHM/media/6a0955a82e98e28fa1547b2b.png';this.parentNode.className='plaque'"></a><p class="tag-line">The A³ Revenue Operating System™ for owner-operator trade companies and founder-led professional services firms. We install your system. You reclaim your life.</p></div>
-      <div><h4>System</h4><a href="#system">The A³ framework</a><a href="#align">Align (operating system)</a><a href="#crm">Automate (CRM)</a><a href="#accelerate">Accelerate (AI workforce)</a><a href="#scorecard">Readiness Scorecard</a></div>
+      <div><h4>System</h4><a href="#system">The A³ framework</a><a href="#align">Align (operating system)</a><a href="#crm">Automate (CRM)</a><a href="#accelerate">Accelerate (AI workforce)</a><a href="#scorecard">Readiness Scorecard</a><a href="#inbox">Inbox Autopilot</a><a href="#audit">Free Website Audit</a></div>
       <div><h4>Journey</h4><a href="#stage-01">Strategy Session</a><a href="#stage-02">Blueprint &amp; Roadmap</a><a href="#stage-03">System Install</a><a href="#stage-05">Revenue Partner</a></div>
       <div><h4>Company</h4><a href="#about">About Mark</a><a href="https://app.automate2scale.io/" target="_blank" rel="noopener">Client Login</a><a href="#session">Book a session</a><a href="#privacy">Privacy Policy</a><span style="display:block;padding:4px 0;color:var(--band-ink)">mark@automate2scale.io</span><span style="display:block;padding:4px 0;color:var(--band-ink-2)">Fort Worth, Texas</span></div>
     </div>
@@ -1568,11 +1844,11 @@ const STAGES=[
   list:["<b>A³ Customer Ascension Blueprint™:</b> stranger to lead, client, recurring customer and referral source, with offers, stages, automations, owners and KPIs","Customer Journey Gap Analysis: every missing transition, handoff and system","<b>A³ 90-Day Executive Roadmap™:</b> what gets built, in what order, who owns it, with milestones, KPIs and risks","Revenue process and CRM architecture","AI Opportunity Portfolio, ranked by value, readiness and risk","Executive KPI Scorecard","CRM trial with a working pipeline, executive dashboard and sample workflows"],
   format:"Executive working sessions",outcome:"You know exactly what to build, in what order, who owns it, and how success will be measured.",up:["+$500","one-time","AI specialists research your market, competitors and customer journey to sharpen the blueprint."],
   fine:"100% of the $2,497 is credited toward the System Install if you proceed within 30 days.",cta:["Talk about a Blueprint","#session"],next:"The plan is set. Now we build it with you."},
- {n:"03",name:"System Install",full:"A³ System Install™",q:"Can you build it with us?",price:"From $4,997/mo",priceSub:"6-month program",tag:"Main offer",kind:"core",
+ {n:"03",name:"System Install",full:"A³ System Install™",q:"Can you build it with us?",price:"From $4,997/mo",priceSub:"3-month commitment",tag:"Main offer",kind:"core",
   groups:[["Align","al",["V/TO completed with AI support: core focus, 3-year picture, 1-year plan, issues list","Accountability Chart: every seat, owner and decision right","Quarterly Rocks with owners, milestones and a definition of done","Weekly Level 10 system run in Ninety.io","Monthly executive reviews and quarterly planning"]],["Automate","au",["CRM and pipeline installation: migration, pipelines, calendars, forms, landing pages","Workflow installation: instant lead response, routing, no-show and proposal follow-up, onboarding, reactivation, reviews, referrals","Revenue visibility dashboards: leads, appointments, conversion, pipeline value, attribution"]],["Accelerate","ac",["AI Employees: receptionist, speed-to-lead, appointment setter, follow-up and reactivation, review agent","Campaign engine: segmentation, email, LinkedIn, call tasks, lead scoring","Sales enablement: discovery, qualification, objection handling, call scorecard"]]],
-  format:"Done-with-you 6-month program: install in the first 90 days, then optimize, train and hand off in the second",outcome:"The business runs from one connected system instead of owner memory: clear ownership, visible performance, less reliance on you.",opts:[["A³ Automate Install","$4,997/mo","CRM, workflows and dashboards"],["Full A³ Install","$6,997/mo","Align + Automate + Accelerate","Recommended"],["A³ Install + Fractional Integrator","$9,997/mo","Full install, with Mark in the Integrator seat"]],
+  format:"Done-with-you 3-month program: install, train your team and hand off in 90 days",outcome:"The business runs from one connected system instead of owner memory: clear ownership, visible performance, less reliance on you.",opts:[["A³ Automate Install","$4,997/mo","CRM, workflows and dashboards"],["Full A³ Install","$6,997/mo","Align + Automate + Accelerate","Recommended"],["A³ Install + Fractional Integrator","$9,997/mo","Full install, with Mark in the Integrator seat"]],
   up:["Included","every option","Our 44 AI specialists and 540+ skills work alongside your install team on campaigns, content, SOPs and analysis.",1],
-  fine:"Each option runs 6 months. Pay monthly, or pay in full at a discount.",cta:["Talk about an install","#session"],next:"Once installed, keep it sharp."},
+  fine:"Each option is a 3-month commitment. Pay monthly, or pay in full at a discount.",cta:["Talk about an install","#session"],next:"Once installed, keep it sharp."},
  {n:"04",name:"System Support",full:"A³ System Support™",q:"Can you keep it working?",price:"$1,997/mo",tag:"Ongoing",kind:"cont",
   list:["CRM hosting and 24/7 technical support","Workflow monitoring and optimization","Monthly system-health review covering adoption and workflow performance","Controlled automation adjustments, approved before any live change","Full access to Our AI Team: 44 specialists and 540+ skills","Quarterly A³ maturity rescore"],
   up:["Included","","Ongoing AI Team access for new campaigns, content, reporting and optimization.",1],
@@ -1626,7 +1902,7 @@ const FIND=[
  ["I know something is off, but I can't name exactly what.","A³ Readiness Scorecard™","Ten minutes of honest answers gives you a scored view of Align, Automate and Accelerate, and names the constraint that is actually holding you back.","Free","#scorecard"],
  ["I know the problem. I want to know what it is costing us and what to do first.","A³ Strategy Session™","Thirty focused minutes to confirm the constraint, put a cost on it and leave with a documented next step.","Complimentary · for qualified prospects","#session"],
  ["I need a plan: the system we need and the order to build it in.","A³ Blueprint & Roadmap™","Design the system and sequence the build: the customer journey, the gaps, the roadmap, owners and KPIs.","$2,497 · 100% credited toward Install","#stage-02"],
- ["We have a plan and the budget. We need it built.","A³ System Install™","We install Align, Automate and Accelerate with your team in a done-with-you 6-month program.","From $4,997/month · 6-month program","#stage-03"],
+ ["We have a plan and the budget. We need it built.","A³ System Install™","We install Align, Automate and Accelerate with your team in a done-with-you 3-month program.","From $4,997/month · 3-month commitment","#stage-03"],
  ["Leads are slipping through the cracks and I need a working CRM now.","A³ Automate™ CRM Track","Get the revenue system working now with white-glove onboarding. The path to the full install stays open.","From $297/month","#crm"]
 ];
 const fo=document.getElementById('finderOpts');
@@ -1683,7 +1959,7 @@ const mb=document.getElementById('menuBtn'),dr=document.getElementById('drawer')
 mb.onclick=()=>{const o=dr.hidden;dr.hidden=!o;mb.setAttribute('aria-expanded',o);mb.textContent=o?'Close':'Menu'};
 
 /* router */
-const PAGES=['home','system','journey','align','crm','accelerate','scorecard','session','about','privacy','mark'];
+const PAGES=['home','system','journey','align','crm','accelerate','scorecard','session','about','privacy','mark','inbox','audit'];
 function route(){
   let h=(location.hash||'#home').slice(1),page=h,target=null;
   if(!PAGES.includes(h)){
@@ -1695,13 +1971,41 @@ function route(){
   document.querySelectorAll('[data-nav]').forEach(a=>a.dataset.nav===page?a.setAttribute('aria-current','page'):a.removeAttribute('aria-current'));
   dr.hidden=true;mb.setAttribute('aria-expanded','false');mb.textContent='Menu';
   const T={home:'Automate2Scale | Revenue Operating Systems for Owner-Led Companies',system:'The A³ Revenue Operating System™ | Automate2Scale',journey:'The A³ Customer Journey | Automate2Scale',align:'Align: Business Operating System & Integrator | Automate2Scale',crm:'Automate: AI-Powered CRM | Automate2Scale',accelerate:'Accelerate: Your AI Team | Automate2Scale',scorecard:'Free A³ Readiness Scorecard | Automate2Scale',session:'Book a Strategy Session | Automate2Scale',about:'About Mark Cupp | Automate2Scale',privacy:'Privacy Policy | Automate2Scale'};
-  T.mark='Book Time with Mark Cupp | Automate2Scale';
+  T.mark='Book Time with Mark Cupp | Automate2Scale';T.inbox='Inbox Autopilot: AI Email Triage for Gmail | Automate2Scale';T.audit='Free Website Audit + Prototype | Automate2Scale';
   if(T[page])document.title=T[page];
   let rb=document.querySelector('meta[name="robots"]');if(page==='mark'){if(!rb){rb=document.createElement('meta');rb.name='robots';document.head.appendChild(rb)}rb.content='noindex, nofollow';const mf=document.querySelector('[data-page=mark] iframe[data-src]');if(mf){mf.src=mf.dataset.src;mf.removeAttribute('data-src');if(!window.__a2sFE){window.__a2sFE=1;try{const sc=document.createElement('script');sc.src='https://link.automate2scale.io/js/form_embed.js';sc.onerror=()=>{};document.body.appendChild(sc)}catch(e){}}}}else if(rb){rb.content='index, follow'}
   track('page_view',{page_title:document.title,page_path:'/'+(page==='home'?'':page)});
   if(target){requestAnimationFrame(()=>target.scrollIntoView({block:'start'}))}else window.scrollTo(0,0);
 }
 addEventListener('hashchange',route);route();
+
+/* inbox autopilot calculator */
+(function(){const $=id=>document.getElementById(id);if(!$('ia-rate'))return;const SETUP=2500,MONTHLY=150;
+const m=n=>{const r=Math.round(n);return(r<0?'-$':'$')+Math.abs(r).toLocaleString('en-US')};
+function calc(){const rate=+$('ia-rate').value,hours=+$('ia-hours').value,rec=+$('ia-rec').value;
+$('ia-rate-o').textContent=m(rate);$('ia-hours-o').textContent=hours+' hrs';$('ia-rec-o').textContent=rec+'%';$('ia-rate2').textContent=m(rate);
+const wc=rate*hours,wr=wc*rec/100,net=wr-MONTHLY*12/52,fy=SETUP+MONTHLY*12,ar=wr*52;let be,note;
+if(net<=0){be='Not yet';note='At these numbers the monthly fee outweighs the time you get back. Adjust the inputs.'}
+else{const d=Math.ceil(SETUP/net*7);be=d<=1?'1 day':d<14?d+' days':d<120?Math.ceil(d/7)+' weeks':(d/30.4).toFixed(1)+' months';note='After that, you keep about '+m(net*52/12)+' a month in recovered time.'}
+$('ia-be').textContent=be;$('ia-ben').textContent=note;$('ia-cost').textContent=m(wc*52);$('ia-recv').textContent=m(ar);
+$('ia-hb').textContent=Math.round(hours*rec/100*52).toLocaleString('en-US');$('ia-roi').textContent=(fy>0?ar/fy:0).toFixed(1)+'x';$('ia-fy').textContent=m(fy)}
+['ia-rate','ia-hours','ia-rec'].forEach(i=>$(i).addEventListener('input',calc));calc()})();
+
+/* website audit page */
+(function(){const seg=document.querySelectorAll('[data-wa]');seg.forEach(b=>b.addEventListener('click',()=>{seg.forEach(x=>x.setAttribute('aria-selected',x===b));document.querySelectorAll('[data-wa-pane]').forEach(p=>p.hidden=p.dataset.waPane!==b.dataset.wa)}));
+const f=document.getElementById('waForm');if(!f)return;
+f.addEventListener('input',e=>{if(e.target.getAttribute('aria-invalid')==='true')e.target.setAttribute('aria-invalid','false')});
+f.onsubmit=e=>{e.preventDefault();const d=Object.fromEntries(new FormData(f).entries());Object.keys(d).forEach(k=>d[k]=d[k].trim());let bad=null;
+[['first_name',!d.first_name],['email',!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)],['company',!d.company],['website',!/^(https?:\/\/)?[^\s.]+\.[^\s]{2,}$/i.test(d.website)]].forEach(([n,x])=>{const el=f.elements[n];el.setAttribute('aria-invalid',x);if(x&&!bad)bad=el});
+const hint=document.getElementById('waHint');if(bad){hint.textContent=bad.name==='email'?'Enter a valid work email.':bad.name==='website'?'Enter your website address.':'Fill in the required fields.';bad.focus();return}
+const payload={...d,full_name:(d.first_name+' '+d.last_name).trim(),source:'Free Website Audit + Prototype',page_url:location.href,submitted_at:new Date().toISOString()};
+if(typeof WEBHOOK!=='undefined'&&WEBHOOK){try{fetch(WEBHOOK,{method:'POST',mode:'no-cors',body:new URLSearchParams(payload),keepalive:true}).catch(()=>{})}catch(err){}}
+try{track('website_audit_request',{business_type:d.business_type||''})}catch(err){}
+const box=document.getElementById('waBox');const n=document.createElement('div');n.className='wa-done';n.setAttribute('tabindex','-1');
+const h=document.createElement('h3');h.className='h3';h.textContent='Thanks, '+d.first_name+'. Your audit is in the queue.';
+const p=document.createElement('p');p.textContent='We will review '+d.website+' and email '+d.email+' when your private link is ready. Want to talk sooner?';
+const a=document.createElement('a');a.className='btn ghost';a.href='#session';a.innerHTML='Book a Strategy Session <span class="ar">→</span>';a.style.justifySelf='start';
+n.append(h,p,a);box.replaceChildren(n);n.focus()}})();
 
 /* hero background graphics */
 (function(){
@@ -1712,6 +2016,8 @@ const ring=(x,y,r,c,w=1.2,o=1,d='')=>`<circle cx="${x}" cy="${y}" r="${r}" class
 const rect=(x,y,w,h,c,sw=1.2,o=1,rx=6)=>`<rect x="${x}" y="${y}" width="${w}" height="${h}" rx="${rx}" class="${c}" stroke-width="${sw}" opacity="${o}"/>`;
 const grid=(o=.35)=>{let g='';for(let x=0;x<=W;x+=36)g+=ln(x,0,x,H,'r',1,o);for(let y=0;y<=H;y+=36)g+=ln(0,y,W,y,'r',1,o);return g};
 const A={
+ audit(){let g=grid(.2);g+=rect(380,60,330,300,'c',1.5,.7,6);g+=ln(380,88,710,88,'c',1.2,.6);[0,1,2].forEach(i=>{g+=dot(396+i*14,74,3.5,'fc',.6)});g+=`<rect x="404" y="110" width="200" height="16" rx="3" class="fa" opacity=".45"/>`;g+=`<rect x="404" y="136" width="150" height="8" rx="3" class="fc" opacity=".35"/>`;g+=`<rect x="404" y="160" width="80" height="22" rx="3" class="fu" opacity=".55"/>`;[0,1,2].forEach(i=>{g+=rect(404+i*98,206,86,60,'c',1.2,.5,4)});g+=ln(380,290,710,290,'u mv',2,.85,'8 8');[[110,'a',.78],[160,'u',.55],[210,'c',.85],[260,'a',.66]].forEach(([y,c,w])=>{g+=ln(760,y,880,y,'r',6,.9);g+=ln(760,y,760+120*w,y,c,6,.85)});g+=ring(820,330,34,'a',1.8,.85);g+=`<path d="M820 296 A34 34 0 1 1 790 346" class="u" stroke-width="4" opacity=".85"/>`;return sv(g)},
+ inbox(){let g=grid(.2);[[380,120],[400,190],[380,260],[400,330]].forEach(([x,y])=>{g+=rect(x,y,70,46,'c',1.4,.75,4);g+=`<path d="M${x} ${y} l35 24 l35 -24" class="c" stroke-width="1.2" opacity=".75"/>`});[[450,143],[470,213],[450,283],[470,353]].forEach(([x,y])=>{g+=`<path d="M${x} ${y} C 530 ${y}, 540 220, 590 220" class="c" stroke-width="1" opacity=".45"/>`});g+=ring(620,220,30,'a',1.8,.85);g+=ring(620,220,46,'a',1.1,.45,'3 6');g+=dot(620,220,9,'fa',.85);[[110,'a'],[220,'u'],[330,'c']].forEach(([y,c],i)=>{g+=`<path d="M650 220 C 700 220, 700 ${y}, 760 ${y}" class="${c}${i==1?' mv':''}" stroke-width="${i==1?2:1.4}" opacity=".8" ${i==1?'stroke-dasharray="8 8"':''}/>`;g+=rect(760,y-22,110,44,c,1.5,.8,4);g+=`<rect x="760" y="${y-22}" width="6" height="44" class="f${c}" opacity=".8"/>`;g+=ln(780,y-6,850,y-6,c,1.4,.55);g+=ln(780,y+6,830,y+6,c,1.4,.4)});return sv(g)},
  home(){let g=grid(.25);const cx=230,cy=230;[[170,'c'],[120,'u'],[72,'a']].forEach(([r,c],i)=>{g+=ring(cx,cy,r,c,1.6,.55,i?'':'3 7')});for(let i=0;i<12;i++){const t=i/12*Math.PI*2,r=[170,120,72][i%3],c=['c','u','a'][i%3];g+=dot(cx+r*Math.cos(t),cy+r*Math.sin(t),3.5,'f'+c,.7)}g+=dot(cx,cy,9,'fa',.8);return sv(g)},
  system(){let g=grid(.22);[['a',300],['u',220],['c',140]].forEach(([c,y],i)=>{const x=430+i*40;g+=`<path d="M${x} ${y} l170 -60 l170 60 l-170 60 z" class="${c}" stroke-width="1.6" opacity=".7"/>`;g+=`<path d="M${x} ${y} l170 60 l170 -60" class="f${c}" opacity=".06" stroke="none"/>`});g+=ln(640,120,640,410,'r',1.2,.9,'4 6');return sv(g)},
  journey(){let g=grid(.22);const hs=[60,105,160,105,75],cs=['a','a','u','c','c'];let x=360;hs.forEach((h,i)=>{const y=H-40-h*1.6;g+=rect(x,y,92,h*1.6,cs[i],1.5,.7,4);g+=`<rect x="${x}" y="${y}" width="92" height="4" class="f${cs[i]}" opacity=".7"/>`;x+=104});g+=`<path d="M380 ${H-150} C 470 ${H-250}, 560 ${H-330}, 620 ${H-320} S 760 ${H-230}, 860 ${H-200}" class="u mv" stroke-width="1.6" stroke-dasharray="6 10" opacity=".8"/>`;return sv(g)},
