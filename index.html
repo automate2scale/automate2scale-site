@@ -654,6 +654,9 @@ tr:last-child td{border-bottom:0}
 .btn[disabled]{opacity:.45;cursor:not-allowed;filter:none}
 @media (max-width:900px){.sc{grid-template-columns:1fr}.sc-side{position:static}}
 @media (max-width:480px){.scale button{font-size:10.5px;padding:8px 2px}}
+.dlbox{border:1px solid var(--rule);border-radius:6px;padding:20px;background:var(--paper);display:grid;gap:14px;margin-top:16px}
+.dlbox[hidden]{display:none}
+.dl-sub{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:flex-end}.dl-sub .hint{margin-right:auto;font-size:13.5px}
 .res-top{display:grid;grid-template-columns:auto 1fr;gap:24px;align-items:center}
 .dial{width:132px;height:132px;position:relative}
 .dial svg{width:100%;height:100%;transform:rotate(-90deg)}
@@ -2114,6 +2117,63 @@ function renderC(){
   };
 }
 function score(a){return Math.round((a.reduce((s,x)=>s+x,0)-5)/20*100)}
+function loadJsPDF(){return new Promise((ok,no)=>{if(window.jspdf)return ok(window.jspdf);const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js';s.onload=()=>window.jspdf?ok(window.jspdf):no(new Error('jspdf'));s.onerror=no;document.head.appendChild(s)})}
+function resFileName(who){return ('A3-Readiness-Score'+(who&&who.company?'-'+who.company:'')).replace(/[^A-Za-z0-9-]+/g,'-').replace(/-+/g,'-')+'.pdf'}
+async function makeResPdf(r,who){
+  const {ps,ov,lo,names,rec,cdesc}=r,today=new Date().toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'});
+  const {jsPDF}=await loadJsPDF();const d=new jsPDF({unit:'pt',format:'letter'});const W=612,M=54;
+  const col=[[0,84,136],[56,142,0],[100,100,100]],ink=[19,28,36],ink2=[62,76,87],navy=[0,61,112];
+  d.setFillColor(...navy);d.rect(0,0,W,96,'F');
+  d.setTextColor(169,207,232);d.setFont('helvetica','bold');d.setFontSize(9);d.text('AUTOMATE2SCALE  ·  A3 READINESS SCORECARD™',M,38);
+  d.setTextColor(255,255,255);d.setFontSize(22);d.text('Your A3 Readiness Score',M,68);
+  let y=124;d.setTextColor(...ink2);d.setFont('helvetica','normal');d.setFontSize(10);
+  d.text(('Prepared for '+[who.first_name,who.last_name].filter(Boolean).join(' ')+(who.company?', '+who.company:'')).slice(0,95),M,y);d.text(today,W-M,y,{align:'right'});
+  y=150;d.setDrawColor(215,222,228);d.line(M,y,W-M,y);
+  y=212;d.setTextColor(...navy);d.setFont('helvetica','bold');d.setFontSize(60);d.text(String(ov),M,y);
+  const sw=d.getTextWidth(String(ov));d.setFontSize(16);d.setTextColor(...ink2);d.text('/ 100',M+sw+6,y);
+  d.setFontSize(9);d.setFont('helvetica','normal');d.text('Overall readiness',M,y+18);
+  const bx=250,bw=W-M-bx-34;names.forEach((n,i)=>{const yy=176+i*30;d.setTextColor(...ink);d.setFont('helvetica','bold');d.setFontSize(10);d.text(n,bx,yy);
+    d.setFillColor(235,239,243);d.roundedRect(bx,yy+5,bw,7,3,3,'F');d.setFillColor(...col[i]);if(ps[i]>0)d.roundedRect(bx,yy+5,Math.max(7,bw*ps[i]/100),7,3,3,'F');
+    d.setTextColor(...ink);d.text(String(ps[i]),W-M,yy+12,{align:'right'})});
+  y=262;d.setFillColor(247,250,252);d.setDrawColor(215,222,228);d.roundedRect(M,y,W-2*M,70,4,4,'FD');d.setFillColor(...col[lo]);d.rect(M,y,4,70,'F');
+  d.setTextColor(...ink2);d.setFont('helvetica','bold');d.setFontSize(8.5);d.text('PRIMARY CONSTRAINT  ·  '+names[lo].toUpperCase(),M+18,y+20);
+  d.setTextColor(...ink);d.setFont('helvetica','normal');d.setFontSize(10.5);d.text(d.splitTextToSize(cdesc[lo],W-2*M-36),M+18,y+38);
+  y=350;d.setFillColor(230,240,246);d.roundedRect(M,y,W-2*M,96,4,4,'F');
+  d.setTextColor(...ink2);d.setFont('helvetica','bold');d.setFontSize(8.5);d.text('RECOMMENDED NEXT STEP',M+18,y+20);
+  d.setTextColor(...navy);d.setFontSize(14);d.text(rec[0].replace(/³/g,'3'),M+18,y+40);d.setFontSize(10);d.text(rec[2],W-M-18,y+40,{align:'right'});
+  d.setTextColor(...ink);d.setFont('helvetica','normal');d.setFontSize(10);d.text(d.splitTextToSize(rec[1],W-2*M-36),M+18,y+58);
+  d.setTextColor(0,91,142);d.setFont('helvetica','bold');d.textWithLink('Book a complimentary Strategy Session: automate2scale.io/#session',M+18,y+84,{url:'https://automate2scale.io/#session'});
+  y=474;d.setTextColor(...ink);d.setFont('helvetica','bold');d.setFontSize(11);d.text('Your answers',M,y);y+=6;
+  Q.forEach((g,gi)=>{y+=18;d.setTextColor(...col[gi]);d.setFontSize(9);d.setFont('helvetica','bold');d.text((g.k+'  ·  '+ps[gi]+'/100').toUpperCase(),M,y);
+    g.items.forEach((t,ii)=>{const lines=d.splitTextToSize(t,W-2*M-110);y+=13;if(y>742){d.addPage();y=60}d.setTextColor(...ink2);d.setFont('helvetica','normal');d.setFontSize(8.5);d.text(lines,M,y);
+      const a=ans[gi][ii];d.setTextColor(...ink);d.setFont('helvetica','bold');d.text(a?LBL[a-1]:'-',W-M,y,{align:'right'});y+=(lines.length-1)*10})});
+  const n=d.getNumberOfPages();for(let i=1;i<=n;i++){d.setPage(i);d.setDrawColor(215,222,228);d.line(M,762,W-M,762);d.setTextColor(108,124,136);d.setFont('helvetica','normal');d.setFontSize(8);
+    d.text('Automate2Scale  ·  Fort Worth, Texas  ·  mark@automate2scale.io  ·  automate2scale.io',M,776);d.text('Scores are self-assessed and directional.',W-M,776,{align:'right'})}
+  d.save(resFileName(who));
+}
+function printResFallback(r,who){const {ps,ov,lo,names,rec,cdesc}=r;const f=document.createElement('iframe');f.style.cssText='position:fixed;width:0;height:0;border:0;right:0;bottom:0';document.body.appendChild(f);
+  const rows=Q.map((g,gi)=>`<h3>${g.k} · ${ps[gi]}/100</h3>`+g.items.map((t,ii)=>`<p>${esc(t)}<b>${ans[gi][ii]?LBL[ans[gi][ii]-1]:'-'}</b></p>`).join('')).join('');
+  f.srcdoc=`<!doctype html><meta charset="utf-8"><title>A3 Readiness Score</title><style>body{font:12px/1.45 Arial,sans-serif;color:#131C24;margin:36px}h1{color:#003D70;margin:0 0 4px}h2{font-size:42px;margin:14px 0;color:#003D70}h3{font-size:12px;margin:14px 0 4px;color:#005488;text-transform:uppercase}p{margin:3px 0;display:flex;justify-content:space-between;gap:16px}.box{background:#F3F5F7;padding:10px 14px;margin:10px 0;border-radius:4px}</style><h1>Your A³ Readiness Score</h1><div>${esc([who.first_name,who.last_name].filter(Boolean).join(' '))}${who.company?', '+esc(who.company):''} · ${new Date().toLocaleDateString()}</div><h2>${ov} / 100</h2><div>Align ${ps[0]} · Automate ${ps[1]} · Accelerate ${ps[2]}</div><div class="box"><b>Primary constraint: ${names[lo]}.</b> ${cdesc[lo]}</div><div class="box"><b>Recommended next step: ${rec[0]}</b> (${rec[2]}). ${rec[1]}<br>Book a Strategy Session: automate2scale.io/#session</div>${rows}<p style="margin-top:20px;color:#6C7C88">Automate2Scale · mark@automate2scale.io · automate2scale.io</p>`;
+  f.onload=()=>{try{f.contentWindow.focus();f.contentWindow.print()}catch(e){}setTimeout(()=>f.remove(),60000)}}
+function wireDl(r){
+  const b=document.getElementById('dlRes'),box=document.getElementById('dlBox');if(!b||!box)return;
+  b.onclick=()=>{box.hidden=false;const f=box.querySelector('input:not([value]),input[value=""]')||box.querySelector('button[type=submit]');f&&f.focus();box.scrollIntoView({block:'nearest'})};
+  const f=document.getElementById('dlForm'),hint=document.getElementById('dlHint');
+  f.addEventListener('input',e=>{if(e.target.getAttribute('aria-invalid')==='true')e.target.setAttribute('aria-invalid','false')});
+  f.onsubmit=async e=>{e.preventDefault();const d=Object.fromEntries(new FormData(f).entries());Object.keys(d).forEach(k=>d[k]=d[k].trim());let bad=null;
+    [['first_name',!d.first_name],['email',!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)],['company',!d.company]].forEach(([n,x])=>{const el=f.elements[n];el.setAttribute('aria-invalid',x);if(x&&!bad)bad=el});
+    if(bad){hint.textContent=bad.name==='email'?'Enter a valid work email.':'Fill in the required fields.';bad.focus();return}
+    const who={...(lead||{}),...d};lead=who;
+    const payload={...d,last_name:who.last_name||'',full_name:((d.first_name||'')+' '+(who.last_name||'')).trim(),business_type:who.business_type||'',revenue:who.revenue||'',
+      score_overall:r.ov,score_align:r.ps[0],score_automate:r.ps[1],score_accelerate:r.ps[2],primary_constraint:r.names[r.lo],recommendation:r.rec[0].replace(/™/g,''),recommendation_price:r.rec[2],
+      answers:ans.map((a,i)=>r.names[i]+': '+a.join(',')).join(' | '),source:'A3 Readiness Scorecard - PDF Download',page_url:location.href,submitted_at:new Date().toISOString()};
+    if(WEBHOOK){try{fetch(WEBHOOK,{method:'POST',mode:'no-cors',body:new URLSearchParams(payload),keepalive:true}).catch(()=>{})}catch(err){}}
+    try{track('scorecard_pdf_download',{score:r.ov})}catch(err){}
+    const sb=f.querySelector('button[type=submit]');sb.disabled=true;hint.style.color='';hint.textContent='Preparing your PDF…';
+    try{await makeResPdf(r,who);hint.textContent='Your PDF is downloading. Check your downloads folder.'}
+    catch(err){printResFallback(r,who);hint.textContent='Choose "Save as PDF" in the print window to keep a copy.'}
+    sb.disabled=false;sb.innerHTML='Download again <span class="ar">↓</span>'};
+}
 function renderR(){
   const {ps,ov,lo,names,rec}=results();
   const cdesc=["Leadership. Priorities, ownership and meeting rhythm are not yet carrying the weight, so decisions keep routing back to you.","Revenue infrastructure. Leads, follow-up and reporting depend on people remembering, so revenue comes in waves.","Execution capacity. The foundation may be sound, but the team is maxed out and routine work is still manual."];
@@ -2122,10 +2182,19 @@ function renderR(){
   <div class="res-top"><div class="dial"><svg viewBox="0 0 132 132"><circle class="bg" cx="66" cy="66" r="56"/><circle class="fg" id="dialFg" cx="66" cy="66" r="56" stroke-dasharray="${C}" stroke-dashoffset="${C}"/></svg><b>${ov}</b></div>
   <div class="pbars">${ps.map((p,i)=>`<div class="pb" style="--c:var(--${Q[i].c})"><span>${['A¹','A²','A³'][i]} ${names[i]}</span><div class="t"><i data-w="${p}"></i></div><b>${p}</b></div>`).join('')}</div></div>
   <div class="constraint"><span class="minih">Primary constraint · ${names[lo]}</span><p style="color:var(--ink)">${cdesc[lo]}</p></div>
-  <div class="diag" style="box-shadow:none;background:var(--panel);border:0"><span class="diag-h">Recommended next step</span><h3 class="h3">${rec[0]}</h3><p class="muted">${rec[1]}</p><span class="mono" style="color:var(--blue);font-weight:600">${rec[2]}</span><div class="acts"><a class="btn" href="#session">Book a Strategy Session →</a><button class="btn ghost" type="button" id="copyRes">Copy my results</button></div></div>
+  <div class="diag" style="box-shadow:none;background:var(--panel);border:0"><span class="diag-h">Recommended next step</span><h3 class="h3">${rec[0]}</h3><p class="muted">${rec[1]}</p><span class="mono" style="color:var(--blue);font-weight:600">${rec[2]}</span><div class="acts"><a class="btn" href="#session">Book a Strategy Session →</a><button class="btn ghost" type="button" id="dlRes">Download my results (PDF) <span class="ar">↓</span></button><button class="btn ghost" type="button" id="copyRes">Copy my results</button></div></div>
+  <div class="dlbox" id="dlBox" hidden><div><span class="minih">Download your results</span><h3 class="h4" style="margin-top:4px">Get a one-page PDF to share with your leadership team.</h3><p class="muted" style="font-size:14px">Your score, your primary constraint, the recommended next step and all 15 answers.</p></div>
+  <form class="lf" id="dlForm" novalidate>
+    <label>First name<input name="first_name" autocomplete="given-name" required value="${esc(lead&&lead.first_name||'')}"></label>
+    <label>Work email<input name="email" type="email" autocomplete="email" required value="${esc(lead&&lead.email||'')}"></label>
+    <label class="full">Company<input name="company" autocomplete="organization" required value="${esc(lead&&lead.company||'')}"></label>
+    <p class="consent">By downloading you agree that Automate2Scale may email you about your results and related services. Unsubscribe any time. We never sell your details. <a href="#privacy" target="_blank">Privacy Policy</a>.</p>
+    <div class="dl-sub"><span class="hint" id="dlHint" role="status"></span><button class="btn" type="submit">Download my PDF <span class="ar">↓</span></button></div>
+  </form></div>
   <div class="qnav"><button class="btn ghost sm" type="button" id="qRedo">Retake the scorecard</button><span class="hint">${lead?`A copy is on its way to ${esc(lead.email)}.`:""}</span></div>`;
   requestAnimationFrame(()=>{document.getElementById('dialFg').style.strokeDashoffset=C*(1-ov/100);qp.querySelectorAll('.pb i').forEach(i=>i.style.width=i.dataset.w+'%')});
   document.getElementById('qRedo').onclick=()=>{ans.forEach(a=>a.fill(0));step=0;lead=null;renderQ();updSide()};
+  wireDl({ps,ov,lo,names,rec,cdesc});
   const cr=document.getElementById('copyRes');cr.onclick=()=>{const t=`A³ Readiness Score: ${ov}/100\nAlign ${ps[0]} · Automate ${ps[1]} · Accelerate ${ps[2]}\nPrimary constraint: ${names[lo]}\nRecommended: ${rec[0]}`;try{navigator.clipboard.writeText(t).then(()=>{cr.textContent='Copied'},()=>{cr.textContent='Copy not available here'})}catch(e){cr.textContent='Copy not available here'}};
 }
 renderQ();updSide();
