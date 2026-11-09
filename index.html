@@ -534,39 +534,114 @@ tr:last-child td{border-bottom:0}
 .opt .orec{font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--on-blue);background:var(--blue);padding:2px 6px;border-radius:3px}
 .opt .op{font-weight:700;font-size:14.5px;color:var(--blue);white-space:nowrap}
 .opt .od{grid-column:1/-1;font-size:13px;color:var(--ink-2)}
-/* inbox autopilot page */
-.ia-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(28px,5vw,56px);align-items:start}
-.ia-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
-.ia-card{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:26px;display:grid;gap:10px;align-content:start}
-.ia-card p,.ia-faq p{margin:0;color:var(--ink-2)}
-.ia-n{font-family:var(--mono);font-weight:700;font-size:13px;color:var(--blue)}.ia-n.g{color:var(--green)}
-.ia-calcsec{background:var(--mist);border-block:1px solid var(--rule-2)}
-.ia-calc{display:flex;flex-wrap:wrap;gap:28px;align-items:stretch}
-.ia-in,.ia-out{flex:1 1 360px;min-width:0;display:flex;flex-direction:column}
-.ia-in{gap:30px;background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:clamp(22px,3vw,32px)}
-.ia-out{gap:14px}
-.ia-f{display:grid;gap:8px}.ia-f small{font-size:14px;color:var(--ink-2)}
-.ia-fh{display:flex;justify-content:space-between;align-items:baseline;gap:12px}.ia-fh label{font-weight:600}
-.ia-v{font-family:var(--display);font-weight:760;font-size:26px;color:var(--blue);white-space:nowrap}
-.ia input[type=range]{width:100%;accent-color:var(--blue);height:28px;cursor:pointer}
-.ia-be{background:var(--band);color:var(--band-ink);border-radius:8px;padding:clamp(22px,3vw,32px);display:grid;gap:6px}
-.ia-be .ia-k{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--band-accent)}
-.ia-be strong{font-family:var(--display);font-size:clamp(38px,5vw,52px);line-height:1.05;color:#FFFFFF}
-.ia-be p{margin:0;color:var(--band-ink)}
-.ia-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.ia-m{background:var(--paper);border:1px solid var(--rule);border-radius:8px;padding:20px;display:grid;gap:4px}
-.ia-m span{font-size:14px;color:var(--ink-2)}
-.ia-m strong{font-family:var(--display);font-size:clamp(22px,2.4vw,28px);color:var(--ink)}
-.ia-m strong.neg{color:light-dark(#A8321F,#F08A73)}.ia-m strong.pos{color:light-dark(#2F7A00,#8CC85F)}
-.ia-note{font-size:14px;color:var(--ink-2);margin:0}
-.ia-list{list-style:none;padding:0;margin:0 0 clamp(36px,5vw,56px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:18px 44px;color:var(--ink-2)}
-.ia-list li{position:relative;padding-left:32px}.ia-list b{color:var(--ink)}
-.ia-list li::before{content:"";position:absolute;left:2px;top:6px;width:14px;height:8px;border-left:2.5px solid var(--green);border-bottom:2.5px solid var(--green);transform:rotate(-45deg)}
-.ia-price{background:var(--paper);border:1px solid var(--rule);border-radius:8px;box-shadow:var(--sh2);padding:clamp(24px,4vw,40px);display:flex;flex-wrap:wrap;gap:24px;align-items:center;justify-content:space-between}
-.ia-price>div{display:grid;gap:8px}.ia-price p{margin:0;color:var(--ink-2)}
-.ia-big{color:var(--ink-2);font-size:18px}.ia-big strong{font-family:var(--display);font-size:clamp(36px,4vw,48px);color:var(--blue);margin-right:8px}
-.ia-faq{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px 44px}.ia-faq>div{display:grid;gap:8px}
-@media (max-width:480px){.ia-grid{grid-template-columns:1fr}}
+/* inbox autopilot opt-in page */
+#iap{--act:#2F7A00;--act-ink:#FFFFFF;background:var(--paper);color:var(--ink);font-size:18px;line-height:1.6}
+#iap .iap-wrap{max-width:1180px;margin:0 auto;padding-inline:var(--gutter)}
+#iap .iap-sec{padding-block:clamp(56px,7vw,92px)}
+#iap .iap-alt{background:var(--mist);border-block:1px solid var(--rule-2)}
+#iap .iap-hero{background:linear-gradient(180deg,var(--mist),var(--paper) 92%);padding-block:clamp(32px,5vw,64px) clamp(44px,6vw,80px);border-bottom:1px solid var(--rule-2)}
+#iap .iap-hero .iap-wrap{display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr);gap:clamp(28px,4.5vw,60px);align-items:start}
+#iap .iap-copy{display:grid;gap:20px;max-width:600px;padding-top:6px}
+#iap .iap-pre{justify-self:start;font-size:14px;font-weight:700;color:var(--navy);background:var(--tint);border-radius:999px;padding:7px 14px;line-height:1.35}
+#iap .iap-h1{font-family:var(--display);font-size:clamp(34px,4.6vw,56px);font-weight:780;font-stretch:84%;line-height:1.06;letter-spacing:-.015em;color:var(--ink);margin:0}
+#iap .iap-h1 span{color:var(--blue)}
+#iap .iap-sub{font-size:20px;line-height:1.6;color:var(--ink-2);max-width:56ch}
+#iap .iap-mini{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:15px;color:var(--ink-2)}
+#iap .iap-mini li{position:relative;padding-left:22px}
+#iap .iap-mini li::before,#iap .iap-bul li::before,#iap .iap-inc li::before{content:"";position:absolute;width:12px;height:7px;border-left:2.5px solid var(--blue);border-bottom:2.5px solid var(--blue);transform:rotate(-45deg)}
+#iap .iap-mini li::before{left:2px;top:7px}
+#iap .iap-host{display:flex;align-items:center;gap:12px;font-size:14.5px;color:var(--ink-2)}
+#iap .iap-host img{width:52px;height:52px;border-radius:50%;object-fit:cover;box-shadow:0 2px 8px rgba(0,61,112,.2)}
+#iap .iap-host b{display:block;color:var(--ink);font-size:15.5px}
+#iap .iap-card{background:var(--paper);border:1px solid var(--rule);border-radius:12px;box-shadow:var(--sh2);padding:clamp(18px,2.4vw,26px);display:grid;gap:16px;scroll-margin-top:96px}
+#iap .iap-calc{display:grid;gap:12px}
+#iap .iap-f{display:grid;gap:2px}
+#iap .iap-fh{display:flex;justify-content:space-between;align-items:baseline;gap:10px}
+#iap .iap-fh label{font-size:15px;font-weight:600;color:var(--ink)}
+#iap .iap-fh output{font-family:var(--display);font-weight:780;font-size:22px;color:var(--blue);white-space:nowrap}
+#iap input[type=range]{width:100%;accent-color:var(--blue);height:26px;margin:0;cursor:pointer}
+#iap .iap-res{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:8px}
+#iap .iap-res>div{border-radius:8px;padding:12px;display:grid;gap:2px;align-content:start}
+#iap .iap-res span{font-size:12.5px;line-height:1.3}
+#iap .iap-res strong{font-family:var(--display);font-weight:780;font-stretch:84%;font-size:clamp(20px,2vw,26px);line-height:1.1}
+#iap .iap-be{background:var(--band);color:var(--band-ink-2)}
+#iap .iap-be strong{color:#FFFFFF}
+#iap .iap-m{background:var(--mist);border:1px solid var(--rule-2)}
+#iap .iap-m span{color:var(--ink-2)}
+#iap .iap-m strong{color:var(--ink)}
+#iap .iap-form{display:grid;gap:12px;border-top:1px solid var(--rule-2);padding-top:14px}
+#iap .iap-fl{font-family:var(--display);font-size:19px;font-weight:720;font-stretch:90%;color:var(--ink)}
+#iap .iap-form label{display:grid;gap:5px;font-size:15px;font-weight:600;color:var(--ink)}
+#iap .iap-form input{font:inherit;font-size:17px;font-weight:400;color:var(--ink);background:var(--paper);border:1.5px solid var(--rule);border-radius:6px;height:50px;padding:0 14px;width:100%;box-sizing:border-box}
+#iap .iap-form input:focus{outline:3px solid #9CC3DD;outline-offset:0;border-color:var(--blue)}
+#iap .iap-form input[aria-invalid="true"]{border-color:#B42318}
+#iap .iap-err{font-size:14.5px;color:#C0392B}
+#iap .iap-err:empty{display:none}
+#iap .iap-btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;min-height:56px;padding:14px 22px;border:0;border-radius:8px;background:var(--act);color:var(--act-ink);font:700 18px var(--body);cursor:pointer;text-decoration:none;transition:filter .15s}
+#iap .iap-btn:hover{filter:brightness(1.08)}
+#iap .iap-reassure{font-size:14px;color:var(--ink-2);text-align:center;margin-top:-4px}
+#iap .iap-done{display:grid;gap:10px;border-top:1px solid var(--rule-2);padding-top:14px}
+#iap .iap-done h3{font-family:var(--display);font-size:22px;font-weight:740;color:var(--ink);margin:0}
+#iap .iap-done p{color:var(--ink-2)}
+#iap .iap-proof{background:var(--paper);border-bottom:1px solid var(--rule-2)}
+#iap .iap-proof .iap-wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+#iap .iap-proof div{padding:22px 18px 22px 0;display:grid;gap:4px;align-content:start}
+#iap .iap-proof div+div{padding-left:18px;border-left:1px solid var(--rule-2)}
+#iap .iap-proof b{font-family:var(--display);font-size:clamp(19px,1.9vw,23px);font-weight:760;font-stretch:84%;color:var(--navy);line-height:1.15}
+#iap .iap-proof em{font-style:normal;white-space:nowrap}
+#iap .iap-proof span{font-size:14.5px;color:var(--ink-2);line-height:1.4}
+#iap .iap-head{display:grid;gap:10px;max-width:740px;margin-bottom:clamp(26px,3.5vw,40px)}
+#iap .iap-h2{font-family:var(--display);font-size:clamp(28px,3.4vw,40px);font-weight:760;font-stretch:84%;line-height:1.1;color:var(--ink);margin:0}
+#iap .iap-lede{color:var(--ink-2)}
+#iap .iap-bul{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+#iap .iap-bul li{background:var(--mist);border-radius:10px;padding:20px 22px 20px 54px;position:relative;color:var(--ink-2)}
+#iap .iap-bul li::before{left:22px;top:28px}
+#iap .iap-bul b,#iap .iap-inc b{color:var(--ink)}
+#iap .iap-bul li.iap-wide{grid-column:1/-1;background:transparent;border:1px dashed var(--rule)}
+#iap .iap-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+#iap .iap-steps li{border-top:3px solid var(--navy);padding-top:14px;display:grid;gap:6px;align-content:start;counter-increment:s}
+#iap .iap-steps li::before{content:"0" counter(s);font-family:var(--display);font-weight:780;font-size:15px;color:var(--blue)}
+#iap .iap-steps b{font-family:var(--display);font-size:20px;font-weight:720;font-stretch:90%;color:var(--ink)}
+#iap .iap-steps span{color:var(--ink-2);font-size:16.5px}
+#iap .iap-two{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(28px,5vw,64px);align-items:start}
+#iap .iap-price{margin-top:18px;background:var(--paper);border:1px solid var(--rule);border-radius:10px;padding:20px 22px;display:grid;gap:6px;box-shadow:var(--sh1)}
+#iap .iap-price div{color:var(--ink-2)}
+#iap .iap-price strong{font-family:var(--display);font-size:40px;font-weight:780;color:var(--navy);margin-right:6px}
+#iap .iap-price p{color:var(--ink-2);font-size:16px}
+#iap .iap-inc{display:grid;gap:14px;color:var(--ink-2)}
+#iap .iap-inc li{position:relative;padding-left:30px}
+#iap .iap-inc li::before{left:2px;top:9px}
+#iap .iap-bio{display:grid;grid-template-columns:240px minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
+#iap .iap-bio img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:12px}
+#iap .iap-txt{display:grid;gap:14px;max-width:640px}
+#iap .iap-txt p{color:var(--ink-2)}
+#iap .iap-faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 48px;max-width:980px}
+#iap .iap-faq h3{font-family:var(--display);font-size:19px;font-weight:700;font-stretch:92%;color:var(--ink);margin:0 0 6px}
+#iap .iap-faq p{color:var(--ink-2);font-size:17px}
+#iap .iap-band{background:var(--band);padding-block:clamp(56px,7vw,88px)}
+#iap .iap-band .iap-wrap{display:grid;gap:16px;justify-items:start;max-width:860px}
+#iap .iap-band h2{font-family:var(--display);color:#FFFFFF;font-size:clamp(28px,3.6vw,42px);font-weight:760;font-stretch:84%;line-height:1.1;margin:0}
+#iap .iap-band p{color:var(--band-ink-2)}
+#iap .iap-band .iap-btn{width:auto;padding-inline:28px}
+@media (max-width:980px){
+  #iap .iap-hero .iap-wrap{grid-template-columns:1fr}
+  #iap .iap-host,#iap .iap-mini{display:none}
+  #iap .iap-copy{gap:14px}
+  #iap .iap-proof .iap-wrap{grid-template-columns:1fr 1fr}
+  #iap .iap-proof div:nth-child(3){padding-left:0;border-left:0}
+  #iap .iap-proof div:nth-child(n+3){border-top:1px solid var(--rule-2)}
+  #iap .iap-bul,#iap .iap-faq,#iap .iap-two{grid-template-columns:1fr}
+  #iap .iap-steps{grid-template-columns:1fr 1fr}
+  #iap .iap-bio{grid-template-columns:1fr}
+  #iap .iap-bio img{max-width:220px}
+}
+@media (max-width:480px){
+  #iap .iap-sub{font-size:18px}
+  #iap .iap-res{grid-template-columns:1fr 1fr}
+  #iap .iap-be{grid-column:1/-1}
+  #iap .iap-steps{grid-template-columns:1fr}
+  #iap .iap-band .iap-btn{width:100%}
+}
 /* website audit landing page (embedded) */
 #lpwa{
   --bg:var(--paper);--surface:var(--mist);--card:var(--paper);--muted:var(--ink-2);--line:var(--rule);
@@ -1661,57 +1736,74 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
 </div>
 
 <!-- ======================= MARK (private booking, unlisted) ======================= -->
-<div class="page ia" data-page="inbox" hidden>
-  <section class="phero"><div class="wrap">
-    <span class="crumb"><a href="#home">Home</a> / Inbox Autopilot</span>
-    <span class="label">Inbox Autopilot · AI email triage installed in your Gmail</span>
-    <h1 class="h1">Stop being the person who <em>sorts the inbox.</em></h1>
-    <p class="lede">Every email gets read, labeled and routed the moment it arrives. The noise is archived. The emails that need you are waiting at the top, often with a reply already drafted. It runs inside the Gmail you already use.</p>
-    <div class="acts"><a class="btn" href="#ia-calc">See what your inbox costs you <span class="ar">→</span></a><a class="btn ghost" href="#ia-how">How it works</a></div>
-  </div></section>
-
-  <section class="sec"><div class="wrap ia-two">
-    <div class="head" style="margin:0"><span class="label">The real problem</span><h2 class="h2">Your inbox is a job you never hired for.</h2></div>
-    <div class="body">
-      <p>Most founders spend hours a week deciding what each email is before they can decide what to do with it. Newsletters, receipts, vendor pitches and notifications sit right next to the client who needs an answer today.</p>
-      <p>That sorting is low-value work done by your highest-value person. Inbox Autopilot takes the sorting off your plate so your time goes to the conversations that move revenue.</p>
+<div class="page" id="iap" data-page="inbox" hidden>
+  <section class="iap-hero"><div class="iap-wrap">
+    <div class="iap-copy">
+      <span class="iap-pre">For owners who spend hours a week in Gmail · Free 60-second inbox calculator</span>
+      <h1 class="iap-h1">Get your hours back from Gmail, <span>without hiring an assistant.</span></h1>
+      <p class="iap-sub">Move three sliders to see what email costs you each year, how many hours AI sorting could give back and how fast it pays for itself. Then we&rsquo;ll email you the numbers.</p>
+      <ul class="iap-mini">
+        <li>Runs inside the Gmail you already use</li>
+        <li>Nothing deleted, nothing sent without you</li>
+      </ul>
+      <div class="iap-host"><img src="https://raw.githubusercontent.com/automate2scale/automate2scale-site/main/img/mark-cupp.jpg" alt="Mark Cupp" width="52" height="52" loading="lazy"><div><b>Mark Cupp</b>Founder, Automate2Scale · Certified AI-Assisted CMO</div></div>
     </div>
-  </div></section>
 
-  <section class="sec tight" id="ia-how" style="padding-top:0"><div class="wrap">
-    <div class="head"><span class="label">How it works</span><h2 class="h2">Four steps, running on every email, all day.</h2></div>
-    <div class="ia-steps">
-      <div class="ia-card"><span class="ia-n">01</span><h3 class="h3">Email arrives</h3><p>A watcher on your Gmail picks up each new message within moments.</p></div>
-      <div class="ia-card"><span class="ia-n">02</span><h3 class="h3">AI reads it</h3><p>Claude classifies it against your categories: clients, prospects, partners, vendors, admin and noise.</p></div>
-      <div class="ia-card"><span class="ia-n">03</span><h3 class="h3">It gets routed</h3><p>The right Gmail label is applied. Low-priority mail skips the inbox entirely.</p></div>
-      <div class="ia-card"><span class="ia-n g">04</span><h3 class="h3">You get a head start</h3><p>Emails that need a response get a draft reply waiting. You review, edit and send. Nothing goes out without you.</p></div>
-    </div>
-  </div></section>
-
-  <section class="sec ia-calcsec" id="ia-calc"><div class="wrap">
-    <div class="head"><span class="label">ROI calculator</span><h2 class="h2">What is your inbox costing you?</h2><p class="lede">Set what your time is worth and how much of it email takes today. You will see the cost, the time you could get back and how fast the system pays for itself.</p></div>
-    <div class="ia-calc">
-      <div class="ia-in">
-        <div class="ia-f"><div class="ia-fh"><label for="ia-rate">What do you want to earn per hour?</label><output id="ia-rate-o" class="ia-v"></output></div><input id="ia-rate" type="range" min="50" max="1000" step="25" value="250"><small>Use the rate your time should be worth, not what you pay yourself today.</small></div>
-        <div class="ia-f"><div class="ia-fh"><label for="ia-hours">Hours per week you spend on email</label><output id="ia-hours-o" class="ia-v"></output></div><input id="ia-hours" type="range" min="1" max="40" step="1" value="10"><small>Reading, sorting, searching and replying. Most people underestimate this.</small></div>
-        <div class="ia-f"><div class="ia-fh"><label for="ia-rec">Share of that time you expect to get back</label><output id="ia-rec-o" class="ia-v"></output></div><input id="ia-rec" type="range" min="10" max="80" step="5" value="40"><small>Your own estimate. Start conservative.</small></div>
+    <div class="iap-card" id="iap-calc">
+      <div class="iap-calc">
+        <div class="iap-f"><div class="iap-fh"><label for="ia-rate">What your time is worth per hour</label><output id="ia-rate-o"></output></div><input id="ia-rate" type="range" min="50" max="1000" step="25" value="250"></div>
+        <div class="iap-f"><div class="iap-fh"><label for="ia-hours">Hours per week you spend on email</label><output id="ia-hours-o"></output></div><input id="ia-hours" type="range" min="1" max="40" step="1" value="10"></div>
+        <div class="iap-f"><div class="iap-fh"><label for="ia-rec">Share of that time you expect back</label><output id="ia-rec-o"></output></div><input id="ia-rec" type="range" min="10" max="80" step="5" value="40"></div>
       </div>
-      <div class="ia-out" aria-live="polite">
-        <div class="ia-be"><span class="ia-k">Your break-even</span><strong id="ia-be"></strong><p id="ia-ben"></p></div>
-        <div class="ia-grid">
-          <div class="ia-m"><span>Email costs you per year</span><strong id="ia-cost" class="neg"></strong></div>
-          <div class="ia-m"><span>Value recovered per year</span><strong id="ia-recv" class="pos"></strong></div>
-          <div class="ia-m"><span>Hours back per year</span><strong id="ia-hb"></strong></div>
-          <div class="ia-m"><span>First-year return</span><strong id="ia-roi"></strong></div>
-        </div>
-        <p class="ia-note">Based on a first-year investment of <span id="ia-fy"></span> ($2,500 setup plus $150/month). Value recovered = hourly rate × weekly email hours × share reclaimed × 52 weeks.</p>
+      <div class="iap-res" aria-live="polite">
+        <div class="iap-be"><span>Pays for itself in</span><strong id="ia-be"></strong></div>
+        <div class="iap-m"><span>Email costs you a year</span><strong id="ia-cost"></strong></div>
+        <div class="iap-m"><span>Hours back a year</span><strong id="ia-hb"></strong></div>
       </div>
+      <form class="iap-form" id="iapForm" novalidate>
+        <p class="iap-fl">Where should we send your inbox report?</p>
+        <label>First name<input name="first_name" autocomplete="given-name" required></label>
+        <label>Email<input name="email" type="email" autocomplete="email" required></label>
+        <p class="iap-err" id="iapErr" role="alert"></p>
+        <button class="iap-btn" type="submit">Email me my inbox report &rarr;</button>
+        <p class="iap-reassure">Free. No sales pressure. Unsubscribe any time.</p>
+      </form>
     </div>
   </div></section>
 
-  <section class="sec"><div class="wrap">
-    <div class="head"><span class="label">What you get</span><h2 class="h2">Installed for you. Built around how you work.</h2></div>
-    <ul class="ia-list">
+  <section class="iap-proof" aria-label="Credentials"><div class="iap-wrap">
+    <div><b>25+ years</b><span>In sales, operations and growth</span></div>
+    <div><b>Certified EOS&reg; Integrator</b><span>Leadership operating system</span></div>
+    <div><b>Certified High Level Admin</b><span>CRM, automation and funnels</span></div>
+    <div><b>Certified <em>AI-Assisted CMO</em></b><span>Marketing strategy and execution with AI</span></div>
+  </div></section>
+
+  <section class="iap-sec"><div class="iap-wrap">
+    <div class="iap-head"><h2 class="iap-h2">What changes when your inbox sorts itself</h2></div>
+    <ul class="iap-bul">
+      <li><b>Open Gmail to a short list of emails that actually need you,</b> with newsletters, receipts and notifications already labeled and out of the way.</li>
+      <li><b>Find a reply already drafted in your voice</b> on the emails that need you. Read it, tweak it, send it.</li>
+      <li><b>The one number to know before you hire an assistant:</b> what an hour of your inbox time is really worth.</li>
+      <li><b>Why sorting, not answering, is where your email hours go,</b> and why it&rsquo;s the easiest part to hand off.</li>
+      <li class="iap-wide"><b>Runs inside the Gmail you already use.</b> No new app. Nothing deleted. Nothing sent without you.</li>
+    </ul>
+  </div></section>
+
+  <section class="iap-sec iap-alt"><div class="iap-wrap">
+    <div class="iap-head"><h2 class="iap-h2">How it works</h2><p class="iap-lede">Four steps, running on every email, all day.</p></div>
+    <ol class="iap-steps">
+      <li><b>Email arrives</b><span>A watcher on your Gmail picks up each new message within moments.</span></li>
+      <li><b>AI reads it</b><span>Claude sorts it into your categories: clients, prospects, partners, vendors, admin and noise.</span></li>
+      <li><b>It gets routed</b><span>The right Gmail label is applied. Low-priority mail skips the inbox entirely.</span></li>
+      <li><b>You get a head start</b><span>Emails that need a response get a draft reply waiting. You review, edit and send.</span></li>
+    </ol>
+  </div></section>
+
+  <section class="iap-sec"><div class="iap-wrap iap-two">
+    <div class="iap-head" style="margin:0"><h2 class="iap-h2">Installed for you, built around how you work</h2>
+      <div class="iap-price"><div><strong>$2,500</strong> one-time setup</div><p>Then $150 a month for hosting, AI usage and support.</p></div>
+    </div>
+    <ul class="iap-inc">
       <li><b>Inbox audit.</b> We review what actually hits your inbox and design categories that match your business.</li>
       <li><b>Always-on AI sorting.</b> Every new email is classified and labeled in Gmail automatically.</li>
       <li><b>Auto-archive rules.</b> Newsletters, receipts and notifications stay out of your way but stay searchable.</li>
@@ -1719,32 +1811,33 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
       <li><b>Backlog cleanup.</b> Your existing inbox gets sorted on day one, not just new mail.</li>
       <li><b>30-day tuning.</b> We adjust the rules as the system learns what matters to you.</li>
     </ul>
-    <div class="ia-price">
-      <div><span class="label">Investment</span><div class="ia-big"><strong>$2,500</strong> one-time setup</div><p>Then $150/month for hosting, AI usage and support.</p></div>
-      <a class="btn" href="#session">Book a fit call <span class="ar">→</span></a>
+  </div></section>
+
+  <section class="iap-sec iap-alt"><div class="iap-wrap iap-bio">
+    <img src="https://raw.githubusercontent.com/automate2scale/automate2scale-site/main/img/mark-cupp.jpg" alt="Mark Cupp, founder of Automate2Scale" loading="lazy">
+    <div class="iap-txt">
+      <h2 class="iap-h2">I run it on my own inbox first</h2>
+      <p>I&rsquo;m Mark Cupp, founder of Automate2Scale in Fort Worth. I&rsquo;ve spent more than 25 years in sales, operations and growth, and I&rsquo;ve watched too many owners spend their best hours deciding what each email is before they can decide what to do with it.</p>
+      <p>Inbox Autopilot runs on my own inbox before it runs on yours. If it doesn&rsquo;t earn its keep there, it doesn&rsquo;t get installed anywhere else.</p>
     </div>
   </div></section>
 
-  <section class="sec tight" style="padding-top:0"><div class="wrap">
-    <div class="head"><h2 class="h2">Common questions</h2></div>
-    <div class="ia-faq">
-      <div><h3 class="h3">Do I have to switch email apps?</h3><p>No. Everything happens inside Gmail. Labels show in your sidebar on desktop and mobile.</p></div>
-      <div><h3 class="h3">Will it send emails on its own?</h3><p>No. It drafts. You decide what gets sent.</p></div>
-      <div><h3 class="h3">What if it mislabels something?</h3><p>Nothing is deleted. Archived mail stays searchable, and we tune the categories during the first 30 days.</p></div>
-      <div><h3 class="h3">How much of my time does setup take?</h3><p>One kickoff call to define what matters. We handle the rest.</p></div>
+  <section class="iap-sec"><div class="iap-wrap">
+    <div class="iap-head"><h2 class="iap-h2">Common questions</h2></div>
+    <div class="iap-faq">
+      <div><h3>Do I have to switch email apps?</h3><p>No. Everything happens inside Gmail. Labels show in your sidebar on desktop and mobile.</p></div>
+      <div><h3>Will it send emails on its own?</h3><p>No. It drafts. You decide what gets sent.</p></div>
+      <div><h3>What if it mislabels something?</h3><p>Nothing is deleted. Archived mail stays searchable, and we tune the categories during the first 30 days.</p></div>
+      <div><h3>How much of my time does setup take?</h3><p>One kickoff call to define what matters. We handle the rest.</p></div>
     </div>
   </div></section>
 
-  <section class="band"><div class="wrap">
-    <div class="head" style="margin:0">
-      <h2 class="h2" style="color:#FFFFFF">Your time is worth <span id="ia-rate2">$250</span> an hour. Spend it there.</h2>
-      <p class="lede" style="color:var(--band-ink)">Book a short call. We will look at your inbox together and tell you plainly whether this is worth it for you.</p>
-      <div class="acts"><a class="btn" href="#session">Book your fit call <span class="ar">→</span></a></div>
-    </div>
+  <section class="iap-band"><div class="iap-wrap">
+    <h2>See what your inbox is costing you before you hire help for it.</h2>
+    <p>Three sliders, sixty seconds, and your numbers in your inbox.</p>
+    <a class="iap-btn" href="#iap-calc">Email me my inbox report &rarr;</a>
   </div></section>
 </div>
-
-
 <div class="page" id="lpwa" data-page="audit" hidden>
 
 
@@ -2044,19 +2137,29 @@ function route(){
 }
 addEventListener('hashchange',route);route();
 
-/* inbox autopilot calculator */
-(function(){const $=id=>document.getElementById(id);if(!$('ia-rate'))return;const SETUP=2500,MONTHLY=150;
-const m=n=>{const r=Math.round(n);return(r<0?'-$':'$')+Math.abs(r).toLocaleString('en-US')};
-function calc(){const rate=+$('ia-rate').value,hours=+$('ia-hours').value,rec=+$('ia-rec').value;
-$('ia-rate-o').textContent=m(rate);$('ia-hours-o').textContent=hours+' hrs';$('ia-rec-o').textContent=rec+'%';$('ia-rate2').textContent=m(rate);
-const wc=rate*hours,wr=wc*rec/100,net=wr-MONTHLY*12/52,fy=SETUP+MONTHLY*12,ar=wr*52;let be,note;
-if(net<=0){be='Not yet';note='At these numbers the monthly fee outweighs the time you get back. Adjust the inputs.'}
-else{const d=Math.ceil(SETUP/net*7);be=d<=1?'1 day':d<14?d+' days':d<120?Math.ceil(d/7)+' weeks':(d/30.4).toFixed(1)+' months';note='After that, you keep about '+m(net*52/12)+' a month in recovered time.'}
-$('ia-be').textContent=be;$('ia-ben').textContent=note;$('ia-cost').textContent=m(wc*52);$('ia-recv').textContent=m(ar);
-$('ia-hb').textContent=Math.round(hours*rec/100*52).toLocaleString('en-US');$('ia-roi').textContent=(fy>0?ar/fy:0).toFixed(1)+'x';$('ia-fy').textContent=m(fy)}
-['ia-rate','ia-hours','ia-rec'].forEach(i=>$(i).addEventListener('input',calc));calc()})();
-
-
+/* inbox autopilot calculator + report form */
+(function(){var $=function(i){return document.getElementById(i)};if(!$('ia-rate'))return;var SETUP=2500,MONTHLY=150,last={};
+var m=function(n){var r=Math.round(n);return(r<0?'-$':'$')+Math.abs(r).toLocaleString('en-US')};
+function calc(){var rate=+$('ia-rate').value,hours=+$('ia-hours').value,rec=+$('ia-rec').value;
+$('ia-rate-o').textContent=m(rate);$('ia-hours-o').textContent=hours+' hrs';$('ia-rec-o').textContent=rec+'%';
+var wc=rate*hours,wr=wc*rec/100,net=wr-MONTHLY*12/52,fy=SETUP+MONTHLY*12,ar=wr*52,be;
+if(net<=0)be='Not yet';else{var d=Math.ceil(SETUP/net*7);be=d<=1?'1 day':d<14?d+' days':d<120?Math.ceil(d/7)+' weeks':(d/30.4).toFixed(1)+' months'}
+var hb=Math.round(hours*rec/100*52);$('ia-be').textContent=be;$('ia-cost').textContent=m(wc*52);$('ia-hb').textContent=hb.toLocaleString('en-US');
+last={hourly_value:rate,email_hours_per_week:hours,reclaim_percent:rec,annual_email_cost:Math.round(wc*52),annual_value_recovered:Math.round(ar),hours_back_per_year:hb,break_even:be,first_year_return:(fy>0?ar/fy:0).toFixed(1)+'x'}}
+['ia-rate','ia-hours','ia-rec'].forEach(function(i){$(i).addEventListener('input',calc)});calc();
+document.querySelectorAll('#iap a[href="#iap-calc"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();$('iap-calc').scrollIntoView({behavior:'smooth',block:'start'});setTimeout(function(){var i=$('iapForm')&&$('iapForm').querySelector('input');i&&i.focus({preventScroll:true})},500)})});
+var f=$('iapForm'),err=$('iapErr');if(!f)return;
+f.addEventListener('input',function(e){if(e.target.getAttribute('aria-invalid')==='true')e.target.setAttribute('aria-invalid','false')});
+f.addEventListener('submit',function(e){e.preventDefault();var fn=f.first_name.value.trim(),em=f.email.value.trim();var bn=!fn,bE=!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
+f.first_name.setAttribute('aria-invalid',bn);f.email.setAttribute('aria-invalid',bE);if(bn||bE){err.textContent=bn?'Enter your first name.':'Enter a valid email.';(bn?f.first_name:f.email).focus();return}
+var p=Object.assign({first_name:fn,full_name:fn,email:em,source:'Inbox Autopilot - Inbox Cost Report',page_url:location.href,submitted_at:new Date().toISOString()},last);
+try{if(typeof WEBHOOK!=='undefined'&&WEBHOOK)fetch(WEBHOOK,{method:'POST',mode:'no-cors',body:new URLSearchParams(p),keepalive:true}).catch(function(){})}catch(x){}
+try{track('inbox_report_request',{break_even:last.break_even})}catch(x){}
+var d=document.createElement('div');d.className='iap-done';d.setAttribute('tabindex','-1');
+var h=document.createElement('h3');h.textContent='Thanks, '+fn+'. Your inbox report is on its way.';
+var q=document.createElement('p');q.textContent='At these numbers, email costs you '+m(last.annual_email_cost)+(last.break_even==='Not yet'?' a year. At these numbers the monthly fee outweighs the time back, so let\u2019s talk before you buy.':' a year and Inbox Autopilot pays for itself in '+last.break_even+'. Want to see if it fits your inbox?');
+var a=document.createElement('a');a.className='iap-btn';a.href='#session';a.innerHTML='Book a 20-minute fit call &rarr;';
+d.appendChild(h);d.appendChild(q);d.appendChild(a);f.replaceWith(d);d.focus()})})();
 /* website audit landing page (embedded) */
 (function(){
   var WEBHOOK='https://services.leadconnectorhq.com/hooks/3UbxqX8zLDM4QvDExPHM/webhook-trigger/9a660f51-3d51-480b-b6b0-2d786ef326e7';
