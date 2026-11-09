@@ -181,6 +181,9 @@ button{font:inherit}
 .os-cap{font-size:14px;color:var(--ink-3);border-top:1px solid var(--rule-2);padding-top:12px;min-height:3.2em}
 
 /* proof strip */
+.strip.creds b{font-size:clamp(19px,1.9vw,24px);line-height:1.15}
+.strip.creds .it{align-content:start}
+.strip.creds .nw{font-style:normal;white-space:nowrap}
 .strip{border-bottom:1px solid var(--rule-2);background:var(--paper)}
 .strip .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:0}
 .strip .it{padding:24px 22px 24px 0;display:grid;gap:4px}
@@ -564,45 +567,115 @@ tr:last-child td{border-bottom:0}
 .ia-big{color:var(--ink-2);font-size:18px}.ia-big strong{font-family:var(--display);font-size:clamp(36px,4vw,48px);color:var(--blue);margin-right:8px}
 .ia-faq{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:26px 44px}.ia-faq>div{display:grid;gap:8px}
 @media (max-width:480px){.ia-grid{grid-template-columns:1fr}}
-/* website audit page */
-.wa-two{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(28px,5vw,56px);align-items:start}
-.wa-demo{background:var(--paper);border:1px solid var(--rule);border-radius:8px;box-shadow:var(--sh2);padding:clamp(18px,3vw,32px);display:grid;gap:24px}
-.wa-seg{display:inline-flex;justify-self:start;background:var(--panel);border-radius:4px;padding:4px;gap:4px}
-.wa-seg button{border:0;background:transparent;color:var(--ink-2);font:inherit;font-weight:700;font-size:14px;padding:10px 18px;min-height:44px;border-radius:3px;cursor:pointer}
-.wa-seg button[aria-selected="true"]{background:var(--paper);color:var(--ink);box-shadow:var(--sh1)}
-.wa-cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(24px,4vw,44px);align-items:start}
-.wa-score{background:var(--mist);border:1px solid var(--rule-2);border-radius:6px;padding:22px;display:grid;gap:14px;position:relative}
-.wa-tag{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3)}
-.wa-pill{display:grid;grid-template-columns:1fr auto;gap:6px 10px;font-size:14px;font-weight:600;color:var(--ink-2)}
-.wa-pill i{grid-column:1/-1;grid-row:2;height:8px;border-radius:4px;background:linear-gradient(90deg,var(--c) var(--w),var(--rule-2) var(--w))}
-.wa-pill b{font-family:var(--mono);font-size:12px;color:var(--ink-3)}
-.wa-leak{border-top:1px solid var(--rule);padding-top:12px}.wa-leak p{margin:4px 0 0;color:var(--ink);font-weight:600}
-.wa-list{list-style:none;padding:0;margin:0;display:grid;gap:14px;color:var(--ink-2)}
-.wa-list li{position:relative;padding-left:30px}.wa-list b{color:var(--ink)}
-.wa-list li::before{content:"";position:absolute;left:2px;top:7px;width:13px;height:7px;border-left:2.5px solid var(--green);border-bottom:2.5px solid var(--green);transform:rotate(-45deg)}
-.wa-browser{border:1px solid var(--rule);border-radius:6px;overflow:hidden;background:var(--paper)}
-.wa-bar{display:flex;align-items:center;gap:6px;padding:10px 12px;background:var(--panel);border-bottom:1px solid var(--rule)}
-.wa-bar i{width:9px;height:9px;border-radius:50%;background:var(--rule)}
-.wa-bar span{margin-left:10px;font-family:var(--mono);font-size:11.5px;color:var(--ink-3);background:var(--paper);border-radius:3px;padding:3px 10px}
-.wa-shot{padding:24px;display:grid;gap:12px;background:linear-gradient(180deg,var(--tint),var(--paper) 70%)}
-.wa-l1{height:22px;width:78%;border-radius:3px;background:var(--navy);opacity:.85}
-.wa-l2{height:10px;width:60%;border-radius:3px;background:var(--ink-3);opacity:.45}
-.wa-btns{display:flex;gap:8px}.wa-btns span{height:28px;width:110px;border-radius:3px;background:var(--green)}.wa-btns span+span{background:transparent;border:1.5px solid var(--rule)}
-.wa-tiles{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:6px}.wa-tiles span{height:62px;border-radius:4px;background:var(--panel);border:1px solid var(--rule-2)}
-.wa-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
-.wa-card{background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:26px;display:grid;gap:10px;align-content:start}
-.wa-card p{margin:0;color:var(--ink-2)}
-.wa-n{font-family:var(--mono);font-weight:700;font-size:13px;color:var(--blue)}.wa-n.g{color:var(--green)}
-.wa-bandsec,.wa-formsec{background:var(--mist);border-block:1px solid var(--rule-2)}
-.wa-bands{display:grid;gap:10px}
-.wa-bands>div{display:grid;grid-template-columns:110px 1fr;gap:16px;align-items:center;background:var(--paper);border:1px solid var(--rule);border-radius:6px;padding:16px 20px}
-.wa-bands b{font-family:var(--display);font-size:22px;color:var(--blue)}.wa-bands span{color:var(--ink-2);font-weight:600}
-.wa-formbox{background:var(--paper);border:1px solid var(--rule);border-radius:8px;box-shadow:var(--sh2);padding:clamp(20px,3vw,32px)}
-.lf textarea{font:inherit;font-weight:400;font-size:15px;color:var(--ink);background:var(--paper);border:1px solid var(--rule);border-radius:3px;padding:11px 12px;width:100%;box-sizing:border-box;resize:vertical}
-.lf textarea:focus{outline:2px solid var(--blue);outline-offset:1px;border-color:var(--blue)}
-.wa-sub{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:flex-end}
-.wa-sub .hint{margin-right:auto;font-size:13.5px;color:#C0392B}
-.wa-done{display:grid;gap:12px}.wa-done p{margin:0;color:var(--ink-2)}
+/* website audit landing page (embedded) */
+#lpwa{
+  --bg:var(--paper);--surface:var(--mist);--card:var(--paper);--muted:var(--ink-2);--line:var(--rule);
+  --brand:var(--navy);--brand-2:var(--blue);--detail:#7FA9C9;
+  --act:#2F7A00;--act-ink:#FFFFFF;--band:#082437;--band-ink:#E6ECF1;--band-muted:#B9C6D0;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;--body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased;min-height:100vh
+}
+#lpwa *{box-sizing:border-box}
+#lpwa h1,#lpwa h2,#lpwa h3{font-family:var(--display);color:var(--ink);margin:0;text-wrap:balance}
+#lpwa p{margin:0}
+#lpwa img{max-width:100%;display:block}
+#lpwa a{color:var(--brand-2)}
+#lpwa :focus-visible{outline:3px solid var(--brand-2);outline-offset:3px}
+#lpwa .wa-wrap{max-width:1160px;margin:0 auto;padding-inline:clamp(16px,4.5vw,40px)}
+#lpwa .wa-sec{padding-block:clamp(56px,8vw,96px)}
+#lpwa .wa-top{border-bottom:1px solid var(--line);background:var(--bg)}
+#lpwa .wa-top .wa-wrap{display:flex;align-items:center;min-height:72px}
+#lpwa .wa-top img{height:34px;width:auto}
+#lpwa .wa-hero{background:linear-gradient(180deg,var(--surface),var(--bg) 90%);padding-block:clamp(36px,6vw,72px) clamp(48px,7vw,88px)}
+#lpwa .wa-hero .wa-wrap{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);gap:clamp(28px,4.5vw,64px);align-items:start}
+#lpwa .wa-copy{display:grid;gap:22px;max-width:620px;padding-top:8px}
+#lpwa .wa-pre{justify-self:start;font-size:14px;font-weight:700;letter-spacing:.02em;color:var(--brand);background:var(--tint);border-radius:999px;padding:7px 14px;line-height:1.35}
+#lpwa .wa-h1{font-size:clamp(34px,4.6vw,56px);font-weight:780;font-stretch:84%;line-height:1.06;letter-spacing:-.015em}
+#lpwa .wa-h1 span{color:var(--brand-2)}
+#lpwa .wa-sub{font-size:20px;line-height:1.6;color:var(--muted);max-width:58ch}
+#lpwa .wa-host{display:flex;align-items:center;gap:14px;font-size:15px;color:var(--muted)}
+#lpwa .wa-host img{width:56px;height:56px;border-radius:50%;object-fit:cover;object-position:50% 20%;border:2px solid var(--card);box-shadow:0 2px 8px rgba(0,61,112,.18)}
+#lpwa .wa-host b{display:block;color:var(--ink);font-size:16px}
+#lpwa .wa-card{background:var(--card);border:1px solid var(--line);border-radius:12px;box-shadow:0 18px 44px rgba(0,61,112,.14);padding:clamp(20px,2.6vw,28px);display:flex;flex-direction:column;gap:18px}
+#lpwa .wa-mock{display:grid;grid-template-columns:1fr 1fr;gap:10px;order:0}
+#lpwa .wa-mock figure{margin:0;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:var(--surface)}
+#lpwa .wa-mock figcaption{font-size:12.5px;font-weight:700;color:var(--muted);padding:7px 10px;border-top:1px solid var(--line);background:var(--card)}
+#lpwa .wa-mock svg{display:block;width:100%;height:auto}
+#lpwa .wa-form{display:grid;gap:14px;order:1}
+#lpwa .wa-form h2{font-size:22px;font-weight:720;font-stretch:90%;line-height:1.2}
+#lpwa .wa-form label{display:grid;gap:6px;font-size:15px;font-weight:600;color:var(--ink)}
+#lpwa .wa-form input{font:inherit;font-size:17px;font-weight:400;color:var(--ink);background:var(--card);border:1.5px solid #B8C4CE;border-radius:6px;height:50px;padding:0 14px;width:100%}
+#lpwa .wa-form input:focus{outline:3px solid #9CC3DD;outline-offset:0;border-color:var(--brand-2)}
+#lpwa .wa-form input[aria-invalid="true"]{border-color:#B42318}
+#lpwa .wa-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;min-height:56px;padding:14px 20px;border:0;border-radius:8px;background:var(--act);color:var(--act-ink);font:700 18px var(--body);cursor:pointer;text-decoration:none;transition:filter .15s}
+#lpwa .wa-btn:hover{filter:brightness(1.08)}
+#lpwa .wa-btn[disabled]{opacity:.6;cursor:wait}
+#lpwa .wa-reassure{font-size:14px;color:var(--muted);text-align:center;margin-top:-4px}
+#lpwa .wa-err{font-size:14.5px;color:#B42318;min-height:0}
+#lpwa .wa-err:empty{display:none}
+#lpwa .wa-fine{font-size:12.5px;color:var(--muted);line-height:1.5}
+#lpwa .wa-done{display:grid;gap:12px;padding:6px 0;order:1}
+#lpwa .wa-done h2{font-size:24px;font-weight:740;font-stretch:88%}
+#lpwa .wa-done p{color:var(--muted)}
+#lpwa .wa-done .wa-btn{margin-top:4px}
+#lpwa .wa-proof{border-block:1px solid var(--line);background:var(--card)}
+#lpwa .wa-proof .wa-wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+#lpwa .wa-proof div{padding:22px 18px 22px 0;display:grid;gap:4px;align-content:start}
+#lpwa .wa-proof div+div{padding-left:18px;border-left:1px solid var(--line)}
+#lpwa .wa-proof b{font-family:var(--display);font-size:22px;font-weight:780;font-stretch:80%;color:var(--brand);line-height:1.1}
+#lpwa .wa-proof span{font-size:14.5px;color:var(--muted);line-height:1.4}
+#lpwa .wa-head{display:grid;gap:12px;max-width:720px;margin-bottom:clamp(28px,4vw,44px)}
+#lpwa .wa-h2{font-size:clamp(28px,3.4vw,40px);font-weight:760;font-stretch:84%;line-height:1.1}
+#lpwa .wa-lede{color:var(--muted);max-width:62ch}
+#lpwa .wa-bul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+#lpwa .wa-bul li{background:var(--surface);border-radius:10px;padding:22px 22px 22px 56px;position:relative;color:var(--muted)}
+#lpwa .wa-bul li b{color:var(--ink)}
+#lpwa .wa-bul li::before{content:"";position:absolute;left:22px;top:28px;width:16px;height:9px;border-left:3px solid var(--brand-2);border-bottom:3px solid var(--brand-2);transform:rotate(-45deg)}
+#lpwa .wa-bul li.wa-wide{grid-column:1/-1;background:transparent;border:1px dashed var(--line)}
+#lpwa .wa-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;counter-reset:s}
+#lpwa .wa-steps div{border-top:3px solid var(--brand);padding-top:16px;display:grid;gap:8px;counter-increment:s}
+#lpwa .wa-steps div::before{content:"0" counter(s);font-family:var(--display);font-weight:780;font-size:15px;color:var(--brand-2)}
+#lpwa .wa-steps h3{font-size:21px;font-weight:720;font-stretch:90%}
+#lpwa .wa-steps p{color:var(--muted);font-size:17px}
+#lpwa .wa-bio{background:var(--surface)}
+#lpwa .wa-bio .wa-wrap{display:grid;grid-template-columns:260px minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:center}
+#lpwa .wa-bio img{width:100%;aspect-ratio:4/5;object-fit:cover;object-position:50% 20%;border-radius:12px}
+#lpwa .wa-bio .wa-txt{display:grid;gap:16px;max-width:640px}
+#lpwa .wa-bio .wa-txt p{color:var(--muted)}
+#lpwa .wa-nums{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:6px}
+#lpwa .wa-nums div{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:14px;display:grid;gap:2px}
+#lpwa .wa-nums b{font-family:var(--display);font-size:20px;font-weight:780;font-stretch:80%;color:var(--brand);line-height:1.1}
+#lpwa .wa-nums span{font-size:13.5px;color:var(--muted);line-height:1.4}
+#lpwa .wa-faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:26px 48px;max-width:980px}
+#lpwa .wa-faq h3{font-size:19px;font-weight:700;font-stretch:92%;margin-bottom:6px}
+#lpwa .wa-faq p{color:var(--muted);font-size:17px}
+#lpwa .wa-band{background:var(--band);color:var(--band-ink)}
+#lpwa .wa-band .wa-wrap{display:grid;gap:18px;justify-items:start;max-width:860px}
+#lpwa .wa-band h2{color:#FFFFFF;font-size:clamp(28px,3.6vw,42px);font-weight:760;font-stretch:84%;line-height:1.1}
+#lpwa .wa-band p{color:var(--band-muted)}
+#lpwa .wa-band .wa-btn{width:auto;padding-inline:28px}
+#lpwa .wa-foot{border-top:1px solid var(--line);font-size:14px;color:var(--muted)}
+#lpwa .wa-foot .wa-wrap{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:space-between;padding-block:24px}
+#lpwa .wa-foot a{color:var(--muted)}
+@media (max-width:900px){
+#lpwa .wa-hero .wa-wrap{grid-template-columns:1fr}
+#lpwa .wa-copy{gap:16px;padding-top:0}
+#lpwa .wa-host{display:none}
+#lpwa .wa-mock{order:2}
+#lpwa .wa-proof .wa-wrap{grid-template-columns:1fr 1fr}
+#lpwa .wa-proof div:nth-child(3){padding-left:0;border-left:0}
+#lpwa .wa-proof div:nth-child(n+3){border-top:1px solid var(--line)}
+#lpwa .wa-bul,#lpwa .wa-steps,#lpwa .wa-faq{grid-template-columns:1fr}
+#lpwa .wa-bio .wa-wrap{grid-template-columns:1fr}
+#lpwa .wa-bio img{max-width:220px}
+}
+
+@media (max-width:480px){
+#lpwa .wa-sub{font-size:18px}
+#lpwa .wa-nums{grid-template-columns:1fr}
+#lpwa .wa-band .wa-btn{width:100%}
+}
+
 /* hero background graphics (one per page, drawn in A3 colors, theme-aware) */
 .hero,.phero{position:relative;overflow:hidden;isolation:isolate}
 .hero>.wrap,.phero>.wrap{position:relative;z-index:1}
@@ -806,13 +879,13 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     </div>
   </section>
 
-  <div class="strip">
+  <div class="strip creds">
     <div class="wrap">
       <a class="strip-who" href="#about">Led by Mark Cupp · Fractional Chief Growth Officer since 2018 →</a>
-      <div class="it"><b>25+ yrs</b><span>Sales, operations and entrepreneurship</span></div>
-      <div class="it"><b>$100M</b><span>Freight division taken from worst to first in 180 days · Central Freight Lines</span></div>
-      <div class="it"><b>$270M</b><span>Revenue growth through joint ventures, digital marketing and automation · A3 K-12</span></div>
-      <div class="it"><b>7 locations</b><span>Franchise built from zero to the highest NPS in the national system · i9 Sports</span></div>
+      <div class="it"><b>25+ years</b><span>In sales, operations and growth</span></div>
+      <div class="it"><b>Certified EOS® Integrator</b><span>Leadership operating system</span></div>
+      <div class="it"><b>Certified High Level Admin</b><span>CRM, automation and funnels</span></div>
+      <div class="it"><b>Certified <em class="nw">AI-Assisted CMO</em></b><span>Marketing strategy and execution with AI</span></div>
     </div>
   </div>
 
@@ -1671,125 +1744,107 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
   </div></section>
 </div>
 
-<div class="page wa" data-page="audit" hidden>
-  <section class="phero"><div class="wrap">
-    <span class="crumb"><a href="#home">Home</a> / Free Website Audit</span>
-    <span class="label">Free Website Audit + Prototype</span>
-    <h1 class="h1">See what your website is costing you. <em>Then see the fix.</em></h1>
-    <p class="lede">We score your site on a 100-point audit, name the one place it loses buyers, and build a working prototype of your new site in your own brand. The audit is free. Enter your email to unlock your prototype.</p>
-    <div class="acts"><a class="btn" href="#wa-form">Request my free audit <span class="ar">→</span></a><a class="btn ghost" href="#wa-get">What you get</a></div>
-    <p class="fitline"><span>Free audit, no obligation</span><span>Prototype unlocks with your email</span><span>Built from your public site, no logins</span></p>
-  </div></section>
 
-  <section class="sec" id="wa-get"><div class="wrap">
-    <div class="head"><span class="label">What you get</span><h2 class="h2">Two halves. One link.</h2><p class="lede">A switch at the top flips between the diagnosis and the cure, so you can see exactly what is broken and exactly what fixed looks like. The audit is open to read. The new site unlocks with your email.</p></div>
-    <div class="wa-demo">
-      <div class="wa-seg" role="tablist" aria-label="Preview">
-        <button type="button" role="tab" aria-selected="true" data-wa="audit">The audit</button>
-        <button type="button" role="tab" aria-selected="false" data-wa="site">The new site</button>
-      </div>
-      <div class="wa-pane" data-wa-pane="audit">
-        <div class="wa-cols">
-          <div class="wa-score">
-            <span class="wa-tag">Example layout</span>
-            <div class="wa-pill"><span>Copy &amp; message</span><i style="--w:56%;--c:var(--al)"></i><b>/30</b></div>
-            <div class="wa-pill"><span>CRO &amp; persuasion</span><i style="--w:40%;--c:var(--au)"></i><b>/30</b></div>
-            <div class="wa-pill"><span>Layout &amp; UX</span><i style="--w:68%;--c:var(--ac)"></i><b>/20</b></div>
-            <div class="wa-pill"><span>Design &amp; visual</span><i style="--w:62%;--c:var(--blue)"></i><b>/20</b></div>
-            <div class="wa-leak"><span class="minih">The leak</span><p>One bold sentence naming the single weakest point, in words you can repeat to your team.</p></div>
-          </div>
-          <ul class="wa-list">
-            <li><b>100-point Total Page Audit.</b> 20 checkpoints across copy, conversion, layout and design, each with evidence quoted from your site.</li>
-            <li><b>The one leak.</b> We rate Attention, Clarity, Belief, Desire, Certainty and Action, and name the layer losing you the most business.</li>
-            <li><b>The five-second test.</b> What a stranger thinks you sell after five seconds on your homepage.</li>
-            <li><b>Top five fixes, ranked.</b> Impact and effort for each, with paste-ready headlines, buttons and navigation.</li>
-            <li><b>Buyer lanes.</b> How your site, not you, should sort buyers who are ready from buyers who need help.</li>
-            <li><b>The one number to watch.</b> The metric that tells you the fix is working.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="wa-pane" data-wa-pane="site" hidden>
-        <div class="wa-cols">
-          <div class="wa-browser" aria-hidden="true">
-            <div class="wa-bar"><i></i><i></i><i></i><span>yourcompany.com</span></div>
-            <div class="wa-shot"><div class="wa-l1"></div><div class="wa-l2"></div><div class="wa-btns"><span></span><span></span></div><div class="wa-tiles"><span></span><span></span><span></span></div></div>
-          </div>
-          <ul class="wa-list">
-            <li><b>A working prototype, not a mockup.</b> Click through it like it is live: pages, navigation and the flow that converts.</li>
-            <li><b>Your brand, not ours.</b> Your logo, colors and type, built from your real content and your real photos.</li>
-            <li><b>Leads with the fix.</b> The first thing the new site does is close the leak the audit found.</li>
-            <li><b>Mobile-first.</b> Checked at phone width and in light and dark mode.</li>
-            <li><b>Honest about what is sample.</b> Any price, policy or timeline we could not confirm from your site is clearly marked until you confirm it.</li>
-          </ul>
-        </div>
-      </div>
+<div class="page" id="lpwa" data-page="audit" hidden>
+
+
+
+<section class="wa-hero"><div class="wa-wrap">
+  <div class="wa-copy">
+    <span class="wa-pre">Free audit + working prototype for owner-led field service and professional services firms</span>
+    <h1 class="wa-h1">Before you pay for a redesign, <span>see your new website working.</span></h1>
+    <p class="wa-sub">We score your current site on a 100-point audit, name the one place it loses buyers, and build a clickable prototype of the fix in your own brand. Free. Just send us your web address.</p>
+    <div class="wa-host"><img src="https://assets.cdn.filesafe.space/3UbxqX8zLDM4QvDExPHM/media/6abeb6be10ee4f15561de86c.jpeg" alt="Mark Cupp" width="56" height="56"><div><b>Mark Cupp</b>Founder, Automate2Scale · Fractional Chief Growth Officer</div></div>
+  </div>
+
+  <div class="wa-card" id="wa-request">
+    <div class="wa-mock" aria-hidden="true">
+      <figure>
+        <svg viewBox="0 0 200 120"><rect width="200" height="120" fill="#F3F5F7"/><text x="14" y="24" font-family="Arial" font-size="9" font-weight="700" fill="#3E4C57">THE AUDIT</text><circle cx="42" cy="68" r="24" fill="none" stroke="#D7DEE4" stroke-width="7"/><circle cx="42" cy="68" r="24" fill="none" stroke="#005B8E" stroke-width="7" stroke-dasharray="90 151" transform="rotate(-90 42 68)"/><text x="42" y="73" text-anchor="middle" font-family="Arial" font-size="15" font-weight="700" fill="#131C24">?</text><rect x="80" y="48" width="104" height="6" rx="3" fill="#D7DEE4"/><rect x="80" y="48" width="70" height="6" rx="3" fill="#005B8E"/><rect x="80" y="62" width="104" height="6" rx="3" fill="#D7DEE4"/><rect x="80" y="62" width="44" height="6" rx="3" fill="#7FA9C9"/><rect x="80" y="76" width="104" height="6" rx="3" fill="#D7DEE4"/><rect x="80" y="76" width="82" height="6" rx="3" fill="#003D70"/><rect x="80" y="90" width="104" height="6" rx="3" fill="#D7DEE4"/><rect x="80" y="90" width="58" height="6" rx="3" fill="#646464"/></svg>
+        <figcaption>Your score, out of 100</figcaption>
+      </figure>
+      <figure>
+        <svg viewBox="0 0 200 120"><rect width="200" height="120" fill="#FFFFFF"/><rect width="200" height="16" fill="#E6EBEF"/><circle cx="10" cy="8" r="2.5" fill="#B8C4CE"/><circle cx="18" cy="8" r="2.5" fill="#B8C4CE"/><circle cx="26" cy="8" r="2.5" fill="#B8C4CE"/><rect x="40" y="4" width="80" height="8" rx="4" fill="#FFFFFF"/><rect x="0" y="16" width="200" height="56" fill="#1F3B57"/><rect x="14" y="30" width="96" height="9" rx="2" fill="#FFFFFF"/><rect x="14" y="44" width="70" height="5" rx="2" fill="#B9C6D0"/><rect x="14" y="56" width="40" height="9" rx="2" fill="#7FA9C9"/><rect x="128" y="26" width="58" height="38" rx="4" fill="#2C5274"/><rect x="14" y="82" width="52" height="28" rx="4" fill="#F3F5F7"/><rect x="74" y="82" width="52" height="28" rx="4" fill="#F3F5F7"/><rect x="134" y="82" width="52" height="28" rx="4" fill="#F3F5F7"/></svg>
+        <figcaption>Your new site, clickable</figcaption>
+      </figure>
     </div>
-  </div></section>
 
-  <section class="sec tight" style="padding-top:0"><div class="wrap">
-    <div class="head"><span class="label">How it works</span><h2 class="h2">You fill in one short form. We do the rest.</h2></div>
-    <div class="wa-steps">
-      <div class="wa-card"><span class="wa-n">01</span><h3 class="h3">Tell us about your site</h3><p>Your URL, what you sell and what you wish your website did for you.</p></div>
-      <div class="wa-card"><span class="wa-n">02</span><h3 class="h3">We research and score it</h3><p>We review every page that matters to a buyer and score it on the 100-point audit.</p></div>
-      <div class="wa-card"><span class="wa-n">03</span><h3 class="h3">We build your prototype</h3><p>A working version of your new site that applies every fix, in your brand.</p></div>
-      <div class="wa-card"><span class="wa-n g">04</span><h3 class="h3">Unlock your prototype</h3><p>Enter your email to open your new site, then book a Strategy Session with Mark to plan the build.</p></div>
+    <form class="wa-form" id="waLpForm" novalidate>
+      <h2>Where should we send your audit?</h2>
+      <label>First name<input name="first_name" autocomplete="given-name" required></label>
+      <label>Email<input name="email" type="email" autocomplete="email" required></label>
+      <label>Your website<input name="website" type="text" inputmode="url" autocomplete="url" placeholder="yourcompany.com" required></label>
+      <p class="wa-err" id="waLpErr" role="alert"></p>
+      <button class="wa-btn" type="submit">Audit my website &rarr;</button>
+      <p class="wa-reassure">Free. No logins needed. Your audit link is private.</p>
+      <p class="wa-fine">By submitting, you agree Automate2Scale may email you about your audit and related services. Unsubscribe any time. <a href="#privacy">Privacy Policy</a></p>
+    </form>
+  </div>
+</div></section>
+
+<section class="wa-proof" aria-label="Credentials"><div class="wa-wrap">
+  <div><b>25+ years</b><span>In sales, operations and growth</span></div>
+  <div><b>Certified EOS&reg; Integrator</b><span>Leadership operating system</span></div>
+  <div><b>Certified High Level Admin</b><span>CRM, automation and funnels</span></div>
+  <div><b>Certified AI-Assisted CMO</b><span>Marketing strategy and execution with AI</span></div>
+</div></section>
+
+<section class="wa-sec"><div class="wa-wrap">
+  <div class="wa-head">
+    <h2 class="wa-h2">What you get, free</h2>
+    <p class="wa-lede">Two halves in one private link: the diagnosis, and the fix already built.</p>
+  </div>
+  <ul class="wa-bul">
+    <li><b>Your score out of 100, with proof from your own pages,</b> so you know exactly what's working and what's quietly sending buyers away.</li>
+    <li><b>The one leak, named in a sentence you can repeat to your team:</b> the point where visitors stop understanding, stop believing or stop acting.</li>
+    <li><b>Click through your new homepage on your phone</b>, in your own logo, colors and photos, the way your buyers will see it.</li>
+    <li><b>Five fixes ranked by impact,</b> with headlines and buttons written for you, so you can improve the site you have today.</li>
+    <li class="wa-wide"><b>No logins, no access to your site and no obligation.</b> We work only from your public website.</li>
+  </ul>
+</div></section>
+
+<section class="wa-sec" style="padding-top:0"><div class="wa-wrap">
+  <div class="wa-head"><h2 class="wa-h2">How it works</h2></div>
+  <div class="wa-steps">
+    <div><h3>Send your web address</h3><p>It takes about a minute. No logins, no files to dig up.</p></div>
+    <div><h3>We audit and build</h3><p>We score every page a buyer sees and build a working prototype of the fix in your brand.</p></div>
+    <div><h3>Open your private link</h3><p>Read the audit, click through the new site, then talk it through with Mark if you'd like.</p></div>
+  </div>
+</div></section>
+
+<section class="wa-sec wa-bio"><div class="wa-wrap">
+  <img src="https://assets.cdn.filesafe.space/3UbxqX8zLDM4QvDExPHM/media/6abeb6be10ee4f15561de86c.jpeg" alt="Mark Cupp, founder of Automate2Scale" loading="lazy">
+  <div class="wa-txt">
+    <h2 class="wa-h2">Who looks at your site</h2>
+    <p>I'm Mark Cupp, founder of Automate2Scale in Fort Worth. I've spent more than 25 years in sales, operations and growth, from startups to a $100M freight division, and since 2018 I've served as a fractional Chief Growth Officer to founder-led companies.</p>
+    <p>I don't judge websites on looks. I judge them on one question: does this page turn the right visitor into a conversation without you having to chase it? Your audit answers that question, and the prototype shows what yes looks like.</p>
+    <div class="wa-nums">
+      <div><b>25+ years</b><span>In sales, operations and growth</span></div>
+      <div><b>Certified EOS&reg; Integrator</b><span>Leadership operating system</span></div>
+      <div><b>Certified High Level Admin</b><span>CRM, automation and funnels</span></div>
+      <div><b>Certified AI-Assisted CMO</b><span>Marketing strategy and execution with AI</span></div>
     </div>
-  </div></section>
+  </div>
+</div></section>
 
-  <section class="sec wa-bandsec"><div class="wrap wa-two">
-    <div class="head" style="margin:0"><span class="label">How we score</span><h2 class="h2">Four bands. No grade inflation.</h2><p class="lede">Every score carries evidence from your own pages. Anything we cannot see is marked N/A and left out of the total, never guessed.</p></div>
-    <div class="wa-bands">
-      <div><b>90–100</b><span>Rockstar Page</span></div>
-      <div><b>75–89</b><span>Converting but leaking</span></div>
-      <div><b>60–74</b><span>Underperforming</span></div>
-      <div><b>Under 60</b><span>Rebuild, keeping what already works</span></div>
-    </div>
-  </div></section>
+<section class="wa-sec"><div class="wa-wrap">
+  <div class="wa-head"><h2 class="wa-h2">Common questions</h2></div>
+  <div class="wa-faq">
+    <div><h3>Is it really free?</h3><p>Yes. No card and no obligation. The audit is yours to keep.</p></div>
+    <div><h3>Do you need logins or access?</h3><p>No. We work only from your public website.</p></div>
+    <div><h3>Who sees my results?</h3><p>You do. Your link is private, and we never share your audit without your permission.</p></div>
+    <div><h3>What if I want the new site built?</h3><p>We plan it together in a free Strategy Session. If not, you still keep the audit and the prototype.</p></div>
+  </div>
+</div></section>
 
-  <section class="sec"><div class="wrap wa-two">
-    <div class="head" style="margin:0"><span class="label">Best fit</span><h2 class="h2">Built for owner-led companies whose website should be selling.</h2></div>
-    <ul class="ia-list" style="grid-template-columns:1fr;margin:0">
-      <li><b>Your site gets visits, but leads still route through you.</b> Every question becomes a call you have to take.</li>
-      <li><b>Buyers ask what the page should have answered.</b> Price, fit, timing, process.</li>
-      <li><b>You are planning a redesign.</b> See the new site working before you pay for it.</li>
-    </ul>
-  </div></section>
+<section class="wa-sec wa-band"><div class="wa-wrap">
+  <h2>See the score, the leak and the fix before you spend a dollar on a redesign.</h2>
+  <p>Send your web address and we'll build your audit and prototype.</p>
+  <a class="wa-btn" href="#wa-request">Audit my website &rarr;</a>
+</div></section>
 
-  <section class="sec wa-formsec" id="wa-form"><div class="wrap wa-two">
-    <div class="head" style="margin:0"><span class="label">Request your audit</span><h2 class="h2">Get your free audit and prototype.</h2><p class="lede">Two minutes. We will email you your private link when your audit is ready.</p></div>
-    <div class="wa-formbox" id="waBox">
-      <form class="lf" id="waForm" novalidate>
-        <label>First name<input name="first_name" autocomplete="given-name" required></label>
-        <label>Last name<input name="last_name" autocomplete="family-name"></label>
-        <label>Work email<input name="email" type="email" autocomplete="email" required></label>
-        <label>Company<input name="company" autocomplete="organization" required></label>
-        <label class="full">Website URL<input name="website" type="url" inputmode="url" placeholder="yourcompany.com" required></label>
-        <label class="full">Business type<select name="business_type"><option value="">Select one</option><option>Trade or field services company</option><option>Professional services firm</option><option>Other</option></select></label>
-        <label class="full">What should your website do that it does not today? (optional)<textarea name="vision" rows="3" placeholder="For example: let buyers see pricing and book without calling me."></textarea></label>
-        <p class="consent">By submitting you agree that Automate2Scale may email you about your audit and related services. You can unsubscribe at any time. We never sell your details. <a href="#privacy" target="_blank">Privacy Policy</a>.</p>
-        <div class="wa-sub"><span class="hint" id="waHint" role="status"></span><button class="btn" type="submit">Request my free audit <span class="ar">→</span></button></div>
-      </form>
-    </div>
-  </div></section>
 
-  <section class="sec tight"><div class="wrap">
-    <div class="head"><h2 class="h2">Common questions</h2></div>
-    <div class="ia-faq">
-      <div><h3 class="h3">Is it really free?</h3><p>Yes. The audit is free to read and keep, with no card and no obligation. Your prototype opens when you enter your email.</p></div>
-      <div><h3 class="h3">Why do you do this?</h3><p>It is the fastest way to show what working with us looks like. If you want the new site built, we plan it together in a free Strategy Session.</p></div>
-      <div><h3 class="h3">Do you need logins or access?</h3><p>No. We work only from your public website.</p></div>
-      <div><h3 class="h3">Who sees my results?</h3><p>You do. Your link is private, and we never share your audit without your permission.</p></div>
-      <div><h3 class="h3">What if I do not have a website yet?</h3><p>Then start with a <a href="#session">Strategy Session</a> and we will map what your site needs to do first.</p></div>
-    </div>
-  </div></section>
 
-  <section class="band"><div class="wrap">
-    <div class="head" style="margin:0">
-      <h2 class="h2" style="color:#FFFFFF">Stop guessing what your website is costing you.</h2>
-      <p class="lede" style="color:var(--band-ink)">See the score, the leak and the fix, working, in your own brand.</p>
-      <div class="acts"><a class="btn" href="#wa-form">Request my free audit <span class="ar">→</span></a><a class="sublink" href="#session">Or book a Strategy Session with Mark →</a></div>
-    </div>
-  </div></section>
 </div>
 
 <div class="page" data-page="mark" hidden>
@@ -2001,21 +2056,30 @@ $('ia-be').textContent=be;$('ia-ben').textContent=note;$('ia-cost').textContent=
 $('ia-hb').textContent=Math.round(hours*rec/100*52).toLocaleString('en-US');$('ia-roi').textContent=(fy>0?ar/fy:0).toFixed(1)+'x';$('ia-fy').textContent=m(fy)}
 ['ia-rate','ia-hours','ia-rec'].forEach(i=>$(i).addEventListener('input',calc));calc()})();
 
-/* website audit page */
-(function(){const seg=document.querySelectorAll('[data-wa]');seg.forEach(b=>b.addEventListener('click',()=>{seg.forEach(x=>x.setAttribute('aria-selected',x===b));document.querySelectorAll('[data-wa-pane]').forEach(p=>p.hidden=p.dataset.waPane!==b.dataset.wa)}));
-const f=document.getElementById('waForm');if(!f)return;
-f.addEventListener('input',e=>{if(e.target.getAttribute('aria-invalid')==='true')e.target.setAttribute('aria-invalid','false')});
-f.onsubmit=e=>{e.preventDefault();const d=Object.fromEntries(new FormData(f).entries());Object.keys(d).forEach(k=>d[k]=d[k].trim());let bad=null;
-[['first_name',!d.first_name],['email',!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)],['company',!d.company],['website',!/^(https?:\/\/)?[^\s.]+\.[^\s]{2,}$/i.test(d.website)]].forEach(([n,x])=>{const el=f.elements[n];el.setAttribute('aria-invalid',x);if(x&&!bad)bad=el});
-const hint=document.getElementById('waHint');if(bad){hint.textContent=bad.name==='email'?'Enter a valid work email.':bad.name==='website'?'Enter your website address.':'Fill in the required fields.';bad.focus();return}
-const payload={...d,full_name:(d.first_name+' '+d.last_name).trim(),source:'Free Website Audit + Prototype',page_url:location.href,submitted_at:new Date().toISOString()};
-if(typeof WEBHOOK!=='undefined'&&WEBHOOK){try{fetch(WEBHOOK,{method:'POST',mode:'no-cors',body:new URLSearchParams(payload),keepalive:true}).catch(()=>{})}catch(err){}}
-try{track('website_audit_request',{business_type:d.business_type||''})}catch(err){}
-const box=document.getElementById('waBox');const n=document.createElement('div');n.className='wa-done';n.setAttribute('tabindex','-1');
-const h=document.createElement('h3');h.className='h3';h.textContent='Thanks, '+d.first_name+'. Your audit is in the queue.';
-const p=document.createElement('p');p.textContent='We will review '+d.website+' and email '+d.email+' when your private link is ready. Want to talk sooner?';
-const a=document.createElement('a');a.className='btn ghost';a.href='#session';a.innerHTML='Book a Strategy Session <span class="ar">→</span>';a.style.justifySelf='start';
-n.append(h,p,a);box.replaceChildren(n);n.focus()}})();
+
+/* website audit landing page (embedded) */
+(function(){
+  var WEBHOOK='https://services.leadconnectorhq.com/hooks/3UbxqX8zLDM4QvDExPHM/webhook-trigger/9a660f51-3d51-480b-b6b0-2d786ef326e7';
+  var BOOK='#session';
+  var f=document.getElementById('waLpForm');if(!f)return;
+  var err=document.getElementById('waLpErr');
+  document.querySelectorAll('#lpwa a[href="#wa-request"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();document.getElementById('wa-request').scrollIntoView({behavior:'smooth',block:'start'});setTimeout(function(){var i=f.querySelector('input');i&&i.focus({preventScroll:true})},450)})});
+  f.addEventListener('input',function(e){if(e.target.getAttribute('aria-invalid')==='true')e.target.setAttribute('aria-invalid','false')});
+  f.addEventListener('submit',function(e){
+    e.preventDefault();var d={};new FormData(f).forEach(function(v,k){d[k]=String(v).trim()});var bad=null;
+    [['first_name',!d.first_name],['email',!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)],['website',!/^(https?:\/\/)?[^\s.\/]+\.[^\s]{2,}$/i.test(d.website)]].forEach(function(x){var el=f.elements[x[0]];el.setAttribute('aria-invalid',x[1]);if(x[1]&&!bad)bad=el});
+    if(bad){err.textContent=bad.name==='email'?'Enter a valid email.':bad.name==='website'?'Enter your website address, like yourcompany.com.':'Enter your first name.';bad.focus();return}
+    err.textContent='';
+    var p=new URLSearchParams({first_name:d.first_name,full_name:d.first_name,email:d.email,website:d.website,source:'Free Website Audit + Prototype',page_url:location.href,submitted_at:new Date().toISOString()});
+    try{fetch(WEBHOOK,{method:'POST',mode:'no-cors',body:p,keepalive:true}).catch(function(){})}catch(x){}
+    try{if(window.dataLayer)window.dataLayer.push({event:'website_audit_request',form:'landing_page'})}catch(x){}
+    var done=document.createElement('div');done.className='wa-done';done.setAttribute('tabindex','-1');
+    var h=document.createElement('h2');h.textContent='Thanks, '+d.first_name+'. Your audit is in the queue.';
+    var q=document.createElement('p');q.textContent='We’ll review '+d.website+' and email '+d.email+' when your private link is ready. Want to talk it through sooner?';
+    var a=document.createElement('a');a.className='wa-btn';a.href=BOOK;a.innerHTML='Book a free Strategy Session &rarr;';
+    done.appendChild(h);done.appendChild(q);done.appendChild(a);f.replaceWith(done);done.focus();
+  });
+})();
 
 /* hero background graphics */
 (function(){
