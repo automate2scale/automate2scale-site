@@ -1,0 +1,35 @@
+<!-- Automate2Scale "Free Website Audit" landing page loader for GoHighLevel.
+     Paste this ONCE into one Custom Code element on a blank GHL page (full width, no padding,
+     no header/footer), for example automate2scale.io/free-website-audit
+     After that, every change pushed to lp/website-audit.html in
+     github.com/automate2scale/automate2scale-site shows on this page within about a minute. -->
+<div id="a2s-lp-root" style="min-height:100vh;display:grid;place-items:center;font-family:system-ui,sans-serif;color:#6C7C88">Loading&hellip;</div>
+<script>
+(function () {
+  var REPO = "automate2scale/automate2scale-site", FILE = "lp/website-audit.html";
+  var root = document.getElementById("a2s-lp-root");
+  function load(ref) {
+    return fetch("https://raw.githubusercontent.com/" + REPO + "/" + ref + "/" + FILE, { cache: "no-store" })
+      .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); });
+  }
+  fetch("https://api.github.com/repos/" + REPO + "/commits/main", { headers: { Accept: "application/vnd.github.sha" } })
+    .then(function (r) { if (!r.ok) throw new Error(r.status); return r.text(); })
+    .then(function (sha) { return load(sha.trim()); })
+    .catch(function () { return load("main"); })
+    .then(function (html) {
+      var doc = new DOMParser().parseFromString(html, "text/html");
+      doc.head.querySelectorAll("style, link[rel='stylesheet'], link[rel='preconnect']").forEach(function (el) { document.head.appendChild(el.cloneNode(true)); });
+      if (doc.title) document.title = doc.title;
+      var md = doc.head.querySelector('meta[name="description"]');
+      if (md && !document.querySelector('meta[name="description"]')) document.head.appendChild(md.cloneNode(true));
+      var scripts = Array.prototype.slice.call(doc.body.querySelectorAll("script"));
+      scripts.forEach(function (s) { s.parentNode.removeChild(s); });
+      root.removeAttribute("style");
+      root.innerHTML = doc.body.innerHTML;
+      scripts.forEach(function (old) { var s = document.createElement("script"); if (old.src) s.src = old.src; else s.textContent = old.textContent; document.body.appendChild(s); });
+    })
+    .catch(function () {
+      root.innerHTML = '<p style="text-align:center;padding:40px">We couldn\'t load this page. Please refresh, or email mark@automate2scale.io.</p>';
+    });
+})();
+</script>
