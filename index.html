@@ -215,6 +215,35 @@ button{font:inherit}
 .scp-get li{position:relative;padding-left:24px;font-size:14.5px;color:var(--ink-2)}
 .scp-get li::before{content:"";position:absolute;left:2px;top:.45em;width:11px;height:6px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg)}
 .scp-foot{font-size:12.5px;color:var(--ink-3);margin-top:-6px}
+.scp-pl{grid-column:1/-1;font-family:var(--mono);font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-bottom:-8px}
+.scp-bars span em{font-style:normal;font-family:var(--mono);font-size:11px;color:var(--ink-3);margin-left:4px}
+.scp-bars.live i::after{animation:none;width:var(--v,0%);transition:width .45s ease}
+.scp-dial.live .fg{animation:none;transition:stroke-dashoffset .9s ease}
+.scp-body{display:grid;gap:10px;min-height:150px;align-content:start}
+.scp-prog{height:4px;border-radius:2px;background:var(--panel);overflow:hidden}
+.scp-prog i{display:block;height:100%;background:var(--blue);transition:width .3s ease}
+.scp-q{display:grid;gap:8px;animation:scpIn .28s ease both}
+@keyframes scpIn{from{opacity:0;transform:translateX(10px)}to{opacity:1;transform:none}}
+.scp-scale button[aria-pressed="true"]{border-color:var(--blue);background:var(--tint)}
+.scp-nav{display:flex;justify-content:space-between;align-items:center;gap:10px;font-size:13px;color:var(--ink-3)}
+.scp-nav button{font:inherit;font-size:13px;font-weight:600;color:var(--blue);background:none;border:0;padding:6px 0;cursor:pointer}
+.scp-nav button[disabled]{visibility:hidden}
+.scp-form{display:grid;gap:9px;animation:scpIn .28s ease both}
+.scp-form h3{font-family:var(--display);font-size:19px;font-weight:720;font-stretch:90%;margin:0}
+.scp-form p{font-size:13.5px;color:var(--ink-2)}
+.scp-form label{display:grid;gap:4px;font-size:13.5px;font-weight:600;color:var(--ink-2)}
+.scp-form input{font:inherit;font-size:16px;color:var(--ink);background:var(--paper);border:1.5px solid var(--rule);border-radius:6px;height:44px;padding:0 12px;width:100%;box-sizing:border-box}
+.scp-form input:focus{outline:2px solid var(--blue);outline-offset:1px}
+.scp-form input[aria-invalid="true"]{border-color:#C0392B}
+.scp-form .scp-err{font-size:13px;color:#C0392B}.scp-form .scp-err:empty{display:none}
+.scp-form .btn,.scp-res .btn{width:100%}
+.scp-fine{font-size:11.5px!important;color:var(--ink-3)!important;line-height:1.45}
+.scp-res{display:grid;gap:10px;animation:scpIn .28s ease both}
+.scp-res .minih{color:var(--ink-3)}
+.scp-res h3{font-family:var(--display);font-size:20px;font-weight:740;font-stretch:88%;margin:0;color:var(--ink)}
+.scp-res p{font-size:14px;color:var(--ink-2)}
+.scp-res .mono{color:var(--blue);font-weight:600;font-size:13px}
+.scp.done .scp-get{display:none}
 @media (prefers-reduced-motion:reduce){.scp-dial .fg,.scp-bars i::after{animation:none}.scp-dial .fg{stroke-dashoffset:110}.scp-bars i::after{width:var(--w)}}
 @media (max-width:420px){.scp-prev{grid-template-columns:1fr}.scp-dial{justify-self:center}.scp-scale button{font-size:10.5px;padding:7px 2px}}
 /* proof strip */
@@ -959,20 +988,22 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
       <div class="scp" aria-labelledby="scpH">
         <div class="scp-top"><span class="scp-tag">Free · 10 minutes · 15 questions</span><span class="scp-tm">A³ Readiness Scorecard™</span></div>
         <h2 class="scp-h" id="scpH">Where is your business actually stuck?</h2>
-        <div class="scp-prev" aria-hidden="true">
-          <div class="scp-dial"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" class="bg"/><circle cx="60" cy="60" r="50" class="fg"/></svg><b>?</b><small>/ 100</small></div>
+        <div class="scp-prev" aria-hidden="true"><span class="scp-pl" id="scpPl">Sample result</span>
+          <div class="scp-dial"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" class="bg"/><circle cx="60" cy="60" r="50" class="fg" id="scpFg"/></svg><b id="scpOv">?</b><small>/ 100</small></div>
           <div class="scp-bars">
-            <div style="--c:var(--al);--w:72%"><span>A¹ Align</span><i></i></div>
-            <div style="--c:var(--au);--w:38%"><span>A² Automate</span><i></i></div>
-            <div style="--c:var(--ac);--w:55%"><span>A³ Accelerate</span><i></i></div>
-            <p class="scp-con"><span>Primary constraint</span><b>Found in 10 minutes</b></p>
+            <div style="--c:var(--al);--w:72%" data-p="0"><span>A¹ Align <em></em></span><i></i></div>
+            <div style="--c:var(--au);--w:38%" data-p="1"><span>A² Automate <em></em></span><i></i></div>
+            <div style="--c:var(--ac);--w:55%" data-p="2"><span>A³ Accelerate <em></em></span><i></i></div>
+            <p class="scp-con"><span>Primary constraint</span><b id="scpCon">Found in 10 minutes</b></p>
           </div>
         </div>
-        <div class="scp-q">
+        <div class="scp-body" id="scpBody" aria-live="polite">
+          <div class="scp-q">
           <p class="scp-qn">Start now · Question 1 of 15 · Align</p>
           <p class="scp-qt" id="scpQ">Our leadership team can name the company&rsquo;s top three priorities this quarter.</p>
           <div class="scp-scale" role="group" aria-labelledby="scpQ">
             <button type="button" data-v="1"><b>1</b>Strongly disagree</button><button type="button" data-v="2"><b>2</b>Disagree</button><button type="button" data-v="3"><b>3</b>Neutral</button><button type="button" data-v="4"><b>4</b>Agree</button><button type="button" data-v="5"><b>5</b>Strongly agree</button>
+          </div>
           </div>
         </div>
         <ul class="scp-get">
@@ -980,7 +1011,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
           <li>The one constraint to fix first, and the right next step</li>
           <li>A one-page PDF to share with your leadership team</li>
         </ul>
-        <p class="scp-foot">No login. Answer the first question to begin.</p>
+        <p class="scp-foot" id="scpFoot">No login. Answer the first question to begin.</p>
       </div>
     </div>
   </section>
@@ -2101,13 +2132,59 @@ fo.innerHTML=FIND.map((f,i)=>`<label class="opt"><input type="radio" name="finde
 function setRec(i){const f=FIND[i];recName.textContent=f[1];recWhy.textContent=f[2];recPrice.textContent=f[3];recLink.href=f[4];}
 fo.addEventListener('change',e=>setRec(+e.target.value));setRec(0);
 
-/* hero scorecard promo: answering question 1 starts the scorecard */
-document.querySelectorAll('.scp-scale button').forEach(b=>b.addEventListener('click',()=>{
-  try{ans[0][0]=+b.dataset.v;step=0;track('scorecard_start',{source:'home_hero'})}catch(e){}
-  location.hash='#scorecard';
-  setTimeout(()=>{try{renderQ();updSide();const q=document.getElementById('qpanel');q&&q.scrollIntoView({block:'start'});const n=q&&q.querySelectorAll('.scale')[1];n&&n.querySelector('button').focus({preventScroll:true})}catch(e){}},60);
-}));
-
+/* hero scorecard card: all 15 questions, the lead form and the results run inside the card */
+setTimeout(function(){
+const card=document.querySelector('.scp'),body=document.getElementById('scpBody');if(!card||!body)return;
+const flat=[];Q.forEach((g,gi)=>g.items.forEach((t,ii)=>flat.push({gi,ii,t,k:g.k,c:g.c})));
+let i=0,started=false;
+const bars=card.querySelector('.scp-bars'),dial=card.querySelector('.scp-dial'),fg=document.getElementById('scpFg');
+function live(){
+  if(!started){started=true;bars.classList.add('live');dial.classList.add('live');document.getElementById('scpPl').textContent='Your answers so far';document.getElementById('scpCon').textContent='Revealed at the end';document.getElementById('scpFoot').textContent='No login. About 10 minutes start to finish.';try{track('scorecard_start',{source:'home_hero'})}catch(e){}}
+  ans.forEach((a,gi)=>{const v=a.filter(Boolean);const el=bars.querySelector('[data-p="'+gi+'"]');const pc=v.length?Math.round(v.reduce((s,x)=>s+x-1,0)/(v.length*4)*100):0;el.style.setProperty('--v',pc+'%');el.querySelector('em').textContent=v.length?pc:''});
+  const n=ans.flat().filter(Boolean).length;fg.style.strokeDashoffset=314*(1-n/15);try{updSide()}catch(e){}
+}
+function q(){
+  const it=flat[i],cur=ans[it.gi][it.ii];step=it.gi;try{renderQ();updSide()}catch(e){}
+  body.innerHTML=`<div class="scp-prog" aria-hidden="true"><i style="width:${i/15*100}%"></i></div><div class="scp-q" key="${i}"><p class="scp-qn" style="color:var(--${it.c})">Question ${i+1} of 15 · ${it.k}</p><p class="scp-qt" id="scpQ">${it.t}</p><div class="scp-scale" role="group" aria-labelledby="scpQ">${LBL.map((l,v)=>`<button type="button" data-v="${v+1}" aria-pressed="${cur===v+1}"><b>${v+1}</b>${l}</button>`).join('')}</div></div><div class="scp-nav"><button type="button" id="scpBack" ${i===0?'disabled':''}>← Back</button><span>${ans.flat().filter(Boolean).length} of 15 answered</span></div>`;
+  body.querySelectorAll('.scp-scale button').forEach(b=>b.onclick=()=>{ans[it.gi][it.ii]=+b.dataset.v;live();setTimeout(()=>{i=ans.flat().indexOf(0);if(i<0){step=3;form()}else q()},180)});
+  const bk=document.getElementById('scpBack');bk.onclick=()=>{if(i>0){i--;q()}};
+}
+function form(){
+  const v=lead||{};card.classList.add('done');document.getElementById('scpFoot').textContent='Free. No login. We never sell your details.';
+  body.innerHTML=`<form class="scp-form" id="scpForm" novalidate><h3>All 15 answered. Where should we send your results?</h3><p>Your score shows right here. We also email you a copy.</p>
+  <label>First name<input name="first_name" autocomplete="given-name" required value="${esc(v.first_name||'')}"></label>
+  <label>Work email<input name="email" type="email" autocomplete="email" required value="${esc(v.email||'')}"></label>
+  <label>Company<input name="company" autocomplete="organization" required value="${esc(v.company||'')}"></label>
+  <p class="scp-err" id="scpErr" role="alert"></p>
+  <button class="btn" type="submit">Show me my score <span class="ar">→</span></button>
+  <p class="scp-fine">By continuing you agree that Automate2Scale may email you about your results and related services. Unsubscribe any time. <a href="#privacy">Privacy Policy</a>.</p>
+  <div class="scp-nav"><button type="button" id="scpBack">← Back</button><span></span></div></form>`;
+  document.getElementById('scpBack').onclick=()=>{i=14;card.classList.remove('done');q()};
+  const f=document.getElementById('scpForm');f.querySelector('input').focus({preventScroll:true});
+  f.addEventListener('input',e=>{if(e.target.getAttribute('aria-invalid')==='true')e.target.setAttribute('aria-invalid','false')});
+  f.onsubmit=e=>{e.preventDefault();const d=Object.fromEntries(new FormData(f).entries());Object.keys(d).forEach(k=>d[k]=d[k].trim());let bad=null;
+    [['first_name',!d.first_name],['email',!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)],['company',!d.company]].forEach(([n,x])=>{const el=f.elements[n];el.setAttribute('aria-invalid',x);if(x&&!bad)bad=el});
+    if(bad){document.getElementById('scpErr').textContent=bad.name==='email'?'Enter a valid work email.':'Fill in the required fields.';bad.focus();return}
+    lead={...(lead||{}),...d};const r=results();
+    const payload={...d,last_name:'',full_name:d.first_name,score_overall:r.ov,score_align:r.ps[0],score_automate:r.ps[1],score_accelerate:r.ps[2],
+      primary_constraint:r.names[r.lo],recommendation:r.rec[0].replace(/™/g,''),recommendation_price:r.rec[2],
+      answers:ans.map((a,k)=>r.names[k]+': '+a.join(',')).join(' | '),source:'A3 Readiness Scorecard',form:'home_hero',page_url:location.href,submitted_at:new Date().toISOString()};
+    if(WEBHOOK){try{fetch(WEBHOOK,{method:'POST',mode:'no-cors',body:new URLSearchParams(payload),keepalive:true}).catch(()=>{})}catch(err){}}
+    try{track('scorecard_lead',{score:r.ov,source:'home_hero'})}catch(err){}
+    step=4;try{renderQ();updSide()}catch(err){}
+    res(r)};
+}
+function res(r){
+  const {ps,ov,lo,names,rec}=r;
+  bars.querySelectorAll('[data-p]').forEach(el=>{const p=ps[+el.dataset.p];el.style.setProperty('--v',p+'%');el.querySelector('em').textContent=p});
+  fg.style.strokeDashoffset=314*(1-ov/100);document.getElementById('scpOv').textContent=ov;
+  document.getElementById('scpPl').textContent='Your A³ Readiness Score';document.getElementById('scpCon').textContent=names[lo];
+  body.innerHTML=`<div class="scp-res"><span class="minih">${esc(lead.first_name)}, your primary constraint is ${names[lo]}</span><h3>${rec[0]}</h3><p>${rec[1]}</p><span class="mono">${rec[2]}</span>
+  <a class="btn" href="#session">Book a Strategy Session <span class="ar">→</span></a><a class="sublink" href="#scorecard" style="text-align:center">See full results and download the PDF →</a></div>`;
+  document.getElementById('scpFoot').textContent='A copy is on its way to '+lead.email+'.';
+}
+body.addEventListener('click',e=>{const b=e.target.closest('.scp-scale button');if(b&&!started&&!b.onclick){const it=flat[0];ans[it.gi][it.ii]=+b.dataset.v;live();i=1;setTimeout(q,180)}});
+},0);
 /* copy buttons */
 document.addEventListener('click',e=>{
   const b=e.target.closest('[data-copy]');if(!b)return;
