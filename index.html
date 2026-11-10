@@ -180,6 +180,43 @@ button{font:inherit}
 .outbar{background:var(--green-tint);color:var(--green);font-size:13px;font-weight:700;padding:11px 14px;border-radius:3px}
 .os-cap{font-size:14px;color:var(--ink-3);border-top:1px solid var(--rule-2);padding-top:12px;min-height:3.2em}
 
+/* hero scorecard promo */
+.scp{background:var(--paper);border:1px solid var(--rule);border-radius:10px;box-shadow:var(--sh2);padding:clamp(18px,2.4vw,26px);display:grid;gap:16px;position:relative;overflow:hidden}
+.scp::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,var(--al) 0 33.3%,var(--au) 33.3% 66.6%,var(--ac) 66.6%)}
+.scp-top{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.scp-tag{font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--green);background:var(--green-tint);padding:4px 8px;border-radius:3px}
+.scp-tm{font-family:var(--mono);font-size:11px;letter-spacing:.08em;color:var(--ink-3)}
+.scp-h{font-family:var(--display);font-size:clamp(22px,2.2vw,28px);font-weight:760;font-stretch:84%;line-height:1.1;margin:0}
+.scp-prev{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;background:var(--mist);border:1px solid var(--rule-2);border-radius:8px;padding:14px 16px}
+.scp-dial{width:96px;height:96px;position:relative;display:grid;place-items:center;align-content:center}
+.scp-dial svg{position:absolute;inset:0;transform:rotate(-90deg)}
+.scp-dial circle{fill:none;stroke-width:9}
+.scp-dial .bg{stroke:var(--panel)}
+.scp-dial .fg{stroke:var(--blue);stroke-linecap:round;stroke-dasharray:314;stroke-dashoffset:314;animation:scpDial 2.4s ease-out .3s forwards}
+@keyframes scpDial{to{stroke-dashoffset:110}}
+.scp-dial b{font-family:var(--display);font-size:30px;font-weight:780;color:var(--ink);line-height:1}
+.scp-dial small{font-family:var(--mono);font-size:10.5px;color:var(--ink-3)}
+.scp-bars{display:grid;gap:8px}
+.scp-bars div{display:grid;gap:3px}
+.scp-bars span{font-size:12.5px;font-weight:600;color:var(--ink-2)}
+.scp-bars i{display:block;height:7px;border-radius:4px;background:var(--panel);position:relative;overflow:hidden}
+.scp-bars i::after{content:"";position:absolute;inset:0 auto 0 0;width:0;background:var(--c);border-radius:4px;animation:scpBar 1.6s ease-out .4s forwards}
+@keyframes scpBar{to{width:var(--w)}}
+.scp-con{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:12.5px;border-top:1px dashed var(--rule);padding-top:7px;margin-top:2px}
+.scp-con span{color:var(--ink-3)}.scp-con b{color:var(--ink)}
+.scp-q{display:grid;gap:8px}
+.scp-qn{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--al)}
+.scp-qt{font-size:16.5px;font-weight:600;color:var(--ink);line-height:1.4}
+.scp-scale{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}
+.scp-scale button{font:inherit;font-size:11.5px;line-height:1.2;color:var(--ink-2);background:var(--paper);border:1.5px solid var(--rule);border-radius:6px;padding:8px 4px;min-height:58px;cursor:pointer;display:grid;gap:3px;align-content:center;justify-items:center;text-align:center;transition:border-color .15s,background .15s,transform .15s}
+.scp-scale button b{font-family:var(--display);font-size:17px;color:var(--ink)}
+.scp-scale button:hover,.scp-scale button:focus-visible{border-color:var(--blue);background:var(--tint);transform:translateY(-2px)}
+.scp-get{display:grid;gap:6px;border-top:1px solid var(--rule-2);padding-top:12px}
+.scp-get li{position:relative;padding-left:24px;font-size:14.5px;color:var(--ink-2)}
+.scp-get li::before{content:"";position:absolute;left:2px;top:.45em;width:11px;height:6px;border-left:2px solid var(--green);border-bottom:2px solid var(--green);transform:rotate(-45deg)}
+.scp-foot{font-size:12.5px;color:var(--ink-3);margin-top:-6px}
+@media (prefers-reduced-motion:reduce){.scp-dial .fg,.scp-bars i::after{animation:none}.scp-dial .fg{stroke-dashoffset:110}.scp-bars i::after{width:var(--w)}}
+@media (max-width:420px){.scp-prev{grid-template-columns:1fr}.scp-dial{justify-self:center}.scp-scale button{font-size:10.5px;padding:7px 2px}}
 /* proof strip */
 .strip.creds b{font-size:clamp(19px,1.9vw,24px);line-height:1.15}
 .strip.creds .it{align-content:start}
@@ -919,39 +956,31 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
         <p class="microline" style="margin-top:-14px">30 minutes. You leave with a written Constraint Brief, your Five-Second Positioning Statement and an Ideal Client Precision Card, whether or not we ever work together.</p>
       </div>
 
-      <div class="os" aria-label="How your company runs today compared with A³">
-        <div class="os-top">
-          <div class="seg" role="group" aria-label="Compare">
-            <button type="button" id="osToday" aria-pressed="true">Today</button>
-            <button type="button" id="osA3" aria-pressed="false">With A³ installed</button>
-          </div>
-          <span class="os-state bad" id="osState">Founder dependent</span>
-        </div>
-        <div class="os-stage">
-          <div class="os-view" id="viewToday">
-            <svg class="map-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
-              <line x1="50" y1="50" x2="50" y2="9"/><line x1="50" y1="50" x2="83" y2="26"/><line x1="50" y1="50" x2="83" y2="74"/>
-              <line x1="50" y1="50" x2="50" y2="91"/><line x1="50" y1="50" x2="17" y2="74"/><line x1="50" y1="50" x2="17" y2="26"/>
-            </svg>
-            <span class="nd" style="top:9%;left:50%">Priorities</span>
-            <span class="nd" style="top:26%;left:83%">Approvals<i class="ping"></i></span>
-            <span class="nd" style="top:74%;left:83%">Pipeline</span>
-            <span class="nd" style="top:91%;left:50%">Follow-up<i class="ping"></i></span>
-            <span class="nd" style="top:74%;left:17%">Issues</span>
-            <span class="nd" style="top:26%;left:17%">Decisions<i class="ping"></i></span>
-            <span class="nd core" style="top:50%;left:50%">Founder</span>
-          </div>
-          <div class="os-view" id="viewA3" data-off>
-            <div class="stack">
-              <span class="lead">Founder · leading, not integrating</span>
-              <div class="layer l1"><b>A¹ Align</b><small>Leadership</small><span>Priorities · Ownership · Weekly scorecard</span></div>
-              <div class="layer l2"><b>A² Automate</b><small>Revenue</small><span>Pipeline · Follow-up · Reporting</span></div>
-              <div class="layer l3"><b>A³ Accelerate</b><small>Capacity</small><span>AI employees · Team leverage · Improvement loops</span></div>
-              <p class="outbar">Predictable revenue · Visible execution · Less founder dependence</p>
-            </div>
+      <div class="scp" aria-labelledby="scpH">
+        <div class="scp-top"><span class="scp-tag">Free · 10 minutes · 15 questions</span><span class="scp-tm">A³ Readiness Scorecard™</span></div>
+        <h2 class="scp-h" id="scpH">Where is your business actually stuck?</h2>
+        <div class="scp-prev" aria-hidden="true">
+          <div class="scp-dial"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" class="bg"/><circle cx="60" cy="60" r="50" class="fg"/></svg><b>?</b><small>/ 100</small></div>
+          <div class="scp-bars">
+            <div style="--c:var(--al);--w:72%"><span>A¹ Align</span><i></i></div>
+            <div style="--c:var(--au);--w:38%"><span>A² Automate</span><i></i></div>
+            <div style="--c:var(--ac);--w:55%"><span>A³ Accelerate</span><i></i></div>
+            <p class="scp-con"><span>Primary constraint</span><b>Found in 10 minutes</b></p>
           </div>
         </div>
-        <p class="os-cap" id="osCap">Every line runs through one person. The company grows only as fast as that person can keep up.</p>
+        <div class="scp-q">
+          <p class="scp-qn">Start now · Question 1 of 15 · Align</p>
+          <p class="scp-qt" id="scpQ">Our leadership team can name the company&rsquo;s top three priorities this quarter.</p>
+          <div class="scp-scale" role="group" aria-labelledby="scpQ">
+            <button type="button" data-v="1"><b>1</b>Strongly disagree</button><button type="button" data-v="2"><b>2</b>Disagree</button><button type="button" data-v="3"><b>3</b>Neutral</button><button type="button" data-v="4"><b>4</b>Agree</button><button type="button" data-v="5"><b>5</b>Strongly agree</button>
+          </div>
+        </div>
+        <ul class="scp-get">
+          <li>Your score across Align, Automate and Accelerate</li>
+          <li>The one constraint to fix first, and the right next step</li>
+          <li>A one-page PDF to share with your leadership team</li>
+        </ul>
+        <p class="scp-foot">No login. Answer the first question to begin.</p>
       </div>
     </div>
   </section>
@@ -2072,14 +2101,12 @@ fo.innerHTML=FIND.map((f,i)=>`<label class="opt"><input type="radio" name="finde
 function setRec(i){const f=FIND[i];recName.textContent=f[1];recWhy.textContent=f[2];recPrice.textContent=f[3];recLink.href=f[4];}
 fo.addEventListener('change',e=>setRec(+e.target.value));setRec(0);
 
-/* hero toggle */
-const vT=document.getElementById('viewToday'),vA=document.getElementById('viewA3'),bT=document.getElementById('osToday'),bA=document.getElementById('osA3'),st=document.getElementById('osState'),cap=document.getElementById('osCap');
-function setOS(a3){
-  bT.setAttribute('aria-pressed',!a3);bA.setAttribute('aria-pressed',a3);
-  if(a3){vT.setAttribute('data-off','');vA.removeAttribute('data-off');st.textContent='System dependent';st.className='os-state good';cap.textContent='The team owns the work. The system carries the follow-through. You lead the business instead of holding it together.'}
-  else{vA.setAttribute('data-off','');vT.removeAttribute('data-off');st.textContent='Founder dependent';st.className='os-state bad';cap.textContent='Every line runs through one person. The company grows only as fast as that person can keep up.'}
-}
-bT.onclick=()=>setOS(false);bA.onclick=()=>setOS(true);
+/* hero scorecard promo: answering question 1 starts the scorecard */
+document.querySelectorAll('.scp-scale button').forEach(b=>b.addEventListener('click',()=>{
+  try{ans[0][0]=+b.dataset.v;step=0;track('scorecard_start',{source:'home_hero'})}catch(e){}
+  location.hash='#scorecard';
+  setTimeout(()=>{try{renderQ();updSide();const q=document.getElementById('qpanel');q&&q.scrollIntoView({block:'start'});const n=q&&q.querySelectorAll('.scale')[1];n&&n.querySelector('button').focus({preventScroll:true})}catch(e){}},60);
+}));
 
 /* copy buttons */
 document.addEventListener('click',e=>{
