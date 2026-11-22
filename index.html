@@ -581,6 +581,8 @@ tr:last-child td{border-bottom:0}
 .starthere.al{background:var(--tint);border-left-color:var(--al);margin:28px 0 0}
 .starthere.al .sh-tag{color:var(--al)}
 .starthere.al.inline{margin:4px 0 0}
+.scp-bars.hc6{gap:7px}
+.scp-bars.hc6>div span{font-size:12.5px}
 /* align hero: health checkup card (top right) */
 .al-hero{grid-template-columns:minmax(0,1.45fr) minmax(300px,1fr);gap:clamp(28px,4vw,56px)!important;align-items:center}
 .al-hero-copy{display:grid;gap:22px;min-width:0}
@@ -1468,30 +1470,33 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     <p class="microline">Led by Mark Cupp · EOS® Integrator Certification · 25+ years running sales and operations</p>
     </div>
     <div class="scp hcard" id="hcCard" aria-labelledby="hcH">
-      <div class="scp-top"><span class="scp-tag" style="color:var(--al);background:var(--tint)">Free · 8 minutes · 20 questions</span><span class="scp-tm">A³ Operating Health Checkup™</span></div>
-      <h2 class="scp-h" id="hcH">How healthy is the way your business runs?</h2>
+      <div class="scp-top"><span class="scp-tag" style="color:var(--al);background:var(--tint)">Free · 5 minutes · 20 questions</span><span class="scp-tm">A³ Operating Health Checkup™</span></div>
+      <h2 class="scp-h" id="hcH">How healthy is your organization?</h2>
       <div class="scp-prev" aria-hidden="true"><span class="scp-pl" id="hcPl">Sample result</span>
         <div class="scp-dial"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" class="bg"/><circle cx="60" cy="60" r="50" class="fg" id="hcFg"/></svg><b id="hcOv">?</b><small>/ 100</small></div>
-        <div class="scp-bars" id="hcBars">
-          <div style="--c:var(--al);--w:64%" data-p="0"><span>A¹ Align <em></em></span><i></i></div>
-          <div style="--c:var(--au);--w:41%" data-p="1"><span>A² Automate <em></em></span><i></i></div>
-          <div style="--c:var(--ac);--w:52%" data-p="2"><span>A³ Accelerate <em></em></span><i></i></div>
-          <p class="scp-con"><span>Weakest area</span><b id="hcCon">Found in 8 minutes</b></p>
+        <div class="scp-bars hc6" id="hcBars">
+          <div style="--c:var(--al);--w:72%" data-k="vision"><span>Vision <em></em></span><i></i></div>
+          <div style="--c:var(--al);--w:60%" data-k="people"><span>People <em></em></span><i></i></div>
+          <div style="--c:var(--au);--w:44%" data-k="data"><span>Data <em></em></span><i></i></div>
+          <div style="--c:var(--au);--w:68%" data-k="issues"><span>Issues <em></em></span><i></i></div>
+          <div style="--c:var(--ac);--w:52%" data-k="process"><span>Process <em></em></span><i></i></div>
+          <div style="--c:var(--ac);--w:64%" data-k="traction"><span>Traction <em></em></span><i></i></div>
+          <p class="scp-con"><span>Weakest component</span><b id="hcCon">Found in 5 minutes</b></p>
         </div>
       </div>
       <div class="scp-body" id="hcBody" aria-live="polite">
         <div class="scp-q">
-        <p class="scp-qn">Start now · Question 1 of 20 · Vision &amp; Focus</p>
-        <p class="scp-qt" id="hcQ">Our leadership team agrees on where the company will be in three years, and each of us would describe it the same way.</p>
+        <p class="scp-qn">Start now · Question 1 of 20 · Vision</p>
+        <p class="scp-qt" id="hcQ">We have a clear vision in writing that has been properly communicated and is shared by everyone in the company.</p>
         <div class="scp-scale" role="group" aria-labelledby="hcQ">
           <button type="button" data-v="1"><b>1</b>Strongly disagree</button><button type="button" data-v="2"><b>2</b>Disagree</button><button type="button" data-v="3"><b>3</b>Neutral</button><button type="button" data-v="4"><b>4</b>Agree</button><button type="button" data-v="5"><b>5</b>Strongly agree</button>
         </div>
         </div>
       </div>
       <ul class="scp-get">
-        <li>A health score for all six areas of the business</li>
-        <li>The one area to fix first, and the right next step</li>
-        <li>A full report with PDF to share with your leadership team</li>
+        <li>A total score out of 100 and all six key components</li>
+        <li>Every answer laid out, and what to fix first</li>
+        <li>A full report to print or share with your leadership team</li>
       </ul>
       <p class="scp-foot" id="hcFoot">No login. Answer the first question to begin.</p>
     </div>
@@ -2246,69 +2251,69 @@ body.addEventListener('click',e=>{const b=e.target.closest('.scp-scale button');
 /* align hero: Operating Health Checkup runs inside the card (same pattern as the home scorecard card) */
 setTimeout(function(){
 const card=document.getElementById('hcCard'),body=document.getElementById('hcBody');if(!card||!body)return;
-const C={vision:["Vision & Focus",0],leadership:["Leadership & Accountability",0],revenue:["Revenue Engine",1],data:["Data & Visibility",1],process:["Process & Systems",2],capacity:["Capacity & Founder Freedom",2]};
-const PN=["Align","Automate","Accelerate"],PC=["al","au","ac"];
-const HQ=[["vision","Our leadership team agrees on where the company will be in three years, and each of us would describe it the same way."],["vision","Every employee can name the company's top three priorities for this quarter."],["vision","We know exactly who our ideal client is, and we consistently turn down work that doesn't fit."],["leadership","Every key function has one clearly named owner, and it isn't always the founder."],["leadership","We have the right people in the right seats, and we act on performance problems within 30 days."],["leadership","Day-to-day decisions get made without waiting for the founder to weigh in."],["leadership","Our leadership team meets every week on a set agenda, and recurring problems get solved at the root instead of revisited."],["revenue","We can forecast next quarter's revenue to within 10%."],["revenue","Every lead lands in one CRM and gets a response within five minutes during business hours."],["revenue","Our sales process is documented, and someone other than the founder regularly closes deals."],["revenue","Leads who don't buy right away, and past clients, get automated, relevant follow-up."],["data","We review a weekly scorecard of 5–15 leading numbers, not just the monthly financials."],["data","Everyone in the company owns at least one number they are accountable for."],["data","We know our acquisition cost, client lifetime value and margin for each offer."],["process","Our core processes are documented, and the team actually follows them."],["process","A new hire can become productive using our documentation, without the founder training them."],["process","Repetitive admin work (scheduling, follow-ups, reporting, data entry) runs without a person."],["capacity","We use AI in daily operations and can point to the hours it saves each week."],["capacity","We could take on 30% more clients without hiring 30% more people."],["capacity","The founder could step away for 30 days and revenue and delivery would hold steady."]];
+const C={vision:"Vision",people:"People",data:"Data",issues:"Issues",process:"Process",traction:"Traction"};
+const CC={vision:"al",people:"al",data:"au",issues:"au",process:"ac",traction:"ac"};
+const HQ=[["vision", "We have a clear vision in writing that has been properly communicated and is shared by everyone in the company."], ["vision", "Our Core Values are clear, and we hire, fire, review, reward, and recognize around them."], ["vision", "Our Core Focus (core business) is clear, and we keep our people, systems, and processes aligned and focused on it."], ["vision", "Our 10-Year Target (big, long-range business goal) is clear, communicated regularly, and is shared by all."], ["vision", "Our target market (definition of our ideal customer) is clear, and all of our marketing and sales efforts are focused on it."], ["vision", "Our 3 Uniques (differentiators) are clear, and all of our marketing and sales efforts communicate them."], ["process", "We have a proven process for doing business with our customers. It has been named and visually illustrated, and all of our salespeople use it."], ["people", "All of the people in our organization are the “right people” (they fit our culture and share our Core Values)."], ["people", "Our Accountability Chart (organizational chart that includes roles/responsibilities) is clear, complete, and constantly updated."], ["people", "Everyone is in the “right seat” (they “get it, want it, and have the capacity to do their jobs well”)."], ["issues", "Our leadership team is open and honest and demonstrates a high level of trust."], ["traction", "Everyone has Rocks (1 to 7 priorities per quarter) and is focused on them."], ["traction", "Everyone is engaged in regular weekly meetings."], ["traction", "All meetings are on the same day and at the same time, have the same agenda, start on time, and end on time."], ["issues", "All teams clearly identify, discuss, and solve issues for the long-term greater good of the company."], ["process", "Our Core Processes are documented, simplified, and Followed By All to consistently produce the results we want."], ["process", "We have systems for receiving regular feedback from customers and employees, so we always know their level of satisfaction."], ["data", "A scorecard for tracking and keeping weekly measurables/metrics on-track is in place."], ["data", "Everyone in the organization has at least one number they are accountable for keeping on track each week."], ["data", "We have a budget and are monitoring it regularly (e.g., monthly or quarterly)."]];
 const N=HQ.length,L=["Strongly disagree","Disagree","Neutral","Agree","Strongly agree"];
 const a=new Array(N).fill(0);let i=0,started=false,hl=null;
 const bars=document.getElementById('hcBars'),dial=card.querySelector('.scp-dial'),fg=document.getElementById('hcFg');
-const pct=v=>v.length?Math.round(v.reduce((s,x)=>s+x-1,0)/(v.length*4)*100):0;
 function calc(){
-  const comp={};Object.keys(C).forEach(k=>comp[k]=pct(a.filter((x,j)=>x&&HQ[j][0]===k)));
-  const ps=[0,1,2].map(p=>pct(a.filter((x,j)=>x&&C[HQ[j][0]][1]===p)));
-  const ov=pct(a.filter(Boolean));
-  const con=Object.keys(C).sort((x,y)=>comp[x]-comp[y]||ps[C[x][1]]-ps[C[y][1]])[0],lo=C[con][1];
-  const band=ov>=80?"Scale-Ready":ov>=60?"Scaling":ov>=40?"Stretched":"Founder-Dependent";
-  let rec;if(ov<45)rec=["A³ Strategy Session™","Your score points to a foundational constraint. Start by confirming it and putting a cost on it.","Complimentary"];
-  else if(ov<70)rec=["A³ Blueprint & Roadmap™","You have pieces in place. The highest-leverage move is designing the full system and the order to build it in.","$2,497 · credited toward Install"];
-  else rec=["A³ System Install™","You are further along than most. You're ready to install the full system with your team.","From $4,997/month"];
-  if(lo===1&&ps[1]<40&&ov>=45)rec=["A³ Automate™ CRM Track","Your revenue engine is the clear gap. Get the CRM working now while you plan the rest.","From $297/month"];
-  return {comp,ps,ov,con,lo,band,rec};
+  const comp={};Object.keys(C).forEach(k=>{const v=a.filter((x,j)=>x&&HQ[j][0]===k);comp[k]=v.length?Math.round(v.reduce((s,x)=>s+x,0)/(v.length*5)*100):0});
+  const total=a.reduce((s,x)=>s+x,0);
+  const weak=Object.keys(C).filter(k=>comp[k]<80).sort((x,y)=>comp[x]-comp[y]);
+  const band=total>=80?"Strong":total>=60?"Solid foundation":total>=40?"Stretched":"Founder-dependent";
+  let rec;if(total<50)rec=["A³ Strategy Session™","Several foundational components are below where they need to be. Start by confirming which one is costing you the most.","Complimentary"];
+  else if(total<75)rec=["A³ Blueprint & Roadmap™","The foundation is partly in place. The highest-leverage move is designing the full system and the order to build it in.","$2,497 · credited toward Install"];
+  else rec=["A³ System Install™","You are further along than most. Install the full operating and revenue system with your team and lock in the gains.","From $4,997/month"];
+  return {comp,total,weak,band,rec};
 }
+function reportUrl(){const d=new Date();return 'https://automate2scale.io/checkup#report-'+a.join('')+'-'+d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')}
 function live(){
-  if(!started){started=true;bars.classList.add('live');dial.classList.add('live');document.getElementById('hcPl').textContent='Your answers so far';document.getElementById('hcCon').textContent='Revealed at the end';document.getElementById('hcFoot').textContent='No login. About 8 minutes start to finish.';try{track('checkup_start',{source:'align_hero'})}catch(e){}}
-  const r=calc();bars.querySelectorAll('[data-p]').forEach(el=>{const p=+el.dataset.p,has=a.some((x,j)=>x&&C[HQ[j][0]][1]===p);el.style.setProperty('--v',r.ps[p]+'%');el.querySelector('em').textContent=has?r.ps[p]:''});
+  if(!started){started=true;bars.classList.add('live');dial.classList.add('live');document.getElementById('hcPl').textContent='Your answers so far';document.getElementById('hcCon').textContent='Revealed at the end';document.getElementById('hcFoot').textContent='No login. About 5 minutes start to finish.';try{track('checkup_start',{source:'align_hero'})}catch(e){}}
+  const r=calc();bars.querySelectorAll('[data-k]').forEach(el=>{const k=el.dataset.k,has=a.some((x,j)=>x&&HQ[j][0]===k);el.style.setProperty('--v',r.comp[k]+'%');el.querySelector('em').textContent=has?r.comp[k]+'%':''});
   fg.style.strokeDashoffset=314*(1-a.filter(Boolean).length/N);
 }
 function q(){
-  const it=HQ[i],c=C[it[0]];
-  body.innerHTML=`<div class="scp-prog" aria-hidden="true"><i style="width:${i/N*100}%"></i></div><div class="scp-q"><p class="scp-qn" style="color:var(--${PC[c[1]]})">Question ${i+1} of ${N} · ${c[0]}</p><p class="scp-qt" id="hcQ">${it[1]}</p><div class="scp-scale" role="group" aria-labelledby="hcQ">${L.map((l,v)=>`<button type="button" data-v="${v+1}" aria-pressed="${a[i]===v+1}"><b>${v+1}</b>${l}</button>`).join('')}</div></div><div class="scp-nav"><button type="button" id="hcBack" ${i===0?'disabled':''}>← Back</button><span>${a.filter(Boolean).length} of ${N} answered</span></div>`;
+  const it=HQ[i];
+  body.innerHTML=`<div class="scp-prog" aria-hidden="true"><i style="width:${i/N*100}%"></i></div><div class="scp-q"><p class="scp-qn" style="color:var(--${CC[it[0]]})">Question ${i+1} of ${N} · ${C[it[0]]}</p><p class="scp-qt" id="hcQ">${it[1]}</p><div class="scp-scale" role="group" aria-labelledby="hcQ">${L.map((l,v)=>`<button type="button" data-v="${v+1}" aria-pressed="${a[i]===v+1}"><b>${v+1}</b>${l}</button>`).join('')}</div></div><div class="scp-nav"><button type="button" id="hcBack" ${i===0?'disabled':''}>← Back</button><span>${a.filter(Boolean).length} of ${N} answered</span></div>`;
   body.querySelectorAll('.scp-scale button').forEach(b=>b.onclick=()=>{a[i]=+b.dataset.v;live();setTimeout(()=>{i=a.indexOf(0);if(i<0)form();else q()},180)});
   document.getElementById('hcBack').onclick=()=>{if(i>0){i--;q()}};
 }
 function form(){
   const v=hl||{};card.classList.add('done');document.getElementById('hcFoot').textContent='Free. No login. We never sell your details.';
-  body.innerHTML=`<form class="scp-form" id="hcForm" novalidate><h3>All ${N} answered. Where should we send your results?</h3><p>Your score shows right here. We also email you a copy.</p>
+  body.innerHTML=`<form class="scp-form" id="hcForm" novalidate><h3>All ${N} answered. Where should we send your report?</h3><p>Your full report opens right after this.</p>
   <label>First name<input name="first_name" autocomplete="given-name" required value="${esc(v.first_name||'')}"></label>
+  <label>Last name<input name="last_name" autocomplete="family-name" value="${esc(v.last_name||'')}"></label>
   <label>Work email<input name="email" type="email" autocomplete="email" required value="${esc(v.email||'')}"></label>
-  <label>Company<input name="company" autocomplete="organization" required value="${esc(v.company||'')}"></label>
   <p class="scp-err" id="hcErr" role="alert"></p>
-  <button class="btn" type="submit">Show me my score <span class="ar">→</span></button>
+  <button class="btn" type="submit">Show me my report <span class="ar">→</span></button>
   <p class="scp-fine">By continuing you agree that Automate2Scale may email you about your results and related services. Unsubscribe any time. <a href="#privacy">Privacy Policy</a>.</p>
   <div class="scp-nav"><button type="button" id="hcBack">← Back</button><span></span></div></form>`;
   document.getElementById('hcBack').onclick=()=>{i=N-1;card.classList.remove('done');q()};
   const f=document.getElementById('hcForm');f.querySelector('input').focus({preventScroll:true});
   f.addEventListener('input',e=>{if(e.target.getAttribute('aria-invalid')==='true')e.target.setAttribute('aria-invalid','false')});
   f.onsubmit=e=>{e.preventDefault();const d=Object.fromEntries(new FormData(f).entries());Object.keys(d).forEach(k=>d[k]=d[k].trim());let bad=null;
-    [['first_name',!d.first_name],['email',!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)],['company',!d.company]].forEach(([n,x])=>{const el=f.elements[n];el.setAttribute('aria-invalid',x);if(x&&!bad)bad=el});
-    if(bad){document.getElementById('hcErr').textContent=bad.name==='email'?'Enter a valid work email.':'Fill in the required fields.';bad.focus();return}
-    hl={...(hl||{}),...d};const r=calc();
-    const payload={...d,last_name:'',full_name:d.first_name,score_overall:r.ov,score_align:r.ps[0],score_automate:r.ps[1],score_accelerate:r.ps[2],
-      score_vision:r.comp.vision,score_leadership:r.comp.leadership,score_revenue:r.comp.revenue,score_data:r.comp.data,score_process:r.comp.process,score_capacity:r.comp.capacity,
-      health_band:r.band,primary_constraint:PN[r.lo],component_constraint:C[r.con][0],recommendation:r.rec[0].replace(/™/g,''),recommendation_price:r.rec[2],
+    [['first_name',!d.first_name],['email',!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)]].forEach(([n,x])=>{const el=f.elements[n];el.setAttribute('aria-invalid',x);if(x&&!bad)bad=el});
+    if(bad){document.getElementById('hcErr').textContent=bad.name==='email'?'Enter a valid work email.':'Enter your first name.';bad.focus();return}
+    hl={...(hl||{}),...d,completed_at:new Date().toISOString()};const r=calc();
+    const payload={...d,full_name:(d.first_name+' '+(d.last_name||'')).trim(),score_total:r.total,health_band:r.band,
+      weakest_component:r.weak.length?C[r.weak[0]]:'None below 80%',components_below_80:r.weak.map(k=>C[k]).join(', '),
+      recommendation:r.rec[0].replace(/™/g,''),recommendation_price:r.rec[2],report_url:reportUrl(),
       answers:a.join(','),source:'A3 Operating Health Checkup',form:'align_hero',page_url:location.href,submitted_at:new Date().toISOString()};
+    Object.keys(C).forEach(k=>payload['score_'+k]=r.comp[k]);
     if(WEBHOOK){try{fetch(WEBHOOK,{method:'POST',mode:'no-cors',body:new URLSearchParams(payload),keepalive:true}).catch(()=>{})}catch(err){}}
-    try{localStorage.setItem('a2s_checkup',JSON.stringify({a,lead:d,ts:Date.now()}))}catch(err){}
-    try{track('checkup_lead',{score:r.ov,source:'align_hero'})}catch(err){}
+    try{localStorage.setItem('a2s_checkup',JSON.stringify({a,lead:hl,ts:Date.now()}))}catch(err){}
+    try{track('checkup_lead',{score:r.total,source:'align_hero'})}catch(err){}
     res(r)};
 }
 function res(r){
-  bars.querySelectorAll('[data-p]').forEach(el=>{const p=r.ps[+el.dataset.p];el.style.setProperty('--v',p+'%');el.querySelector('em').textContent=p});
-  fg.style.strokeDashoffset=314*(1-r.ov/100);document.getElementById('hcOv').textContent=r.ov;
-  document.getElementById('hcPl').textContent='Your Operating Health Score · '+r.band;document.getElementById('hcCon').textContent=C[r.con][0];
-  body.innerHTML=`<div class="scp-res"><span class="minih">${esc(hl.first_name)}, your weakest area is ${C[r.con][0]}</span><h3>${r.rec[0]}</h3><p>${r.rec[1]}</p><span class="mono">${r.rec[2]}</span>
-  <a class="btn" href="#session">Book a Complimentary Strategy Call <span class="ar">→</span></a><a class="sublink" href="https://automate2scale.io/checkup#results" target="_top" style="text-align:center">See all six areas and download the PDF →</a></div>`;
-  document.getElementById('hcFoot').textContent='A copy is on its way to '+hl.email+'.';
+  bars.querySelectorAll('[data-k]').forEach(el=>{const k=el.dataset.k;el.style.setProperty('--v',r.comp[k]+'%');el.querySelector('em').textContent=r.comp[k]+'%'});
+  fg.style.strokeDashoffset=314*(1-r.total/100);document.getElementById('hcOv').textContent=r.total;
+  document.getElementById('hcPl').textContent='Your total score · '+r.band;document.getElementById('hcCon').textContent=r.weak.length?C[r.weak[0]]:'All at 80%+';
+  const msg=r.weak.length?`${r.weak.length===6?'All 6 components are':r.weak.length+' of 6 components '+(r.weak.length===1?'is':'are')} below 80%. Start with ${C[r.weak[0]]}.`:'Every component is at or above 80%.';
+  body.innerHTML=`<div class="scp-res"><span class="minih">${esc(hl.first_name)}, your total score is ${r.total} / 100</span><p>${msg}</p>
+  <a class="btn" href="${reportUrl()}" target="_top">Open my full report <span class="ar">→</span></a><a class="sublink" href="#session" style="text-align:center">Or book a Complimentary Strategy Call →</a></div>`;
+  document.getElementById('hcFoot').textContent='Your report shows every answer, all six components and what to fix first.';
 }
 body.addEventListener('click',e=>{const b=e.target.closest('.scp-scale button');if(b&&!started&&!b.onclick){a[0]=+b.dataset.v;live();i=1;setTimeout(q,180)}});
 },0);

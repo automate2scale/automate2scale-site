@@ -187,120 +187,155 @@ details.ans summary{cursor:pointer;font-weight:650;color:var(--ink-2)}
 <section class="phero"><div class="wrap">
 <span class="crumb"><a href="https://automate2scale.io/" target="_top">Home</a> / <a href="https://automate2scale.io/#align" target="_top">Align</a> / A³ Operating Health Checkup™</span>
 <span class="label">Free 20-question checkup for owners and leadership teams</span>
-<h1 class="h1">How healthy is your business? <em>Find out in 8 minutes.</em></h1>
-<p class="lede">Rate 20 plain-English statements about how the business runs today. You&rsquo;ll get an overall health score, a score for each A³ pillar and all six components, and the one constraint to fix first.</p>
+<h1 class="h1">How healthy is your organization? <em>Find out in 5 minutes.</em></h1>
+<p class="lede">Rate 20 statements on a 1–5 scale. You&rsquo;ll get a full report: your total score out of 100, a score for each of the six key components of your business, and what to work on first.</p>
 <ul class="ticks">
-<li><b>Six components, one page:</b> Vision, Leadership, Revenue Engine, Data, Process and Capacity, scored side by side</li>
-<li><b>Your growth constraint, named,</b> with three specific moves to start on it this quarter</li>
-<li><b>Have your whole leadership team take it,</b> then compare scores. The gaps between you are as telling as the scores themselves</li>
-<li><b>Retake it every six months</b> and watch the number climb as the system takes the weight off you</li>
+<li><b>Six key components, one report:</b> Vision, People, Data, Issues, Process and Traction, each scored against an 80% target</li>
+<li><b>Every answer, laid out:</b> see exactly which statements are holding your score down</li>
+<li><b>What to do next</b> for every component below 80%, in plain English</li>
+<li><b>Have your whole leadership team take it,</b> then compare. The gaps between you are as telling as the scores</li>
 </ul>
 <div class="acts"><a class="btn" href="#qpanel">Begin my checkup <span class="ar">↓</span></a></div>
-<p class="microline">Free · no login · results on screen, plus a copy by email</p>
+<p class="microline">Free · no login · your report appears on screen</p>
 </div></section>
 
 <section class="sec"><div class="wrap sc">
   <aside class="sc-side">
     <div class="progress"><div class="bar"><i id="scBar"></i></div><span id="scCount"></span></div>
     <ol class="steplist" id="scSteps"></ol>
-    <p class="muted" style="font-size:14px">Want to go deeper on your results? Book a complimentary Strategy Session and we'll walk through them together.</p>
+    <p class="muted" style="font-size:14px">Want to walk through your report with us? Book a complimentary Strategy Session.</p>
   </aside>
   <div class="qpanel" id="qpanel"></div>
 </div></section>
 
 <footer class="foot"><div class="wrap">
   <span>Automate2Scale · Fort Worth, Texas · mark@automate2scale.io · <a href="https://automate2scale.io/" target="_top">automate2scale.io</a></span>
-  <span>Scores are self-assessed and directional.</span>
+  <span>Self-assessed and directional. Scores are for discussion, not a diagnosis.</span>
 </div></footer>
 
 <script>
-/* A³ Operating Health Checkup™ — 20 statements, 6 components, 3 A³ pillars */
+/* A³ Operating Health Checkup™ — 20 statements (Mark's list), six components, total out of 100 */
 const COMP = {
-  vision:    {n:"Vision & Focus",             p:0, fix:["Write a one-page plan: 3-year picture, 1-year goals and this quarter's top three priorities","Define the ideal client in writing and agree what work you will turn down","Review the plan with the whole team every quarter"]},
-  leadership:{n:"Leadership & Accountability", p:0, fix:["Build an accountability chart with one named owner per function","Run a weekly leadership meeting on a fixed agenda with a running issues list","Move day-to-day decisions to the owner of each seat, with clear limits"]},
-  revenue:   {n:"Revenue Engine",             p:1, fix:["Put every lead into one CRM with an instant response and a defined pipeline","Document the sales process so someone other than the founder can run it","Automate nurture for not-yet buyers and reactivation for past clients"]},
-  data:      {n:"Data & Visibility",          p:1, fix:["Build a weekly scorecard of 5–15 leading numbers, each with an owner and a goal","Calculate acquisition cost, client lifetime value and margin by offer","Review the scorecard every week and act on anything off track"]},
-  process:   {n:"Process & Systems",          p:2, fix:["Document your five to seven core processes, then the steps that matter most","Turn the documentation into onboarding so new hires ramp without the founder","Automate repetitive admin: scheduling, follow-ups, reporting and data entry"]},
-  capacity:  {n:"Capacity & Founder Freedom", p:2, fix:["Track where the founder's hours go for two weeks and hand off the lowest-value third","Put AI on high-volume tasks and measure the hours it saves","Run a planned week away and fix whatever breaks"]}
+  vision:  {n:"Vision",   c:"var(--al)", what:"Everyone knows where the company is going and how it will get there.",
+    fix:["Put the whole plan on one page: core values, core focus, 10-year target, target market, uniques, 3-year picture and 1-year goals","Share it with the entire company, then revisit it every quarter so it stays real","Hire, review, reward and let go by your core values"]},
+  people:  {n:"People",   c:"var(--al)", what:"The right people are in the right seats.",
+    fix:["Build the accountability chart: design the structure first, then put names in the seats","Review every person against the core values and their seat: do they get it, want it and have the capacity for it?","Act on every wrong-person or wrong-seat issue within a quarter"]},
+  data:    {n:"Data",     c:"var(--au)", what:"The business is managed by a handful of numbers, not by feel.",
+    fix:["Build a weekly scorecard of 5–15 activity-based numbers, each with one owner and a goal","Give every person in the company at least one number they own each week","Set a budget and review it every month"]},
+  issues:  {n:"Issues",   c:"var(--au)", what:"An open, honest team that solves problems at the root.",
+    fix:["Keep one running issues list that anyone can add to","Solve issues every week: identify the real root cause, discuss it briefly, decide and assign the action","Build trust on the leadership team so hard issues get raised early instead of avoided"]},
+  process: {n:"Process",  c:"var(--ac)", what:"Core processes are documented, simplified and followed by all.",
+    fix:["Name your core processes, typically five to eight, including the way you sell and deliver","Document the 20% of steps that produce 80% of the results, and cut the rest","Train everyone on them, measure adherence and collect regular customer and employee feedback"]},
+  traction:{n:"Traction", c:"var(--ac)", what:"The vision turns into results through discipline and accountability.",
+    fix:["Set three to seven company priorities each quarter, each with one owner","Hold one weekly leadership meeting: same day, same time, same agenda, starting and ending on time","Review every priority weekly as on track or off track, and move off-track items to the issues list"]}
 };
-const PIL = [{n:"Align",s:"Leadership",c:"var(--al)",sup:"A¹"},{n:"Automate",s:"Revenue",c:"var(--au)",sup:"A²"},{n:"Accelerate",s:"Capacity",c:"var(--ac)",sup:"A³"}];
-const CDESC = ["Leadership. Direction, ownership and meeting rhythm are not yet carrying the weight, so decisions keep routing back to the founder.","Revenue infrastructure. Leads, follow-up and reporting depend on people remembering, so revenue comes in waves.","Execution capacity. The foundation may be sound, but the team is maxed out and routine work is still manual."];
+const ORDER_C = ["vision","people","data","issues","process","traction"];
 const BANDS = [
-  {min:80,n:"Scale-Ready",bg:"var(--green-tint)",fg:"var(--green)",t:"The business runs on systems, not heroics. The work now is protecting what you've built and using it to grow faster."},
-  {min:60,n:"Scaling",bg:"var(--tint)",fg:"var(--blue)",t:"The foundation is in place, but one or two weak components are capping growth. Fixing the lowest one will unlock more than adding anything new."},
-  {min:40,n:"Stretched",bg:"var(--amber-t)",fg:"var(--amber)",t:"The business is growing on effort more than systems. Too much still routes through the founder. This is the most common result, and the most fixable."},
-  {min:0,n:"Founder-Dependent",bg:"var(--red-t)",fg:"var(--red)",t:"The business needs the founder in the room to function. Growth will stall at your personal capacity until direction, ownership and a basic revenue system are in place."}
+  {min:80,n:"Strong",bg:"var(--green-tint)",fg:"var(--green)"},
+  {min:60,n:"Solid foundation",bg:"var(--tint)",fg:"var(--blue)"},
+  {min:40,n:"Stretched",bg:"var(--amber-t)",fg:"var(--amber)"},
+  {min:0,n:"Founder-dependent",bg:"var(--red-t)",fg:"var(--red)"}
 ];
 const S = (t,d)=>({t,d});
+const Q = [
+  S("We have a clear vision in writing that has been properly communicated and is shared by everyone in the company.","vision"),
+  S("Our Core Values are clear, and we hire, fire, review, reward, and recognize around them.","vision"),
+  S("Our Core Focus (core business) is clear, and we keep our people, systems, and processes aligned and focused on it.","vision"),
+  S("Our 10-Year Target (big, long-range business goal) is clear, communicated regularly, and is shared by all.","vision"),
+  S("Our target market (definition of our ideal customer) is clear, and all of our marketing and sales efforts are focused on it.","vision"),
+  S("Our 3 Uniques (differentiators) are clear, and all of our marketing and sales efforts communicate them.","vision"),
+  S("We have a proven process for doing business with our customers. It has been named and visually illustrated, and all of our salespeople use it.","process"),
+  S("All of the people in our organization are the “right people” (they fit our culture and share our Core Values).","people"),
+  S("Our Accountability Chart (organizational chart that includes roles/responsibilities) is clear, complete, and constantly updated.","people"),
+  S("Everyone is in the “right seat” (they “get it, want it, and have the capacity to do their jobs well”).","people"),
+  S("Our leadership team is open and honest and demonstrates a high level of trust.","issues"),
+  S("Everyone has Rocks (1 to 7 priorities per quarter) and is focused on them.","traction"),
+  S("Everyone is engaged in regular weekly meetings.","traction"),
+  S("All meetings are on the same day and at the same time, have the same agenda, start on time, and end on time.","traction"),
+  S("All teams clearly identify, discuss, and solve issues for the long-term greater good of the company.","issues"),
+  S("Our Core Processes are documented, simplified, and Followed By All to consistently produce the results we want.","process"),
+  S("We have systems for receiving regular feedback from customers and employees, so we always know their level of satisfaction.","process"),
+  S("A scorecard for tracking and keeping weekly measurables/metrics on-track is in place.","data"),
+  S("Everyone in the organization has at least one number they are accountable for keeping on track each week.","data"),
+  S("We have a budget and are monitoring it regularly (e.g., monthly or quarterly).","data")
+];
+const fmtDate = iso => { try { return new Date(iso).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}) } catch(e){ return '' } };
 const CFG = {
   source: "A3 Operating Health Checkup",
   storeKey: "a2s_checkup",
   fileBase: "A3-Operating-Health-Checkup",
-  instruction: "Rate each statement for how the business runs today, not how you want it to run.",
+  shortForm: true,
+  fullReport: true,
+  instruction: "Rate each statement from 1 to 5 for how the business runs today, not how you want it to run.",
   labels: ["Strongly disagree","Disagree","Neutral","Agree","Strongly agree"],
-  formNote: "Your score shows on the next screen: overall health, your three A³ pillars, all six components and the one constraint to fix first.",
+  formNote: "Enter your name and email to see your full report: your total score out of 100, all six key components, and what to work on first.",
   dimHeader: "Component",
   dimName: d => COMP[d].n,
-  steps: [
-    {short:"Vision & Focus", side:"A¹ Vision & Focus", color:"var(--al)", title:"Is everyone pointed in the same direction?", items:[
-      S("Our leadership team agrees on where the company will be in three years, and each of us would describe it the same way.","vision"),
-      S("Every employee can name the company's top three priorities for this quarter.","vision"),
-      S("We know exactly who our ideal client is, and we consistently turn down work that doesn't fit.","vision")]},
-    {short:"Leadership", side:"A¹ Leadership & Accountability", color:"var(--al)", title:"Does the business run without routing everything to you?", items:[
-      S("Every key function has one clearly named owner, and it isn't always the founder.","leadership"),
-      S("We have the right people in the right seats, and we act on performance problems within 30 days.","leadership"),
-      S("Day-to-day decisions get made without waiting for the founder to weigh in.","leadership"),
-      S("Our leadership team meets every week on a set agenda, and recurring problems get solved at the root instead of revisited.","leadership")]},
-    {short:"Revenue Engine", side:"A² Revenue Engine", color:"var(--au)", title:"Is revenue predictable, or does it come in waves?", items:[
-      S("We can forecast next quarter's revenue to within 10%.","revenue"),
-      S("Every lead lands in one CRM and gets a response within five minutes during business hours.","revenue"),
-      S("Our sales process is documented, and someone other than the founder regularly closes deals.","revenue"),
-      S("Leads who don't buy right away, and past clients, get automated, relevant follow-up.","revenue")]},
-    {short:"Data & Visibility", side:"A² Data & Visibility", color:"var(--au)", title:"Do you manage by numbers or by feel?", items:[
-      S("We review a weekly scorecard of 5–15 leading numbers, not just the monthly financials.","data"),
-      S("Everyone in the company owns at least one number they are accountable for.","data"),
-      S("We know our acquisition cost, client lifetime value and margin for each offer.","data")]},
-    {short:"Process & Systems", side:"A³ Process & Systems", color:"var(--ac)", title:"Is the work documented, followed and automated?", items:[
-      S("Our core processes are documented, and the team actually follows them.","process"),
-      S("A new hire can become productive using our documentation, without the founder training them.","process"),
-      S("Repetitive admin work (scheduling, follow-ups, reporting, data entry) runs without a person.","process")]},
-    {short:"Capacity", side:"A³ Capacity & Founder Freedom", color:"var(--ac)", title:"Can the business grow without growing headcount, or you?", items:[
-      S("We use AI in daily operations and can point to the hours it saves each week.","capacity"),
-      S("We could take on 30% more clients without hiring 30% more people.","capacity"),
-      S("The founder could step away for 30 days and revenue and delivery would hold steady.","capacity")]}
-  ],
+  steps: [0,1,2,3].map(i=>({short:`Questions ${i*5+1}–${i*5+5}`, side:`Questions ${i*5+1}–${i*5+5}`, color:"var(--blue)",
+    title:["Vision and direction","Process and people","Leadership and rhythm","Process, feedback and numbers"][i], items:Q.slice(i*5,i*5+5)})),
   results(ans){
-    const flat = []; this.steps.forEach((s,si)=>s.items.forEach((it,ii)=>flat.push({t:it.t,d:it.d,a:ans[si][ii]})));
-    const pct = arr => Math.round((arr.reduce((x,y)=>x+y,0)-arr.length)/(arr.length*4)*100);
-    const comp = {}; Object.keys(COMP).forEach(k=>comp[k]=pct(flat.filter(f=>f.d===k).map(f=>f.a)));
-    const ps = [0,1,2].map(p=>pct(flat.filter(f=>COMP[f.d].p===p).map(f=>f.a)));
-    const ov = pct(flat.map(f=>f.a));
-    const con = Object.keys(comp).sort((a,b)=>comp[a]-comp[b] || ps[COMP[a].p]-ps[COMP[b].p])[0];
-    const lo = COMP[con].p;
-    const band = BANDS.find(b=>ov>=b.min);
+    const flat=[]; this.steps.forEach((s,si)=>s.items.forEach((it,ii)=>flat.push({t:it.t,d:it.d,a:ans[si][ii]})));
+    const total = flat.reduce((x,f)=>x+f.a,0);
+    const comp = {}; ORDER_C.forEach(k=>{const v=flat.filter(f=>f.d===k).map(f=>f.a);comp[k]=Math.round(v.reduce((x,y)=>x+y,0)/(v.length*5)*100)});
+    const weak = ORDER_C.filter(k=>comp[k]<80).sort((a,b)=>comp[a]-comp[b]);
+    const band = BANDS.find(b=>total>=b.min);
     let rec;
-    if(ov<45) rec={n:"A³ Strategy Session™",why:"Your score points to a foundational constraint. Start by confirming it and putting a cost on it.",price:"Complimentary",href:"https://automate2scale.io/#session"};
-    else if(ov<70) rec={n:"A³ Blueprint & Roadmap™",why:"You have pieces in place. The highest-leverage move is designing the full system and the order to build it in.",price:"$2,497 · credited toward Install",href:"https://automate2scale.io/#stage-02"};
-    else rec={n:"A³ System Install™",why:"You are further along than most. You're ready to install the full system with your team.",price:"From $4,997/month",href:"https://automate2scale.io/#stage-03"};
-    if(lo===1&&ps[1]<40&&ov>=45) rec={n:"A³ Automate™ CRM Track",why:"Your revenue engine is the clear gap. Get the CRM working now while you plan the rest.",price:"From $297/month",href:"https://automate2scale.io/#crm"};
-    const low = flat.map((f,i)=>({...f,i})).sort((a,b)=>a.a-b.a||a.i-b.i).slice(0,5);
-    return {ov,ps,lo,comp,con,band,rec,low};
+    if(total<50) rec={n:"A³ Strategy Session™",why:"Several foundational components are below where they need to be. Start by confirming which one is costing you the most.",price:"Complimentary",href:"https://automate2scale.io/#session"};
+    else if(total<75) rec={n:"A³ Blueprint & Roadmap™",why:"The foundation is partly in place. The highest-leverage move is designing the full system and the order to build it in.",price:"$2,497 · credited toward Install",href:"https://automate2scale.io/#stage-02"};
+    else rec={n:"A³ System Install™",why:"You are further along than most. Install the full operating and revenue system with your team and lock in the gains.",price:"From $4,997/month",href:"https://automate2scale.io/#stage-03"};
+    return {flat,total,comp,weak,band,rec};
   },
-  payload(r){return {score_overall:r.ov,score_align:r.ps[0],score_automate:r.ps[1],score_accelerate:r.ps[2],
-    score_vision:r.comp.vision,score_leadership:r.comp.leadership,score_revenue:r.comp.revenue,score_data:r.comp.data,score_process:r.comp.process,score_capacity:r.comp.capacity,
-    health_band:r.band.n,primary_constraint:PIL[r.lo].n,component_constraint:COMP[r.con].n,recommendation:r.rec.n.replace(/™/g,''),recommendation_price:r.rec.price}},
-  summaryText(r,who){return `A³ Operating Health Checkup — ${who?who.company:''}\nOverall: ${r.ov}/100 (${r.band.n})\nAlign ${r.ps[0]} · Automate ${r.ps[1]} · Accelerate ${r.ps[2]}\n`+
-    Object.keys(COMP).map(k=>`${COMP[k].n}: ${r.comp[k]}`).join('\n')+`\nConstraint: ${COMP[r.con].n}\nRecommended next step: ${r.rec.n} (${r.rec.price})\nBook: https://automate2scale.io/#session`},
+  reportUrl(){
+    const a = ans.flat().join(''); const d = (lead&&lead.completed_at?new Date(lead.completed_at):new Date());
+    const ymd = d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');
+    return 'https://automate2scale.io/checkup#report-'+a+'-'+ymd;
+  },
+  payload(r){const o={score_total:r.total,health_band:r.band.n,weakest_component:r.weak.length?COMP[r.weak[0]].n:'None below 80%',
+    components_below_80:r.weak.map(k=>COMP[k].n).join(', '),recommendation:r.rec.n.replace(/™/g,''),recommendation_price:r.rec.price};
+    ORDER_C.forEach(k=>o['score_'+k]=r.comp[k]);return o},
+  summaryText(r,who){return `A³ Operating Health Checkup — ${who?who.first_name:''}\nTotal: ${r.total}/100\n`+ORDER_C.map(k=>`${COMP[k].n}: ${r.comp[k]}%`).join('\n')},
   renderResults(r,who){
-    const c = COMP[r.con], cp = PIL[c.p];
-    return `<div class="qh"><span class="label">Your A³ Operating Health Score</span><h2 class="h3">${who?esc(who.first_name)+', here':'Here'} is how healthy the business is today.</h2></div>
-    <div class="res-top">${dial(r.ov,r.band.fg)}
-      <div class="blk"><span class="band-tag" style="background:${r.band.bg};color:${r.band.fg};justify-self:start">${r.band.n}</span><p style="color:var(--ink-2)">${r.band.t}</p>
-      <div class="pbars">${r.ps.map((p,i)=>`<div class="pb" style="--c:${PIL[i].c}"><span>${PIL[i].sup} ${PIL[i].n}</span><div class="t"><i data-w="${p}"></i></div><b>${p}</b></div>`).join('')}</div></div></div>
-    <div class="blk"><span class="minih">Your six components</span><div class="pbars">${Object.keys(COMP).map(k=>`<div class="pb" style="--c:${PIL[COMP[k].p].c}"><span>${COMP[k].n}${k===r.con?'<span class="flag">Constraint</span>':''}</span><div class="t"><i data-w="${r.comp[k]}"></i></div><b>${r.comp[k]}</b></div>`).join('')}</div></div>
-    <div class="constraint" style="--c:${cp.c}"><span class="minih">Primary constraint · ${PIL[r.lo].n} · ${c.n}</span><p style="color:var(--ink)">${CDESC[r.lo]}</p><p style="color:var(--ink-2);font-size:15px"><b>Where to start on ${c.n.toLowerCase()} (${r.comp[r.con]}/100):</b></p><ul>${c.fix.map(f=>`<li>${f}</li>`).join('')}</ul></div>
-    <div class="blk"><span class="minih">Your five lowest-rated statements</span><ul class="gaps">${r.low.map(l=>`<li><span class="sc-n ${l.a>=3?'mid':''}">${l.a}</span><span><span class="c">${PIL[COMP[l.d].p].n} · ${COMP[l.d].n}</span>${esc(l.t)}</span></li>`).join('')}</ul></div>
-    <div class="diag"><span class="minih">Recommended next step</span><h3 class="h3">${r.rec.n}</h3><p class="muted">${r.rec.why}</p><span class="mono" style="color:var(--blue);font-weight:600">${r.rec.price}</span><a class="sublink noprint" href="${r.rec.href}" target="_top" style="font-weight:600;text-decoration:none">See what's included →</a></div>`;
+    const name = who&&(who.first_name||who.last_name) ? esc(((who.first_name||'')+' '+(who.last_name||'')).trim()) : '';
+    const meta = [who&&who.completed_at?'Completed '+fmtDate(who.completed_at):'', who&&who.email?esc(who.email):'', who&&who.company?esc(who.company):''].filter(Boolean).join(' · ');
+    const allStrong = !r.weak.length;
+    const summary = allStrong
+      ? "Every component is at or above 80%. Your business is running like a well-oiled machine. Keep it there by retaking the checkup at least once a year."
+      : `${r.weak.length===6?'All six key components are':r.weak.length+' of the six key components '+(r.weak.length===1?'is':'are')} below 80%. Strengthening ${r.weak.length===1?'it':'them'}, starting with <b>${COMP[r.weak[0]].n}</b>, is the fastest path to a business that runs without everything routing through you.`;
+    let n=0;
+    const table = `<table class="atable rpt-t"><thead><tr><th>#</th><th>Statement</th><th>Component</th><th>Score</th></tr></thead><tbody>${r.flat.map(f=>{n++;return `<tr><td class="mono">${n}</td><td>${esc(f.t)}</td><td>${COMP[f.d].n}</td><td><span class="rpt-s ${f.a<=2?'lo':f.a===3?'mid':'hi'}">${f.a}</span></td></tr>`}).join('')}</tbody></table>`;
+    const sections = ORDER_C.map(k=>{const c=COMP[k],ok=r.comp[k]>=80;return `<div class="rpt-comp" id="rc-${k}" style="--c:${c.c}">
+      <div class="rpt-ch"><h3 class="h4">${c.n}</h3><span class="band-tag" style="background:${ok?'var(--green-tint)':'var(--amber-t)'};color:${ok?'var(--green)':'var(--amber)'}">${ok?'Strong':'Needs work'} · ${r.comp[k]}%</span></div>
+      <p class="muted" style="font-size:15px">${c.what}</p>
+      ${ok?`<p style="color:var(--ink-2);font-size:15px"><b>Congratulations.</b> Your organization is more than 80% strong in ${c.n}. Protect it: review it at your quarterly planning and retake this checkup each year.</p>`
+          :`<p style="color:var(--ink-2);font-size:15px"><b>How to strengthen ${c.n}:</b></p><ul class="rpt-ul">${c.fix.map(f=>`<li>${f}</li>`).join('')}</ul>`}
+    </div>`}).join('');
+    return `<style>
+      .rpt-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start;border-bottom:1px solid var(--rule-2);padding-bottom:18px}
+      .rpt-total{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;background:var(--mist);border:1px solid var(--rule-2);border-radius:6px;padding:22px 24px}
+      .rpt-total b.big{font-family:var(--display);font-size:72px;font-weight:800;font-stretch:80%;line-height:.9;font-variant-numeric:tabular-nums}
+      .rpt-total b.big small{font-size:22px;color:var(--ink-3);font-weight:600}
+      .rpt-bars .pb .t{position:relative;overflow:visible}
+      .rpt-bars .pb .t::after{content:"";position:absolute;left:80%;top:-4px;bottom:-4px;width:2px;background:var(--ink-3);opacity:.5}
+      .rpt-comp{border:1px solid var(--rule-2);border-left:4px solid var(--c);border-radius:4px;padding:16px 18px;display:grid;gap:8px;scroll-margin-top:90px}
+      .rpt-ch{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+      .rpt-ul{display:grid;gap:6px}.rpt-ul li{position:relative;padding-left:18px;color:var(--ink-2);font-size:15px}
+      .rpt-ul li::before{content:"";position:absolute;left:2px;top:.72em;width:8px;height:2px;background:var(--c)}
+      .rpt-s{display:inline-block;min-width:28px;text-align:center;border-radius:3px;padding:2px 0;font-weight:600}
+      .rpt-s.lo{background:var(--red-t);color:var(--red)}.rpt-s.mid{background:var(--amber-t);color:var(--amber)}.rpt-s.hi{background:var(--green-tint);color:var(--green)}
+      .rpt-jump{display:flex;flex-wrap:wrap;gap:8px}.rpt-jump a{font-size:13px;font-weight:600;text-decoration:none;border:1px solid var(--rule);border-radius:3px;padding:5px 10px}
+      @media (max-width:520px){.rpt-total{grid-template-columns:1fr}.rpt-t td:nth-child(3),.rpt-t th:nth-child(3){display:none}}
+      @media print{.rpt-comp,.rpt-total{break-inside:avoid}}
+    </style>
+    <div class="rpt-head"><div style="display:grid;gap:6px"><span class="label">A³ Operating Health Checkup™ Results</span>${name?`<h2 class="h3">${name}</h2>`:''}${meta?`<span class="muted" style="font-size:14px">${meta}</span>`:''}</div>
+      <div class="acts noprint"><button class="btn sm ghost" type="button" id="pdfBtn">Print / save PDF</button><button class="btn sm ghost" type="button" id="linkBtn">Copy report link</button></div></div>
+    <div class="rpt-total"><b class="big">${r.total}<small> / 100</small></b><div style="display:grid;gap:8px"><span class="minih">Current total score</span><span class="band-tag" style="background:${r.band.bg};color:${r.band.fg};justify-self:start">${r.band.n}</span><p style="color:var(--ink-2)">${summary}</p></div></div>
+    <div class="blk"><span class="minih">The six key components · target 80% or higher</span><div class="pbars rpt-bars">${ORDER_C.map(k=>`<div class="pb" style="--c:${COMP[k].c}"><span>${COMP[k].n}</span><div class="t"><i data-w="${r.comp[k]}"></i></div><b>${r.comp[k]}%</b></div>`).join('')}</div>
+      <p class="muted" style="font-size:13.5px">When all six components score above 80%, the business runs like a well-oiled machine: clear direction, the right people, real numbers, problems solved for good, consistent processes and steady execution.</p></div>
+    <div class="blk"><span class="minih">Your answers</span>${table}</div>
+    <div class="blk"><span class="minih">Your six components, one by one</span><div class="rpt-jump noprint">${ORDER_C.map(k=>`<a href="#rc-${k}" onclick="document.getElementById('rc-${k}').scrollIntoView({behavior:'smooth'});return false">${COMP[k].n} · ${r.comp[k]}%</a>`).join('')}</div>${sections}</div>
+    <div class="diag"><span class="minih">Want help strengthening your score? · Recommended next step</span><h3 class="h3">${r.rec.n}</h3><p class="muted">${r.rec.why}</p><span class="mono" style="color:var(--blue);font-weight:600">${r.rec.price}</span>
+      <div class="acts noprint" style="margin-top:6px"><a class="btn" href="https://automate2scale.io/#session" target="_top">Book a Complimentary Strategy Call <span class="ar">→</span></a><a class="sublink" href="${r.rec.href}" target="_top">See what's included →</a></div></div>
+    <p class="muted noprint" style="font-size:13px">Self-assessed and directional. Have each member of your leadership team take it, then compare. Retake at least once a year. <a href="#" id="retake">Start over</a></p>`;
   }
 };
 
@@ -364,11 +399,11 @@ function renderForm(){
     <label>First name<input name="first_name" autocomplete="given-name" required value="${esc(v.first_name||'')}"></label>
     <label>Last name<input name="last_name" autocomplete="family-name" value="${esc(v.last_name||'')}"></label>
     <label>Work email<input name="email" type="email" autocomplete="email" required value="${esc(v.email||'')}"></label>
-    <label>Company<input name="company" autocomplete="organization" required value="${esc(v.company||'')}"></label>
-    <label>Your role<select name="role"><option value="">Select one</option>${opt(['Owner / Founder','Leadership team','Manager / Supervisor','Team member'],v.role)}</select></label>
+    <label>Company${CFG.shortForm?' (optional)':''}<input name="company" autocomplete="organization" ${CFG.shortForm?'':'required'} value="${esc(v.company||'')}"></label>
+    ${CFG.shortForm?'':`    <label>Your role<select name="role"><option value="">Select one</option>${opt(['Owner / Founder','Leadership team','Manager / Supervisor','Team member'],v.role)}</select></label>
     <label>Business type<select name="business_type"><option value="">Select one</option>${opt(['Trade or field services company','Professional services firm','Other'],v.business_type)}</select></label>
     <label>Annual revenue (optional)<select name="revenue"><option value="">Select a range</option>${opt(['Under $1M','$1M–$2M','$2M–$5M','$5M–$10M','$10M–$20M','Over $20M'],v.revenue)}</select></label>
-    <label>Phone (optional)<input name="phone" type="tel" autocomplete="tel" value="${esc(v.phone||'')}"></label>
+    <label>Phone (optional)<input name="phone" type="tel" autocomplete="tel" value="${esc(v.phone||'')}"></label>`}
     <p class="consent">By continuing you agree that Automate2Scale may email you about your results and related services. You can unsubscribe at any time. We never sell your details. <a href="${SITE}#privacy" target="_blank" rel="noopener">Privacy Policy</a>.</p>
     <div class="qnav" style="grid-column:1/-1"><button class="btn ghost" type="button" id="qBack">← Back</button><span class="hint" id="qHint"></span><button class="btn" type="submit">See my results <span class="ar">→</span></button></div>
   </form>`;
@@ -379,11 +414,14 @@ function renderForm(){
     e.preventDefault();
     const d = Object.fromEntries(new FormData(f).entries()); Object.keys(d).forEach(k=>d[k]=d[k].trim());
     let bad=null;
-    [['first_name',!d.first_name],['email',!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)],['company',!d.company]].forEach(([n,x])=>{const el=f.elements[n];el.setAttribute('aria-invalid',x);if(x&&!bad)bad=el});
+    [['first_name',!d.first_name],['email',!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)],['company',!CFG.shortForm&&!d.company]].forEach(([n,x])=>{const el=f.elements[n];el.setAttribute('aria-invalid',x);if(x&&!bad)bad=el});
     if(bad){document.getElementById('qHint').textContent=bad.name==='email'?'Enter a valid work email.':'Fill in the required fields.';bad.focus();return}
     lead = d;
+    lead.completed_at = new Date().toISOString();
     const r = CFG.results(ans, lead);
+    if(CFG.storeKey){try{localStorage.setItem(CFG.storeKey,JSON.stringify({a:ans.flat(),lead,ts:Date.now()}))}catch(err){}}
     const payload = {...d, full_name:(d.first_name+' '+d.last_name).trim(), ...CFG.payload(r),
+      ...(CFG.reportUrl?{report_url:CFG.reportUrl()}:{}),
       answers: STEPS.map((s,i)=>s.short+': '+ans[i].join(',')).join(' | '),
       source: CFG.source, page_url: location.href, submitted_at: new Date().toISOString()};
     if(WEBHOOK){try{fetch(WEBHOOK,{method:'POST',mode:'no-cors',body:new URLSearchParams(payload),keepalive:true}).catch(()=>{})}catch(err){}}
@@ -408,6 +446,15 @@ function downloadCSV(){
 }
 function renderResults(){
   const r = CFG.results(ans, lead);
+  if(CFG.fullReport){
+    qp.innerHTML = CFG.renderResults(r, lead);
+    requestAnimationFrame(()=>qp.querySelectorAll('[data-w]').forEach(el=>el.style.width=el.dataset.w+'%'));
+    if(CFG.reportUrl){try{history.replaceState(null,'',CFG.reportUrl().replace(/^[^#]*/,''))}catch(e){}}
+    const pb=document.getElementById('pdfBtn');if(pb)pb.onclick=()=>window.print();
+    const cb=document.getElementById('linkBtn');if(cb)cb.onclick=async e=>{try{await navigator.clipboard.writeText(CFG.reportUrl());e.target.textContent='Link copied ✓'}catch(_){e.target.textContent='Copy failed'}};
+    const rt=document.getElementById('retake');if(rt)rt.onclick=e=>{e.preventDefault();ans.forEach(a=>a.fill(0));try{history.replaceState(null,'',location.pathname)}catch(_){ }go(0)};
+    track('assessment_results',{});return;
+  }
   qp.innerHTML = CFG.renderResults(r, lead) +
     `<div class="acts noprint"><a class="btn" id="bookBtn" href="${SITE}#session" target="_top">Book a Complimentary Strategy Call <span class="ar">→</span></a><button class="btn ghost" type="button" id="pdfBtn">Save as PDF</button><button class="btn ghost" type="button" id="csvBtn">Download CSV</button><button class="btn ghost" type="button" id="copyBtn">Copy my results</button></div>
      <details class="ans"><summary>Your answers</summary>${answersTable(CFG.dimHeader)}</details>
@@ -427,11 +474,17 @@ function dial(score,color){const C=2*Math.PI*56;return `<div class="dial"><svg v
 buildSide(); render(); updSide();
 /* arriving from the Align page card: restore answers and open the full results */
 (function(){try{
-  if(location.hash!=='#results'||!CFG.storeKey)return;
-  const d=JSON.parse(localStorage.getItem(CFG.storeKey)||'null');
-  if(!d||!Array.isArray(d.a)||d.a.length!==TOTAL||Date.now()-d.ts>864e5)return;
-  let k=0;STEPS.forEach((s,si)=>s.items.forEach((_,ii)=>{ans[si][ii]=d.a[k++]}));
-  lead=d.lead||null;go(RESULTS);
+  if(!CFG.storeKey)return;
+  let d=null;try{d=JSON.parse(localStorage.getItem(CFG.storeKey)||'null')}catch(_){}
+  let arr=null,when=null;
+  const m=location.hash.match(/^#report-([1-5]+)(?:-(\d{8}))?$/);
+  if(m&&m[1].length===TOTAL){arr=m[1].split('').map(Number);when=m[2]||null}
+  else if(location.hash==='#results'&&d&&Array.isArray(d.a)&&d.a.length===TOTAL&&Date.now()-d.ts<864e5){arr=d.a}
+  if(!arr)return;
+  let k=0;STEPS.forEach((s,si)=>s.items.forEach((_,ii)=>{ans[si][ii]=arr[k++]}));
+  lead=(d&&Array.isArray(d.a)&&d.a.join('')===arr.join(''))?d.lead:null;
+  if(when){lead=lead||{};lead.completed_at=lead.completed_at||(when.slice(0,4)+'-'+when.slice(4,6)+'-'+when.slice(6,8)+'T12:00:00')}
+  go(RESULTS);
 }catch(e){}})();
 </script>
 </body>
