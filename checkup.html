@@ -259,6 +259,72 @@ const Q = [
   S("Everyone in the organization has at least one number they are accountable for keeping on track each week.","data"),
   S("We have a budget and are monitoring it regularly (e.g., monthly or quarterly).","data")
 ];
+
+/* ===== Roadmap engine =====
+   One action per statement. An action enters the plan when its statement scores 3 or lower.
+   priority = gap x 10 + foundation weight x 3 (+2 if quick); an action is scheduled only after its prerequisites; max 5 actions per 30 days. */
+const ACT = [
+ {t:"Build your one-page vision",d:"Work through a Vision/Traction Organizer (V/TO) with the leadership team, then present it at an all-company meeting.",tool:"V/TO",owner:"Leadership team",ph:1,e:"M"},
+ {t:"Discover and live your core values",d:"Pick 3–7 core values drawn from your best people. Add them to job posts, interviews, reviews and recognition.",tool:"Core Values · People Analyzer",owner:"Owner + leadership",ph:1,e:"M"},
+ {t:"Define your core focus",d:"Write your purpose and niche in two lines, then list the products, clients and projects you will stop taking on because they don't fit.",tool:"V/TO",owner:"Owner",ph:1,e:"S"},
+ {t:"Set your 10-year target",d:"Choose one big, measurable long-range goal and repeat it at every quarterly meeting.",tool:"V/TO",owner:"Owner",ph:1,e:"S"},
+ {t:"Define your target market",d:"Describe your ideal customer by geography, demographics and mindset, then rebuild marketing and sales lists around it.",tool:"Marketing strategy · CRM",owner:"Sales / marketing lead",ph:2,e:"M",pre:[2]},
+ {t:"Name your 3 uniques",d:"Agree the three things that set you apart and put them in every proposal, web page and sales conversation.",tool:"Marketing strategy",owner:"Sales / marketing lead",ph:2,e:"S",pre:[2]},
+ {t:"Name and draw your proven process",d:"Map how you do business with customers in 3–7 named steps on one page. Train every salesperson to walk prospects through it.",tool:"Proven Process",owner:"Sales lead",ph:3,e:"M",pre:[8]},
+ {t:"Put everyone through the People Analyzer",d:"Rate every team member against the core values. Coach anyone below the bar, and act within 90 days if it doesn't change.",tool:"People Analyzer",owner:"Each manager",ph:2,e:"M",pre:[1,8]},
+ {t:"Build the Accountability Chart",d:"Design the right structure for the next 12 months first, then put one name in each seat with 3–5 clear responsibilities.",tool:"Accountability Chart",owner:"Leadership team",ph:1,e:"M"},
+ {t:"Check every seat for GWC",d:"For each seat, confirm the person gets it, wants it and has the capacity to do it. Move or replace where any answer is no.",tool:"People Analyzer (GWC)",owner:"Each manager",ph:2,e:"M",pre:[8]},
+ {t:"Rebuild trust on the leadership team",d:"Open each meeting with personal and professional good news, run a team health check, and openly address one trust breakdown.",tool:"Team health exercise",owner:"Integrator",ph:1,e:"S"},
+ {t:"Set 90-day Rocks",d:"Set 3–7 company priorities for the next 90 days, each with one owner. Every leader then sets their own.",tool:"Rock Sheet",owner:"Leadership team",ph:1,e:"S"},
+ {t:"Start a weekly leadership meeting",d:"Start a 90-minute weekly leadership meeting this week. Don't wait for the perfect agenda.",tool:"Level 10 Meeting™",owner:"Integrator",ph:1,e:"S"},
+ {t:"Lock the meeting pulse",d:"Same day, same time, same agenda every week. Start on time, end on time, and rate every meeting 1–10.",tool:"Level 10 Meeting™ agenda",owner:"Integrator",ph:1,e:"S",pre:[12]},
+ {t:"Solve issues for good",d:"Keep one running issues list. Each week, solve the top three: identify the real issue, discuss it briefly, decide and assign the action.",tool:"Issues List · IDS™",owner:"Leadership team",ph:2,e:"S",pre:[12]},
+ {t:"Document your core processes",d:"Name your 5–8 core processes. Document the 20% of steps that produce 80% of results, then train everyone to follow them.",tool:"3-Step Process Documenter",owner:"Process owners",ph:3,e:"L",pre:[8]},
+ {t:"Install customer and employee feedback",d:"Automate a quarterly customer survey and a short employee pulse, then review both at every quarterly meeting.",tool:"CRM surveys",owner:"Integrator",ph:3,e:"M"},
+ {t:"Build a weekly scorecard",d:"Choose 5–15 leading numbers, each with one owner and a weekly goal, and review them in the weekly meeting.",tool:"Scorecard · CRM dashboard",owner:"Integrator",ph:2,e:"M",pre:[12]},
+ {t:"Give everyone a number",d:"Give every person at least one weekly number tied to their seat, and make it visible.",tool:"Measurables",owner:"Each manager",ph:3,e:"S",pre:[17,8]},
+ {t:"Set and monitor a budget",d:"Build this year's budget and review actual results against it every month with your bookkeeper or CFO.",tool:"Budget review",owner:"Owner + finance",ph:2,e:"M"}
+];
+const DIAG = {
+  vision:{crit:"Without a shared, written vision, every person is rowing in a slightly different direction. Decisions keep coming back to the owner because no one else knows exactly where the company is going.",
+          mid:"The direction exists but isn't fully shared or used. Get it on one page and repeat it until everyone can say it the same way."},
+  people:{crit:"Unclear roles and the wrong people in key seats force the owner and leadership team to compensate every day. Structure comes first, then people.",
+          mid:"Most seats are filled well, but a few people or roles are holding the team back. Clarify the chart, then act on what it shows."},
+  data:  {crit:"The business is being run on feelings and opinions. A handful of objective weekly numbers will tell you where you are before the monthly financials do.",
+          mid:"Some numbers exist, but they aren't weekly, owned or used to make decisions yet."},
+  issues:{crit:"Problems are being tolerated, avoided or re-discussed instead of solved. That usually starts with trust on the leadership team.",
+          mid:"Issues come up, but too many get discussed without being solved at the root."},
+  process:{crit:"Every person does the work their own way, so quality depends on who's doing it. Documented, simplified processes make the business scalable and saleable.",
+          mid:"Your processes exist but aren't fully documented, simplified or followed by all."},
+  traction:{crit:"The vision isn't turning into results week to week. Quarterly priorities and a disciplined weekly meeting create the accountability that's missing.",
+          mid:"There is some rhythm, but priorities or meetings aren't consistent enough to drive execution."}
+};
+const READ = {vision:["Traction, ch. 4 (Vision)","What the Heck Is EOS?"],people:["Traction, ch. 5 (People)","How to Be a Great Boss"],data:["Traction, ch. 6 (Data)"],
+  issues:["Traction, ch. 7 (Issues)","The Five Dysfunctions of a Team"],process:["Traction, ch. 8 (Process)"],traction:["Traction, ch. 9 (Traction)","What the Heck Is EOS?"]};
+const A2S = {vision:"A³ Align installs your V/TO in facilitated sessions and keeps it current every quarter.",people:"A³ Align builds your Accountability Chart and runs the People Analyzer with your leadership team.",
+  data:"A³ Align sets your scorecard; A³ Automate wires it to live CRM dashboards so the numbers update themselves.",issues:"A³ Align trains your team in weekly issue solving inside a Level 10 Meeting™.",
+  process:"A³ Automate turns documented processes into CRM workflows, and A³ Accelerate adds AI employees for the repetitive steps.",traction:"A³ Align installs Rocks and the weekly meeting rhythm in Ninety.io."};
+const PHASES = [{n:"Days 1–30",s:"Foundation"},{n:"Days 31–60",s:"Rhythm and numbers"},{n:"Days 61–90",s:"Process and scale"},{n:"Next quarter",s:"Keep going"}];
+/* foundation weight: how much the rest of the system depends on this action (0–10) */
+const W = [8,6,4,4,2,1,1,3,9,3,5,7,8,6,4,1,1,5,2,3];
+function buildPlan(flat){
+  const items = flat.map((f,i)=>({...ACT[i],i,a:f.a,d0:f.d,gap:5-f.a,base:ACT[i].ph})).filter(x=>x.a<=3);
+  const inPlan = new Set(items.map(x=>x.i));
+  items.forEach(x=>x.pr = x.gap*10 + W[x.i]*3 + (x.e==="S"?2:0));
+  const placed = {}; const out=[[],[],[],[]];
+  for(let ph=1;ph<=4;ph++){
+    // ready = not yet placed, not earlier than its natural phase, and every prerequisite in the plan already placed in an earlier phase
+    // natural phase is a soft preference (-15 per phase later), so a plan never starts with an empty month
+    const key = x=>x.pr-(x.base-1)*15;
+    const ready = items.filter(x=>!(x.i in placed) && (x.pre||[]).every(p=>!inPlan.has(p)||(p in placed && placed[p]<ph)))
+                       .sort((p,q)=>key(q)-key(p));
+    const take = ph<4 ? ready.slice(0,5) : items.filter(x=>!(x.i in placed)).sort((p,q)=>q.pr-p.pr);
+    take.forEach(x=>{x.ph=ph;placed[x.i]=ph;out[ph-1].push(x)});
+  }
+  let quick = out[0].filter(x=>x.e==="S"&&x.a<=2).sort((p,q)=>q.pr-p.pr).slice(0,3);
+  if(!quick.length) quick = out[0].slice().sort((p,q)=>(p.e==="S"?0:1)-(q.e==="S"?0:1)||q.pr-p.pr).slice(0,1);
+  return {phases:out,quick,count:items.length};
+}
 const fmtDate = iso => { try { return new Date(iso).toLocaleDateString('en-US',{year:'numeric',month:'long',day:'numeric'}) } catch(e){ return '' } };
 const CFG = {
   source: "A3 Operating Health Checkup",
@@ -283,7 +349,8 @@ const CFG = {
     if(total<50) rec={n:"A³ Strategy Session™",why:"Several foundational components are below where they need to be. Start by confirming which one is costing you the most.",price:"Complimentary",href:"https://automate2scale.io/#session"};
     else if(total<75) rec={n:"A³ Blueprint & Roadmap™",why:"The foundation is partly in place. The highest-leverage move is designing the full system and the order to build it in.",price:"$2,497 · credited toward Install",href:"https://automate2scale.io/#stage-02"};
     else rec={n:"A³ System Install™",why:"You are further along than most. Install the full operating and revenue system with your team and lock in the gains.",price:"From $4,997/month",href:"https://automate2scale.io/#stage-03"};
-    return {flat,total,comp,weak,band,rec};
+    const plan = buildPlan(flat);
+    return {flat,total,comp,weak,band,rec,plan};
   },
   reportUrl(){
     const a = ans.flat().join(''); const d = (lead&&lead.completed_at?new Date(lead.completed_at):new Date());
@@ -292,7 +359,9 @@ const CFG = {
   },
   payload(r){const o={score_total:r.total,health_band:r.band.n,weakest_component:r.weak.length?COMP[r.weak[0]].n:'None below 80%',
     components_below_80:r.weak.map(k=>COMP[k].n).join(', '),recommendation:r.rec.n.replace(/™/g,''),recommendation_price:r.rec.price};
-    ORDER_C.forEach(k=>o['score_'+k]=r.comp[k]);return o},
+    ORDER_C.forEach(k=>o['score_'+k]=r.comp[k]);
+    o.roadmap_days_1_30=r.plan.phases[0].map(x=>x.t).join(' | ');o.roadmap_days_31_60=r.plan.phases[1].map(x=>x.t).join(' | ');o.roadmap_days_61_90=r.plan.phases[2].map(x=>x.t).join(' | ');
+    o.quick_wins=r.plan.quick.map(x=>x.t).join(' | ');return o},
   summaryText(r,who){return `A³ Operating Health Checkup — ${who?who.first_name:''}\nTotal: ${r.total}/100\n`+ORDER_C.map(k=>`${COMP[k].n}: ${r.comp[k]}%`).join('\n')},
   renderResults(r,who){
     const name = who&&(who.first_name||who.last_name) ? esc(((who.first_name||'')+' '+(who.last_name||'')).trim()) : '';
@@ -303,12 +372,28 @@ const CFG = {
       : `${r.weak.length===6?'All six key components are':r.weak.length+' of the six key components '+(r.weak.length===1?'is':'are')} below 80%. Strengthening ${r.weak.length===1?'it':'them'}, starting with <b>${COMP[r.weak[0]].n}</b>, is the fastest path to a business that runs without everything routing through you.`;
     let n=0;
     const table = `<table class="atable rpt-t"><thead><tr><th>#</th><th>Statement</th><th>Component</th><th>Score</th></tr></thead><tbody>${r.flat.map(f=>{n++;return `<tr><td class="mono">${n}</td><td>${esc(f.t)}</td><td>${COMP[f.d].n}</td><td><span class="rpt-s ${f.a<=2?'lo':f.a===3?'mid':'hi'}">${f.a}</span></td></tr>`}).join('')}</tbody></table>`;
-    const sections = ORDER_C.map(k=>{const c=COMP[k],ok=r.comp[k]>=80;return `<div class="rpt-comp" id="rc-${k}" style="--c:${c.c}">
-      <div class="rpt-ch"><h3 class="h4">${c.n}</h3><span class="band-tag" style="background:${ok?'var(--green-tint)':'var(--amber-t)'};color:${ok?'var(--green)':'var(--amber)'}">${ok?'Strong':'Needs work'} · ${r.comp[k]}%</span></div>
-      <p class="muted" style="font-size:15px">${c.what}</p>
-      ${ok?`<p style="color:var(--ink-2);font-size:15px"><b>Congratulations.</b> Your organization is more than 80% strong in ${c.n}. Protect it: review it at your quarterly planning and retake this checkup each year.</p>`
-          :`<p style="color:var(--ink-2);font-size:15px"><b>How to strengthen ${c.n}:</b></p><ul class="rpt-ul">${c.fix.map(f=>`<li>${f}</li>`).join('')}</ul>`}
-    </div>`}).join('');
+    const PHN = x=>PHASES[x.ph-1].n;
+    const sections = ORDER_C.map((k,ix)=>{const c=COMP[k],pc=r.comp[k],ok=pc>=80,tier=pc<50?'crit':'mid';
+      const nxt = ORDER_C[ix+1];
+      const nextLink = nxt?`<a class="rpt-next noprint" href="#rc-${nxt}" onclick="document.getElementById('rc-${nxt}').scrollIntoView({behavior:'smooth'});return false">Next: ${COMP[nxt].n} →</a>`:'';
+      if(ok) return `<div class="rpt-comp" id="rc-${k}" style="--c:${c.c}"><div class="rpt-ch"><h3 class="h4">${c.n}</h3><span class="band-tag" style="background:var(--green-tint);color:var(--green)">Strong · ${pc}%</span></div>
+        <p style="color:var(--ink-2);font-size:15px"><b>Congratulations.</b> Your organization is ${pc}% strong in ${c.n}. ${c.what} Protect it: review it at quarterly planning and retake this checkup each year.</p>${nextLink}</div>`;
+      const low = r.flat.map((f,i)=>({...f,i})).filter(f=>f.d===k&&f.a<=3).sort((x,y)=>x.a-y.a||x.i-y.i);
+      const acts = r.plan.phases.flat().filter(x=>x.d0===k).sort((x,y)=>x.ph-y.ph||y.pr-x.pr);
+      const tools=[...new Set(acts.flatMap(x=>x.tool.split(' · ')))];
+      return `<div class="rpt-comp" id="rc-${k}" style="--c:${c.c}">
+        <div class="rpt-ch"><h3 class="h4">Your organization is ${pc}% strong in ${c.n}</h3><span class="band-tag" style="background:${tier==='crit'?'var(--red-t)':'var(--amber-t)'};color:${tier==='crit'?'var(--red)':'var(--amber)'}">${tier==='crit'?'Critical':'Needs work'}</span></div>
+        <p style="color:var(--ink-2);font-size:15px">${DIAG[k][tier]}</p>
+        ${low.length?`<div class="rpt-sub"><span class="minih">What's holding ${c.n} down</span><ul class="gaps">${low.map(l=>`<li><span class="sc-n ${l.a>=3?'mid':''}">${l.a}</span><span>${esc(l.t)}</span></li>`).join('')}</ul></div>`:''}
+        ${acts.length?`<div class="rpt-sub"><span class="minih">Your roadmap for ${c.n}</span><ol class="rpt-steps">${acts.map(x=>`<li><span class="rpt-when">${PHN(x)}</span><b>${x.t}</b><span>${x.d}</span><small>Tool: ${x.tool} · Owner: ${x.owner}</small></li>`).join('')}</ol></div>`
+          :`<p class="muted" style="font-size:14.5px">No statement in ${c.n} scored 3 or lower. Tighten each one from a 4 to a 5 to cross 80%.</p>`}
+        <div class="rpt-meta"><div><span class="minih">Tools</span><p>${(tools.length?tools:['Quarterly review']).join(' · ')}</p></div><div><span class="minih">Recommended reading</span><p>${READ[k].join(' · ')}</p></div></div>
+        <p class="rpt-a2s"><b>How we help:</b> ${A2S[k]}</p>${nextLink}</div>`}).join('');
+    const roadmap = r.plan.count ? `<div class="blk" id="roadmap"><span class="minih">Your 90-day roadmap · built from your answers</span>
+      ${r.plan.quick.length?`<div class="rpt-quick"><b>Start this week:</b> ${r.plan.quick.map(x=>x.t).join(' · ')}</div>`:''}
+      <div class="rpt-phases">${r.plan.phases.map((list,pi)=>list.length?`<div class="rpt-ph"><span class="minih">${PHASES[pi].n}</span><h4 class="h4" style="font-size:16px">${PHASES[pi].s}</h4><ul>${list.map(x=>`<li style="--c:${COMP[x.d0].c}"><b>${x.t}</b><span>${COMP[x.d0].n} · ${x.owner}</span></li>`).join('')}</ul></div>`:'').join('')}</div>
+      <p class="muted" style="font-size:13px">How this was built: every statement you rated 3 or lower became an action. Lower scores and foundational items come first, and actions that depend on another one are placed after it. We cap each month at five actions so the plan stays achievable.</p></div>`
+      : `<div class="blk" id="roadmap"><span class="minih">Your roadmap</span><p style="color:var(--ink-2)">No statement scored 3 or lower. Your roadmap is about keeping it there: protect your quarterly and weekly rhythm, and retake this checkup every year.</p></div>`;
     return `<style>
       .rpt-head{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;align-items:flex-start;border-bottom:1px solid var(--rule-2);padding-bottom:18px}
       .rpt-total{display:grid;grid-template-columns:auto 1fr;gap:26px;align-items:center;background:var(--mist);border:1px solid var(--rule-2);border-radius:6px;padding:22px 24px}
@@ -323,6 +408,22 @@ const CFG = {
       .rpt-s{display:inline-block;min-width:28px;text-align:center;border-radius:3px;padding:2px 0;font-weight:600}
       .rpt-s.lo{background:var(--red-t);color:var(--red)}.rpt-s.mid{background:var(--amber-t);color:var(--amber)}.rpt-s.hi{background:var(--green-tint);color:var(--green)}
       .rpt-jump{display:flex;flex-wrap:wrap;gap:8px}.rpt-jump a{font-size:13px;font-weight:600;text-decoration:none;border:1px solid var(--rule);border-radius:3px;padding:5px 10px}
+      .rpt-sub{display:grid;gap:8px;margin-top:4px}
+      .rpt-steps{display:grid;gap:10px;counter-reset:st;list-style:none}
+      .rpt-steps li{display:grid;gap:3px;padding:12px 14px 12px 46px;border:1px solid var(--rule-2);border-radius:4px;position:relative;font-size:15px;color:var(--ink-2)}
+      .rpt-steps li::before{counter-increment:st;content:counter(st);position:absolute;left:12px;top:12px;width:24px;height:24px;border-radius:50%;background:var(--c);color:var(--on-blue);display:grid;place-items:center;font-family:var(--mono);font-size:12px;font-weight:600}
+      .rpt-steps b{color:var(--ink)}.rpt-steps small{color:var(--ink-3);font-size:12.5px}
+      .rpt-when{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--c);font-weight:600}
+      .rpt-meta{display:grid;grid-template-columns:1fr 1fr;gap:12px}.rpt-meta p{font-size:14px;color:var(--ink-2)}
+      .rpt-a2s{font-size:14.5px;color:var(--ink-2);background:var(--tint);border-radius:3px;padding:10px 12px}
+      .rpt-next{justify-self:end;font-weight:600;font-size:14px;text-decoration:none}
+      .rpt-quick{background:var(--green-tint);border-left:4px solid var(--green);border-radius:3px;padding:12px 14px;font-size:15px;color:var(--ink-2)}
+      .rpt-quick b{color:var(--green)}
+      .rpt-phases{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+      .rpt-ph{border:1px solid var(--rule);border-radius:6px;padding:14px 16px;display:grid;gap:8px;align-content:start;background:var(--paper)}
+      .rpt-ph ul{display:grid;gap:8px}.rpt-ph li{border-left:3px solid var(--c);padding:2px 0 2px 10px;display:grid;gap:1px;font-size:14px}
+      .rpt-ph li span{font-size:12px;color:var(--ink-3)}
+      @media (max-width:520px){.rpt-meta{grid-template-columns:1fr}}
       @media (max-width:520px){.rpt-total{grid-template-columns:1fr}.rpt-t td:nth-child(3),.rpt-t th:nth-child(3){display:none}}
       @media print{.rpt-comp,.rpt-total{break-inside:avoid}}
     </style>
@@ -331,8 +432,9 @@ const CFG = {
     <div class="rpt-total"><b class="big">${r.total}<small> / 100</small></b><div style="display:grid;gap:8px"><span class="minih">Current total score</span><span class="band-tag" style="background:${r.band.bg};color:${r.band.fg};justify-self:start">${r.band.n}</span><p style="color:var(--ink-2)">${summary}</p></div></div>
     <div class="blk"><span class="minih">The six key components · target 80% or higher</span><div class="pbars rpt-bars">${ORDER_C.map(k=>`<div class="pb" style="--c:${COMP[k].c}"><span>${COMP[k].n}</span><div class="t"><i data-w="${r.comp[k]}"></i></div><b>${r.comp[k]}%</b></div>`).join('')}</div>
       <p class="muted" style="font-size:13.5px">When all six components score above 80%, the business runs like a well-oiled machine: clear direction, the right people, real numbers, problems solved for good, consistent processes and steady execution.</p></div>
+    ${roadmap}
     <div class="blk"><span class="minih">Your answers</span>${table}</div>
-    <div class="blk"><span class="minih">Your six components, one by one</span><div class="rpt-jump noprint">${ORDER_C.map(k=>`<a href="#rc-${k}" onclick="document.getElementById('rc-${k}').scrollIntoView({behavior:'smooth'});return false">${COMP[k].n} · ${r.comp[k]}%</a>`).join('')}</div>${sections}</div>
+    <div class="blk"><span class="minih">Your roadmap, component by component</span><div class="rpt-jump noprint">${ORDER_C.map(k=>`<a href="#rc-${k}" onclick="document.getElementById('rc-${k}').scrollIntoView({behavior:'smooth'});return false">${COMP[k].n} · ${r.comp[k]}%</a>`).join('')}</div>${sections}</div>
     <div class="diag"><span class="minih">Want help strengthening your score? · Recommended next step</span><h3 class="h3">${r.rec.n}</h3><p class="muted">${r.rec.why}</p><span class="mono" style="color:var(--blue);font-weight:600">${r.rec.price}</span>
       <div class="acts noprint" style="margin-top:6px"><a class="btn" href="https://automate2scale.io/#session" target="_top">Book a Complimentary Strategy Call <span class="ar">→</span></a><a class="sublink" href="${r.rec.href}" target="_top">See what's included →</a></div></div>
     <p class="muted noprint" style="font-size:13px">Self-assessed and directional. Have each member of your leadership team take it, then compare. Retake at least once a year. <a href="#" id="retake">Start over</a></p>`;
