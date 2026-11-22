@@ -355,7 +355,7 @@ const CFG = {
   reportUrl(){
     const a = ans.flat().join(''); const d = (lead&&lead.completed_at?new Date(lead.completed_at):new Date());
     const ymd = d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0');
-    return 'https://automate2scale.io/checkup#report-'+a+'-'+ymd;
+    return 'https://automate2scale.io/#report-'+a+'-'+ymd;
   },
   payload(r){const o={score_total:r.total,health_band:r.band.n,weakest_component:r.weak.length?COMP[r.weak[0]].n:'None below 80%',
     components_below_80:r.weak.map(k=>COMP[k].n).join(', '),recommendation:r.rec.n.replace(/™/g,''),recommendation_price:r.rec.price};

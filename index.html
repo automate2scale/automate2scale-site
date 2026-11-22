@@ -581,6 +581,9 @@ tr:last-child td{border-bottom:0}
 .starthere.al{background:var(--tint);border-left-color:var(--al);margin:28px 0 0}
 .starthere.al .sh-tag{color:var(--al)}
 .starthere.al.inline{margin:4px 0 0}
+.a2s-tool{position:fixed;inset:0;z-index:9999;background:var(--paper)}
+.a2s-tool iframe{display:block;width:100%;height:100%;border:0}
+.a2s-tool-msg{display:grid;place-items:center;height:100%;padding:24px;text-align:center;color:var(--ink-3);font-size:16px}
 .scp-bars.hc6{gap:7px}
 .scp-bars.hc6>div span{font-size:12.5px}
 /* align hero: health checkup card (top right) */
@@ -1561,7 +1564,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
           <li><b>Fractional Integrator:</b> Mark sits in the seat while your team builds the habit</li>
           <li><b>Integrator development:</b> we prepare an internal leader to own the seat for good</li>
         </ul>
-        <a class="starthere al inline" href="https://automate2scale.io/visionary-integrator" target="_top">
+        <a class="starthere al inline" href="#visionary-integrator" target="_top">
           <span class="sh-tag">Free · 10 minutes</span>
           <span class="sh-txt"><b>Not sure which seat you're in?</b> See whether you lean Visionary or Integrator, and which seat your business is missing.</span>
           <span class="sh-go">Take the Visionary–Integrator Profile <span class="ar">→</span></span>
@@ -2267,7 +2270,7 @@ function calc(){
   else rec=["A³ System Install™","You are further along than most. Install the full operating and revenue system with your team and lock in the gains.","From $4,997/month"];
   return {comp,total,weak,band,rec};
 }
-function reportUrl(){const d=new Date();return 'https://automate2scale.io/checkup#report-'+a.join('')+'-'+d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')}
+function reportUrl(){const d=new Date();return 'https://automate2scale.io/#report-'+a.join('')+'-'+d.getFullYear()+String(d.getMonth()+1).padStart(2,'0')+String(d.getDate()).padStart(2,'0')}
 function live(){
   if(!started){started=true;bars.classList.add('live');dial.classList.add('live');document.getElementById('hcPl').textContent='Your answers so far';document.getElementById('hcCon').textContent='Revealed at the end';document.getElementById('hcFoot').textContent='No login. About 5 minutes start to finish.';try{track('checkup_start',{source:'align_hero'})}catch(e){}}
   const r=calc();bars.querySelectorAll('[data-k]').forEach(el=>{const k=el.dataset.k,has=a.some((x,j)=>x&&HQ[j][0]===k);el.style.setProperty('--v',r.comp[k]+'%');el.querySelector('em').textContent=has?r.comp[k]+'%':''});
@@ -2312,7 +2315,7 @@ function res(r){
   document.getElementById('hcPl').textContent='Your total score · '+r.band;document.getElementById('hcCon').textContent=r.weak.length?C[r.weak[0]]:'All at 80%+';
   const msg=r.weak.length?`${r.weak.length===6?'All 6 components are':r.weak.length+' of 6 components '+(r.weak.length===1?'is':'are')} below 80%. Start with ${C[r.weak[0]]}.`:'Every component is at or above 80%.';
   body.innerHTML=`<div class="scp-res"><span class="minih">${esc(hl.first_name)}, your total score is ${r.total} / 100</span><p>${msg}</p>
-  <a class="btn" href="${reportUrl()}" target="_top">Open my full report <span class="ar">→</span></a><a class="sublink" href="#session" style="text-align:center">Or book a Complimentary Strategy Call →</a></div>`;
+  <a class="btn" href="${reportUrl().replace(/^[^#]*/,'')}">Open my full report <span class="ar">→</span></a><a class="sublink" href="#session" style="text-align:center">Or book a Complimentary Strategy Call →</a></div>`;
   document.getElementById('hcFoot').textContent='Your report shows every answer, all six components and what to fix first.';
 }
 body.addEventListener('click',e=>{const b=e.target.closest('.scp-scale button');if(b&&!started&&!b.onclick){a[0]=+b.dataset.v;live();i=1;setTimeout(q,180)}});
@@ -2358,8 +2361,30 @@ mb.onclick=()=>{const o=dr.hidden;dr.hidden=!o;mb.setAttribute('aria-expanded',o
 
 /* router */
 const PAGES=['home','system','journey','align','crm','accelerate','scorecard','session','about','privacy','mark','inbox','audit'];
+/* free assessments: open full-screen from the repo, so they work on GHL and Netlify alike
+   #checkup · #visionary-integrator · #report-<answers>-<yyyymmdd> (a shareable checkup report) */
+let toolEl=null,toolKey='';
+function closeTool(){if(toolEl){toolEl.remove();toolEl=null;toolKey='';document.documentElement.style.overflow=''}}
+function openTool(file,childHash,title){
+  const key=file+childHash;if(toolKey===key)return;closeTool();toolKey=key;
+  toolEl=document.createElement('div');toolEl.className='a2s-tool';toolEl.innerHTML='<div class="a2s-tool-msg">Loading&hellip;</div>';
+  document.body.appendChild(toolEl);document.documentElement.style.overflow='hidden';document.title=title;
+  const REPO='automate2scale/automate2scale-site';
+  const raw=ref=>fetch('https://raw.githubusercontent.com/'+REPO+'/'+ref+'/'+file,{cache:'no-store'}).then(r=>{if(!r.ok)throw r.status;return r.text()});
+  const local=/^(localhost|127\.0\.0\.1)$/.test(location.hostname);
+  const get=local?fetch(file,{cache:'no-store'}).then(r=>r.text())
+    :fetch('https://api.github.com/repos/'+REPO+'/commits/main',{headers:{Accept:'application/vnd.github.sha'}}).then(r=>{if(!r.ok)throw r.status;return r.text()}).then(sha=>raw(sha.trim())).catch(()=>raw('main'));
+  get.then(html=>{
+    if(toolKey!==key||!toolEl)return;
+    const f=document.createElement('iframe');f.title=title;f.src=URL.createObjectURL(new Blob([html],{type:'text/html'}))+childHash;
+    toolEl.innerHTML='';toolEl.appendChild(f);
+  }).catch(()=>{if(toolEl)toolEl.innerHTML='<div class="a2s-tool-msg">We couldn&rsquo;t load this page. Please refresh, or <a href="#home">go back to the site</a>.</div>'});
+}
 function route(){
   let h=(location.hash||'#home').slice(1),page=h,target=null;
+  if(h==='checkup'||/^report-[1-5]{20}(-\d{8})?$/.test(h)){openTool('checkup.html',h==='checkup'?'':'#'+h,'A³ Operating Health Checkup™ | Automate2Scale');track('page_view',{page_title:document.title,page_path:'/'+(h==='checkup'?'checkup':'checkup-report')});return}
+  if(h==='visionary-integrator'){openTool('visionary-integrator.html','','A³ Visionary–Integrator Profile™ | Automate2Scale');track('page_view',{page_title:document.title,page_path:'/visionary-integrator'});return}
+  closeTool();
   if(!PAGES.includes(h)){
     const el=document.getElementById(h);
     const p=el&&el.closest('[data-page]');
