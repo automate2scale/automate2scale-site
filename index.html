@@ -587,7 +587,8 @@ tr:last-child td{border-bottom:0}
 .scp-bars.hc6{gap:7px}
 .scp-bars.hc6>div span{font-size:12.5px}
 /* align hero: health checkup card (top right) */
-.al-hero{grid-template-columns:minmax(0,1.45fr) minmax(300px,1fr);gap:clamp(28px,4vw,56px)!important;align-items:center}
+.al-hero{grid-template-columns:1.05fr .95fr;gap:clamp(32px,5vw,64px)!important;align-items:center}
+.al-hero>*{max-width:none!important;min-width:0}
 .al-hero-copy{display:grid;gap:22px;min-width:0}
 @media (max-width:960px){.al-hero{grid-template-columns:1fr}.hcard{max-width:560px}}
 .starthere .sh-go{font-weight:700;font-size:15px;color:var(--blue);white-space:nowrap}
@@ -2476,7 +2477,7 @@ const A={
  about(){let g='';const cx=700,cy=230;for(let i=1;i<=11;i++){let d='';for(let k=0;k<=64;k++){const t=k/64*Math.PI*2,r=i*24*(1+.12*Math.sin(3*t+i*.6)+.06*Math.cos(5*t));d+=(k?'L':'M')+(cx+r*Math.cos(t)).toFixed(1)+' '+(cy+r*.8*Math.sin(t)).toFixed(1)}g+=`<path d="${d}Z" class="${i%4==0?'a':'r'}" stroke-width="1.2" opacity="${i%4==0?.7:.9}"/>`}g+=dot(cx,cy,5,'fa',.8);return sv(g)},
  privacy(){let g=grid(.18);g+=`<path d="M650 70 L770 115 V215 C770 300 710 350 650 375 C590 350 530 300 530 215 V115 Z" class="a" stroke-width="1.8" opacity=".6"/>`;g+=`<path d="M650 110 L735 142 V215 C735 280 693 318 650 337 C607 318 565 280 565 215 V142 Z" class="r" stroke-width="1.2"/>`;g+=`<path d="M605 225 l30 30 l60 -60" class="u" stroke-width="2.2" opacity=".75"/>`;return sv(g)}
 };
-document.querySelectorAll('[data-page]').forEach(p=>{const h=p.querySelector(':scope > .hero, :scope > .phero');const f=(p.dataset.page==='home'||p.dataset.page==='mark')?null:A[p.dataset.page];if(!h||!f||h.querySelector('.hbg'))return;const d=document.createElement('div');d.className='hbg';d.setAttribute('aria-hidden','true');d.innerHTML=f();h.prepend(d)});
+document.querySelectorAll('[data-page]').forEach(p=>{const h=p.querySelector(':scope > .hero, :scope > .phero');const f=(p.dataset.page==='home'||p.dataset.page==='mark'||p.dataset.page==='align')?null:A[p.dataset.page];if(!h||!f||h.querySelector('.hbg'))return;const d=document.createElement('div');d.className='hbg';d.setAttribute('aria-hidden','true');d.innerHTML=f();h.prepend(d)});
 })();
 
 /* scorecard */
