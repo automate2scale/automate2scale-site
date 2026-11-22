@@ -44,6 +44,17 @@
   status = 302
   force = true
 
+# Free assessments linked from the Align page
+[[redirects]]
+  from = "/checkup"
+  to = "/checkup.html"
+  status = 200
+
+[[redirects]]
+  from = "/visionary-integrator"
+  to = "/visionary-integrator.html"
+  status = 200
+
 # Private booking page (unlisted, noindex)
 [[redirects]]
   from = "/mark"
