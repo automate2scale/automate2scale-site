@@ -2853,7 +2853,7 @@ if(!seen)setTimeout(function(){var h=(location.hash||'').slice(1);if(['mark','pr
 })();
 </script>
 <!-- Free Build Blueprint form: start. Generated from automate2scale-free-plan/widget/free-plan.js by tools/sync_to_site.py; edit there, not here. -->
-<script>window.A2S_PLAN = { api: (/^(localhost|127\.)/.test(location.hostname) ? 'http://localhost:8787' : 'https://a2s-free-plan.automate2scale.workers.dev') + '/api/plan', book: '#session', privacy: 'https://automate2scale.io/#privacy' };</script>
+<script>window.A2S_PLAN = { api: (/^(localhost|127\.)/.test(location.hostname) ? 'http://localhost:8787' : 'https://a2s-free-plan.automate2scale.workers.dev') + '/api/plan', book: '#bookInline', privacy: 'https://automate2scale.io/#privacy' };</script>
 <script>
 /* Free build plan form for automate2scale.io. One self-contained file: it brings its own styles,
    built on the site's own tokens (--ink, --blue, --rule, --display), with fallbacks.
@@ -2884,7 +2884,7 @@ if(!seen)setTimeout(function(){var h=(location.hash||'').slice(1);if(['mark','pr
   // the worker that serves this file is the one it sends to; inline copies get it from A2S_PLAN
   var OWN = (function () { try { return me && me.src ? new URL(me.src).origin : ''; } catch (e) { return ''; } })();
   var API = CFG.api || attr('api') || (OWN ? OWN + '/api/plan' : 'https://a2s-free-plan.automate2scale.workers.dev/api/plan');
-  var BOOK = CFG.book || attr('book') || '#session';
+  var BOOK = CFG.book || attr('book') || '#bookInline';  // his Strategy Session calendar itself; #session lands above it
   var PRIVACY = CFG.privacy || attr('privacy') || 'https://automate2scale.io/#privacy';
   var MAX_BYTES = 25 * 1024 * 1024, LIMIT = { audio: 600, video: 180 }, KEY = 'a2s-plan-draft';
   // the tracking tags the visitor arrived with, kept for the whole visit on this one-page site
