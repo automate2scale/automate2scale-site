@@ -591,6 +591,27 @@ tr:last-child td{border-bottom:0}
 .al-hero>*{max-width:none!important;min-width:0}
 .al-hero-copy{display:grid;gap:22px;min-width:0}
 @media (max-width:960px){.al-hero{grid-template-columns:1fr}.hcard{max-width:560px}}
+/* Black Friday 2026 offer */
+.bfbar{display:block;background:var(--au);color:#fff;text-align:center;font-size:13.5px;font-weight:600;padding:8px 16px;text-decoration:none;line-height:1.35}
+.bfbar b{font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.bfbar:hover{filter:brightness(1.08)}
+.bfbar .bf-long{display:inline}
+@media (max-width:700px){.bfbar .bf-long{display:none}}
+.bf-sec{scroll-margin-top:120px}
+.bf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.bf-card{background:var(--paper);border:1px solid var(--rule);border-top:4px solid var(--c);border-radius:6px;padding:26px;display:flex;flex-direction:column;gap:12px}
+.bf-card .bf-tag{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c)}
+.bf-card h3{margin:0;font-size:21px;line-height:1.2}
+.bf-amt{font-size:38px;font-weight:800;letter-spacing:-.02em;line-height:1;color:var(--ink)}
+.bf-amt small{font-size:15px;font-weight:600;color:var(--ink-3);letter-spacing:0;margin-left:4px}
+.bf-or{font-size:15px;color:var(--ink-2);margin:0}
+.bf-or b{color:var(--ink)}
+.bf-card ul{list-style:disc;margin:4px 0 0;padding-left:18px;color:var(--ink-2);font-size:14.5px;display:grid;gap:6px}
+.bf-card .btn{margin-top:auto}
+.bf-free{margin-top:22px;display:flex;gap:14px;align-items:center;flex-wrap:wrap;background:var(--tint);border-radius:6px;padding:16px 20px;font-size:15px;color:var(--ink-2)}
+.bf-free b{color:var(--ink)}
+.bf-fine{margin-top:14px;font-size:12.5px;color:var(--ink-3)}
+@media (max-width:960px){.bf-grid{grid-template-columns:1fr}}
 .vcard{width:100%;max-width:none}.vcard .scp-bars.hc6{align-content:center}
 .starthere .sh-go{font-weight:700;font-size:15px;color:var(--blue);white-space:nowrap}
 .aiup{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px 18px;padding:16px 18px;border-radius:6px;background:linear-gradient(135deg,#0B2540,#003D70);color:#E8EEF4;text-decoration:none;border:1px solid #1d4a74}
@@ -979,6 +1000,7 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
 </head>
 <body>
 <header class="top">
+  <a class="bfbar" href="#blackfriday"><b>Black Friday</b> · 90-Day Sprint, partner builds half off<span class="bf-long"> and AI Skills Team rates locked for a year</span> · Ends Nov 30 →</a>
   <div class="wrap">
     <a class="plaque" href="#home" aria-label="Automate2Scale home"><img src="https://images.leadconnectorhq.com/image/f_webp/q_80/r_1200/u_https://assets.cdn.filesafe.space/3UbxqX8zLDM4QvDExPHM/media/6a0955a82e98e28fa1547b2b.png" alt="Automate2Scale"></a>
     <nav class="nav" aria-label="Main">
@@ -1059,6 +1081,53 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
       <div class="it"><b>Certified <em class="nw">AI-Assisted CMO</em></b><span>Marketing strategy and execution with AI</span></div>
     </div>
   </div>
+
+  <section class="sec bf-sec" id="blackfriday">
+    <div class="wrap">
+      <div class="head">
+        <span class="label" style="color:var(--au)">Black Friday · Through Monday, November 30</span>
+        <h2 class="h2">Start your 90-Day Sprint before the year ends.</h2>
+        <div class="body"><p>In one 90-day Sprint we install your operating system: CRM, automations and a weekly leadership rhythm. These prices apply to agreements signed by November 30.</p></div>
+      </div>
+      <div class="bf-grid">
+        <div class="bf-card" style="--c:var(--al)">
+          <span class="bf-tag">For owner-led companies</span>
+          <h3>90-Day Sprint</h3>
+          <div class="bf-amt">$7,497<small>paid in full</small></div>
+          <p class="bf-or">or <b>$2,497/mo</b> for 3 months</p>
+          <ul>
+            <li>Your system installed and running in 90 days</li>
+            <li>Then <b>$497/mo</b> software subscription</li>
+          </ul>
+          <a class="btn" href="#session">Book a Strategy Session <span class="ar">→</span></a>
+        </div>
+        <div class="bf-card" style="--c:var(--au)">
+          <span class="bf-tag">For coaches, consultants &amp; advisors</span>
+          <h3>Partner Build · Half off</h3>
+          <div class="bf-amt">$3,750<small>paid in full</small></div>
+          <p class="bf-or">or <b>$1,250/mo</b> for the 90-day Sprint</p>
+          <ul>
+            <li>The full Sprint build at 50% off for Certified Partners</li>
+            <li>Built in your own sub-account, ready to use with your clients</li>
+          </ul>
+          <a class="btn" href="#session">Talk with Mark <span class="ar">→</span></a>
+        </div>
+        <div class="bf-card" style="--c:var(--ac)">
+          <span class="bf-tag">Optional add-on · Rate locked 12 months</span>
+          <h3>A2S AI Skills Team</h3>
+          <div class="bf-amt">$197<small>/mo · Sprint clients</small></div>
+          <p class="bf-or"><b>$97/mo</b> for Certified Advisors</p>
+          <ul>
+            <li>We install and onboard the A2S AI skills team in your Claude or ChatGPT</li>
+            <li>You buy your own Claude or ChatGPT plan</li>
+          </ul>
+          <a class="btn ghost" href="#session">Add it to my Sprint <span class="ar">→</span></a>
+        </div>
+      </div>
+      <div class="bf-free"><b>Still free:</b> every new partner and referred business owner gets a complimentary build plan ($2,497 value).</div>
+      <p class="bf-fine">Black Friday pricing applies to agreements signed by November 30, 2026. The AI Skills Team rate is held for 12 months from sign-up. Claude and ChatGPT subscriptions are bought directly by the client or advisor.</p>
+    </div>
+  </section>
 
   <section class="sec icp-sec">
     <div class="wrap">
