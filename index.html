@@ -591,6 +591,7 @@ tr:last-child td{border-bottom:0}
 .al-hero>*{max-width:none!important;min-width:0}
 .al-hero-copy{display:grid;gap:22px;min-width:0}
 @media (max-width:960px){.al-hero{grid-template-columns:1fr}.hcard{max-width:560px}}
+.vcard{width:100%;max-width:none}.vcard .scp-bars.hc6{align-content:center}
 .starthere .sh-go{font-weight:700;font-size:15px;color:var(--blue);white-space:nowrap}
 .aiup{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:10px 18px;padding:16px 18px;border-radius:6px;background:linear-gradient(135deg,#0B2540,#003D70);color:#E8EEF4;text-decoration:none;border:1px solid #1d4a74}
 .aiup .ai-tag{font-family:var(--mono);font-size:10.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#0B2540;background:#9FD27A;padding:4px 8px;border-radius:3px;white-space:nowrap}
@@ -1565,19 +1566,33 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
           <li><b>Fractional Integrator:</b> Mark sits in the seat while your team builds the habit</li>
           <li><b>Integrator development:</b> we prepare an internal leader to own the seat for good</li>
         </ul>
-        <a class="starthere al inline" href="#visionary-integrator" target="_top">
-          <span class="sh-tag">Free · 10 minutes</span>
-          <span class="sh-txt"><b>Not sure which seat you're in?</b> See whether you lean Visionary or Integrator, and which seat your business is missing.</span>
-          <span class="sh-go">Take the Visionary–Integrator Profile <span class="ar">→</span></span>
-        </a>
       </div>
-      <div class="diag" aria-label="Visionary and Integrator roles">
-        <span class="diag-h">Rocket Fuel™ · two roles, one leadership team</span>
-        <div class="vi">
-          <div><b>Visionary</b><span>Owner or founder</span><ul><li>Vision and big ideas</li><li>Culture and key relationships</li><li>Creative problem solving</li><li>Big deals and new opportunities</li></ul></div>
-          <div class="vi-i"><b>Integrator</b><span>Mark, or your internal leader</span><ul><li>Runs the business day to day</li><li>Leads the leadership team</li><li>Owns accountability and the P&amp;L</li><li>Turns ideas into executed Rocks</li></ul></div>
+      <div class="scp hcard vcard" id="viCard" aria-labelledby="viH">
+        <div class="scp-top"><span class="scp-tag" style="color:var(--al);background:var(--tint)">Free · 10 minutes · 40 statements</span><span class="scp-tm">A³ Visionary–Integrator Profile™</span></div>
+        <h2 class="scp-h" id="viH">Which seat are you really in?</h2>
+        <div class="scp-prev" aria-hidden="true"><span class="scp-pl" id="viPl">Sample result</span>
+          <div class="scp-dial"><svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="50" class="bg"/><circle cx="60" cy="60" r="50" class="fg" id="viFg"/></svg><b id="viOv">?</b><small>/ 100</small></div>
+          <div class="scp-bars hc6" id="viBars">
+            <div style="--c:var(--al);--w:76%" data-k="V"><span>Visionary <em></em></span><i></i></div>
+            <div style="--c:var(--au);--w:48%" data-k="I"><span>Integrator <em></em></span><i></i></div>
+            <p class="scp-con"><span>Your seat</span><b id="viCon">Found in 10 minutes</b></p>
+          </div>
         </div>
-        <p class="fine" style="font-style:normal;margin:0">Weekly alignment between the two keeps the company moving in one direction.</p>
+        <div class="scp-body" id="viBody" aria-live="polite">
+          <div class="scp-q">
+          <p class="scp-qn">Start now · Statement 1 of 40</p>
+          <p class="scp-qt" id="viQ">I'm great at turning an idea into a plan with steps, owners and dates.</p>
+          <div class="scp-scale" role="group" aria-labelledby="viQ">
+            <button type="button" data-v="1"><b>1</b>Not like me</button><button type="button" data-v="2"><b>2</b>A little</button><button type="button" data-v="3"><b>3</b>Somewhat</button><button type="button" data-v="4"><b>4</b>Mostly</button><button type="button" data-v="5"><b>5</b>Exactly me</button>
+          </div>
+          </div>
+        </div>
+        <ul class="scp-get">
+          <li>Your Visionary and Integrator scores, each out of 100</li>
+          <li>Your strengths, and what to watch out for</li>
+          <li>Which seat your business is missing, and the next step</li>
+        </ul>
+        <p class="scp-foot" id="viFoot">No login. Rate the first statement to begin.</p>
       </div>
     </div>
   </section>
@@ -2318,6 +2333,63 @@ function res(r){
   body.innerHTML=`<div class="scp-res"><span class="minih">${esc(hl.first_name)}, your total score is ${r.total} / 100</span><p>${msg}</p>
   <a class="btn" href="${reportUrl().replace(/^[^#]*/,'')}">Open my full report <span class="ar">→</span></a><a class="sublink" href="#session" style="text-align:center">Or book a Complimentary Strategy Call →</a></div>`;
   document.getElementById('hcFoot').textContent='Your report shows every answer, all six components and what to fix first.';
+}
+body.addEventListener('click',e=>{const b=e.target.closest('.scp-scale button');if(b&&!started&&!b.onclick){a[0]=+b.dataset.v;live();i=1;setTimeout(q,180)}});
+},0);
+/* align: Visionary–Integrator Profile runs inside the card (same pattern as the Operating Health Checkup) */
+setTimeout(function(){
+const card=document.getElementById('viCard'),body=document.getElementById('viBody');if(!card||!body)return;
+const Q=[["I", "I'm great at turning an idea into a plan with steps, owners and dates."], ["V", "I generate new ideas constantly. I rarely run short of them."], ["V", "I'm energized by thinking about where our industry will be in five years."], ["I", "I quickly spot the bottlenecks and obstacles in a plan."], ["I", "I get real satisfaction from making someone else's vision happen."], ["V", "When I describe the future of the company, people get excited about it."], ["I", "I'm good at translating a big idea so the team knows exactly what to do next."], ["V", "I'd rather be closing a big deal or building a key relationship than managing a project."], ["V", "Once I'm convinced an idea is right, I trust my instinct and move."], ["I", "I focus on getting the house in order: structure, process and discipline."], ["I", "I'm comfortable holding people accountable, and being held accountable."], ["V", "I often find that others don't fully see the picture I'm describing."], ["I", "I manage people well and get the best out of a team."], ["V", "I'm the person people bring the company's hardest, most creative problems to."], ["V", "I naturally see how an idea could be bigger than it was first proposed."], ["I", "I'm good at deciding what the company should not do this quarter."], ["I", "I build repeatable processes that don't slow the business down."], ["V", "Routine work, details and follow-through bore me quickly."], ["I", "I'm most comfortable focused on this quarter's execution and staying on track."], ["V", "Rules, systems and processes often feel like they slow me down."], ["V", "I'm the spark plug. I bring the energy and passion to the team."], ["I", "I like owning the P&L and being responsible for the results."], ["I", "I'm the one who resolves conflicts between departments."], ["V", "I'm comfortable making big decisions with limited information."], ["I", "I run day-to-day operations and keep things on schedule."], ["V", "I'm drawn to creating new products, services or markets."], ["V", "I'm at my best in front of customers, partners and the market."], ["I", "I make sure the operating rhythm (meetings, scorecard, priorities) actually happens."], ["I", "I keep communication flowing so every team knows what the others are doing."], ["V", "I tend to start more initiatives than the company can finish."], ["I", "I'm analytical. I solve problems by breaking them into parts."], ["V", "Being held to someone else's deadlines and metrics frustrates me."], ["V", "I love learning and bringing outside ideas back into the company."], ["I", "I'm sometimes seen as the realist, or even the pessimist, in the room."], ["I", "I like leading the leadership team week to week."], ["V", "I'm an optimist. I see opportunity where others see risk."], ["I", "I'm good at tying sales, operations and finance into one plan."], ["V", "I'm the keeper of the company's culture and core values."], ["V", "I think about the big picture far more than this week's execution."], ["I", "People count on me to follow through on the details after the meeting ends."]];
+const N=Q.length,L=["Not like me","A little","Somewhat","Mostly","Exactly me"],DN={V:"Visionary",I:"Integrator"};
+const T={V:{n:"Visionary",head:"you lean Visionary.",what:"You set direction. You see the future, generate ideas, build key relationships and bring energy to the team.",needs:"An Integrator: one person who owns day-to-day execution, runs the leadership team and turns your ideas into finished work. Without that seat, the business keeps routing back to you.",rec:"A³ Strategy Session™"},
+ I:{n:"Integrator",head:"you lean Integrator.",what:"You make things happen. You turn vision into plans, hold people accountable and keep the organization on track.",needs:"A system to run. Give yourself a designed operating system (priorities, scorecard, meeting rhythm) and the tools that carry the routine work, so your time goes to leading.",rec:"A³ Blueprint & Roadmap™"},
+ B:{n:"Blend",head:"you're a blend of Visionary and Integrator.",what:"You scored close on both. That usually means you are covering two seats, and neither gets your full attention.",needs:"A decision about which seat is yours. Pick the role that energizes you most, then put a person, partner or system in the other seat.",rec:"A³ Strategy Session™"}};
+const a=new Array(N).fill(0);let i=0,started=false,vl=null;
+const bars=document.getElementById('viBars'),dial=card.querySelector('.scp-dial'),fg=document.getElementById('viFg');
+function calc(){const v=Q.reduce((s,q,j)=>s+(q[0]==="V"?a[j]:0),0),n=Q.reduce((s,q,j)=>s+(q[0]==="I"?a[j]:0),0),gap=Math.abs(v-n),key=gap<8?"B":(v>n?"V":"I");return {v,i:n,gap,key,t:T[key]}}
+function live(){
+  if(!started){started=true;bars.classList.add('live');dial.classList.add('live');document.getElementById('viPl').textContent='Your answers so far';document.getElementById('viCon').textContent='Revealed at the end';document.getElementById('viFoot').textContent='No login. About 10 minutes start to finish.';try{track('vi_start',{source:'align_vi_card'})}catch(e){}}
+  const r=calc(),done={V:Q.some((q,j)=>a[j]&&q[0]==="V"),I:Q.some((q,j)=>a[j]&&q[0]==="I")};
+  bars.querySelectorAll('[data-k]').forEach(el=>{const k=el.dataset.k,s=k==="V"?r.v:r.i;el.style.setProperty('--v',s+'%');el.querySelector('em').textContent=done[k]?s:''});
+  fg.style.strokeDashoffset=314*(1-a.filter(Boolean).length/N);
+}
+function q(){
+  const it=Q[i];
+  body.innerHTML=`<div class="scp-prog" aria-hidden="true"><i style="width:${i/N*100}%"></i></div><div class="scp-q"><p class="scp-qn">Statement ${i+1} of ${N}</p><p class="scp-qt" id="viQ">${it[1]}</p><div class="scp-scale" role="group" aria-labelledby="viQ">${L.map((l,v)=>`<button type="button" data-v="${v+1}" aria-pressed="${a[i]===v+1}"><b>${v+1}</b>${l}</button>`).join('')}</div></div><div class="scp-nav"><button type="button" id="viBack" ${i===0?'disabled':''}>← Back</button><span>${a.filter(Boolean).length} of ${N} answered</span></div>`;
+  body.querySelectorAll('.scp-scale button').forEach(b=>b.onclick=()=>{a[i]=+b.dataset.v;live();setTimeout(()=>{i=a.indexOf(0);if(i<0)form();else q()},180)});
+  document.getElementById('viBack').onclick=()=>{if(i>0){i--;q()}};
+}
+function form(){
+  const v=vl||{};card.classList.add('done');document.getElementById('viFoot').textContent='Free. No login. We never sell your details.';
+  body.innerHTML=`<form class="scp-form" id="viForm" novalidate><h3>All ${N} rated. Where should we send your profile?</h3><p>Your result shows right after this.</p>
+  <label>First name<input name="first_name" autocomplete="given-name" required value="${esc(v.first_name||'')}"></label>
+  <label>Last name<input name="last_name" autocomplete="family-name" value="${esc(v.last_name||'')}"></label>
+  <label>Work email<input name="email" type="email" autocomplete="email" required value="${esc(v.email||'')}"></label>
+  <label>Company<input name="company" autocomplete="organization" value="${esc(v.company||'')}"></label>
+  <p class="scp-err" id="viErr" role="alert"></p>
+  <button class="btn" type="submit">Show me my profile <span class="ar">→</span></button>
+  <p class="scp-fine">By continuing you agree that Automate2Scale may email you about your results and related services. Unsubscribe any time. <a href="#privacy">Privacy Policy</a>.</p>
+  <div class="scp-nav"><button type="button" id="viBack">← Back</button><span></span></div></form>`;
+  document.getElementById('viBack').onclick=()=>{i=N-1;card.classList.remove('done');q()};
+  const f=document.getElementById('viForm');f.querySelector('input').focus({preventScroll:true});
+  f.addEventListener('input',e=>{if(e.target.getAttribute('aria-invalid')==='true')e.target.setAttribute('aria-invalid','false')});
+  f.onsubmit=e=>{e.preventDefault();const d=Object.fromEntries(new FormData(f).entries());Object.keys(d).forEach(k=>d[k]=d[k].trim());let bad=null;
+    [['first_name',!d.first_name],['email',!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d.email)]].forEach(([n,x])=>{const el=f.elements[n];el.setAttribute('aria-invalid',x);if(x&&!bad)bad=el});
+    if(bad){document.getElementById('viErr').textContent=bad.name==='email'?'Enter a valid work email.':'Enter your first name.';bad.focus();return}
+    vl={...(vl||{}),...d};const r=calc();
+    const payload={...d,full_name:(d.first_name+' '+(d.last_name||'')).trim(),visionary_score:r.v,integrator_score:r.i,profile_result:r.t.n,score_gap:r.gap,
+      recommendation:r.t.rec.replace(/™/g,''),answers:a.join(','),source:'A3 Visionary-Integrator Profile',form:'align_vi_card',page_url:location.href,submitted_at:new Date().toISOString()};
+    if(WEBHOOK){try{fetch(WEBHOOK,{method:'POST',mode:'no-cors',body:new URLSearchParams(payload),keepalive:true}).catch(()=>{})}catch(err){}}
+    try{track('vi_lead',{result:r.t.n,source:'align_vi_card'})}catch(err){}
+    res(r)};
+}
+function res(r){
+  bars.querySelectorAll('[data-k]').forEach(el=>{const s=el.dataset.k==="V"?r.v:r.i;el.style.setProperty('--v',s+'%');el.querySelector('em').textContent=s});
+  const top=Math.max(r.v,r.i);fg.style.strokeDashoffset=314*(1-top/100);document.getElementById('viOv').textContent=top;
+  document.getElementById('viPl').textContent='Your result · '+r.t.n;document.getElementById('viCon').textContent=r.key==="V"?"Integrator seat to fill":r.key==="I"?"Visionary partner to name":"Choose your seat";
+  body.innerHTML=`<div class="scp-res"><span class="minih">${esc(vl.first_name)}, ${r.t.head}</span><p>Visionary ${r.v} · Integrator ${r.i}. ${r.t.what}</p><p><b>What your business needs:</b> ${r.t.needs}</p>
+  <a class="btn" href="#session">Book a Strategy Session <span class="ar">→</span></a><a class="sublink" href="#checkup" style="text-align:center">Next: take the Operating Health Checkup →</a></div>`;
+  document.getElementById('viFoot').textContent='Recommended next step: '+r.t.rec;
 }
 body.addEventListener('click',e=>{const b=e.target.closest('.scp-scale button');if(b&&!started&&!b.onclick){a[0]=+b.dataset.v;live();i=1;setTimeout(q,180)}});
 },0);
