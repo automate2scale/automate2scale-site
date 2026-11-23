@@ -598,6 +598,12 @@ tr:last-child td{border-bottom:0}
 .bfbar .bf-long{display:inline}
 @media (max-width:700px){.bfbar .bf-long{display:none}}
 .bf-sec{scroll-margin-top:120px}
+.bf-pop{position:fixed;inset:0;z-index:1000;background:rgba(8,36,55,.62);display:flex;align-items:flex-start;justify-content:center;padding:24px 16px;overflow-y:auto;overscroll-behavior:contain}
+.bf-pop[hidden]{display:none}
+.bf-dlg{position:relative;background:var(--paper);border-radius:10px;width:100%;max-width:1140px;margin:auto;padding:clamp(28px,4vw,48px) 0;box-shadow:0 24px 64px rgba(0,0,0,.28);outline:none}
+.bf-x{position:absolute;top:10px;right:12px;width:44px;height:44px;border:0;background:transparent;font-size:30px;line-height:1;color:var(--ink-2);cursor:pointer;border-radius:50%}
+.bf-x:hover{background:var(--tint);color:var(--ink)}
+body.bf-open{overflow:hidden}
 .bf-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .bf-card{background:var(--paper);border:1px solid var(--rule);border-top:4px solid var(--c);border-radius:6px;padding:26px;display:flex;flex-direction:column;gap:12px}
 .bf-card .bf-tag{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--c)}
@@ -1084,54 +1090,6 @@ footer .vals{margin-top:40px;padding-top:20px;border-top:1px solid var(--band-ru
     </div>
   </div>
 
-  <section class="sec bf-sec" id="blackfriday">
-    <div class="wrap">
-      <div class="head">
-        <span class="label" style="color:var(--au)">Black Friday · Through Monday, November 30</span>
-        <h2 class="h2">Start your 90-Day Sprint before the year ends.</h2>
-        <div class="body"><p>In one 90-day Sprint we install your operating system: CRM, automations and a weekly leadership rhythm. These prices apply to agreements signed by November 30.</p></div>
-      </div>
-      <div class="bf-grid">
-        <div class="bf-card" style="--c:var(--al)">
-          <span class="bf-tag">For founder-led companies</span>
-          <h3>90-Day Sprint · 50% Off</h3>
-          <div class="bf-amt">$7,500<small>paid in full</small></div>
-          <p class="bf-or">or <b>3 payments of $2,800</b> · save $900 paid in full</p>
-          <ul>
-            <li>Your system installed and running in 90 days</li>
-            <li>Then <b>$497/mo</b> software subscription</li>
-          </ul>
-          <a class="btn bf-cta2" href="#session"><span>Start with a Free Build Blueprint <span class="ar">→</span></span><small>$2,497 value</small></a>
-        </div>
-        <div class="bf-card" style="--c:var(--au)">
-          <span class="bf-tag">For coaches &amp; consultants</span>
-          <h3>Partner Build · 50% Off</h3>
-          <div class="bf-amt">$3,750<small>paid in full</small></div>
-          <p class="bf-or">or <b>3 payments of $1,400</b> · save $450 paid in full</p>
-          <ul>
-            <li>The full Sprint build at 50% off for coaches &amp; consultants</li>
-            <li>Built in your own sub-account, ready to use with your clients</li>
-          </ul>
-          <a class="btn bf-cta2" href="#session"><span>Start with a Free Build Blueprint <span class="ar">→</span></span><small>$2,497 value</small></a>
-        </div>
-        <div class="bf-card" style="--c:var(--ac)">
-          <span class="bf-tag">Optional add-on · 90-day trial</span>
-          <h3>A2S AI Skills Team · 50% Off</h3>
-          <div class="bf-amt">$200<small>/mo · Sprint clients</small></div>
-          <p class="bf-or"><b>$100/mo</b> for coaches &amp; consultants</p>
-          <ul>
-            <li><b>47</b> AI specialists across <b>11</b> business departments</li>
-            <li><b>1,400+</b> skills &amp; playbooks</li>
-            <li>We install and onboard the A2S AI Skills Team in your Claude or ChatGPT</li>
-            <li>After the trial: $400/mo for Sprint clients, $200/mo for coaches &amp; consultants</li>
-          </ul>
-          <a class="btn ghost" href="#session">Add it to my Sprint <span class="ar">→</span></a>
-        </div>
-      </div>
-      <div class="bf-free"><b>Black Friday Deal for All:</b> Complimentary Build Plan ($2,497 value). Ends Nov 30.</div>
-      <p class="bf-fine">Black Friday pricing applies to agreements signed by November 30, 2026. The AI Skills Team trial runs at half price for the first 90 days, then $400/mo for Sprint clients or $200/mo for coaches and consultants. Claude and ChatGPT subscriptions are bought directly by the client.</p>
-    </div>
-  </section>
 
   <section class="sec icp-sec">
     <div class="wrap">
@@ -2825,6 +2783,70 @@ let t;qs.oninput=()=>{clearTimeout(t);shut.clear();t=setTimeout(render,120)};
 render();
 })();
 
+</script>
+<div class="bf-pop" id="blackfriday" hidden>
+  <div class="bf-dlg" role="dialog" aria-modal="true" aria-labelledby="bfTitle" tabindex="-1">
+    <button type="button" class="bf-x" aria-label="Close Black Friday offers">&times;</button>
+    <div class="wrap">
+      <div class="head">
+        <span class="label" style="color:var(--au)">Black Friday · Through Monday, November 30</span>
+        <h2 class="h2" id="bfTitle">Start your 90-Day Sprint before the year ends.</h2>
+        <div class="body"><p>In one 90-day Sprint we install your operating system: CRM, automations and a weekly leadership rhythm. These prices apply to agreements signed by November 30.</p></div>
+      </div>
+      <div class="bf-grid">
+        <div class="bf-card" style="--c:var(--al)">
+          <span class="bf-tag">For founder-led companies</span>
+          <h3>90-Day Sprint · 50% Off</h3>
+          <div class="bf-amt">$7,500<small>paid in full</small></div>
+          <p class="bf-or">or <b>3 payments of $2,800</b> · save $900 paid in full</p>
+          <ul>
+            <li>Your system installed and running in 90 days</li>
+            <li>Then <b>$497/mo</b> software subscription</li>
+          </ul>
+          <a class="btn bf-cta2" href="#session"><span>Start with a Free Build Blueprint <span class="ar">→</span></span><small>$2,497 value</small></a>
+        </div>
+        <div class="bf-card" style="--c:var(--au)">
+          <span class="bf-tag">For coaches &amp; consultants</span>
+          <h3>Partner Build · 50% Off</h3>
+          <div class="bf-amt">$3,750<small>paid in full</small></div>
+          <p class="bf-or">or <b>3 payments of $1,400</b> · save $450 paid in full</p>
+          <ul>
+            <li>The full Sprint build at 50% off for coaches &amp; consultants</li>
+            <li>Built in your own sub-account, ready to use with your clients</li>
+          </ul>
+          <a class="btn bf-cta2" href="#session"><span>Start with a Free Build Blueprint <span class="ar">→</span></span><small>$2,497 value</small></a>
+        </div>
+        <div class="bf-card" style="--c:var(--ac)">
+          <span class="bf-tag">Optional add-on · 90-day trial</span>
+          <h3>A2S AI Skills Team · 50% Off</h3>
+          <div class="bf-amt">$200<small>/mo · Sprint clients</small></div>
+          <p class="bf-or"><b>$100/mo</b> for coaches &amp; consultants</p>
+          <ul>
+            <li><b>47</b> AI specialists across <b>11</b> business departments</li>
+            <li><b>1,400+</b> skills &amp; playbooks</li>
+            <li>We install and onboard the A2S AI Skills Team in your Claude or ChatGPT</li>
+            <li>After the trial: $400/mo for Sprint clients, $200/mo for coaches &amp; consultants</li>
+          </ul>
+          <a class="btn ghost" href="#session">Add it to my Sprint <span class="ar">→</span></a>
+        </div>
+      </div>
+      <div class="bf-free"><b>Black Friday Deal for All:</b> Complimentary Build Plan ($2,497 value). Ends Nov 30.</div>
+      <p class="bf-fine">Black Friday pricing applies to agreements signed by November 30, 2026. The AI Skills Team trial runs at half price for the first 90 days, then $400/mo for Sprint clients or $200/mo for coaches and consultants. Claude and ChatGPT subscriptions are bought directly by the client.</p>
+    </div>
+  </div>
+</div>
+<script>
+/* Black Friday popup: opens from the banner, and once per visit after 3 seconds */
+(function(){var pop=document.getElementById('blackfriday');if(!pop)return;var dlg=pop.querySelector('.bf-dlg'),last=null,KEY='a2sBFseen';
+function open(){if(!pop.hidden)return;last=document.activeElement;pop.hidden=false;document.body.classList.add('bf-open');dlg.focus({preventScroll:true});try{sessionStorage.setItem(KEY,'1')}catch(e){}try{typeof track==='function'&&track('bf_popup_open',{})}catch(e){}}
+function close(){if(pop.hidden)return;pop.hidden=true;document.body.classList.remove('bf-open');if(last&&last.focus)try{last.focus({preventScroll:true})}catch(e){}}
+document.querySelectorAll('a[href="#blackfriday"]').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();open()})});
+pop.addEventListener('click',function(e){if(e.target===pop||e.target.closest('.bf-x')||e.target.closest('a[href^="#"]'))close()});
+document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
+if(location.hash==='#blackfriday')open();
+var seen=false;try{seen=sessionStorage.getItem(KEY)==='1'}catch(e){}
+if(!seen)setTimeout(function(){var h=(location.hash||'').slice(1);if(['mark','privacy','checkup','visionary-integrator'].indexOf(h)<0&&!/^report-/.test(h))open()},3000);
+})();
 </script>
 </body>
 </html>
