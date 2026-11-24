@@ -2849,7 +2849,12 @@ pop.addEventListener('click',function(e){if(e.target===pop||e.target.closest('.b
 document.addEventListener('keydown',function(e){if(e.key==='Escape')close()});
 if(location.hash==='#blackfriday')open();
 var seen=false;try{seen=sessionStorage.getItem(KEY)==='1'}catch(e){}
-if(!seen)setTimeout(function(){var h=(location.hash||'').slice(1);if(['mark','privacy','checkup','visionary-integrator','free-plan'].indexOf(h)<0&&!/^report-/.test(h))open()},3000);
+/* Through Nov 30 (Central) the Black Friday popup opens after 3 seconds; from Dec 1 the Free Build Blueprint form does, once per visit */
+var BF_END=Date.UTC(2026,11,1,6,0,0);
+var skip=function(){var h=(location.hash||'').slice(1);return ['mark','privacy','checkup','visionary-integrator','free-plan','blackfriday'].indexOf(h)>=0||/^report-/.test(h)};
+if(Date.now()<BF_END){if(!seen)setTimeout(function(){if(!skip())open()},3000);}
+else{var PK='a2sPlanAuto',ps=false;try{ps=sessionStorage.getItem(PK)==='1'}catch(e){}
+if(!ps)setTimeout(function(){if(skip()||document.querySelector('dialog[open]')||!pop.hidden)return;try{sessionStorage.setItem(PK,'1')}catch(e){}var b=document.createElement('button');b.type='button';b.setAttribute('data-open-plan','');b.hidden=true;document.body.appendChild(b);b.click();b.remove()},3000);}
 })();
 </script>
 <!-- Free Build Blueprint form: start. Generated from automate2scale-free-plan/widget/free-plan.js by tools/sync_to_site.py; edit there, not here. -->
